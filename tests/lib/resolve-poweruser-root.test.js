@@ -411,8 +411,8 @@ function runTests() {
       'C:/Users/x/.claude/plugins/poweruser'
     );
     assert.strictEqual(
-      normalizePluginRootForPlatform('/workspace/ecc', 'win32'),
-      '/workspace/ecc'
+      normalizePluginRootForPlatform('/workspace/poweruser', 'win32'),
+      '/workspace/poweruser'
     );
   })) passed++; else failed++;
 
