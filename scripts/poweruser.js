@@ -37,7 +37,7 @@ const COMMANDS = {
   },
   'control-pane': {
     script: 'control-pane.js',
-    description: 'Run the local ECC2 operator control pane',
+    description: 'Run the local PowerUser2 operator control pane',
   },
   ito: {
     script: 'ito.js',
