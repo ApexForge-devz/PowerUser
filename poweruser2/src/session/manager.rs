@@ -456,7 +456,7 @@ pub async fn run_due_schedules(
     limit: usize,
 ) -> Result<Vec<ScheduledRunOutcome>> {
     let runner_program =
-        std::env::current_exe().context("Failed to resolve ECC executable path")?;
+        std::env::current_exe().context("Failed to resolve PowerUser executable path")?;
     run_due_schedules_with_runner_program(db, cfg, limit, &runner_program).await
 }
 
@@ -467,7 +467,7 @@ pub async fn run_remote_dispatch_requests(
 ) -> Result<Vec<RemoteDispatchOutcome>> {
     let requests = db.list_pending_remote_dispatch_requests(limit)?;
     let runner_program =
-        std::env::current_exe().context("Failed to resolve ECC executable path")?;
+        std::env::current_exe().context("Failed to resolve PowerUser executable path")?;
     run_remote_dispatch_requests_with_runner_program(db, cfg, requests, &runner_program).await
 }
 
@@ -613,7 +613,7 @@ pub async fn launch_orchestration_template(
     let repo_root =
         std::env::current_dir().context("Failed to resolve current working directory")?;
     let runner_program =
-        std::env::current_exe().context("Failed to resolve ECC executable path")?;
+        std::env::current_exe().context("Failed to resolve PowerUser executable path")?;
     let source_session = source_session_id
         .map(|id| resolve_session(db, id))
         .transpose()?;
@@ -893,7 +893,7 @@ pub async fn assign_session_with_profile_and_grouping(
         agent_type,
         use_worktree,
         &repo_root,
-        &std::env::current_exe().context("Failed to resolve ECC executable path")?,
+        &std::env::current_exe().context("Failed to resolve PowerUser executable path")?,
         profile_name,
         grouping,
     )
@@ -909,7 +909,7 @@ pub async fn drain_inbox(
     limit: usize,
 ) -> Result<Vec<InboxDrainOutcome>> {
     let runner_program =
-        std::env::current_exe().context("Failed to resolve ECC executable path")?;
+        std::env::current_exe().context("Failed to resolve PowerUser executable path")?;
     let lead = resolve_session(db, lead_id)?;
     let repo_root = lead.working_dir.clone();
     let messages = db.unread_task_handoffs_for_session(&lead.id, limit)?;
@@ -1057,7 +1057,7 @@ pub async fn rebalance_team_backlog(
     limit: usize,
 ) -> Result<Vec<RebalanceOutcome>> {
     let runner_program =
-        std::env::current_exe().context("Failed to resolve ECC executable path")?;
+        std::env::current_exe().context("Failed to resolve PowerUser executable path")?;
     let lead = resolve_session(db, lead_id)?;
     let repo_root = lead.working_dir.clone();
     let mut outcomes = Vec::new();
@@ -1531,7 +1531,7 @@ async fn resume_session_with_program(
     }
     let runner_executable = match runner_executable_override {
         Some(program) => program.to_path_buf(),
-        None => std::env::current_exe().context("Failed to resolve ECC executable path")?,
+        None => std::env::current_exe().context("Failed to resolve PowerUser executable path")?,
     };
     spawn_session_runner_for_program(
         &session.task,
@@ -2549,7 +2549,7 @@ async fn queue_session_in_dir(
         agent_type,
         use_worktree,
         repo_root,
-        &std::env::current_exe().context("Failed to resolve ECC executable path")?,
+        &std::env::current_exe().context("Failed to resolve PowerUser executable path")?,
         profile_name,
         inherited_profile_session_id,
         grouping,
@@ -2801,7 +2801,7 @@ async fn spawn_session_runner(
         session_id,
         agent_type,
         working_dir,
-        &std::env::current_exe().context("Failed to resolve ECC executable path")?,
+        &std::env::current_exe().context("Failed to resolve PowerUser executable path")?,
     )
     .await
 }
@@ -2986,7 +2986,7 @@ async fn spawn_session_runner_for_program(
     if let Some(parent) = stderr_log_path.parent() {
         std::fs::create_dir_all(parent).with_context(|| {
             format!(
-                "Failed to create ECC runner log directory {}",
+                "Failed to create PowerUser runner log directory {}",
                 parent.display()
             )
         })?;
@@ -2997,7 +2997,7 @@ async fn spawn_session_runner_for_program(
         .open(&stderr_log_path)
         .with_context(|| {
             format!(
-                "Failed to open ECC runner stderr log {}",
+                "Failed to open PowerUser runner stderr log {}",
                 stderr_log_path.display()
             )
         })?;
@@ -3020,18 +3020,18 @@ async fn spawn_session_runner_for_program(
 
     let child = command
         .spawn()
-        .with_context(|| format!("Failed to spawn ECC runner from {}", current_exe.display()))?;
+        .with_context(|| format!("Failed to spawn PowerUser runner from {}", current_exe.display()))?;
 
     child
         .id()
-        .ok_or_else(|| anyhow::anyhow!("ECC runner did not expose a process id"))?;
+        .ok_or_else(|| anyhow::anyhow!("PowerUser runner did not expose a process id"))?;
     Ok(())
 }
 
 fn background_runner_stderr_log_path(working_dir: &Path, session_id: &str) -> PathBuf {
     working_dir
         .join(".claude")
-        .join("ecc2")
+        .join("poweruser2")
         .join("logs")
         .join(format!("{session_id}.runner-stderr.log"))
 }
@@ -3049,7 +3049,7 @@ fn configure_background_runner_command(command: &mut Command) {
         use std::os::unix::process::CommandExt;
 
         // Detach the runner from the caller's shell/session so it keeps
-        // processing a live harness session after `ecc-tui start` returns.
+        // processing a live harness session after `poweruser-tui start` returns.
         unsafe {
             command.as_std_mut().pre_exec(|| {
                 if libc::setsid() == -1 {
@@ -3098,7 +3098,7 @@ fn build_agent_command(
             command
                 .arg("--print")
                 .arg("--name")
-                .arg(format!("ecc-{session_id}"));
+                .arg(format!("poweruser-{session_id}"));
             if let Some(profile) = profile {
                 if let Some(model) = profile.model.as_ref() {
                     command.arg("--model").arg(model);
@@ -3154,7 +3154,7 @@ fn build_agent_command(
                 .arg("--dir")
                 .arg(working_dir)
                 .arg("--title")
-                .arg(format!("ecc-{session_id}"));
+                .arg(format!("poweruser-{session_id}"));
             if let Some(profile) = profile {
                 if let Some(model) = profile.model.as_ref() {
                     command.arg("--model").arg(model);
@@ -3212,7 +3212,7 @@ fn build_configured_harness_command(
         command.arg(flag).arg(working_dir);
     }
     if let Some(flag) = runner.session_name_flag.as_deref() {
-        command.arg(flag).arg(format!("ecc-{session_id}"));
+        command.arg(flag).arg(format!("poweruser-{session_id}"));
     }
     if let Some(profile) = profile {
         if let (Some(flag), Some(model)) = (runner.model_flag.as_deref(), profile.model.as_ref()) {
@@ -3284,10 +3284,10 @@ fn apply_shared_harness_runtime_env(
     profile: Option<&SessionAgentProfile>,
 ) {
     let harness_label = SessionHarnessInfo::runner_key(agent_type);
-    command.env("ECC_SESSION_ID", session_id);
-    command.env("ECC_HARNESS", &harness_label);
-    command.env("ECC_WORKING_DIR", working_dir);
-    command.env("ECC_PROJECT_DIR", working_dir);
+    command.env("POWERUSER_SESSION_ID", session_id);
+    command.env("POWERUSER_HARNESS", &harness_label);
+    command.env("POWERUSER_WORKING_DIR", working_dir);
+    command.env("POWERUSER_PROJECT_DIR", working_dir);
     command.env("CLAUDE_SESSION_ID", session_id);
     command.env("CLAUDE_PROJECT_DIR", working_dir);
     command.env("CLAUDE_CODE_ENTRYPOINT", "cli");
@@ -3298,13 +3298,13 @@ fn apply_shared_harness_runtime_env(
     if let Some(model) = profile.and_then(|profile| profile.model.as_ref()) {
         command.env("CLAUDE_MODEL", model);
     }
-    if let Some(plugin_root) = resolve_ecc_plugin_root() {
-        command.env("ECC_PLUGIN_ROOT", &plugin_root);
+    if let Some(plugin_root) = resolve_poweruser_plugin_root() {
+        command.env("POWERUSER_PLUGIN_ROOT", &plugin_root);
         command.env("CLAUDE_PLUGIN_ROOT", &plugin_root);
     }
 }
 
-fn resolve_ecc_plugin_root() -> Option<PathBuf> {
+fn resolve_poweruser_plugin_root() -> Option<PathBuf> {
     let mut seeds = Vec::new();
     if let Ok(current_exe) = std::env::current_exe() {
         seeds.push(current_exe);
@@ -3313,7 +3313,7 @@ fn resolve_ecc_plugin_root() -> Option<PathBuf> {
 
     for seed in seeds {
         for candidate in seed.ancestors() {
-            if is_ecc_plugin_root(candidate) {
+            if is_poweruser_plugin_root(candidate) {
                 return Some(candidate.to_path_buf());
             }
         }
@@ -3322,7 +3322,7 @@ fn resolve_ecc_plugin_root() -> Option<PathBuf> {
     None
 }
 
-fn is_ecc_plugin_root(candidate: &Path) -> bool {
+fn is_poweruser_plugin_root(candidate: &Path) -> bool {
     candidate.join("scripts/lib/utils.js").is_file() && candidate.join("hooks/hooks.json").is_file()
 }
 
@@ -3526,7 +3526,7 @@ fn render_task_with_profile_projection(
 
     if !directives.is_empty() {
         sections.push(format!(
-            "ECC execution profile:\n- {}",
+            "PowerUser execution profile:\n- {}",
             directives.join("\n- ")
         ));
     }
@@ -4230,7 +4230,7 @@ mod tests {
     impl TestDir {
         fn new(label: &str) -> Result<Self> {
             let path =
-                std::env::temp_dir().join(format!("ecc2-{}-{}", label, uuid::Uuid::new_v4()));
+                std::env::temp_dir().join(format!("poweruser2-{}-{}", label, uuid::Uuid::new_v4()));
             fs::create_dir_all(&path)?;
             Ok(Self { path })
         }
@@ -4250,7 +4250,7 @@ mod tests {
         Config {
             db_path: root.join("state.db"),
             worktree_root: root.join("worktrees"),
-            worktree_branch_prefix: "ecc".to_string(),
+            worktree_branch_prefix: "poweruser".to_string(),
             max_parallel_sessions: 4,
             max_parallel_worktrees: 4,
             worktree_retention_secs: 0,
@@ -4339,7 +4339,7 @@ mod tests {
             vec![
                 "--print",
                 "--name",
-                "ecc-sess-1234",
+                "poweruser-sess-1234",
                 "--model",
                 "sonnet",
                 "--allowed-tools",
@@ -4414,7 +4414,7 @@ mod tests {
         );
 
         let envs = command_env_map(&command);
-        assert_eq!(envs.get("ECC_SESSION_ID"), Some(&"sess-1234".to_string()));
+        assert_eq!(envs.get("POWERUSER_SESSION_ID"), Some(&"sess-1234".to_string()));
         assert_eq!(
             envs.get("CLAUDE_SESSION_ID"),
             Some(&"sess-1234".to_string())
@@ -4424,11 +4424,11 @@ mod tests {
             Some(&"/tmp/repo".to_string())
         );
         assert_eq!(envs.get("CLAUDE_CODE_ENTRYPOINT"), Some(&"cli".to_string()));
-        assert_eq!(envs.get("ECC_HARNESS"), Some(&"codex".to_string()));
+        assert_eq!(envs.get("POWERUSER_HARNESS"), Some(&"codex".to_string()));
         assert_eq!(envs.get("CLAUDE_MODEL"), Some(&"gpt-5.4".to_string()));
         assert!(
             envs.contains_key("CLAUDE_PLUGIN_ROOT"),
-            "shared compatibility env should expose the ECC plugin root"
+            "shared compatibility env should expose the PowerUser plugin root"
         );
     }
 
@@ -4470,7 +4470,7 @@ mod tests {
                 "--dir",
                 "/tmp/repo",
                 "--title",
-                "ecc-sess-9999",
+                "poweruser-sess-9999",
                 "--model",
                 "anthropic/claude-sonnet-4",
                 "System instructions:\nBuild carefully.\n\nECC execution profile:\n- Additional context dirs: docs\n\nTask:\nstabilize callback flow",
@@ -4573,7 +4573,7 @@ mod tests {
                 permission_mode_flag: Some("--permission-mode".to_string()),
                 add_dir_flag: Some("--context-dir".to_string()),
                 inline_system_prompt_for_task: true,
-                env: BTreeMap::from([("ECC_HARNESS".to_string(), "cursor".to_string())]),
+                env: BTreeMap::from([("POWERUSER_HARNESS".to_string(), "cursor".to_string())]),
                 ..Default::default()
             },
         );
@@ -4612,7 +4612,7 @@ mod tests {
                 "--cwd",
                 "/tmp/repo",
                 "--name",
-                "ecc-sess-cur1",
+                "poweruser-sess-cur1",
                 "--model",
                 "gpt-5.4",
                 "--context-dir",
@@ -4626,7 +4626,7 @@ mod tests {
             ]
         );
         let envs = command_env_map(&command);
-        assert_eq!(envs.get("ECC_SESSION_ID"), Some(&"sess-cur1".to_string()));
+        assert_eq!(envs.get("POWERUSER_SESSION_ID"), Some(&"sess-cur1".to_string()));
         assert_eq!(
             envs.get("CLAUDE_SESSION_ID"),
             Some(&"sess-cur1".to_string())
@@ -4636,9 +4636,9 @@ mod tests {
             Some(&"/tmp/repo".to_string())
         );
         assert_eq!(envs.get("CLAUDE_CODE_ENTRYPOINT"), Some(&"cli".to_string()));
-        assert_eq!(envs.get("ECC_HARNESS"), Some(&"cursor".to_string()));
+        assert_eq!(envs.get("POWERUSER_HARNESS"), Some(&"cursor".to_string()));
         assert_eq!(envs.get("CLAUDE_MODEL"), Some(&"gpt-5.4".to_string()));
-        assert_eq!(envs.get("ECC_PLUGIN_ROOT"), envs.get("CLAUDE_PLUGIN_ROOT"));
+        assert_eq!(envs.get("POWERUSER_PLUGIN_ROOT"), envs.get("CLAUDE_PLUGIN_ROOT"));
     }
 
     #[test]
@@ -5023,8 +5023,8 @@ mod tests {
     fn init_git_repo(path: &Path) -> Result<()> {
         fs::create_dir_all(path)?;
         run_git(path, ["init", "-q"])?;
-        run_git(path, ["config", "user.name", "ECC Tests"])?;
-        run_git(path, ["config", "user.email", "ecc-tests@example.com"])?;
+        run_git(path, ["config", "user.name", "PowerUser Tests"])?;
+        run_git(path, ["config", "user.email", "poweruser-tests@example.com"])?;
         // Keep fixtures hermetic: a global core.hooksPath (e.g. identity-checking
         // pre-push hooks) must not run inside test repos.
         run_git(path, ["config", "core.hooksPath", "hooks-disabled"])?;
@@ -5052,7 +5052,7 @@ mod tests {
         let script_path = root.join("fake-claude.sh");
         let log_path = root.join("fake-claude.log");
         let script = format!(
-            "#!/usr/bin/env python3\nimport os\nimport pathlib\nimport signal\nimport sys\nimport time\n\nlog_path = pathlib.Path(r\"{}\")\nlog_path.write_text(os.getcwd() + \"\\n\", encoding=\"utf-8\")\nwith log_path.open(\"a\", encoding=\"utf-8\") as handle:\n    handle.write(\" \".join(sys.argv[1:]) + \"\\n\")\n    handle.write(\"ECC_SESSION_ID=\" + os.environ.get(\"ECC_SESSION_ID\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_SESSION_ID=\" + os.environ.get(\"CLAUDE_SESSION_ID\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_PROJECT_DIR=\" + os.environ.get(\"CLAUDE_PROJECT_DIR\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_CODE_ENTRYPOINT=\" + os.environ.get(\"CLAUDE_CODE_ENTRYPOINT\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_PACKAGE_MANAGER=\" + os.environ.get(\"CLAUDE_PACKAGE_MANAGER\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_CODE_PACKAGE_MANAGER=\" + os.environ.get(\"CLAUDE_CODE_PACKAGE_MANAGER\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_PLUGIN_ROOT=\" + os.environ.get(\"CLAUDE_PLUGIN_ROOT\", \"\") + \"\\n\")\n    handle.write(\"ECC_HARNESS=\" + os.environ.get(\"ECC_HARNESS\", \"\") + \"\\n\")\n\ndef handle_term(signum, frame):\n    raise SystemExit(0)\n\nsignal.signal(signal.SIGTERM, handle_term)\nwhile True:\n    time.sleep(0.1)\n",
+            "#!/usr/bin/env python3\nimport os\nimport pathlib\nimport signal\nimport sys\nimport time\n\nlog_path = pathlib.Path(r\"{}\")\nlog_path.write_text(os.getcwd() + \"\\n\", encoding=\"utf-8\")\nwith log_path.open(\"a\", encoding=\"utf-8\") as handle:\n    handle.write(\" \".join(sys.argv[1:]) + \"\\n\")\n    handle.write(\"POWERUSER_SESSION_ID=\" + os.environ.get(\"POWERUSER_SESSION_ID\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_SESSION_ID=\" + os.environ.get(\"CLAUDE_SESSION_ID\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_PROJECT_DIR=\" + os.environ.get(\"CLAUDE_PROJECT_DIR\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_CODE_ENTRYPOINT=\" + os.environ.get(\"CLAUDE_CODE_ENTRYPOINT\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_PACKAGE_MANAGER=\" + os.environ.get(\"CLAUDE_PACKAGE_MANAGER\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_CODE_PACKAGE_MANAGER=\" + os.environ.get(\"CLAUDE_CODE_PACKAGE_MANAGER\", \"\") + \"\\n\")\n    handle.write(\"CLAUDE_PLUGIN_ROOT=\" + os.environ.get(\"CLAUDE_PLUGIN_ROOT\", \"\") + \"\\n\")\n    handle.write(\"POWERUSER_HARNESS=\" + os.environ.get(\"POWERUSER_HARNESS\", \"\") + \"\\n\")\n\ndef handle_term(signum, frame):\n    raise SystemExit(0)\n\nsignal.signal(signal.SIGTERM, handle_term)\nwhile True:\n    time.sleep(0.1)\n",
             log_path.display()
         );
 
@@ -5155,10 +5155,10 @@ mod tests {
     #[test]
     fn background_runner_stderr_log_path_is_session_scoped() {
         let path =
-            background_runner_stderr_log_path(Path::new("/tmp/ecc-repo"), "session-123");
+            background_runner_stderr_log_path(Path::new("/tmp/poweruser-repo"), "session-123");
         assert_eq!(
             path,
-            PathBuf::from("/tmp/ecc-repo/.claude/ecc2/logs/session-123.runner-stderr.log")
+            PathBuf::from("/tmp/poweruser-repo/.claude/poweruser2/logs/session-123.runner-stderr.log")
         );
     }
 
@@ -5176,9 +5176,9 @@ mod tests {
     ) -> Result<()> {
         let package_json = match package_manager_field {
             Some(package_manager_field) => format!(
-                "{{\"name\":\"ecc-smoke\",\"packageManager\":\"{package_manager_field}\"}}\n"
+                "{{\"name\":\"poweruser-smoke\",\"packageManager\":\"{package_manager_field}\"}}\n"
             ),
-            None => "{\"name\":\"ecc-smoke\"}\n".to_string(),
+            None => "{\"name\":\"poweruser-smoke\"}\n".to_string(),
         };
         fs::write(repo_root.join("package.json"), package_json)?;
         if let Some(lockfile_name) = lockfile_name {
@@ -5230,7 +5230,7 @@ mod tests {
         assert!(log.contains(repo_root.to_string_lossy().as_ref()));
         assert!(log.contains("--print"));
         assert!(log.contains("implement lifecycle"));
-        assert!(log.contains(&format!("ECC_SESSION_ID={session_id}")));
+        assert!(log.contains(&format!("POWERUSER_SESSION_ID={session_id}")));
         assert!(log.contains(&format!("CLAUDE_SESSION_ID={session_id}")));
         assert!(log.contains(&format!(
             "CLAUDE_PROJECT_DIR={}",
@@ -5239,7 +5239,7 @@ mod tests {
         assert!(log.contains("CLAUDE_CODE_ENTRYPOINT=cli"));
         assert!(log.contains("CLAUDE_PACKAGE_MANAGER=pnpm"));
         assert!(log.contains("CLAUDE_CODE_PACKAGE_MANAGER=pnpm"));
-        assert!(log.contains("ECC_HARNESS=claude"));
+        assert!(log.contains("POWERUSER_HARNESS=claude"));
 
         stop_session_with_options(&db, &session_id, false).await?;
         Ok(())
@@ -5324,7 +5324,7 @@ mod tests {
             "claude",
             None,
             &repo_root,
-            "ecc-core",
+            "poweruser-core",
             "scheduled maintenance",
             true,
             due_at,
@@ -5338,7 +5338,7 @@ mod tests {
         let session = db
             .get_session(&outcomes[0].session_id)?
             .context("scheduled session should exist")?;
-        assert_eq!(session.project, "ecc-core");
+        assert_eq!(session.project, "poweruser-core");
         assert_eq!(session.task_group, "scheduled maintenance");
 
         let refreshed = db
@@ -5467,7 +5467,7 @@ mod tests {
             "claude",
             None,
             &repo_root,
-            "ecc-core",
+            "poweruser-core",
             "phone dispatch",
             true,
             "http",
@@ -5502,7 +5502,7 @@ mod tests {
         let session = db
             .get_session(&session_id)?
             .context("spawned session should exist")?;
-        assert_eq!(session.project, "ecc-core");
+        assert_eq!(session.project, "poweruser-core");
         assert_eq!(session.task_group, "phone dispatch");
 
         Ok(())
@@ -5529,7 +5529,7 @@ mod tests {
             &cfg,
             &repo_root,
             "Open the billing portal and confirm the refund banner",
-            Some("https://ecc.tools/account"),
+            Some("https://poweruser.tools/account"),
             Some("Use the production account flow"),
             None,
             TaskPriority::Critical,
@@ -5544,7 +5544,7 @@ mod tests {
         assert_eq!(request.request_kind, RemoteDispatchKind::ComputerUse);
         assert_eq!(
             request.target_url.as_deref(),
-            Some("https://ecc.tools/account")
+            Some("https://poweruser.tools/account")
         );
         assert_eq!(request.agent_type, "codex");
         assert_eq!(request.project, "ops");
@@ -5554,7 +5554,7 @@ mod tests {
         assert!(request.task.contains("Goal: Open the billing portal"));
         assert!(request
             .task
-            .contains("Target URL: https://ecc.tools/account"));
+            .contains("Target URL: https://poweruser.tools/account"));
         assert!(request
             .task
             .contains("Context: Use the production account flow"));
@@ -5834,7 +5834,7 @@ mod tests {
             pid: Some(999_999),
             worktree: Some(crate::session::WorktreeInfo {
                 path: worktree_path.clone(),
-                branch: "ecc/active-over-budget".to_string(),
+                branch: "poweruser/active-over-budget".to_string(),
                 base_branch: "main".to_string(),
             }),
             created_at: now - Duration::minutes(1),
@@ -6432,7 +6432,7 @@ mod tests {
         db.insert_session(&Session {
             id: "alpha".to_string(),
             task: "alpha merge".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "merge".to_string(),
             agent_type: "claude".to_string(),
             working_dir: alpha_worktree.path.clone(),
@@ -6447,7 +6447,7 @@ mod tests {
         db.insert_session(&Session {
             id: "beta".to_string(),
             task: "beta merge".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "merge".to_string(),
             agent_type: "claude".to_string(),
             working_dir: beta_worktree.path.clone(),
@@ -6522,7 +6522,7 @@ mod tests {
         db.insert_session(&Session {
             id: "alpha".to_string(),
             task: "alpha merge".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "merge".to_string(),
             agent_type: "claude".to_string(),
             working_dir: alpha_worktree.path.clone(),
@@ -6537,7 +6537,7 @@ mod tests {
         db.insert_session(&Session {
             id: "beta".to_string(),
             task: "beta merge".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "merge".to_string(),
             agent_type: "claude".to_string(),
             working_dir: beta_worktree.path.clone(),
@@ -6605,7 +6605,7 @@ mod tests {
         db.insert_session(&Session {
             id: "alpha".to_string(),
             task: "alpha merge".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "merge".to_string(),
             agent_type: "claude".to_string(),
             working_dir: alpha_worktree.path.clone(),
@@ -6620,7 +6620,7 @@ mod tests {
         db.insert_session(&Session {
             id: "beta".to_string(),
             task: "beta merge".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "merge".to_string(),
             agent_type: "claude".to_string(),
             working_dir: beta_worktree.path.clone(),
@@ -6635,7 +6635,7 @@ mod tests {
         db.insert_session(&Session {
             id: "gamma".to_string(),
             task: "gamma merge".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "merge".to_string(),
             agent_type: "claude".to_string(),
             working_dir: gamma_worktree.path.clone(),
@@ -7306,7 +7306,7 @@ mod tests {
         db.insert_session(&Session {
             id: "lead".to_string(),
             task: "lead task".to_string(),
-            project: "ecc-platform".to_string(),
+            project: "poweruser-platform".to_string(),
             task_group: "checkout recovery".to_string(),
             agent_type: "claude".to_string(),
             working_dir: repo_root.clone(),
@@ -7339,7 +7339,7 @@ mod tests {
         let spawned = db
             .get_session(&outcome.session_id)?
             .context("spawned delegated session missing")?;
-        assert_eq!(spawned.project, "ecc-platform");
+        assert_eq!(spawned.project, "poweruser-platform");
         assert_eq!(spawned.task_group, "checkout recovery");
 
         Ok(())

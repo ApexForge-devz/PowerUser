@@ -18,7 +18,7 @@ struct DispatchPassSummary {
 /// Background daemon that monitors sessions, handles heartbeats,
 /// and cleans up stale resources.
 pub async fn run(db: StateStore, cfg: Config) -> Result<()> {
-    tracing::info!("ECC daemon started");
+    tracing::info!("PowerUser daemon started");
     resume_crashed_sessions(&db)?;
 
     let heartbeat_interval = Duration::from_secs(cfg.heartbeat_interval_secs);
@@ -507,7 +507,7 @@ mod tests {
     use std::path::PathBuf;
 
     fn temp_db_path() -> PathBuf {
-        std::env::temp_dir().join(format!("ecc2-daemon-test-{}.db", uuid::Uuid::new_v4()))
+        std::env::temp_dir().join(format!("poweruser2-daemon-test-{}.db", uuid::Uuid::new_v4()))
     }
 
     fn sample_session(id: &str, state: SessionState, pid: Option<u32>) -> Session {
@@ -1263,14 +1263,14 @@ mod tests {
                 merged: vec![
                     manager::WorktreeMergeOutcome {
                         session_id: "worker-a".to_string(),
-                        branch: "ecc/worker-a".to_string(),
+                        branch: "poweruser/worker-a".to_string(),
                         base_branch: "main".to_string(),
                         already_up_to_date: false,
                         cleaned_worktree: true,
                     },
                     manager::WorktreeMergeOutcome {
                         session_id: "worker-b".to_string(),
-                        branch: "ecc/worker-b".to_string(),
+                        branch: "poweruser/worker-b".to_string(),
                         base_branch: "main".to_string(),
                         already_up_to_date: true,
                         cleaned_worktree: true,
@@ -1278,7 +1278,7 @@ mod tests {
                 ],
                 rebased: vec![manager::WorktreeRebaseOutcome {
                     session_id: "worker-r".to_string(),
-                    branch: "ecc/worker-r".to_string(),
+                    branch: "poweruser/worker-r".to_string(),
                     base_branch: "main".to_string(),
                     already_up_to_date: false,
                 }],

@@ -305,7 +305,7 @@ mod tests {
     use std::path::PathBuf;
 
     fn test_db_path() -> PathBuf {
-        std::env::temp_dir().join(format!("ecc2-observability-{}.db", uuid::Uuid::new_v4()))
+        std::env::temp_dir().join(format!("poweruser2-observability-{}.db", uuid::Uuid::new_v4()))
     }
 
     fn test_session(id: &str) -> Session {
@@ -364,7 +364,7 @@ mod tests {
     fn computes_irreversible_risk() {
         let assessment = ToolCallEvent::compute_risk(
             "Bash",
-            "rm -f /tmp/ecc-temp.txt",
+            "rm -f /tmp/poweruser-temp.txt",
             &Config::RISK_THRESHOLDS,
         );
 
