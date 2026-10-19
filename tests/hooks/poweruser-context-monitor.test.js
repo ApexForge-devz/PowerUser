@@ -1,7 +1,7 @@
 /**
- * Tests for scripts/hooks/ecc-context-monitor.js
+ * Tests for scripts/hooks/poweruser-context-monitor.js
  *
- * Run with: node tests/hooks/ecc-context-monitor.test.js
+ * Run with: node tests/hooks/poweruser-context-monitor.test.js
  */
 
 const assert = require('assert');
@@ -9,7 +9,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const { run, evaluateConditions, detectLoop, severityLabel, costWarningsEnabled } = require('../../scripts/hooks/ecc-context-monitor');
+const { run, evaluateConditions, detectLoop, severityLabel, costWarningsEnabled } = require('../../scripts/hooks/poweruser-context-monitor');
 const { getBridgePath, writeBridgeAtomic } = require('../../scripts/lib/session-bridge');
 
 // Test helper
@@ -38,7 +38,7 @@ function withEnv(name, value, fn) {
 }
 
 function runTests() {
-  console.log('\n=== Testing ecc-context-monitor.js ===\n');
+  console.log('\n=== Testing poweruser-context-monitor.js ===\n');
 
   let passed = 0;
   let failed = 0;
@@ -142,17 +142,17 @@ function runTests() {
   else failed++;
 
   if (
-    test('ECC_CONTEXT_MONITOR_COST_WARNINGS=off disables only run-time cost warnings', () => {
+    test('POWERUSER_CONTEXT_MONITOR_COST_WARNINGS=off disables only run-time cost warnings', () => {
       const sessionId = `ctx-monitor-cost-off-${process.pid}-${Date.now()}`;
       const input = JSON.stringify({ session_id: sessionId, tool_name: 'Bash' });
-      const warnPath = path.join(os.tmpdir(), `ecc-ctx-warn-${sessionId}.json`);
+      const warnPath = path.join(os.tmpdir(), `poweruser-ctx-warn-${sessionId}.json`);
       try {
         writeBridgeAtomic(sessionId, {
           context_remaining_pct: 20,
           total_cost_usd: 55,
           last_timestamp: new Date().toISOString()
         });
-        const result = withEnv('ECC_CONTEXT_MONITOR_COST_WARNINGS', 'off', () => JSON.parse(run(input)));
+        const result = withEnv('POWERUSER_CONTEXT_MONITOR_COST_WARNINGS', 'off', () => JSON.parse(run(input)));
         const message = result.hookSpecificOutput.additionalContext;
         assert.ok(message.includes('CONTEXT CRITICAL'), 'Expected context warning to remain');
         assert.ok(!message.includes('COST CRITICAL'), 'Expected cost warning to be suppressed');
@@ -167,10 +167,10 @@ function runTests() {
 
   if (
     test('cost warning env defaults on and accepts false-like values', () => {
-      assert.strictEqual(withEnv('ECC_CONTEXT_MONITOR_COST_WARNINGS', undefined, () => costWarningsEnabled()), true);
-      assert.strictEqual(withEnv('ECC_CONTEXT_MONITOR_COST_WARNINGS', 'false', () => costWarningsEnabled()), false);
-      assert.strictEqual(withEnv('ECC_CONTEXT_MONITOR_COST_WARNINGS', '0', () => costWarningsEnabled()), false);
-      assert.strictEqual(withEnv('ECC_CONTEXT_MONITOR_COST_WARNINGS', 'yes', () => costWarningsEnabled()), true);
+      assert.strictEqual(withEnv('POWERUSER_CONTEXT_MONITOR_COST_WARNINGS', undefined, () => costWarningsEnabled()), true);
+      assert.strictEqual(withEnv('POWERUSER_CONTEXT_MONITOR_COST_WARNINGS', 'false', () => costWarningsEnabled()), false);
+      assert.strictEqual(withEnv('POWERUSER_CONTEXT_MONITOR_COST_WARNINGS', '0', () => costWarningsEnabled()), false);
+      assert.strictEqual(withEnv('POWERUSER_CONTEXT_MONITOR_COST_WARNINGS', 'yes', () => costWarningsEnabled()), true);
     })
   )
     passed++;
@@ -179,7 +179,7 @@ function runTests() {
   if (
     test('cost warnings dedupe by tier: notice fires once, re-fires on escalation', () => {
       const sessionId = `ctx-monitor-tier-dedupe-${process.pid}-${Date.now()}`;
-      const warnPath = path.join(os.tmpdir(), `ecc-ctx-warn-${sessionId}.json`);
+      const warnPath = path.join(os.tmpdir(), `poweruser-ctx-warn-${sessionId}.json`);
       const input = JSON.stringify({ session_id: sessionId, tool_name: 'Bash' });
       const setCost = cost =>
         writeBridgeAtomic(sessionId, { total_cost_usd: cost, last_timestamp: new Date().toISOString() });

@@ -1,7 +1,7 @@
 /**
- * Tests for scripts/hooks/ecc-metrics-bridge.js
+ * Tests for scripts/hooks/poweruser-metrics-bridge.js
  *
- * Run with: node tests/hooks/ecc-metrics-bridge.test.js
+ * Run with: node tests/hooks/poweruser-metrics-bridge.test.js
  */
 
 const assert = require('assert');
@@ -10,7 +10,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const { run, hashToolCall, extractFilePaths, readSessionCost } = require('../../scripts/hooks/ecc-metrics-bridge');
+const { run, hashToolCall, extractFilePaths, readSessionCost } = require('../../scripts/hooks/poweruser-metrics-bridge');
 const {
   appendSessionCostRow,
   getCostSnapshotPath
@@ -30,11 +30,11 @@ function test(name, fn) {
 }
 
 function makeTempHome() {
-  return fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-metrics-bridge-test-'));
+  return fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-metrics-bridge-test-'));
 }
 
 function runTests() {
-  console.log('\n=== Testing ecc-metrics-bridge.js ===\n');
+  console.log('\n=== Testing poweruser-metrics-bridge.js ===\n');
 
   let passed = 0;
   let failed = 0;
@@ -606,7 +606,7 @@ function runTests() {
           'utf8'
         );
 
-        const bridgePath = path.resolve(__dirname, '../../scripts/hooks/ecc-metrics-bridge');
+        const bridgePath = path.resolve(__dirname, '../../scripts/hooks/poweruser-metrics-bridge');
         const code = "const { readSessionCost } = require(process.argv[1]); readSessionCost('S1');";
         const env = { ...process.env, HOME: tmpHome, USERPROFILE: tmpHome };
         const first = spawnSync(process.execPath, ['-e', code, bridgePath], { env, encoding: 'utf8' });

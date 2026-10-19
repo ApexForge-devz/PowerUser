@@ -1,7 +1,7 @@
 /**
- * Tests for scripts/hooks/ecc-statusline.js
+ * Tests for scripts/hooks/poweruser-statusline.js
  *
- * Run with: node tests/hooks/ecc-statusline.test.js
+ * Run with: node tests/hooks/poweruser-statusline.test.js
  */
 
 const assert = require('assert');
@@ -9,7 +9,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const { formatDuration, buildContextBar, readCurrentTask } = require('../../scripts/hooks/ecc-statusline');
+const { formatDuration, buildContextBar, readCurrentTask } = require('../../scripts/hooks/poweruser-statusline');
 
 // Test helper
 function test(name, fn) {
@@ -25,11 +25,11 @@ function test(name, fn) {
 }
 
 function makeTempConfig() {
-  return fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-statusline-test-'));
+  return fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-statusline-test-'));
 }
 
 function runTests() {
-  console.log('\n=== Testing ecc-statusline.js ===\n');
+  console.log('\n=== Testing poweruser-statusline.js ===\n');
 
   let passed = 0;
   let failed = 0;
