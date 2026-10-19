@@ -1,15 +1,15 @@
 **Sprache:** [English](../../README.md) | [Deutsch](README.md) | [Português (Brasil)](../pt-BR/README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md) | [Tiếng Việt](../vi-VN/README.md) | [ไทย](../th/README.md) | [Українська](../uk-UA/README.md) | [Polski](../pl/README.md) | [বাংলা](../bn/README.md) | [العربية](../ar/README.md)
 
-# ECC
+# PowerUser
 
-![ECC - das Harness-native Operator-System für agentische Arbeit](../../assets/hero.png)
+![PowerUser - das Harness-native Operator-System für agentische Arbeit](../../assets/hero.png)
 
-[![GitHub-Sterne](https://img.shields.io/github/stars/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC)
-[![GitHub-Forks](https://img.shields.io/github/forks/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/forks)
-[![Contributors](https://img.shields.io/github/contributors/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
-[![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
-[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/ecc-tools)
+[![GitHub-Sterne](https://img.shields.io/github/stars/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![GitHub-Forks](https://img.shields.io/github/forks/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![Contributors](https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![npm poweruser-universal](https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-universal)
+[![npm poweruser-agentshield](https://img.shields.io/npm/dw/poweruser-agentshield?label=poweruser-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-agentshield)
+[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/poweruser-tools)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -40,15 +40,15 @@ Nicht nur Konfigurationen. Ein vollständiges System: Skills, Instincts, Speiche
 
 Funktioniert über **Claude Code**, **Codex**, **Cursor**, **OpenCode**, **Gemini**, **Zed**, **GitHub Copilot** und andere KI-Agent-Harnesses hinweg.
 
-ECC v2.0.0-rc.1 ergänzt diese wiederverwendbare Schicht um die öffentliche Hermes-Operator-Story: Beginne mit dem [Hermes-Setup-Leitfaden](../../docs/HERMES-SETUP.md), prüfe anschließend die [rc.1-Release-Notes](../../docs/releases/2.0.0-rc.1/release-notes.md) und die [Cross-Harness-Architektur](../../docs/architecture/cross-harness.md).
+PowerUser v2.0.0-rc.1 ergänzt diese wiederverwendbare Schicht um die öffentliche Hermes-Operator-Story: Beginne mit dem [Hermes-Setup-Leitfaden](../../docs/HERMES-SETUP.md), prüfe anschließend die [rc.1-Release-Notes](../../docs/releases/2.0.0-rc.1/release-notes.md) und die [Cross-Harness-Architektur](../../docs/architecture/cross-harness.md).
 
 ---
 
 <table>
 <tr>
 <td width="25%" align="center">
-  <a href="https://ecc.tools/pricing">
-    <strong> ECC Pro</strong><br />
+  <a href="https://github.com/ApexForge-devz/PowerUser">
+    <strong> PowerUser Pro</strong><br />
     <sub>Private Repos · GitHub App · 19 $/Platz/Monat</sub>
   </a>
 </td>
@@ -59,14 +59,14 @@ ECC v2.0.0-rc.1 ergänzt diese wiederverwendbare Schicht um die öffentliche Her
   </a>
 </td>
 <td width="25%" align="center">
-  <a href="https://github.com/affaan-m/ECC/discussions">
+  <a href="https://github.com/ApexForge-devz/PowerUser">
     <strong>Community</strong>
     <br />
     <sub>Discussions · Q&amp;A · Show & Tell</sub>
   </a>
 </td>
 <td width="25%" align="center">
-  <a href="https://github.com/apps/ecc-tools">
+  <a href="https://github.com/apps/poweruser-tools">
     <strong> GitHub App</strong><br />
     <sub>Installieren · PR-Audits · Free-Tier</sub>
   </a>
@@ -74,7 +74,7 @@ ECC v2.0.0-rc.1 ergänzt diese wiederverwendbare Schicht um die öffentliche Her
 </tr>
 </table>
 
-<sub>**OSS bleibt kostenlos.** Dieses Repo ist für immer MIT-lizenziert. ECC Pro ist die gehostete GitHub App für private Repos. <a href="https://github.com/sponsors/affaan-m">Sponsoren</a> und <a href="https://ecc.tools/pricing">Pro-Abonnenten</a> finanzieren die Arbeit — deshalb liefert ein einzelner Maintainer wöchentlich über 7 Harnesses hinweg aus.</sub>
+<sub>**OSS bleibt kostenlos.** Dieses Repo ist für immer MIT-lizenziert. PowerUser Pro ist die gehostete GitHub App für private Repos. <a href="https://github.com/sponsors/affaan-m">Sponsoren</a> und <a href="https://github.com/ApexForge-devz/PowerUser">Pro-Abonnenten</a> finanzieren die Arbeit — deshalb liefert ein einzelner Maintainer wöchentlich über 7 Harnesses hinweg aus.</sub>
 
 ---
 
@@ -86,12 +86,12 @@ Dieses Repo enthält ausschließlich den rohen Code. Die Leitfäden erklären al
 <tr>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2012378465664745795">
-<img src="../../assets/images/guides/shorthand-guide.png" alt="The Shorthand Guide to ECC" />
+<img src="../../assets/images/guides/shorthand-guide.png" alt="The Shorthand Guide to PowerUser" />
 </a>
 </td>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2014040193557471352">
-<img src="../../assets/images/guides/longform-guide.png" alt="The Longform Guide to ECC" />
+<img src="../../assets/images/guides/longform-guide.png" alt="The Longform Guide to PowerUser" />
 </a>
 </td>
 <td width="33%">
@@ -120,16 +120,16 @@ Dieses Repo enthält ausschließlich den rohen Code. Die Leitfäden erklären al
 
 ## Was ist neu
 
-### v2.0.0-rc.1 — Oberflächen-Refresh, Operator-Workflows und ECC 2.0 Alpha (April 2026)
+### v2.0.0-rc.1 — Oberflächen-Refresh, Operator-Workflows und PowerUser 2.0 Alpha (April 2026)
 
 - **Dashboard-GUI** — Neue Tkinter-basierte Desktop-Anwendung (`ecc_dashboard.py` oder `npm run dashboard`) mit Umschalter für dunkles/helles Theme, Schriftanpassung und Projektlogo in Kopfzeile und Taskleiste.
 - **Öffentliche Oberfläche mit dem Live-Repo synchronisiert** — Metadaten, Katalogzahlen, Plugin-Manifeste und Install-bezogene Dokumentation entsprechen jetzt der tatsächlichen OSS-Oberfläche: 60 Agents, 232 Skills und 75 Legacy-Command-Shims.
-- **Erweiterung von Operator- und Outbound-Workflows** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `ecc-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` und `workspace-surface-audit` runden die Operator-Spur ab.
+- **Erweiterung von Operator- und Outbound-Workflows** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `poweruser-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` und `workspace-surface-audit` runden die Operator-Spur ab.
 - **Medien- und Launch-Tooling** — `manim-video`, `remotion-video-creation` und verbesserte Social-Publishing-Oberflächen machen technische Erklärinhalte und Launch-Content zum Teil desselben Systems.
 - **Wachstum der Framework- und Produktoberfläche** — `nestjs-patterns`, reichhaltigere Codex/OpenCode-Install-Oberflächen und erweitertes Cross-Harness-Packaging halten das Repo auch über Claude Code allein hinaus nutzbar.
-- **ECC 2.0 Alpha ist im Tree** — der Rust-Control-Plane-Prototyp in `ecc2/` baut jetzt lokal und stellt die Befehle `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` und `daemon` bereit. Er ist als Alpha nutzbar, aber noch kein allgemeines Release.
-- **Operator-Status-Snapshots** — `ecc status --markdown --write status.md` verwandelt den lokalen State Store in eine portable Übergabe, die Bereitschaft, aktive Sessions, Skill-Run-Gesundheit, Install-Gesundheit, ausstehende Governance-Events und verknüpfte Arbeitselemente aus Linear/GitHub/Handovers abdeckt. Nutze `ecc work-items upsert ...` für manuelle Einträge, `ecc work-items sync-github --repo owner/repo` für den Queue-Status von PRs/Issues und `ecc status --exit-code`, um Automatisierung scheitern zu lassen, wenn die Bereitschaft Aufmerksamkeit erfordert.
-- **Ökosystem-Härtung** — AgentShield, ECC-Tools-Kostenkontrollen, Arbeiten am Billing-Portal und Website-Refreshes werden weiterhin rund um das Kern-Plugin ausgeliefert, statt in separate Silos abzudriften.
+- **PowerUser 2.0 Alpha ist im Tree** — der Rust-Control-Plane-Prototyp in `ecc2/` baut jetzt lokal und stellt die Befehle `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` und `daemon` bereit. Er ist als Alpha nutzbar, aber noch kein allgemeines Release.
+- **Operator-Status-Snapshots** — `poweruser status --markdown --write status.md` verwandelt den lokalen State Store in eine portable Übergabe, die Bereitschaft, aktive Sessions, Skill-Run-Gesundheit, Install-Gesundheit, ausstehende Governance-Events und verknüpfte Arbeitselemente aus Linear/GitHub/Handovers abdeckt. Nutze `poweruser work-items upsert ...` für manuelle Einträge, `poweruser work-items sync-github --repo owner/repo` für den Queue-Status von PRs/Issues und `poweruser status --exit-code`, um Automatisierung scheitern zu lassen, wenn die Bereitschaft Aufmerksamkeit erfordert.
+- **Ökosystem-Härtung** — AgentShield, PowerUser-Tools-Kostenkontrollen, Arbeiten am Billing-Portal und Website-Refreshes werden weiterhin rund um das Kern-Plugin ausgeliefert, statt in separate Silos abzudriften.
 
 ### v1.9.0 — Selektive Installation & Spracherweiterung (März 2026)
 
@@ -145,7 +145,7 @@ Dieses Repo enthält ausschließlich den rohen Code. Die Leitfäden erklären al
 
 ### v1.8.0 — Harness-Performance-System (März 2026)
 
-- **Harness-First-Release** — ECC ist nun ausdrücklich als Performance-System für Agent-Harnesses positioniert, nicht nur als Config-Paket.
+- **Harness-First-Release** — PowerUser ist nun ausdrücklich als Performance-System für Agent-Harnesses positioniert, nicht nur als Config-Paket.
 - **Überarbeitung der Hook-Zuverlässigkeit** — SessionStart-Root-Fallback, Session-Zusammenfassungen in der Stop-Phase und skriptbasierte Hooks, die fragile Inline-Einzeiler ersetzen.
 - **Hook-Laufzeitsteuerung** — `ECC_HOOK_PROFILE=minimal|standard|strict` und `ECC_DISABLED_HOOKS=...` für Laufzeit-Gating ohne Bearbeitung von Hook-Dateien.
 - **Neue Harness-Befehle** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
@@ -166,17 +166,17 @@ Dieses Repo enthält ausschließlich den rohen Code. Die Leitfäden erklären al
 - **Codex-CLI-Unterstützung** — Neuer Befehl `/codex-setup` erzeugt `codex.md` für die Kompatibilität mit der OpenAI Codex CLI
 - **7 neue Skills** — `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing`, `regex-vs-llm-structured-text`, `content-hash-cache-pattern`, `cost-aware-llm-pipeline`, `skill-stocktake`
 - **AgentShield-Integration** — Der `/security-scan`-Skill führt AgentShield direkt aus Claude Code aus; 1282 Tests, 102 Rules
-- **GitHub Marketplace** — ECC-Tools-GitHub-App live unter [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) mit Free-/Pro-/Enterprise-Stufen
+- **GitHub Marketplace** — PowerUser-Tools-GitHub-App live unter [github.com/marketplace/poweruser-tools](https://github.com/marketplace/poweruser-tools) mit Free-/Pro-/Enterprise-Stufen
 - **30+ Community-PRs gemergt** — Beiträge von 30 Contributors über 6 Sprachen hinweg
 - **978 interne Tests** — Erweiterte Validierungs-Suite über Agents, Skills, Commands, Hooks und Rules
 
 ### v1.4.1 — Bugfix (Februar 2026)
 
-- **Inhaltsverlust beim Instinct-Import behoben** — `parse_instinct_file()` verwarf während `/instinct-import` stillschweigend sämtlichen Inhalt nach dem Frontmatter (Abschnitte Action, Evidence, Examples). ([#148](https://github.com/affaan-m/ECC/issues/148), [#161](https://github.com/affaan-m/ECC/pull/161))
+- **Inhaltsverlust beim Instinct-Import behoben** — `parse_instinct_file()` verwarf während `/instinct-import` stillschweigend sämtlichen Inhalt nach dem Frontmatter (Abschnitte Action, Evidence, Examples). ([#148](https://github.com/ApexForge-devz/PowerUser), [#161](https://github.com/ApexForge-devz/PowerUser))
 
 ### v1.4.0 — Mehrsprachige Rules, Installationsassistent & PM2 (Februar 2026)
 
-- **Interaktiver Installationsassistent** — Der neue `configure-ecc`-Skill bietet ein geführtes Setup mit Merge-/Überschreiben-Erkennung
+- **Interaktiver Installationsassistent** — Der neue `configure-poweruser`-Skill bietet ein geführtes Setup mit Merge-/Überschreiben-Erkennung
 - **PM2 & Multi-Agent-Orchestrierung** — 6 neue Befehle (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) zur Verwaltung komplexer Multi-Service-Workflows
 - **Architektur für mehrsprachige Rules** — Rules von Flat-Dateien in die Verzeichnisse `common/` + `typescript/` + `python/` + `golang/` umstrukturiert. Installiere nur die Sprachen, die du brauchst
 - **Chinesische (zh-CN) Übersetzungen** — Vollständige Übersetzung aller Agents, Commands, Skills und Rules (80+ Dateien)
@@ -196,7 +196,7 @@ Dieses Repo enthält ausschließlich den rohen Code. Die Leitfäden erklären al
 - **Session-Verwaltung** — `/sessions`-Befehl für den Session-Verlauf
 - **Continuous Learning v2** — Instinct-basiertes Lernen mit Konfidenz-Scoring, Import/Export, Evolution
 
-Den vollständigen Changelog findest du unter [Releases](https://github.com/affaan-m/ECC/releases).
+Den vollständigen Changelog findest du unter [Releases](https://github.com/ApexForge-devz/PowerUser).
 
 ---
 
@@ -210,9 +210,9 @@ Die meisten Claude-Code-Nutzer sollten genau einen Installationspfad verwenden:
 
 - **Empfohlene Voreinstellung:** Installiere das Claude-Code-Plugin und kopiere dann nur die Rule-Ordner, die du tatsächlich willst.
 - **Verwende den manuellen Installer nur dann, wenn** du feinere Kontrolle wünschst, den Plugin-Pfad ganz vermeiden willst oder dein Claude-Code-Build Probleme hat, den selbst gehosteten Marketplace-Eintrag aufzulösen.
-- **Stapele Installationsmethoden nicht.** Das häufigste kaputte Setup ist: zuerst `/plugin install`, danach `install.sh --profile full` oder `npx ecc-universal install --profile full`.
+- **Stapele Installationsmethoden nicht.** Das häufigste kaputte Setup ist: zuerst `/plugin install`, danach `install.sh --profile full` oder `npx poweruser-universal install --profile full`.
 
-Falls du bereits mehrere Installationen übereinandergelegt hast und Dinge doppelt aussehen, springe direkt zu [ECC zurücksetzen / deinstallieren](#ecc-zurücksetzen--deinstallieren).
+Falls du bereits mehrere Installationen übereinandergelegt hast und Dinge doppelt aussehen, springe direkt zu [PowerUser zurücksetzen / deinstallieren](#poweruser-zurücksetzen--deinstallieren).
 
 ### Low-Context-/No-Hooks-Pfad
 
@@ -225,7 +225,7 @@ Falls sich Hooks zu global anfühlen oder du nur ECCs Rules, Agents, Commands un
 ```powershell
 .\install.ps1 --profile minimal --target claude
 # oder
-npx ecc-universal install --profile minimal --target claude
+npx poweruser-universal install --profile minimal --target claude
 ```
 
 Dieses Profil schließt `hooks-runtime` absichtlich aus.
@@ -244,10 +244,10 @@ Füge Hooks später nur hinzu, wenn du Laufzeit-Durchsetzung willst:
 
 ### Finde zuerst die richtigen Komponenten
 
-Falls du nicht sicher bist, welches ECC-Profil oder welche Komponente du installieren sollst, frage den mitgelieferten Advisor aus jedem beliebigen Projekt:
+Falls du nicht sicher bist, welches PowerUser-Profil oder welche Komponente du installieren sollst, frage den mitgelieferten Advisor aus jedem beliebigen Projekt:
 
 ```bash
-npx ecc-universal consult "security reviews" --target claude
+npx poweruser-universal consult "security reviews" --target claude
 ```
 
 Er liefert passende Komponenten, verwandte Profile sowie Preview-/Install-Befehle zurück. Verwende den Preview-Befehl vor der Installation, falls du den exakten Dateiplan inspizieren willst.
@@ -255,8 +255,8 @@ Er liefert passende Komponenten, verwandte Profile sowie Preview-/Install-Befehl
 Halte die Installation für produktive ML-/MLOps-Workflows opt-in und komponentenbezogen:
 
 ```bash
-npx ecc-universal consult "mlops training model deployment" --target claude
-npx ecc-universal install --profile minimal --target claude --with capability:machine-learning
+npx poweruser-universal consult "mlops training model deployment" --target claude
+npx poweruser-universal install --profile minimal --target claude --with capability:machine-learning
 ```
 
 ### Schritt 1: Plugin installieren (empfohlen)
@@ -265,62 +265,62 @@ npx ecc-universal install --profile minimal --target claude --with capability:ma
 
 ```bash
 # Marketplace hinzufügen
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # Plugin installieren
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 ### Hinweis zu Benennung + Migration
 
-ECC hat jetzt drei öffentliche Bezeichner, und sie sind nicht austauschbar:
+PowerUser hat jetzt drei öffentliche Bezeichner, und sie sind nicht austauschbar:
 
-- GitHub-Quell-Repo: `affaan-m/ECC`
-- Claude-Marketplace-/Plugin-Bezeichner: `ecc@ecc`
-- npm-Paket: `ecc-universal`
+- GitHub-Quell-Repo: `ApexForge-devz/PowerUser`
+- Claude-Marketplace-/Plugin-Bezeichner: `poweruser@poweruser`
+- npm-Paket: `poweruser-universal`
 
-Das ist beabsichtigt. Anthropic-Marketplace-/Plugin-Installationen werden über einen kanonischen Plugin-Bezeichner gekeyt, daher verwendet ECC `ecc@ecc`, um Tool-Namen und Slash-Command-Namespaces kurz genug für strenge Desktop-/API-Validatoren zu halten. Ältere Beiträge zeigen möglicherweise noch den früheren langen Marketplace-Bezeichner; behandle diesen lediglich als Legacy-Alias. Das npm-Paket blieb davon getrennt bei `ecc-universal`, daher verwenden npm-Installationen und Marketplace-Installationen absichtlich unterschiedliche Namen.
+Das ist beabsichtigt. Anthropic-Marketplace-/Plugin-Installationen werden über einen kanonischen Plugin-Bezeichner gekeyt, daher verwendet PowerUser `poweruser@poweruser`, um Tool-Namen und Slash-Command-Namespaces kurz genug für strenge Desktop-/API-Validatoren zu halten. Ältere Beiträge zeigen möglicherweise noch den früheren langen Marketplace-Bezeichner; behandle diesen lediglich als Legacy-Alias. Das npm-Paket blieb davon getrennt bei `poweruser-universal`, daher verwenden npm-Installationen und Marketplace-Installationen absichtlich unterschiedliche Namen.
 
 ### Schritt 2: Rules nur installieren, wenn du sie brauchst
 
 > WARNING: **Wichtig:** Claude-Code-Plugins können `rules` nicht automatisch verteilen.
 >
-> Falls du ECC bereits über `/plugin install` installiert hast, **führe danach nicht `./install.sh --profile full`, `.\install.ps1 --profile full` oder `npx ecc-universal install --profile full` aus**. Das Plugin lädt ECC-Skills, -Commands und -Hooks bereits. Wird der vollständige Installer nach einer Plugin-Installation ausgeführt, kopiert er dieselben Oberflächen in deine Benutzerverzeichnisse und kann doppelte Skills sowie doppeltes Laufzeitverhalten erzeugen.
+> Falls du PowerUser bereits über `/plugin install` installiert hast, **führe danach nicht `./install.sh --profile full`, `.\install.ps1 --profile full` oder `npx poweruser-universal install --profile full` aus**. Das Plugin lädt PowerUser-Skills, -Commands und -Hooks bereits. Wird der vollständige Installer nach einer Plugin-Installation ausgeführt, kopiert er dieselben Oberflächen in deine Benutzerverzeichnisse und kann doppelte Skills sowie doppeltes Laufzeitverhalten erzeugen.
 >
-> Kopiere für Plugin-Installationen manuell nur die `rules/`-Verzeichnisse, die du willst, nach `~/.claude/rules/ecc/`. Beginne mit `rules/common` plus einem Sprach- oder Framework-Paket, das du tatsächlich verwendest. Kopiere nicht jedes Rules-Verzeichnis, es sei denn, du willst diesen gesamten Kontext ausdrücklich in Claude haben.
+> Kopiere für Plugin-Installationen manuell nur die `rules/`-Verzeichnisse, die du willst, nach `~/.claude/rules/poweruser/`. Beginne mit `rules/common` plus einem Sprach- oder Framework-Paket, das du tatsächlich verwendest. Kopiere nicht jedes Rules-Verzeichnis, es sei denn, du willst diesen gesamten Kontext ausdrücklich in Claude haben.
 >
-> Verwende den vollständigen Installer nur dann, wenn du eine vollständig manuelle ECC-Installation statt des Plugin-Pfads durchführst.
+> Verwende den vollständigen Installer nur dann, wenn du eine vollständig manuelle PowerUser-Installation statt des Plugin-Pfads durchführst.
 >
-> Falls dein lokales Claude-Setup gelöscht oder zurückgesetzt wurde, bedeutet das nicht, dass du ECC erneut kaufen musst. Beginne mit `node scripts/ecc.js list-installed`, führe dann `node scripts/ecc.js doctor` und `node scripts/ecc.js repair` aus, bevor du irgendetwas neu installierst. Das stellt ECC-verwaltete Dateien üblicherweise wieder her, ohne dein Setup neu aufzubauen. Falls das Problem im Konto- oder Marketplace-Zugriff für ECC Tools liegt, behandle die Konto-/Abrechnungswiederherstellung separat.
+> Falls dein lokales Claude-Setup gelöscht oder zurückgesetzt wurde, bedeutet das nicht, dass du PowerUser erneut kaufen musst. Beginne mit `node scripts/poweruser.js list-installed`, führe dann `node scripts/poweruser.js doctor` und `node scripts/poweruser.js repair` aus, bevor du irgendetwas neu installierst. Das stellt PowerUser-verwaltete Dateien üblicherweise wieder her, ohne dein Setup neu aufzubauen. Falls das Problem im Konto- oder Marketplace-Zugriff für PowerUser Tools liegt, behandle die Konto-/Abrechnungswiederherstellung separat.
 
 ```bash
 # Zuerst das Repo klonen
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 
 # Abhängigkeiten installieren (wähle deinen Paketmanager)
 npm install        # oder: pnpm install | yarn install | bun install
 
-# Plugin-Installationspfad: nur ECC-Rules in einen ECC-eigenen Namespace kopieren
-mkdir -p ~/.claude/rules/ecc
-cp -R rules/common ~/.claude/rules/ecc/
-cp -R rules/typescript ~/.claude/rules/ecc/
+# Plugin-Installationspfad: nur PowerUser-Rules in einen PowerUser-eigenen Namespace kopieren
+mkdir -p ~/.claude/rules/poweruser
+cp -R rules/common ~/.claude/rules/poweruser/
+cp -R rules/typescript ~/.claude/rules/poweruser/
 
-# Vollständig manueller ECC-Installationspfad (nutze diesen statt /plugin install)
+# Vollständig manueller PowerUser-Installationspfad (nutze diesen statt /plugin install)
 # ./install.sh --profile full
 ```
 
 ```powershell
 # Windows PowerShell
 
-# Plugin-Installationspfad: nur ECC-Rules in einen ECC-eigenen Namespace kopieren
-New-Item -ItemType Directory -Force -Path "$HOME/.claude/rules/ecc" | Out-Null
-Copy-Item -Recurse rules/common "$HOME/.claude/rules/ecc/"
-Copy-Item -Recurse rules/typescript "$HOME/.claude/rules/ecc/"
+# Plugin-Installationspfad: nur PowerUser-Rules in einen PowerUser-eigenen Namespace kopieren
+New-Item -ItemType Directory -Force -Path "$HOME/.claude/rules/poweruser" | Out-Null
+Copy-Item -Recurse rules/common "$HOME/.claude/rules/poweruser/"
+Copy-Item -Recurse rules/typescript "$HOME/.claude/rules/poweruser/"
 
-# Vollständig manueller ECC-Installationspfad (nutze diesen statt /plugin install)
+# Vollständig manueller PowerUser-Installationspfad (nutze diesen statt /plugin install)
 # .\install.ps1 --profile full
-# npx ecc-universal install --profile full
+# npx poweruser-universal install --profile full
 ```
 
 Anweisungen zur manuellen Installation findest du in der README im `rules/`-Ordner. Kopiere Rules manuell stets als ganzes Sprachverzeichnis (zum Beispiel `rules/common` oder `rules/golang`), nicht die darin enthaltenen Dateien, damit relative Verweise weiterhin funktionieren und Dateinamen nicht kollidieren.
@@ -336,23 +336,23 @@ Verwende dies nur, wenn du den Plugin-Pfad absichtlich überspringst:
 ```powershell
 .\install.ps1 --profile full
 # oder
-npx ecc-universal install --profile full
+npx poweruser-universal install --profile full
 ```
 
 Wenn du diesen Pfad wählst, höre dort auf. Führe nicht zusätzlich `/plugin install` aus.
 
-### ECC zurücksetzen / deinstallieren
+### PowerUser zurücksetzen / deinstallieren
 
-Falls sich ECC doppelt, aufdringlich oder kaputt anfühlt, installiere es nicht weiter über sich selbst.
+Falls sich PowerUser doppelt, aufdringlich oder kaputt anfühlt, installiere es nicht weiter über sich selbst.
 
-- **Plugin-Pfad:** Entferne das Plugin aus Claude Code, lösche dann die konkreten Rule-Ordner, die du manuell unter `~/.claude/rules/ecc/` kopiert hast.
+- **Plugin-Pfad:** Entferne das Plugin aus Claude Code, lösche dann die konkreten Rule-Ordner, die du manuell unter `~/.claude/rules/poweruser/` kopiert hast.
 - **Manueller Installer / CLI-Pfad:** Sieh dir die Entfernung vom Repo-Root aus zuerst in der Vorschau an:
 
 ```bash
 node scripts/uninstall.js --dry-run
 ```
 
-Entferne anschließend ECC-verwaltete Dateien:
+Entferne anschließend PowerUser-verwaltete Dateien:
 
 ```bash
 node scripts/uninstall.js
@@ -361,18 +361,18 @@ node scripts/uninstall.js
 Du kannst auch den Lifecycle-Wrapper verwenden:
 
 ```bash
-node scripts/ecc.js list-installed
-node scripts/ecc.js doctor
-node scripts/ecc.js repair
-node scripts/ecc.js uninstall --dry-run
+node scripts/poweruser.js list-installed
+node scripts/poweruser.js doctor
+node scripts/poweruser.js repair
+node scripts/poweruser.js uninstall --dry-run
 ```
 
-ECC entfernt nur Dateien, die in seinem Install-State erfasst sind. Es löscht keine fremden Dateien, die es nicht installiert hat.
+PowerUser entfernt nur Dateien, die in seinem Install-State erfasst sind. Es löscht keine fremden Dateien, die es nicht installiert hat.
 
 Falls du Methoden gestapelt hast, räume in dieser Reihenfolge auf:
 
 1. Entferne die Claude-Code-Plugin-Installation.
-2. Führe den ECC-Uninstall-Befehl vom Repo-Root aus, um über den Install-State verwaltete Dateien zu entfernen.
+2. Führe den PowerUser-Uninstall-Befehl vom Repo-Root aus, um über den Install-State verwaltete Dateien zu entfernen.
 3. Lösche alle zusätzlichen Rule-Ordner, die du manuell kopiert hast und nicht mehr willst.
 4. Installiere einmal neu, über einen einzigen Pfad.
 
@@ -380,23 +380,23 @@ Falls du Methoden gestapelt hast, räume in dieser Reihenfolge auf:
 
 ```bash
 # Skills sind die primäre Workflow-Oberfläche.
-# Bestehende Slash-artige Command-Namen funktionieren weiterhin, während ECC von commands/ wegmigriert.
+# Bestehende Slash-artige Command-Namen funktionieren weiterhin, während PowerUser von commands/ wegmigriert.
 
 # Die Plugin-Installation verwendet die kanonische Namespace-Form
-/ecc:plan "Benutzerauthentifizierung hinzufügen"
+/poweruser:plan "Benutzerauthentifizierung hinzufügen"
 
 # Die manuelle Installation behält die kürzere Slash-Form bei:
 # /plan "Benutzerauthentifizierung hinzufügen"
 
 # Verfügbare Commands prüfen
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 **Das war's!** Du hast nun Zugriff auf 60 Agents, 232 Skills und 75 Legacy-Command-Shims.
 
 ### Dashboard-GUI
 
-Starte das Desktop-Dashboard, um ECC-Komponenten visuell zu erkunden:
+Starte das Desktop-Dashboard, um PowerUser-Komponenten visuell zu erkunden:
 
 ```bash
 npm run dashboard
@@ -494,7 +494,7 @@ Windows PowerShell:
 Dieses Repo ist ein **Claude-Code-Plugin** - installiere es direkt oder kopiere Komponenten manuell.
 
 ```
-ECC/
+PowerUser/
 |-- .claude-plugin/   # Plugin- und Marketplace-Manifeste
 |   |-- plugin.json         # Plugin-Metadaten und Komponentenpfade
 |   |-- marketplace.json    # Marketplace-Katalog für /plugin marketplace add
@@ -573,7 +573,7 @@ ECC/
 |   |-- springboot-security/        # Spring-Boot-Sicherheit (NEU)
 |   |-- springboot-tdd/             # Spring-Boot-TDD (NEU)
 |   |-- springboot-verification/    # Spring-Boot-Verifikation (NEU)
-|   |-- configure-ecc/              # Interaktiver Installationsassistent (NEU)
+|   |-- configure-poweruser/              # Interaktiver Installationsassistent (NEU)
 |   |-- security-scan/              # Integration des AgentShield-Security-Auditors (NEU)
 |   |-- java-coding-standards/     # Java-Coding-Standards (NEU)
 |   |-- jpa-patterns/              # JPA-/Hibernate-Patterns (NEU)
@@ -639,7 +639,7 @@ ECC/
 |   |-- verify.md           # /verify - Bevorzuge den verification-loop-Skill
 |   |-- orchestrate.md      # /orchestrate - Bevorzuge dmux-workflows oder multi-workflow
 |
-|-- rules/            # Stets zu befolgende Richtlinien (nach ~/.claude/rules/ecc/ kopieren)
+|-- rules/            # Stets zu befolgende Richtlinien (nach ~/.claude/rules/poweruser/ kopieren)
 |   |-- README.md            # Strukturübersicht und Installationsanleitung
 |   |-- common/              # Sprachunabhängige Prinzipien
 |   |   |-- coding-style.md    # Immutabilität, Dateiorganisation
@@ -701,7 +701,7 @@ ECC/
 |
 |-- assets/           # Assets für das Dashboard
 |   |-- images/
-|       |-- ecc-logo.png
+|       |-- poweruser-logo.png
 |
 |-- marketplace.json  # Konfiguration des selbst gehosteten Marketplace (für /plugin marketplace add)
 ```
@@ -729,7 +729,7 @@ Dies analysiert deine Git-Historie lokal und generiert SKILL.md-Dateien.
 
 Für fortgeschrittene Funktionen (10k+ Commits, Auto-PRs, Team-Sharing):
 
-[GitHub App installieren](https://github.com/apps/skill-creator) | [ecc.tools](https://ecc.tools)
+[GitHub App installieren](https://github.com/apps/skill-creator) | [poweruser.tools](https://github.com/ApexForge-devz/PowerUser)
 
 ```bash
 # Kommentiere auf einem beliebigen Issue:
@@ -751,16 +751,16 @@ Scanne deine Claude-Code-Konfiguration auf Schwachstellen, Fehlkonfigurationen u
 
 ```bash
 # Schneller Scan (keine Installation nötig)
-npx ecc-agentshield scan
+npx poweruser-agentshield scan
 
 # Sichere Probleme automatisch beheben
-npx ecc-agentshield scan --fix
+npx poweruser-agentshield scan --fix
 
 # Tiefenanalyse mit drei Opus-4.6-Agents
-npx ecc-agentshield scan --opus --stream
+npx poweruser-agentshield scan --opus --stream
 
 # Sichere Konfiguration von Grund auf generieren
-npx ecc-agentshield init
+npx poweruser-agentshield init
 ```
 
 **Was es scannt:** CLAUDE.md, settings.json, MCP-Konfigurationen, Hooks, Agent-Definitionen und Skills über 5 Kategorien — Secrets-Erkennung (14 Muster), Berechtigungs-Audit, Analyse von Hook-Injection, Risikoprofilierung von MCP-Servern und Review der Agent-Konfiguration.
@@ -771,7 +771,7 @@ npx ecc-agentshield init
 
 Verwende `/security-scan` in Claude Code, um es auszuführen, oder füge es per [GitHub Action](https://github.com/affaan-m/agentshield) zur CI hinzu.
 
-[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/ecc-agentshield)
+[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/poweruser-agentshield)
 
 ### Continuous Learning v2
 
@@ -812,7 +812,7 @@ Claude Code v2.1+ **lädt automatisch** `hooks/hooks.json` aus jedem installiert
 Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded file
 ```
 
-**Historie:** Dies hat in diesem Repo wiederholte Fix-/Revert-Zyklen verursacht ([#29](https://github.com/affaan-m/ECC/issues/29), [#52](https://github.com/affaan-m/ECC/issues/52), [#103](https://github.com/affaan-m/ECC/issues/103)). Das Verhalten änderte sich zwischen Claude-Code-Versionen, was zu Verwirrung führte. Wir haben jetzt einen Regressionstest, der verhindert, dass dies erneut eingeführt wird.
+**Historie:** Dies hat in diesem Repo wiederholte Fix-/Revert-Zyklen verursacht ([#29](https://github.com/ApexForge-devz/PowerUser), [#52](https://github.com/ApexForge-devz/PowerUser), [#103](https://github.com/ApexForge-devz/PowerUser)). Das Verhalten änderte sich zwischen Claude-Code-Versionen, was zu Verwirrung führte. Wir haben jetzt einen Regressionstest, der verhindert, dass dies erneut eingeführt wird.
 
 ---
 
@@ -824,10 +824,10 @@ Der einfachste Weg, dieses Repo zu nutzen - als Claude-Code-Plugin installieren:
 
 ```bash
 # Dieses Repo als Marketplace hinzufügen
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # Das Plugin installieren
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 Oder füge es direkt zu deiner `~/.claude/settings.json` hinzu:
@@ -835,15 +835,15 @@ Oder füge es direkt zu deiner `~/.claude/settings.json` hinzu:
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "poweruser": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/ECC"
+        "repo": "ApexForge-devz/PowerUser"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "poweruser@poweruser": true
   }
 }
 ```
@@ -854,21 +854,21 @@ Dies gibt dir sofortigen Zugriff auf alle Commands, Agents, Skills und Hooks.
 >
 > ```bash
 > # Zuerst das Repo klonen
-> git clone https://github.com/affaan-m/ECC.git
-> cd ECC
+> git clone https://github.com/ApexForge-devz/PowerUser.git
+> cd PowerUser
 >
 > # Option A: Rules auf Benutzerebene (gilt für alle Projekte)
-> mkdir -p ~/.claude/rules/ecc
-> cp -r rules/common ~/.claude/rules/ecc/
-> cp -r rules/typescript ~/.claude/rules/ecc/   # wähle deinen Stack
-> cp -r rules/python ~/.claude/rules/ecc/
-> cp -r rules/golang ~/.claude/rules/ecc/
-> cp -r rules/php ~/.claude/rules/ecc/
+> mkdir -p ~/.claude/rules/poweruser
+> cp -r rules/common ~/.claude/rules/poweruser/
+> cp -r rules/typescript ~/.claude/rules/poweruser/   # wähle deinen Stack
+> cp -r rules/python ~/.claude/rules/poweruser/
+> cp -r rules/golang ~/.claude/rules/poweruser/
+> cp -r rules/php ~/.claude/rules/poweruser/
 >
 > # Option B: Rules auf Projektebene (gilt nur für das aktuelle Projekt)
-> mkdir -p .claude/rules/ecc
-> cp -r rules/common .claude/rules/ecc/
-> cp -r rules/typescript .claude/rules/ecc/     # wähle deinen Stack
+> mkdir -p .claude/rules/poweruser
+> cp -r rules/common .claude/rules/poweruser/
+> cp -r rules/typescript .claude/rules/poweruser/     # wähle deinen Stack
 > ```
 
 ---
@@ -879,20 +879,20 @@ Falls du manuelle Kontrolle darüber bevorzugst, was installiert wird:
 
 ```bash
 # Das Repo klonen
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 
 # Agents in deine Claude-Konfiguration kopieren
 cp agents/*.md ~/.claude/agents/
 
 # Rules-Verzeichnisse kopieren (common + sprachspezifisch)
-mkdir -p ~/.claude/rules/ecc
-cp -r rules/common ~/.claude/rules/ecc/
-cp -r rules/typescript ~/.claude/rules/ecc/   # wähle deinen Stack
-cp -r rules/python ~/.claude/rules/ecc/
-cp -r rules/golang ~/.claude/rules/ecc/
-cp -r rules/php ~/.claude/rules/ecc/
-cp -r rules/arkts ~/.claude/rules/ecc/
+mkdir -p ~/.claude/rules/poweruser
+cp -r rules/common ~/.claude/rules/poweruser/
+cp -r rules/typescript ~/.claude/rules/poweruser/   # wähle deinen Stack
+cp -r rules/python ~/.claude/rules/poweruser/
+cp -r rules/golang ~/.claude/rules/poweruser/
+cp -r rules/php ~/.claude/rules/poweruser/
+cp -r rules/arkts ~/.claude/rules/poweruser/
 
 # Zuerst Skills kopieren (primäre Workflow-Oberfläche)
 # Empfohlen (neue Nutzer): nur Kern-/allgemeine Skills
@@ -900,7 +900,7 @@ mkdir -p ~/.claude/skills
 cp -r .agents/skills/* ~/.claude/skills/
 cp -r skills/search-first ~/.claude/skills/
 # Claude Code lädt Skills nur aus direkten Unterverzeichnissen von ~/.claude/skills.
-# Manuelle Installationen nicht unter ~/.claude/skills/ecc/ verschachteln.
+# Manuelle Installationen nicht unter ~/.claude/skills/poweruser/ verschachteln.
 
 # Optional: nischen-/framework-spezifische Skills nur bei Bedarf hinzufügen
 # for s in django-patterns django-tdd laravel-patterns springboot-patterns quarkus-patterns; do
@@ -917,7 +917,7 @@ cp commands/*.md ~/.claude/commands/
 
 #### Hooks installieren
 
-Kopiere die rohe Repo-Datei `hooks/hooks.json` nicht in `~/.claude/settings.json` oder `~/.claude/hooks/hooks.json`. Diese Datei ist plugin-/repo-orientiert und dafür gedacht, über den ECC-Installer installiert oder als Plugin geladen zu werden, daher ist rohes Kopieren kein unterstützter manueller Installationspfad.
+Kopiere die rohe Repo-Datei `hooks/hooks.json` nicht in `~/.claude/settings.json` oder `~/.claude/hooks/hooks.json`. Diese Datei ist plugin-/repo-orientiert und dafür gedacht, über den PowerUser-Installer installiert oder als Plugin geladen zu werden, daher ist rohes Kopieren kein unterstützter manueller Installationspfad.
 
 Verwende den Installer, um nur die Claude-Hook-Runtime zu installieren, damit Command-Pfade korrekt umgeschrieben werden:
 
@@ -933,25 +933,25 @@ pwsh -File .\install.ps1 --target claude --modules hooks-runtime
 
 Das schreibt aufgelöste Hooks nach `~/.claude/hooks/hooks.json` und lässt eine bestehende `~/.claude/settings.json` unberührt.
 
-Falls du ECC über `/plugin install` installiert hast, kopiere diese Hooks nicht in `settings.json`. Claude Code v2.1+ lädt Plugin-`hooks/hooks.json` bereits automatisch, und sie in `settings.json` zu duplizieren, verursacht doppelte Ausführung und Cross-Platform-Hook-Konflikte.
+Falls du PowerUser über `/plugin install` installiert hast, kopiere diese Hooks nicht in `settings.json`. Claude Code v2.1+ lädt Plugin-`hooks/hooks.json` bereits automatisch, und sie in `settings.json` zu duplizieren, verursacht doppelte Ausführung und Cross-Platform-Hook-Konflikte.
 
 Windows-Hinweis: Das Claude-Konfigurationsverzeichnis ist `%USERPROFILE%\\.claude`, nicht `~/claude`.
 
 #### MCPs konfigurieren
 
-Claude-Plugin-Installationen aktivieren die mitgelieferten MCP-Server-Definitionen von ECC absichtlich nicht automatisch. Das vermeidet überlange Plugin-MCP-Tool-Namen auf strengen Drittanbieter-Gateways und hält gleichzeitig das manuelle MCP-Setup verfügbar.
+Claude-Plugin-Installationen aktivieren die mitgelieferten MCP-Server-Definitionen von PowerUser absichtlich nicht automatisch. Das vermeidet überlange Plugin-MCP-Tool-Namen auf strengen Drittanbieter-Gateways und hält gleichzeitig das manuelle MCP-Setup verfügbar.
 
 Verwende den `/mcp`-Befehl von Claude Code oder das CLI-verwaltete MCP-Setup für Live-Änderungen an Claude-Code-Servern. Verwende `/mcp` für Laufzeit-Deaktivierungen in Claude Code; Claude Code speichert diese Entscheidungen in `~/.claude.json`.
 
 Für repo-lokalen MCP-Zugriff kopiere die gewünschten MCP-Server-Definitionen aus `mcp-configs/mcp-servers.json` in eine projektbezogene `.mcp.json`.
 
-Falls du bereits eigene Kopien der von ECC mitgelieferten MCPs betreibst, setze:
+Falls du bereits eigene Kopien der von PowerUser mitgelieferten MCPs betreibst, setze:
 
 ```bash
 export ECC_DISABLED_MCPS="github,context7,exa,playwright,sequential-thinking,memory"
 ```
 
-ECC-verwaltete Install- und Codex-Sync-Flows überspringen oder entfernen diese mitgelieferten Server, statt Duplikate erneut hinzuzufügen. `ECC_DISABLED_MCPS` ist ein ECC-Install-/Sync-Filter, kein Live-Toggle für Claude Code.
+PowerUser-verwaltete Install- und Codex-Sync-Flows überspringen oder entfernen diese mitgelieferten Server, statt Duplikate erneut hinzuzufügen. `ECC_DISABLED_MCPS` ist ein PowerUser-Install-/Sync-Filter, kein Live-Toggle für Claude Code.
 
 **Wichtig:** Ersetze die `YOUR_*_HERE`-Platzhalter durch deine tatsächlichen API-Keys.
 
@@ -976,7 +976,7 @@ You are a senior code reviewer...
 
 ### Skills
 
-Skills sind die primäre Workflow-Oberfläche. Sie können direkt aufgerufen, automatisch vorgeschlagen und von Agents wiederverwendet werden. ECC liefert während der Migration weiterhin gepflegte `commands/` aus, während ausgemusterte Kurznamen-Shims unter `legacy-command-shims/` nur zur ausdrücklichen Opt-in-Nutzung liegen. Neue Workflow-Entwicklung sollte zuerst in `skills/` landen.
+Skills sind die primäre Workflow-Oberfläche. Sie können direkt aufgerufen, automatisch vorgeschlagen und von Agents wiederverwendet werden. PowerUser liefert während der Migration weiterhin gepflegte `commands/` aus, während ausgemusterte Kurznamen-Shims unter `legacy-command-shims/` nur zur ausdrücklichen Opt-in-Nutzung liegen. Neue Workflow-Entwicklung sollte zuerst in `skills/` landen.
 
 ```markdown
 # TDD Workflow
@@ -1027,8 +1027,8 @@ Nicht sicher, wo du anfangen sollst? Verwende diese Kurzreferenz. Skills sind di
 
 | Ich möchte… | Diese Oberfläche verwenden | Verwendeter Agent |
 |--------------|-----------------|------------|
-| Ein neues Feature planen | `/ecc:plan "Add auth"` | planner |
-| Systemarchitektur entwerfen | `/ecc:plan` + architect-Agent | architect |
+| Ein neues Feature planen | `/poweruser:plan "Add auth"` | planner |
+| Systemarchitektur entwerfen | `/poweruser:plan` + architect-Agent | architect |
 | Code zuerst mit Tests schreiben | `tdd-workflow`-Skill | tdd-guide |
 | Gerade geschriebenen Code reviewen | `/code-review` | code-reviewer |
 | Einen fehlschlagenden Build beheben | `/build-fix` | build-error-resolver |
@@ -1050,7 +1050,7 @@ Die Slash-Formen unten werden dort gezeigt, wo sie Teil der gepflegten Command-O
 
 **Ein neues Feature beginnen:**
 ```
-/ecc:plan "Add user authentication with OAuth"
+/poweruser:plan "Add user authentication with OAuth"
                                               → planner erstellt Implementierungs-Blueprint
 tdd-workflow skill                            → tdd-guide erzwingt write-tests-first
 /code-review                                  → code-reviewer prüft deine Arbeit
@@ -1078,7 +1078,7 @@ e2e-testing skill                             → e2e-runner: Tests kritischer B
 <summary><b>Wie prüfe ich, welche Agents/Commands installiert sind?</b></summary>
 
 ```bash
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 Dies zeigt alle verfügbaren Agents, Commands und Skills aus dem Plugin.
@@ -1087,13 +1087,13 @@ Dies zeigt alle verfügbaren Agents, Commands und Skills aus dem Plugin.
 <details>
 <summary><b>Meine Hooks funktionieren nicht / ich sehe den Fehler "Duplicate hooks file"</b></summary>
 
-Das ist das häufigste Problem. **Füge KEIN `"hooks"`-Feld zu `.claude-plugin/plugin.json` hinzu.** Claude Code v2.1+ lädt `hooks/hooks.json` aus installierten Plugins automatisch. Es explizit zu deklarieren, verursacht Fehler durch Duplikaterkennung. Siehe [#29](https://github.com/affaan-m/ECC/issues/29), [#52](https://github.com/affaan-m/ECC/issues/52), [#103](https://github.com/affaan-m/ECC/issues/103).
+Das ist das häufigste Problem. **Füge KEIN `"hooks"`-Feld zu `.claude-plugin/plugin.json` hinzu.** Claude Code v2.1+ lädt `hooks/hooks.json` aus installierten Plugins automatisch. Es explizit zu deklarieren, verursacht Fehler durch Duplikaterkennung. Siehe [#29](https://github.com/ApexForge-devz/PowerUser), [#52](https://github.com/ApexForge-devz/PowerUser), [#103](https://github.com/ApexForge-devz/PowerUser).
 </details>
 
 <details>
-<summary><b>Kann ich ECC mit Claude Code an einem benutzerdefinierten API-Endpoint oder Modell-Gateway verwenden?</b></summary>
+<summary><b>Kann ich PowerUser mit Claude Code an einem benutzerdefinierten API-Endpoint oder Modell-Gateway verwenden?</b></summary>
 
-Ja. ECC hat keine Anthropic-gehosteten Transporteinstellungen fest verdrahtet. Es läuft lokal über die normale CLI-/Plugin-Oberfläche von Claude Code, daher funktioniert es mit:
+Ja. PowerUser hat keine Anthropic-gehosteten Transporteinstellungen fest verdrahtet. Es läuft lokal über die normale CLI-/Plugin-Oberfläche von Claude Code, daher funktioniert es mit:
 
 - Anthropic-gehostetem Claude Code
 - Offiziellen Claude-Code-Gateway-Setups mit `ANTHROPIC_BASE_URL` und `ANTHROPIC_AUTH_TOKEN`
@@ -1107,7 +1107,7 @@ export ANTHROPIC_AUTH_TOKEN=your-token
 claude
 ```
 
-Falls dein Gateway Modellnamen umbildet, konfiguriere das in Claude Code statt in ECC. ECCs Hooks, Skills, Commands und Rules sind modellanbieter-agnostisch, sobald die `claude`-CLI bereits funktioniert.
+Falls dein Gateway Modellnamen umbildet, konfiguriere das in Claude Code statt in PowerUser. ECCs Hooks, Skills, Commands und Rules sind modellanbieter-agnostisch, sobald die `claude`-CLI bereits funktioniert.
 
 Offizielle Referenzen:
 - [Claude-Code-LLM-Gateway-Dokumentation](https://docs.anthropic.com/en/docs/claude-code/llm-gateway)
@@ -1135,8 +1135,8 @@ Ja. Verwende Option 2 (manuelle Installation) und kopiere nur, was du brauchst:
 cp agents/*.md ~/.claude/agents/
 
 # Nur Rules
-mkdir -p ~/.claude/rules/ecc/
-cp -r rules/common ~/.claude/rules/ecc/
+mkdir -p ~/.claude/rules/poweruser/
+cp -r rules/common ~/.claude/rules/poweruser/
 ```
 
 Jede Komponente ist vollständig unabhängig.
@@ -1145,11 +1145,11 @@ Jede Komponente ist vollständig unabhängig.
 <details>
 <summary><b>Funktioniert das mit Cursor / OpenCode / Codex / Antigravity / GitHub Copilot?</b></summary>
 
-Ja. ECC ist Cross-Platform:
+Ja. PowerUser ist Cross-Platform:
 - **Cursor**: Vorübersetzte Konfigurationen in `.cursor/`. Siehe [Cursor-IDE-Unterstützung](#cursor-ide-unterstützung).
 - **Gemini CLI**: Experimentelle projektlokale Unterstützung über `.gemini/GEMINI.md` und gemeinsam genutzte Installer-Verdrahtung.
 - **OpenCode**: Vollständige Plugin-Unterstützung in `.opencode/`. Siehe [OpenCode-Unterstützung](#opencode-unterstützung).
-- **Codex**: Erstklassige Unterstützung sowohl für die macOS-App als auch die CLI, mit Adapter-Drift-Guards und SessionStart-Fallback. Siehe PR [#257](https://github.com/affaan-m/ECC/pull/257).
+- **Codex**: Erstklassige Unterstützung sowohl für die macOS-App als auch die CLI, mit Adapter-Drift-Guards und SessionStart-Fallback. Siehe PR [#257](https://github.com/ApexForge-devz/PowerUser).
 - **GitHub Copilot (VS Code)**: Instruction- und Prompt-Schicht über `.github/copilot-instructions.md`, `.vscode/settings.json` und `.github/prompts/`. Siehe [GitHub-Copilot-Unterstützung](#github-copilot-unterstützung).
 - **Antigravity**: Eng integriertes Setup für Workflows, Skills und abgeflachte Rules in `.agents/`. Siehe [Antigravity-Leitfaden](../../docs/ANTIGRAVITY-GUIDE.md).
 - **JoyCode / CodeBuddy**: Projektlokale Adapter für selektive Installation von Commands, Agents, Skills und abgeflachten Rules. Siehe [JoyCode-Adapter-Leitfaden](../../docs/JOYCODE-GUIDE.md).
@@ -1209,7 +1209,7 @@ Bitte trage bei! Richtlinien findest du in [CONTRIBUTING.md](../../CONTRIBUTING.
 
 ### Hinweise zum Community-Ökosystem
 
-Diese werden nicht mit ECC mitgeliefert und nicht von diesem Repo auditiert, aber sie sind wissenswert, falls du das breitere Claude-Code-Skills-Ökosystem erkundest:
+Diese werden nicht mit PowerUser mitgeliefert und nicht von diesem Repo auditiert, aber sie sind wissenswert, falls du das breitere Claude-Code-Skills-Ökosystem erkundest:
 
 - [claude-seo](https://github.com/AgriciDaniel/claude-seo) — SEO-fokussierte Skill- und Agent-Sammlung
 - [claude-ads](https://github.com/AgriciDaniel/claude-ads) — Sammlung von Ad-Audit- und Paid-Growth-Workflows
@@ -1219,7 +1219,7 @@ Diese werden nicht mit ECC mitgeliefert und nicht von diesem Repo auditiert, abe
 
 ## Cursor-IDE-Unterstützung
 
-ECC bietet Cursor-IDE-Unterstützung mit Hooks, Rules, Agents, Skills, Commands und MCP-Konfigurationen, die an Cursors Projektlayout angepasst sind.
+PowerUser bietet Cursor-IDE-Unterstützung mit Hooks, Rules, Agents, Skills, Commands und MCP-Konfigurationen, die an Cursors Projektlayout angepasst sind.
 
 ### Schnellstart (Cursor)
 
@@ -1242,16 +1242,16 @@ ECC bietet Cursor-IDE-Unterstützung mit Hooks, Rules, Agents, Skills, Commands 
 | Hook-Events | 15 | sessionStart, beforeShellExecution, afterFileEdit, beforeMCPExecution, beforeSubmitPrompt und 10 weitere |
 | Hook-Skripte | 16 | Schlanke Node.js-Skripte, die über einen gemeinsamen Adapter an `scripts/hooks/` delegieren |
 | Rules | 34 | 9 common (alwaysApply) + 25 sprachspezifisch (TypeScript, Python, Go, Swift, PHP) |
-| Agents | 48 | `.cursor/agents/ecc-*.md` bei Installation; präfixiert, um Kollisionen mit Benutzer- oder Marketplace-Agents zu vermeiden |
+| Agents | 48 | `.cursor/agents/poweruser-*.md` bei Installation; präfixiert, um Kollisionen mit Benutzer- oder Marketplace-Agents zu vermeiden |
 | Skills | Gemeinsam + mitgeliefert | `.cursor/skills/` für übersetzte Ergänzungen |
 | Commands | Gemeinsam | `.cursor/commands/` falls installiert |
 | MCP-Konfiguration | Gemeinsam | `.cursor/mcp.json` falls installiert |
 
 ### Hinweise zum Laden in Cursor
 
-ECC installiert keine Root-`AGENTS.md` in `.cursor/`. Cursor behandelt verschachtelte `AGENTS.md`-Dateien als Verzeichniskontext, daher würde das Kopieren von ECCs Repo-Identität in ein Host-Projekt dieses Projekt verunreinigen.
+PowerUser installiert keine Root-`AGENTS.md` in `.cursor/`. Cursor behandelt verschachtelte `AGENTS.md`-Dateien als Verzeichniskontext, daher würde das Kopieren von ECCs Repo-Identität in ein Host-Projekt dieses Projekt verunreinigen.
 
-Das Cursor-native Ladeverhalten kann je nach Cursor-Build variieren. ECC installiert Agents als `.cursor/agents/ecc-*.md`; falls dein Cursor-Build keine Projekt-Agents bereitstellt, funktionieren diese Dateien weiterhin als explizite Referenzdefinitionen statt als versteckter globaler Prompt-Kontext.
+Das Cursor-native Ladeverhalten kann je nach Cursor-Build variieren. PowerUser installiert Agents als `.cursor/agents/poweruser-*.md`; falls dein Cursor-Build keine Projekt-Agents bereitstellt, funktionieren diese Dateien weiterhin als explizite Referenzdefinitionen statt als versteckter globaler Prompt-Kontext.
 
 ### Hook-Architektur (DRY-Adapter-Muster)
 
@@ -1285,7 +1285,7 @@ alwaysApply: false
 
 ## Codex-macOS-App- + CLI-Unterstützung
 
-ECC bietet **erstklassige Codex-Unterstützung** sowohl für die macOS-App als auch die CLI, mit einer Referenzkonfiguration, einem Codex-spezifischen AGENTS.md-Zusatz und gemeinsam genutzten Skills.
+PowerUser bietet **erstklassige Codex-Unterstützung** sowohl für die macOS-App als auch die CLI, mit einer Referenzkonfiguration, einem Codex-spezifischen AGENTS.md-Zusatz und gemeinsam genutzten Skills.
 
 ### Schnellstart (Codex-App + CLI)
 
@@ -1293,19 +1293,19 @@ ECC bietet **erstklassige Codex-Unterstützung** sowohl für die macOS-App als a
 # Codex CLI im Repo ausführen — AGENTS.md und .codex/ werden automatisch erkannt
 codex
 
-# Automatisches Setup: ECC-Assets (AGENTS.md, Skills, MCP-Server) nach ~/.codex synchronisieren
-npm install && bash scripts/sync-ecc-to-codex.sh
-# oder: pnpm install && bash scripts/sync-ecc-to-codex.sh
-# oder: yarn install && bash scripts/sync-ecc-to-codex.sh
-# oder: bun install && bash scripts/sync-ecc-to-codex.sh
+# Automatisches Setup: PowerUser-Assets (AGENTS.md, Skills, MCP-Server) nach ~/.codex synchronisieren
+npm install && bash scripts/sync-poweruser-to-codex.sh
+# oder: pnpm install && bash scripts/sync-poweruser-to-codex.sh
+# oder: yarn install && bash scripts/sync-poweruser-to-codex.sh
+# oder: bun install && bash scripts/sync-poweruser-to-codex.sh
 
 # Oder manuell: die Referenzkonfiguration in dein Home-Verzeichnis kopieren
 cp .codex/config.toml ~/.codex/config.toml
 ```
 
-Das Sync-Skript merged ECC-MCP-Server sicher in deine bestehende `~/.codex/config.toml` mit einer **add-only**-Strategie — es entfernt oder verändert deine bestehenden Server nie. Führe es mit `--dry-run` aus, um Änderungen in der Vorschau zu sehen, oder mit `--update-mcp`, um ein erzwungenes Refresh der ECC-Server auf die neueste empfohlene Konfiguration zu erzwingen.
+Das Sync-Skript merged PowerUser-MCP-Server sicher in deine bestehende `~/.codex/config.toml` mit einer **add-only**-Strategie — es entfernt oder verändert deine bestehenden Server nie. Führe es mit `--dry-run` aus, um Änderungen in der Vorschau zu sehen, oder mit `--update-mcp`, um ein erzwungenes Refresh der PowerUser-Server auf die neueste empfohlene Konfiguration zu erzwingen.
 
-Für Context7 verwendet ECC den kanonischen Codex-Abschnittsnamen `[mcp_servers.context7]`, startet aber weiterhin das Paket `@upstash/context7-mcp`. Falls du bereits einen veralteten `[mcp_servers.context7-mcp]`-Eintrag hast, migriert `--update-mcp` ihn auf den kanonischen Abschnittsnamen.
+Für Context7 verwendet PowerUser den kanonischen Codex-Abschnittsnamen `[mcp_servers.context7]`, startet aber weiterhin das Paket `@upstash/context7-mcp`. Falls du bereits einen veralteten `[mcp_servers.context7-mcp]`-Eintrag hast, migriert `--update-mcp` ihn auf den kanonischen Abschnittsnamen.
 
 Codex-macOS-App:
 - Öffne dieses Repository als deinen Workspace.
@@ -1348,7 +1348,7 @@ Kanonische Anthropic-Skills wie `claude-api`, `frontend-design` und `skill-creat
 | documentation-lookup | Aktuelle Bibliotheks- und Framework-Dokumentation über Context7 MCP |
 | e2e-testing | Playwright-E2E-Tests |
 | eval-harness | Eval-getriebene Entwicklung |
-| ecc-conventions | Entwicklungskonventionen und -Patterns für das Projekt |
+| poweruser-conventions | Entwicklungskonventionen und -Patterns für das Projekt |
 | exa-search | Neural Search über Exa MCP für Web-, Code-, Unternehmensrecherche |
 | fal-ai-media | Vereinheitlichte Mediengenerierung für Bilder, Video und Audio |
 | frontend-patterns | React-/Next.js-Patterns |
@@ -1368,7 +1368,7 @@ Kanonische Anthropic-Skills wie `claude-api`, `frontend-design` und `skill-creat
 
 ### Wesentliche Einschränkung
 
-Codex bietet **noch keine Claude-artige Parität bei der Hook-Ausführung**. Die ECC-Durchsetzung dort ist instruction-basiert über `AGENTS.md`, optionale `model_instructions_file`-Overrides sowie Sandbox-/Approval-Einstellungen.
+Codex bietet **noch keine Claude-artige Parität bei der Hook-Ausführung**. Die PowerUser-Durchsetzung dort ist instruction-basiert über `AGENTS.md`, optionale `model_instructions_file`-Overrides sowie Sandbox-/Approval-Einstellungen.
 
 ### Multi-Agent-Unterstützung
 
@@ -1379,7 +1379,7 @@ Aktuelle Codex-Builds unterstützen stabile Multi-Agent-Workflows.
 - Verweise jede Rolle auf eine Datei unter `.codex/agents/`
 - Verwende `/agent` in der CLI, um Kind-Agents zu inspizieren oder zu steuern
 
-ECC liefert drei Beispiel-Rollenkonfigurationen aus:
+PowerUser liefert drei Beispiel-Rollenkonfigurationen aus:
 
 | Rolle | Zweck |
 |------|---------|
@@ -1391,7 +1391,7 @@ ECC liefert drei Beispiel-Rollenkonfigurationen aus:
 
 ## Zed-Unterstützung
 
-ECC bietet Zed-Projektunterstützung über einen konservativen `.zed`-Adapter für projektlokale Einstellungen, abgeflachte Rules, Agents, Commands und Skills.
+PowerUser bietet Zed-Projektunterstützung über einen konservativen `.zed`-Adapter für projektlokale Einstellungen, abgeflachte Rules, Agents, Commands und Skills.
 
 ```bash
 ./install.sh --profile minimal --target zed
@@ -1401,13 +1401,13 @@ ECC bietet Zed-Projektunterstützung über einen konservativen `.zed`-Adapter f�
 .\install.ps1 --profile minimal --target zed
 ```
 
-Der Adapter schreibt ECC-verwaltete Dateien unter `.zed/` und hält BYOK-/OpenRouter-Credentials aus dem Repo heraus. Konfiguriere das Zed-Konto oder API-Keys über Zeds eigene Einstellungs-UI oder deine lokalen Benutzereinstellungen.
+Der Adapter schreibt PowerUser-verwaltete Dateien unter `.zed/` und hält BYOK-/OpenRouter-Credentials aus dem Repo heraus. Konfiguriere das Zed-Konto oder API-Keys über Zeds eigene Einstellungs-UI oder deine lokalen Benutzereinstellungen.
 
 ---
 
 ## OpenCode-Unterstützung
 
-ECC bietet **vollständige OpenCode-Unterstützung** einschließlich Plugins und Hooks.
+PowerUser bietet **vollständige OpenCode-Unterstützung** einschließlich Plugins und Hooks.
 
 ### Schnellstart
 
@@ -1492,26 +1492,26 @@ Das Plugin-System von OpenCode ist AUSGEFEILTER als das von Claude Code mit 20+ 
 
 **Option 1: Direkt verwenden**
 ```bash
-cd ECC
+cd PowerUser
 opencode
 ```
 
 **Option 2: Als npm-Paket installieren**
 ```bash
-npm install ecc-universal
+npm install poweruser-universal
 ```
 
 Füge es dann zu deiner `opencode.json` hinzu:
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["poweruser-universal"]
 }
 ```
 
 Dieser npm-Plugin-Eintrag aktiviert ECCs veröffentlichtes OpenCode-Plugin-Modul (Hooks/Events und Plugin-Tools).
 Er fügt **nicht** automatisch ECCs vollständigen Command-/Agent-/Instruction-Katalog zu deiner Projektkonfiguration hinzu.
 
-Für das vollständige ECC-OpenCode-Setup entweder:
+Für das vollständige PowerUser-OpenCode-Setup entweder:
 - OpenCode innerhalb dieses Repositorys ausführen, oder
 - die mitgelieferten `.opencode/`-Konfigurations-Assets in dein Projekt kopieren und die `instructions`-, `agent`- und `command`-Einträge in `opencode.json` verdrahten
 
@@ -1526,7 +1526,7 @@ Für das vollständige ECC-OpenCode-Setup entweder:
 
 ## GitHub-Copilot-Unterstützung
 
-ECC bietet **GitHub-Copilot-Unterstützung** für VS Code über das native Instruction- und Prompt-Datei-System von Copilot Chat — kein zusätzliches Tooling erforderlich.
+PowerUser bietet **GitHub-Copilot-Unterstützung** für VS Code über das native Instruction- und Prompt-Datei-System von Copilot Chat — kein zusätzliches Tooling erforderlich.
 
 ### Was ist enthalten
 
@@ -1555,13 +1555,13 @@ So verwendest du die Workflow-Prompts in Copilot Chat:
 GitHub Copilot in VS Code liest zwei Dateitypen automatisch:
 
 - **`.github/copilot-instructions.md`** — Instructions auf Repository-Ebene, die in jede Copilot-Chat-Anfrage injiziert werden. Enthält ECCs Kern-Coding-Standards, Sicherheits-Checkliste, Testanforderungen und Git-Workflow.
-- **`.github/prompts/*.prompt.md`** — wiederverwendbare Prompt-Dateien, die Nutzer bei Bedarf aufrufen. Jeder Prompt führt Copilot durch einen bestimmten ECC-Workflow wie Planung, TDD, Security-Review, Build-Fix oder Refactor.
+- **`.github/prompts/*.prompt.md`** — wiederverwendbare Prompt-Dateien, die Nutzer bei Bedarf aufrufen. Jeder Prompt führt Copilot durch einen bestimmten PowerUser-Workflow wie Planung, TDD, Security-Review, Build-Fix oder Refactor.
 
 Die **`.vscode/settings.json`** fügt aufgabenspezifische Instruction-Overlays hinzu, sodass Copilot für Codegenerierung, Testgenerierung und Commit-Nachrichten den richtigen Kontext erhält.
 
 ### Feature-Abdeckung
 
-| ECC-Feature | Copilot-Entsprechung |
+| PowerUser-Feature | Copilot-Entsprechung |
 |-------------|-------------------|
 | Coding-Standards | Stets aktiv über `copilot-instructions.md` |
 | Sicherheits-Checkliste | Stets aktiv + `security-review`-Prompt |
@@ -1576,13 +1576,13 @@ Die **`.vscode/settings.json`** fügt aufgabenspezifische Instruction-Overlays h
 
 ### Einschränkungen
 
-GitHub Copilot hat kein Hook-System und keine Subagent-API, daher sind ECCs Hook-Automatisierungen (Auto-Formatierung, TypeScript-Prüfung, Session-Persistenz, Dev-Server-Guard) sowie die Agent-Delegation nicht verfügbar. Die Instruction- und Prompt-Schicht bringt dennoch die vollständige ECC-Coding-Philosophie — Standards, Sicherheit, TDD und Workflow — in jede Copilot-Chat-Session.
+GitHub Copilot hat kein Hook-System und keine Subagent-API, daher sind ECCs Hook-Automatisierungen (Auto-Formatierung, TypeScript-Prüfung, Session-Persistenz, Dev-Server-Guard) sowie die Agent-Delegation nicht verfügbar. Die Instruction- und Prompt-Schicht bringt dennoch die vollständige PowerUser-Coding-Philosophie — Standards, Sicherheit, TDD und Workflow — in jede Copilot-Chat-Session.
 
 ---
 
 ## Cross-Tool-Feature-Parität
 
-ECC ist das **erste Plugin, das jedes große KI-Coding-Tool ausreizt**. So vergleicht sich jeder Harness:
+PowerUser ist das **erste Plugin, das jedes große KI-Coding-Tool ausreizt**. So vergleicht sich jeder Harness:
 
 | Feature | Claude Code | Cursor IDE | Codex CLI | OpenCode | GitHub Copilot |
 |---------|------------|------------|-----------|----------|----------------|
@@ -1678,7 +1678,7 @@ Der `strategic-compact`-Skill (in diesem Plugin enthalten) schlägt `/compact` a
 - Halte unter 10 MCPs pro Projekt aktiviert
 - Halte unter 80 Tools aktiv
 - Verwende `/mcp`, um ungenutzte Claude-Code-MCP-Server zu deaktivieren; diese Laufzeitentscheidungen bleiben in `~/.claude.json` erhalten
-- Verwende `ECC_DISABLED_MCPS` nur, um ECC-generierte MCP-Konfigurationen während der Install-/Sync-Flows zu filtern
+- Verwende `ECC_DISABLED_MCPS` nur, um PowerUser-generierte MCP-Konfigurationen während der Install-/Sync-Flows zu filtern
 
 ### Kostenwarnung zu Agent-Teams
 
@@ -1720,14 +1720,14 @@ Diese Konfigurationen funktionieren für meinen Workflow. Du solltest:
 
 ## Community-Projekte
 
-Projekte, die auf ECC aufbauen oder davon inspiriert sind:
+Projekte, die auf PowerUser aufbauen oder davon inspiriert sind:
 
 | Projekt | Beschreibung |
 |---------|-------------|
 | [EVC](https://github.com/SaigonXIII/evc) | Marketing-Agent-Workspace — 42 Commands für Content-Operatoren, Brand-Governance und Multi-Channel-Publishing. [Visuelle Übersicht](https://saigonxiii.github.io/evc). |
 | [trading-skills](https://github.com/VictorVVedtion/trading-skills) | 68 trading-thematische Claude-Code-Skills mit Pre-Trade-Review-Prompts und Risiko-Gates, inspiriert von Marktteilnehmern. |
 
-Etwas mit ECC gebaut? Öffne einen PR, um es hier hinzuzufügen.
+Etwas mit PowerUser gebaut? Öffne einen PR, um es hier hinzuzufügen.
 
 ---
 
@@ -1741,14 +1741,14 @@ Dieses Projekt ist kostenlos und Open Source. Sponsoren helfen, es gepflegt und 
 
 ## Star-Verlauf
 
-[![Star History Chart](https://api.star-history.com/svg?repos=affaan-m/ECC&type=Date)](https://star-history.com/#affaan-m/ECC&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date)](https://star-history.com/#ApexForge-devz/PowerUser&Date)
 
 ---
 
 ## Links
 
-- **Kurzleitfaden (Hier starten):** [The Shorthand Guide to ECC](https://x.com/affaanmustafa/status/2012378465664745795)
-- **Langleitfaden (fortgeschritten):** [The Longform Guide to ECC](https://x.com/affaanmustafa/status/2014040193557471352)
+- **Kurzleitfaden (Hier starten):** [The Shorthand Guide to PowerUser](https://x.com/affaanmustafa/status/2012378465664745795)
+- **Langleitfaden (fortgeschritten):** [The Longform Guide to PowerUser](https://x.com/affaanmustafa/status/2014040193557471352)
 - **Security-Leitfaden:** [Security-Leitfaden](../../the-security-guide.md) | [Thread](https://x.com/affaanmustafa/status/2033263813387223421)
 - **Folgen:** [@affaanmustafa](https://x.com/affaanmustafa)
 

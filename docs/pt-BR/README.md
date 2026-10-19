@@ -1,13 +1,13 @@
 **Idioma:** [English](../../README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | Português (Brasil) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md) | [Tiếng Việt](../vi-VN/README.md) | [ไทย](../th/README.md) | [Deutsch](../de-DE/README.md) | [Українська](../uk-UA/README.md) | [Polski](../pl/README.md) | [বাংলা](../bn/README.md) | [العربية](../ar/README.md)
 
-# ECC
+# PowerUser
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/stargazers)
-[![Forks](https://img.shields.io/github/forks/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/network/members)
-[![Contributors](https://img.shields.io/github/contributors/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
-[![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
-[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/ecc-tools)
+[![Stars](https://img.shields.io/github/stars/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![Forks](https://img.shields.io/github/forks/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![Contributors](https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![npm poweruser-universal](https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-universal)
+[![npm poweruser-agentshield](https://img.shields.io/npm/dw/poweruser-agentshield?label=poweruser-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-agentshield)
+[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/poweruser-tools)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -45,12 +45,12 @@ Este repositório contém apenas o código. Os guias explicam tudo.
 <tr>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2012378465664745795">
-<img src="../../assets/images/guides/shorthand-guide.png" alt="The Shorthand Guide to ECC" />
+<img src="../../assets/images/guides/shorthand-guide.png" alt="The Shorthand Guide to PowerUser" />
 </a>
 </td>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2014040193557471352">
-<img src="../../assets/images/guides/longform-guide.png" alt="The Longform Guide to ECC" />
+<img src="../../assets/images/guides/longform-guide.png" alt="The Longform Guide to PowerUser" />
 </a>
 </td>
 <td width="33%">
@@ -81,7 +81,7 @@ Este repositório contém apenas o código. Os guias explicam tudo.
 
 ### v2.2.3 — Perfil pi/core e Confiabilidade de Releases (Out 2026)
 
-O perfil `pi/core` agora se refere ao projeto apenas como ECC, e o workflow de release aguarda até cinco minutos pelo npm antes de verificar o pacote publicado.
+O perfil `pi/core` agora se refere ao projeto apenas como PowerUser, e o workflow de release aguarda até cinco minutos pelo npm antes de verificar o pacote publicado.
 
 ### v2.2.2 — Instalação Guiada para Múltiplos Harnesses (Ago 2026)
 
@@ -91,14 +91,14 @@ Adiciona uma instalação revisável para Claude Code, Codex e Kimi Code, com um
 
 Graduação estável da linha 2.0: 261 skills, substrato de control-pane, inventário MCP, serviço de ciclo de vida de worktrees e a comunidade no [Discord](https://discord.gg/36yGMHGFbR).
 
-### v2.0.0-rc.1 — Sincronização de Superfície, Fluxos Operacionais e ECC 2.0 Alpha (Abr 2026)
+### v2.0.0-rc.1 — Sincronização de Superfície, Fluxos Operacionais e PowerUser 2.0 Alpha (Abr 2026)
 
 - **Superfície pública sincronizada com o repositório real** — metadados, contagens de catálogo, manifests de plugin e documentação de instalação agora refletem a superfície OSS que realmente é entregue.
 - **Expansão dos fluxos operacionais e externos** — `brand-voice`, `social-graph-ranker`, `customer-billing-ops`, `google-workspace-ops` e skills relacionadas fortalecem a trilha operacional dentro do mesmo sistema.
 - **Ferramentas de mídia e lançamento** — `manim-video`, `remotion-video-creation` e os fluxos de publicação social colocam explicadores técnicos e lançamento no mesmo repositório.
 - **Crescimento de framework e superfície de produto** — `nestjs-patterns`, superfícies de instalação mais ricas para Codex/OpenCode e melhorias de empacotamento cross-harness ampliam o uso além do Claude Code.
-- **ECC 2.0 alpha já está no repositório** — o plano de controle em Rust dentro de `ecc2/` já compila localmente e expõe `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` e `daemon`.
-- **Fortalecimento do ecossistema** — AgentShield, controles de custo do ECC Tools, trabalho no portal de billing e a renovação do site continuam sendo entregues ao redor do plugin principal.
+- **PowerUser 2.0 alpha já está no repositório** — o plano de controle em Rust dentro de `ecc2/` já compila localmente e expõe `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` e `daemon`.
+- **Fortalecimento do ecossistema** — AgentShield, controles de custo do PowerUser Tools, trabalho no portal de billing e a renovação do site continuam sendo entregues ao redor do plugin principal.
 
 ### v1.9.0 — Instalação Seletiva e Expansão de Idiomas (Mar 2026)
 
@@ -114,7 +114,7 @@ Graduação estável da linha 2.0: 261 skills, substrato de control-pane, invent
 
 ### v1.8.0 — Sistema de Desempenho de Harness (Mar 2026)
 
-- **Lançamento focado em harness** — O ECC agora é explicitamente enquadrado como um sistema de desempenho de harness de agentes, não apenas um pacote de configurações.
+- **Lançamento focado em harness** — O PowerUser agora é explicitamente enquadrado como um sistema de desempenho de harness de agentes, não apenas um pacote de configurações.
 - **Revisão de confiabilidade de hooks** — Fallback de raiz SessionStart, resumos de sessão na fase Stop e hooks baseados em scripts substituindo frágeis one-liners inline.
 - **Controles de runtime de hooks** — `ECC_HOOK_PROFILE=minimal|standard|strict` e `ECC_DISABLED_HOOKS=...` para controle em tempo de execução sem editar arquivos de hook.
 - **Novos comandos de harness** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
@@ -132,10 +132,10 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Adicionar marketplace
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # Instalar plugin
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 ### Passo 2: Instalar as Regras (Obrigatório)
@@ -144,8 +144,8 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Clone o repositório primeiro
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 
 # Instalar dependências (escolha seu gerenciador de pacotes)
 npm install        # ou: pnpm install | yarn install | bun install
@@ -165,20 +165,20 @@ npm install        # ou: pnpm install | yarn install | bun install
 # .\install.ps1 --target antigravity typescript
 
 # O ponto de entrada do pacote npm publicado também funciona multiplataforma
-npx ecc-universal install typescript
+npx poweruser-universal install typescript
 ```
 
 ### Passo 3: Começar a Usar
 
 ```bash
 # Experimente um comando (a instalação do plugin usa forma com namespace)
-/ecc:plan "Adicionar autenticação de usuário"
+/poweruser:plan "Adicionar autenticação de usuário"
 
 # Instalação manual (Opção 2) usa a forma mais curta:
 # /plan "Adicionar autenticação de usuário"
 
 # Verificar comandos disponíveis
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 **Pronto!** Você agora tem acesso a 28 agentes, 116 skills e 59 comandos.
@@ -235,7 +235,7 @@ export ECC_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 ## O Que Está Incluído
 
 ```
-ECC/
+PowerUser/
 |-- agents/           # 28 subagentes especializados para delegação
 |-- skills/           # Definições de fluxo de trabalho e conhecimento de domínio
 |-- commands/         # Comandos slash para execução rápida
@@ -269,7 +269,7 @@ Use o comando `/skill-create` para análise local sem serviços externos:
 
 Para recursos avançados (10k+ commits, PRs automáticos, compartilhamento em equipe):
 
-[Instalar GitHub App](https://github.com/apps/skill-creator) | [ecc.tools](https://ecc.tools)
+[Instalar GitHub App](https://github.com/apps/skill-creator) | [poweruser.tools](https://github.com/ApexForge-devz/PowerUser)
 
 ### AgentShield — Auditor de Segurança
 
@@ -277,16 +277,16 @@ Para recursos avançados (10k+ commits, PRs automáticos, compartilhamento em eq
 
 ```bash
 # Verificação rápida (sem instalação necessária)
-npx ecc-agentshield scan
+npx poweruser-agentshield scan
 
 # Corrigir automaticamente problemas seguros
-npx ecc-agentshield scan --fix
+npx poweruser-agentshield scan --fix
 
 # Análise profunda com três agentes Opus 4.6
-npx ecc-agentshield scan --opus --stream
+npx poweruser-agentshield scan --opus --stream
 
 # Gerar configuração segura do zero
-npx ecc-agentshield init
+npx poweruser-agentshield init
 ```
 
 ### Aprendizado Contínuo v2
@@ -321,10 +321,10 @@ claude --version
 
 ```bash
 # Adicionar este repositório como marketplace
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # Instalar o plugin
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 Ou adicione diretamente ao seu `~/.claude/settings.json`:
@@ -332,15 +332,15 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "poweruser": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/ECC"
+        "repo": "ApexForge-devz/PowerUser"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "poweruser@poweruser": true
   }
 }
 ```
@@ -349,16 +349,16 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
 >
 > ```bash
 > # Clone o repositório primeiro
-> git clone https://github.com/affaan-m/ECC.git
+> git clone https://github.com/ApexForge-devz/PowerUser.git
 >
 > # Opção A: Regras no nível do usuário (aplica a todos os projetos)
 > mkdir -p ~/.claude/rules
-> cp -r ECC/rules/common ~/.claude/rules/common
-> cp -r ECC/rules/typescript ~/.claude/rules/typescript   # escolha sua stack
+> cp -r PowerUser/rules/common ~/.claude/rules/common
+> cp -r PowerUser/rules/typescript ~/.claude/rules/typescript   # escolha sua stack
 >
 > # Opção B: Regras no nível do projeto (aplica apenas ao projeto atual)
 > mkdir -p .claude/rules
-> cp -r ECC/rules/common .claude/rules/common
+> cp -r PowerUser/rules/common .claude/rules/common
 > ```
 
 ---
@@ -367,20 +367,20 @@ Ou adicione diretamente ao seu `~/.claude/settings.json`:
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/affaan-m/ECC.git
+git clone https://github.com/ApexForge-devz/PowerUser.git
 
 # Copiar agentes para sua config Claude
-cp ECC/agents/*.md ~/.claude/agents/
+cp PowerUser/agents/*.md ~/.claude/agents/
 
 # Copiar regras (comuns + específicas da linguagem)
-cp -r ECC/rules/common ~/.claude/rules/common
-cp -r ECC/rules/typescript ~/.claude/rules/typescript
+cp -r PowerUser/rules/common ~/.claude/rules/common
+cp -r PowerUser/rules/typescript ~/.claude/rules/typescript
 
 # Copiar comandos
-cp ECC/commands/*.md ~/.claude/commands/
+cp PowerUser/commands/*.md ~/.claude/commands/
 
 # Copiar skills (core vs nicho)
-cp -r ECC/.agents/skills/* ~/.claude/skills/
+cp -r PowerUser/.agents/skills/* ~/.claude/skills/
 ```
 
 ---
@@ -419,8 +419,8 @@ Regras são diretrizes sempre seguidas, organizadas em `common/` (agnóstico à 
 
 | Quero... | Use este comando | Agente usado |
 |----------|-----------------|--------------|
-| Planejar um novo recurso | `/ecc:plan "Adicionar auth"` | planner |
-| Projetar arquitetura de sistema | `/ecc:plan` + agente architect | architect |
+| Planejar um novo recurso | `/poweruser:plan "Adicionar auth"` | planner |
+| Projetar arquitetura de sistema | `/poweruser:plan` + agente architect | architect |
 | Escrever código com testes primeiro | `/tdd` | tdd-guide |
 | Revisar código que acabei de escrever | `/code-review` | code-reviewer |
 | Corrigir build com falha | `/build-fix` | build-error-resolver |
@@ -435,7 +435,7 @@ Regras são diretrizes sempre seguidas, organizadas em `common/` (agnóstico à 
 
 **Começando um novo recurso:**
 ```
-/ecc:plan "Adicionar autenticação de usuário com OAuth"
+/poweruser:plan "Adicionar autenticação de usuário com OAuth"
                                               → planner cria blueprint de implementação
 /tdd                                          → tdd-guide aplica escrita de testes primeiro
 /code-review                                  → code-reviewer verifica seu trabalho
@@ -463,7 +463,7 @@ Regras são diretrizes sempre seguidas, organizadas em `common/` (agnóstico à 
 <summary><b>Como verificar quais agentes/comandos estão instalados?</b></summary>
 
 ```bash
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 </details>
 
@@ -474,9 +474,9 @@ Este é o problema mais comum. **NÃO adicione um campo `"hooks"` ao `.claude-pl
 </details>
 
 <details>
-<summary><b>Posso usar o ECC com Cursor / OpenCode / Codex / Antigravity?</b></summary>
+<summary><b>Posso usar o PowerUser com Cursor / OpenCode / Codex / Antigravity?</b></summary>
 
-Sim. O ECC é multiplataforma:
+Sim. O PowerUser é multiplataforma:
 - **Cursor**: Configs pré-traduzidas em `.cursor/`
 - **OpenCode**: Suporte completo a plugins em `.opencode/`
 - **Codex**: Suporte de primeira classe para app macOS e CLI
