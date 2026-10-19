@@ -1,15 +1,15 @@
-# ECC 2.0 Hypergrowth Release Command Center
+# PowerUser 2.0 Hypergrowth Release Command Center
 
 Snapshot date: 2026-05-19.
 
-This is the execution map for turning ECC 2.0 into a complete public release,
+This is the execution map for turning PowerUser 2.0 into a complete public release,
 partner funnel, sponsor funnel, consulting surface, and content launch. It is
 written for operators. Use it to decide what ships, what gets announced, and
 what stays blocked until evidence exists.
 
 ## Release Claim
 
-ECC 2.0 is the harness-native operator system for agentic work.
+PowerUser 2.0 is the harness-native operator system for agentic work.
 
 The public proof must show the actual system:
 
@@ -19,7 +19,7 @@ The public proof must show the actual system:
 - `ecc2/` as the alpha control-plane/TUI direction;
 - Hermes as the optional operator shell for chat, cron, handoffs, and daily
   work routing;
-- ECC Tools Pro, GitHub Sponsors, and consulting as the business surface that
+- PowerUser Tools Pro, GitHub Sponsors, and consulting as the business surface that
   funds the OSS layer.
 
 Avoid language that frames this as a rename or a retreat from the old project.
@@ -38,7 +38,7 @@ The release copy should show the 2.0 product shape directly.
 MRR growth should come from four lanes at once:
 
 - GitHub Sponsors and OSS partner sponsors;
-- ECC Tools Pro subscriptions;
+- PowerUser Tools Pro subscriptions;
 - consulting and implementation contracts;
 - talks, podcasts, conference demos, and partner webinars that create inbound.
 
@@ -50,7 +50,7 @@ clip, paragraph, or demo:
 
 | Workstream | Public proof | Revenue path |
 | --- | --- | --- |
-| Product category | ECC as the harness-native operator system, not a Claude-only config pack | Converts confused OSS traffic into install, Pro, and sponsor intent |
+| Product category | PowerUser as the harness-native operator system, not a Claude-only config pack | Converts confused OSS traffic into install, Pro, and sponsor intent |
 | Harness coverage | Claude Code, Codex, OpenCode, Cursor, Gemini, Zed, GitHub Copilot, and terminal workflows shown as execution surfaces | Partner conversations with tools, IDEs, model providers, and platform teams |
 | Control plane | `ecc2/` alpha dashboard/status/session surface and Hermes operator shell clearly framed as directionally live | Consulting and team implementation sprints |
 | Enterprise trust | AgentShield, supply-chain, release, observability, and CI gates shown as repeatable evidence | Security vendors, code-review vendors, platform sponsors, and enterprise pilots |
@@ -70,7 +70,7 @@ The operating rhythm after launch should be weekly:
 
 The long-term platform thesis is recorded in
 [`docs/architecture/platform-value-loop.md`](../../architecture/platform-value-loop.md).
-ECC should stay useful as free OSS while the managed value accrues around team
+PowerUser should stay useful as free OSS while the managed value accrues around team
 memory, observable sessions, release gates, evals, security evidence, hosted
 analysis, billing, partner workflows, and product-specific integrations.
 
@@ -79,43 +79,43 @@ Product integrations should behave like repeatable distribution loops:
 1. ship a public skill pack that works without private credentials;
 2. keep live product data or actions behind an explicit gated API path;
 3. add fixtures, docs, evals, and risk gates so the workflow is testable;
-4. convert sanitized product usage back into ECC skills, docs, or evidence;
+4. convert sanitized product usage back into PowerUser skills, docs, or evidence;
 5. route serious teams toward sponsors, Pro, partners, or consulting.
 
 Itô is the current example: prediction-market research, basket comparison,
 manual non-advisory planning, and data-atlas workflows can be distributed
-through ECC, while live Itô data and account-specific calls remain gated by
-`ITO_API_KEY` and separate from ECC Tools billing.
+through PowerUser, while live Itô data and account-specific calls remain gated by
+`ITO_API_KEY` and separate from PowerUser Tools billing.
 
 ## Release Gates
 
 | Lane | Done when | Current action |
 | --- | --- | --- |
-| Repo identity | README, package metadata, plugin metadata, release docs, workflows, and launch copy all use `affaan-m/ECC` where public URLs are needed | Canonical URL sweep |
-| Package and plugin publication | `ecc-universal@2.0.0-rc.1` dry-runs clean, npm `next` is approved, Claude plugin tag dry-runs, Codex repo marketplace smoke passes, OpenCode build passes | Refresh publication evidence from final commit |
-| Product proof | Quickstart, cross-harness architecture, demo prompts, `ecc2/` alpha boundary, AgentShield safety proof, and hosted ECC Tools links are consistent | Keep proof surfaces concrete |
+| Repo identity | README, package metadata, plugin metadata, release docs, workflows, and launch copy all use `ApexForge-devz/PowerUser` where public URLs are needed | Canonical URL sweep |
+| Package and plugin publication | `poweruser-universal@2.0.0-rc.1` dry-runs clean, npm `next` is approved, Claude plugin tag dry-runs, Codex repo marketplace smoke passes, OpenCode build passes | Refresh publication evidence from final commit |
+| Product proof | Quickstart, cross-harness architecture, demo prompts, `ecc2/` alpha boundary, AgentShield safety proof, and hosted PowerUser Tools links are consistent | Keep proof surfaces concrete |
 | Revenue proof | Sponsor tiers, Pro pricing, consulting CTA, partner CTA, and billing-readback language are current | Do not announce billing claims before live readback |
 | Content proof | Launch video, short-form clips, screenshots, release notes, GitHub Discussion, X, LinkedIn, and longform post are aligned | Pick final video cuts, upload after approval, and attach public URLs |
 | Community proof | Discord invite, rules, channels, onboarding, and sponsor/community routing are ready | Needs invite/token decision before public links |
 
 ## Video Suite
 
-The video lane should use the existing ECC video-editing skill plus the
+The video lane should use the existing PowerUser video-editing skill plus the
 `browser-use/video-use` model where useful: transcript as the editing surface,
 strategy approval before render, deterministic cuts, timeline/project output
 when available, and self-eval before publication.
 
 Reference pattern: <https://github.com/browser-use/video-use>
 
-Primary source classes already exist in the local ECC media library. Keep raw
+Primary source classes already exist in the local PowerUser media library. Keep raw
 absolute paths out of public docs; use basenames or a private production
 manifest when handing work to an editor or agent.
 
 | Deliverable | Length | Source material | Proof goal |
 | --- | ---: | --- | --- |
-| Primary launch video | 90-150s | `longform-full-wide.mp4`, `sf-longform-full.mp4`, `architecture-2-wide.mp4`, `terminal-scan-2-wide.mp4`, `new_site_raw.mp4` | ECC 2.0 as the operator system |
+| Primary launch video | 90-150s | `longform-full-wide.mp4`, `sf-longform-full.mp4`, `architecture-2-wide.mp4`, `terminal-scan-2-wide.mp4`, `new_site_raw.mp4` | PowerUser 2.0 as the operator system |
 | Install proof | 30s | README install, terminal scan, quickstart, plugin install | Fewer-click adoption |
-| What is ECC | 45-60s | `sf-thread-2-whatisecc.mp4`, `vertical-2-whatisecc.mp4`, `architecture-2-*` | Product category clarity |
+| What is PowerUser | 45-60s | `sf-thread-2-whatisecc.mp4`, `vertical-2-whatisecc.mp4`, `architecture-2-*` | Product category clarity |
 | Security proof | 45-60s | `sf-thread-4-security.mp4`, AgentShield evidence, supply-chain gates | Enterprise trust |
 | Money/proof clip | 30-45s | `thread-2-ghapp-money.mp4`, `metrics-ticker-2-*`, `gh_app_*.png` | Sponsor, Pro, and partner credibility |
 | Coverage/social proof | 30-45s | `coverage-montage-wide.mp4`, `100k.png`, `star_history.png`, `x_analytics.png`, coverage screenshots | Distribution leverage |
@@ -156,10 +156,10 @@ billing, social, and outbound actions is
 
 Use direct product language:
 
-- `ECC 2.0 is the harness-native operator system for agentic work.`
+- `PowerUser 2.0 is the harness-native operator system for agentic work.`
 - `One reusable layer across Claude Code, Codex, OpenCode, Cursor, Gemini, Zed, GitHub Copilot, and terminal workflows.`
 - `OSS stays free. Sponsors and Pro fund the work.`
-- `Use ECC for skills, hooks, rules, MCP conventions, release gates, and operator workflows.`
+- `Use PowerUser for skills, hooks, rules, MCP conventions, release gates, and operator workflows.`
 
 Avoid:
 
@@ -178,7 +178,7 @@ Avoid:
 3. Record final publication evidence from the exact release commit.
 4. Keep the video suite manifest, transcripts, publish candidates, and visual QA
    current with `npm run release:video-suite -- --format json`.
-5. Browser-capture the README, ECC Tools app, install flow, and relevant proof
+5. Browser-capture the README, PowerUser Tools app, install flow, and relevant proof
    surfaces for b-roll.
 6. Choose the owner-approved primary launch video and five short clips, then
    upload and attach final public URLs.

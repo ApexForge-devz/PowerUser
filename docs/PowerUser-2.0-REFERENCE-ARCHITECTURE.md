@@ -1,9 +1,9 @@
-# ECC 2.0 Reference Architecture
+# PowerUser 2.0 Reference Architecture
 
 Current execution mirror:
-[`ECC-2.0-GA-ROADMAP.md`](ECC-2.0-GA-ROADMAP.md).
+[`PowerUser-2.0-GA-ROADMAP.md`](PowerUser-2.0-GA-ROADMAP.md).
 
-This document turns the May 2026 reference sweep into concrete ECC backlog
+This document turns the May 2026 reference sweep into concrete PowerUser backlog
 shape. It is not a second strategy memo: every reference pressure below should
 land as an adapter, check, observable signal, security policy, PR review
 surface, or release-readiness gate.
@@ -12,22 +12,22 @@ surface, or release-readiness gate.
 
 Snapshot date: 2026-05-12.
 
-| Reference | Primary pressure on ECC 2.0 | Concrete ECC delta |
+| Reference | Primary pressure on PowerUser 2.0 | Concrete PowerUser delta |
 | --- | --- | --- |
 | [`stablyai/orca`](https://github.com/stablyai/orca) | Worktree-native multi-agent IDE with terminals, source control, GitHub integration, SSH, notifications, design/browser mode, account switching, and per-worktree context. | Treat worktree lifecycle, review state, notification state, and account/provider identity as first-class adapter signals. |
 | [`superset-sh/superset`](https://github.com/superset-sh/superset) | Desktop AI-agent workspace with parallel execution, worktree isolation, diff review, workspace presets, and broad CLI-agent compatibility. | Add workspace preset taxonomy and make ECC2 session/worktree state exportable enough for external editors to consume. |
 | [`standardagents/dmux`](https://github.com/standardagents/dmux) | Tmux/worktree orchestration, lifecycle hooks, multi-select agent control, smart merging, file browser, notifications, and cleanup. | Add lifecycle-hook coverage to the harness matrix and define merge/conflict queue events. |
 | [`aidenybai/ghast`](https://github.com/aidenybai/ghast) | Native macOS terminal multiplexer with cwd-grouped workspaces, panes, tabs, drag/drop, search, and notifications. | Preserve terminal-native ergonomics while adding cwd/session grouping and searchable handoff/session records. |
-| [`jarrodwatts/claude-hud`](https://github.com/jarrodwatts/claude-hud) | Always-visible Claude Code statusline for context, tools, agents, todos, and transcript-backed activity. | Formalize the ECC HUD/status payload for context, cost, tool calls, active agents, todos, queue state, checks, and risk. |
-| [`stanford-iris-lab/meta-harness`](https://github.com/stanford-iris-lab/meta-harness) | Automated search over task-specific harness design: what to store, retrieve, and show. | Split ECC improvement loops into scenario spec, proposer trace, verifier result, and promoted playbook. |
+| [`jarrodwatts/claude-hud`](https://github.com/jarrodwatts/claude-hud) | Always-visible Claude Code statusline for context, tools, agents, todos, and transcript-backed activity. | Formalize the PowerUser HUD/status payload for context, cost, tool calls, active agents, todos, queue state, checks, and risk. |
+| [`stanford-iris-lab/meta-harness`](https://github.com/stanford-iris-lab/meta-harness) | Automated search over task-specific harness design: what to store, retrieve, and show. | Split PowerUser improvement loops into scenario spec, proposer trace, verifier result, and promoted playbook. |
 | [`greyhaven-ai/autocontext`](https://github.com/greyhaven-ai/autocontext) | Recursive harness improvement using traces, reports, artifacts, datasets, playbooks, and role-separated evaluators. | Store reusable traces and playbooks before mutating installed harness assets. |
-| [`NousResearch/hermes-agent`](https://github.com/NousResearch/hermes-agent) | Self-improving operator shell with memories, skills, scheduler, gateways, subagents, terminal backends, and migration tooling. | Keep ECC portable across local, SSH, container, and hosted terminal backends without hiding the underlying commands. |
+| [`NousResearch/hermes-agent`](https://github.com/NousResearch/hermes-agent) | Self-improving operator shell with memories, skills, scheduler, gateways, subagents, terminal backends, and migration tooling. | Keep PowerUser portable across local, SSH, container, and hosted terminal backends without hiding the underlying commands. |
 | [`anthropics/claude-code`](https://github.com/anthropics/claude-code), [`sst/opencode`](https://github.com/sst/opencode), Zed, Codex, Cursor, Gemini | Different agent harnesses expose different hooks, plugin surfaces, session stores, config files, and review loops. | Maintain a public adapter compliance matrix instead of treating one harness as the canonical UX. |
 | Local Claude Code source review | Session, tool, permission, hook, remote, analytics, task, and context-suggestion surfaces are more structured than the public CLI UX suggests. | Model status and risk events around session messages, permission requests, tool progress, context pressure, and summary state. |
 
 ## Architecture Shape
 
-ECC 2.0 should be a harness operating system, not only a catalog of commands,
+PowerUser 2.0 should be a harness operating system, not only a catalog of commands,
 agents, and skills.
 
 ```text
@@ -48,7 +48,7 @@ agents, and skills.
 │ scenario specs, verifiers, promoted playbooks, RAG sets      │
 ├──────────────────────────────────────────────────────────────┤
 │ Security And Commercial Platform                             │
-│ AgentShield policies/SARIF, ECC Tools checks, billing,       │
+│ AgentShield policies/SARIF, PowerUser Tools checks, billing,       │
 │ Linear/GitHub sync, enterprise reports                       │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -71,11 +71,11 @@ Adopt from Orca, Superset, dmux, and Ghast:
 
 Repo work:
 
-- `ECC`: extend the adapter compliance matrix and public
+- `PowerUser`: extend the adapter compliance matrix and public
   scorecard onramp.
 - `ecc2`: surface session/worktree state through a stable local payload before
   adding hosted telemetry.
-- `ECC-Tools`: consume the same lifecycle events for PR checks, issue routing,
+- `PowerUser-Tools`: consume the same lifecycle events for PR checks, issue routing,
   and Linear sync.
 
 Verification:
@@ -103,7 +103,7 @@ Repo work:
 
 - Keep `docs/architecture/observability-readiness.md` as the operator-facing
   readiness gate.
-- Define a versioned HUD/status JSON contract that both ECC2 and ECC Tools can
+- Define a versioned HUD/status JSON contract that both ECC2 and PowerUser Tools can
   consume.
 - Add sample exports from `loop-status`, `session-inspect`, harness audit, and
   risk ledger into a fixture directory before building visual UI.
@@ -124,14 +124,14 @@ Adopt from Meta-Harness, Autocontext, and Hermes Agent:
   changed file.
 - Promote playbooks only after a verifier proves that they improve a scenario
   without widening blast radius.
-- Use RAG/reference sets for vetted ECC patterns, team history, CI failures,
+- Use RAG/reference sets for vetted PowerUser patterns, team history, CI failures,
   review outcomes, harness config quality, and security decisions.
 
 Repo work:
 
-- `ECC`: document scenario specs, verifier contracts, and
+- `PowerUser`: document scenario specs, verifier contracts, and
   playbook promotion rules.
-- `ECC-Tools`: map analyzer findings to PR comments, check runs, and Linear
+- `PowerUser-Tools`: map analyzer findings to PR comments, check runs, and Linear
   tasks without flooding the workspace.
 - `agentshield`: feed prompt-injection and config-risk findings into regression
   suites.
@@ -172,9 +172,9 @@ Verification:
 - policy-pack golden tests
 - false-positive regression tests from the public issue history
 
-### ECC Tools Commercial And Review Platform
+### PowerUser Tools Commercial And Review Platform
 
-ECC Tools should become the GitHub-native layer for billing, deep analysis,
+PowerUser Tools should become the GitHub-native layer for billing, deep analysis,
 PR checks, and Linear progress tracking.
 
 Backlog shape:
@@ -186,7 +186,7 @@ Backlog shape:
   Dependabot, CodeRabbit, and Greptile: security evidence, dependency risk,
   CI/CD recommendations, PR review behavior, config quality, token/cost risk,
   and harness drift.
-- RAG/reference set over vetted ECC patterns, historical PR outcomes,
+- RAG/reference set over vetted PowerUser patterns, historical PR outcomes,
   dependency advisories, CI failures, review decisions, and team-specific
   conventions.
 - Linear sync that maps findings to project status, milestone evidence, and
@@ -233,7 +233,7 @@ Required safeguards:
    final-commit evidence before rc.1 publication.
 3. Define the HUD/status JSON contract and fixture directory.
 4. Start AgentShield policy schema plus SARIF fixtures.
-5. Audit ECC Tools billing and check-run surfaces.
+5. Audit PowerUser Tools billing and check-run surfaces.
 6. Inventory legacy folders and closed-stale PRs into the salvage ledger.
 7. Port useful stale work in small attributed maintainer PRs.
 
