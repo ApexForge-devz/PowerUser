@@ -1,10 +1,10 @@
 **Język:** [English](../../README.md) | [العربية](../ar/README.md) | **Polski** | [Deutsch](../de-DE/README.md) | [Español](../es/README.md) | [Português (Brasil)](../pt-BR/README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md) | [Tiếng Việt](../vi-VN/README.md) | [ไทย](../th/README.md) | [Українська](../uk-UA/README.md)
 
-# ECC
+# PowerUser
 
-![ECC — system operacyjny dla pracy agentowej, natywny dla środowisk agentów](../../assets/hero.png)
+![PowerUser — system operacyjny dla pracy agentowej, natywny dla środowisk agentów](../../assets/hero.png)
 
-> Tłumaczenie obejmuje przewodnik startowy i najważniejsze powierzchnie ECC. Źródło angielskie:
+> Tłumaczenie obejmuje przewodnik startowy i najważniejsze powierzchnie PowerUser. Źródło angielskie:
 > commit `8321021c54d670126ce3b2969d5deb880b4b0c2a` z gałęzi `main`.
 > Pełny, aktualny katalog pozostaje w [angielskim README](../../README.md); kolejne obszary będą
 > tłumaczone etapami, aby ograniczyć rozmiar i ryzyko nieaktualnych zmian.
@@ -13,21 +13,21 @@
 
 **Natywny dla środowisk agentów system operacyjny do pracy agentowej.**
 
-ECC to nie tylko zestaw konfiguracji. Łączy gotowe do użycia Agenty, Skille, Hooki, Rules,
+PowerUser to nie tylko zestaw konfiguracji. Łączy gotowe do użycia Agenty, Skille, Hooki, Rules,
 konfiguracje MCP i warstwę zgodności ze starszymi Commands. System powstał na podstawie
 rzeczywistych przepływów pracy i działa w wielu środowiskach: **Claude Code**, **Codex**,
 **Cursor**, **OpenCode**, **Gemini**, **Zed**, **GitHub Copilot** i innych.
 
 ## Oficjalne źródła
 
-Instaluj ECC wyłącznie ze zweryfikowanych kanałów:
+Instaluj PowerUser wyłącznie ze zweryfikowanych kanałów:
 
-- repozytorium [github.com/affaan-m/ECC](https://github.com/affaan-m/ECC),
-- pakiety npm [`ecc-universal`](https://www.npmjs.com/package/ecc-universal) i
-  [`ecc-agentshield`](https://www.npmjs.com/package/ecc-agentshield),
-- aplikacja [ECC Tools dla GitHub](https://github.com/apps/ecc-tools),
-- identyfikator pluginu `ecc@ecc`,
-- witryna [ecc.tools](https://ecc.tools).
+- repozytorium [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser),
+- pakiety npm [`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) i
+  [`poweruser-agentshield`](https://www.npmjs.com/package/poweruser-agentshield),
+- aplikacja [PowerUser Tools dla GitHub](https://github.com/apps/poweruser-tools),
+- identyfikator pluginu `poweruser@poweruser`,
+- witryna [poweruser.tools](https://github.com/ApexForge-devz/PowerUser).
 
 Nieoficjalne kopie i mirrory nie są utrzymywane ani sprawdzane przez projekt.
 
@@ -39,15 +39,15 @@ jest najczęstszą przyczyną zduplikowanych Agentów, Skilli i Hooków.
 ### Uniwersalna konfiguracja prowadzona
 
 ```bash
-npx ecc-universal@2.2.1 setup
+npx poweruser-universal@2.2.1 setup
 ```
 
 Możesz także użyć właściwego menedżera pakietów:
 
 ```bash
-pnpm dlx ecc-universal@2.2.1 setup
-yarn dlx ecc-universal@2.2.1 setup
-bunx ecc-universal@2.2.1 setup
+pnpm dlx poweruser-universal@2.2.1 setup
+yarn dlx poweruser-universal@2.2.1 setup
+bunx poweruser-universal@2.2.1 setup
 ```
 
 Przed uruchomieniem kodu pakietu sprawdź źródło wydania i integralność rejestru.
@@ -57,8 +57,8 @@ Przed uruchomieniem kodu pakietu sprawdź źródło wydania i integralność rej
 W Claude Code dodaj marketplace i zainstaluj plugin:
 
 ```text
-/plugin marketplace add https://github.com/affaan-m/ECC
-/plugin install ecc@ecc
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
+/plugin install poweruser@poweruser
 ```
 
 Następnie zacznij od `rules/common` oraz tylko tych pakietów językowych lub frameworków,
@@ -68,11 +68,11 @@ których rzeczywiście używasz. Po instalacji pluginu nie uruchamiaj dodatkowo 
 ### Codex
 
 ```bash
-codex plugin marketplace add affaan-m/ECC
-codex plugin add ecc@ecc
+codex plugin marketplace add ApexForge-devz/PowerUser
+codex plugin add poweruser@poweruser
 ```
 
-W Codex użyj `$configure-ecc`, aby przejść przez konfigurację dostosowaną do dostawcy.
+W Codex użyj `$configure-poweruser`, aby przejść przez konfigurację dostosowaną do dostawcy.
 
 ### Inne środowiska
 
@@ -97,7 +97,7 @@ Pełna macierz środowisk i wymagania znajdują się w
 Polski używa kodu `pl`; akceptowany jest także alias `pl-PL`. Użyj lokalnej kopii
 repozytorium zawierającej katalog `docs/pl/` i komponent `locale:pl`. Uruchom poniższe
 polecenia z głównego katalogu tej kopii, po zainstalowaniu zależności repozytorium.
-Wymagany jest Node.js 18 lub nowszy. Wydanie `ecc-universal@2.2.1` nie zawiera jeszcze
+Wymagany jest Node.js 18 lub nowszy. Wydanie `poweruser-universal@2.2.1` nie zawiera jeszcze
 polskiej dokumentacji.
 
 Najpierw sprawdź plan bez zapisywania plików instalacji:
@@ -112,10 +112,10 @@ Następnie zainstaluj polską dokumentację w `~/.claude/docs/pl/`:
 node scripts/install-apply.js --target claude --locale pl
 ```
 
-Ten wybór instaluje moduł dokumentacji `docs-pl`; nie instaluje pełnego profilu ECC
+Ten wybór instaluje moduł dokumentacji `docs-pl`; nie instaluje pełnego profilu PowerUser
 ani automatycznych Hooków.
 
-## Co zawiera ECC
+## Co zawiera PowerUser
 
 | Powierzchnia | Rola |
 |---|---|
@@ -153,7 +153,7 @@ nowe wersje Claude Code ładują `hooks/hooks.json` automatycznie.
 Rules opisują zawsze obowiązujące konwencje. Instaluj wspólny rdzeń i tylko pasujące pakiety,
 aby nie obciążać okna kontekstu nieistotnymi regułami.
 
-Sposób tłumaczenia terminów ECC opisuje [polski glosariusz](GLOSSARY.md).
+Sposób tłumaczenia terminów PowerUser opisuje [polski glosariusz](GLOSSARY.md).
 
 ## Bezpieczeństwo
 
@@ -190,4 +190,4 @@ MIT — możesz swobodnie używać i dostosowywać projekt oraz dzielić się ul
 
 ---
 
-**Jeśli ECC Ci pomaga, zostaw gwiazdkę. Przeczytaj przewodniki. Zbuduj coś świetnego.**
+**Jeśli PowerUser Ci pomaga, zostaw gwiazdkę. Przeczytaj przewodniki. Zbuduj coś świetnego.**

@@ -1,15 +1,15 @@
 **Язык:** [English](../../README.md) | [Português (Brasil)](../pt-BR/README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | [Türkçe](../tr/README.md) | **Русский** | [Tiếng Việt](../vi-VN/README.md) | [ไทย](../th/README.md) | [Deutsch](../de-DE/README.md) | [Українська](../uk-UA/README.md) | [Polski](../pl/README.md) | [বাংলা](../bn/README.md) | [العربية](../ar/README.md)
 
-# ECC
+# PowerUser
 
-![ECC — система повышения эффективности сред агентного ИИ](../../assets/hero.png)
+![PowerUser — система повышения эффективности сред агентного ИИ](../../assets/hero.png)
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/stargazers)
-[![Forks](https://img.shields.io/github/forks/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/network/members)
-[![Contributors](https://img.shields.io/github/contributors/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
-[![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
-[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/ecc-tools)
+[![Stars](https://img.shields.io/github/stars/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![Forks](https://img.shields.io/github/forks/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![Contributors](https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![npm poweruser-universal](https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-universal)
+[![npm poweruser-agentshield](https://img.shields.io/npm/dw/poweruser-agentshield?label=poweruser-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-agentshield)
+[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/poweruser-tools)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -39,7 +39,7 @@
 
 Работает в **Claude Code**, **Codex**, **Cursor**, **OpenCode**, **Gemini** и других средах агентного ИИ.
 
-ECC v2.0.0-rc.1 добавляет публичную историю оператора Hermes поверх этого переиспользуемого слоя: начните с [руководства по настройке Hermes](../HERMES-SETUP.md), затем прочитайте [примечания к выпуску rc.1](../releases/2.0.0-rc.1/release-notes.md) и [архитектуру для разных сред](../architecture/cross-harness.md).
+PowerUser v2.0.0-rc.1 добавляет публичную историю оператора Hermes поверх этого переиспользуемого слоя: начните с [руководства по настройке Hermes](../HERMES-SETUP.md), затем прочитайте [примечания к выпуску rc.1](../releases/2.0.0-rc.1/release-notes.md) и [архитектуру для разных сред](../architecture/cross-harness.md).
 
 ---
 
@@ -51,12 +51,12 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 <tr>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2012378465664745795">
-<img src="../../assets/images/guides/shorthand-guide.png" alt="Краткое руководство по ECC" />
+<img src="../../assets/images/guides/shorthand-guide.png" alt="Краткое руководство по PowerUser" />
 </a>
 </td>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2014040193557471352">
-<img src="../../assets/images/guides/longform-guide.png" alt="Подробное руководство по ECC" />
+<img src="../../assets/images/guides/longform-guide.png" alt="Подробное руководство по PowerUser" />
 </a>
 </td>
 <td width="33%">
@@ -85,15 +85,15 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 
 ## Что нового
 
-### v2.0.0-rc.1 — Обновление публичного контура, операторские рабочие процессы и ECC 2.0 Alpha (апрель 2026)
+### v2.0.0-rc.1 — Обновление публичного контура, операторские рабочие процессы и PowerUser 2.0 Alpha (апрель 2026)
 
 - **Dashboard GUI** — новое настольное приложение на Tkinter (`ecc_dashboard.py` или `npm run dashboard`) с переключателем тёмной/светлой темы, настройкой шрифта и логотипом проекта в заголовке и панели задач.
 - **Публичный контур синхронизирован с текущим репозиторием** — метаданные, счётчики каталога, манифесты плагинов и документация для установки теперь соответствуют реальному OSS-набору: 50 агентов, 185 навыков и 68 устаревших совместимых заглушек команд.
-- **Расширение операторских и outbound-рабочих процессов** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `ecc-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` и `workspace-surface-audit` закрывают операторское направление.
+- **Расширение операторских и outbound-рабочих процессов** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `poweruser-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops` и `workspace-surface-audit` закрывают операторское направление.
 - **Медиа и инструменты запуска** — `manim-video`, `remotion-video-creation` и обновлённые интерфейсы публикации в соцсетях делают технические объяснения и launch-контент частью той же системы.
 - **Рост поддержки фреймворков и продуктов** — `nestjs-patterns`, более развитые пути установки для Codex/OpenCode и расширенная упаковка для разных сред сохраняют полезность репозитория не только для Claude Code.
-- **ECC 2.0 alpha находится в дереве репозитория** — прототип control plane на Rust в `ecc2/` теперь собирается локально и предоставляет команды `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` и `daemon`. Это пригодная к использованию alpha-версия, но ещё не общий релиз.
-- **Укрепление экосистемы** — AgentShield, контроль затрат ECC Tools, работа над billing portal и обновления сайта продолжают поставляться вокруг основного плагина, а не расползаются по отдельным направлениям.
+- **PowerUser 2.0 alpha находится в дереве репозитория** — прототип control plane на Rust в `ecc2/` теперь собирается локально и предоставляет команды `dashboard`, `start`, `sessions`, `status`, `stop`, `resume` и `daemon`. Это пригодная к использованию alpha-версия, но ещё не общий релиз.
+- **Укрепление экосистемы** — AgentShield, контроль затрат PowerUser Tools, работа над billing portal и обновления сайта продолжают поставляться вокруг основного плагина, а не расползаются по отдельным направлениям.
 
 ### v1.9.0 — Выборочная установка и расширение языковой поддержки (март 2026)
 
@@ -109,7 +109,7 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 
 ### v1.8.0 — Система повышения эффективности сред агентного ИИ (март 2026)
 
-- **Релиз с фокусом на средах агентного ИИ** — ECC теперь явно позиционируется как система повышения эффективности таких сред, а не просто набор конфигов.
+- **Релиз с фокусом на средах агентного ИИ** — PowerUser теперь явно позиционируется как система повышения эффективности таких сред, а не просто набор конфигов.
 - **Переработка надёжности хуков** — fallback корня для SessionStart, сводки сессий в фазе Stop и скриптовые хуки вместо хрупких inline-однострочников.
 - **Управление хуками во время выполнения** — `ECC_HOOK_PROFILE=minimal|standard|strict` и `ECC_DISABLED_HOOKS=...` для runtime-ограничений без редактирования файлов хуков.
 - **Новые команды для сред** — `/harness-audit`, `/loop-start`, `/loop-status`, `/quality-gate`, `/model-route`.
@@ -130,17 +130,17 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 - **Поддержка Codex CLI** — новая команда `/codex-setup` генерирует `codex.md` для совместимости с OpenAI Codex CLI
 - **7 новых навыков** — `search-first`, `swift-actor-persistence`, `swift-protocol-di-testing`, `regex-vs-llm-structured-text`, `content-hash-cache-pattern`, `cost-aware-llm-pipeline`, `skill-stocktake`
 - **Интеграция AgentShield** — навык `/security-scan` запускает AgentShield прямо из Claude Code; 1282 теста, 102 правила
-- **GitHub Marketplace** — GitHub App ECC Tools доступен на [github.com/marketplace/ecc-tools](https://github.com/marketplace/ecc-tools) с тарифами free/pro/enterprise
+- **GitHub Marketplace** — GitHub App PowerUser Tools доступен на [github.com/marketplace/poweruser-tools](https://github.com/marketplace/poweruser-tools) с тарифами free/pro/enterprise
 - **Объединено 30+ PR сообщества** — вклад 30 участников на 6 языках
 - **978 внутренних тестов** — расширенный набор валидации для агентов, навыков, команд, хуков и правил
 
 ### v1.4.1 — Исправление ошибки (февраль 2026)
 
-- **Исправлена потеря содержимого при импорте инстинктов** — `parse_instinct_file()` незаметно отбрасывал всё содержимое после frontmatter (разделы Action, Evidence, Examples) во время `/instinct-import`. ([#148](https://github.com/affaan-m/ECC/issues/148), [#161](https://github.com/affaan-m/ECC/pull/161))
+- **Исправлена потеря содержимого при импорте инстинктов** — `parse_instinct_file()` незаметно отбрасывал всё содержимое после frontmatter (разделы Action, Evidence, Examples) во время `/instinct-import`. ([#148](https://github.com/ApexForge-devz/PowerUser), [#161](https://github.com/ApexForge-devz/PowerUser))
 
 ### v1.4.0 — Многоязычные правила, мастер установки и PM2 (февраль 2026)
 
-- **Интерактивный мастер установки** — новый навык `configure-ecc` предоставляет пошаговую настройку с обнаружением merge/overwrite
+- **Интерактивный мастер установки** — новый навык `configure-poweruser` предоставляет пошаговую настройку с обнаружением merge/overwrite
 - **PM2 и многоагентная оркестрация** — 6 новых команд (`/pm2`, `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, `/multi-workflow`) для управления сложными многоcервисными рабочими процессами
 - **Архитектура многоязычных правил** — правила реструктурированы из плоских файлов в директории `common/` + `typescript/` + `python/` + `golang/`. Устанавливайте только нужные языки
 - **Переводы на китайский (zh-CN)** — полный перевод всех агентов, команд, навыков и правил (80+ файлов)
@@ -160,7 +160,7 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 - **Управление сессиями** — команда `/sessions` для истории сессий
 - **Непрерывное обучение v2** — обучение на основе инстинктов с оценкой уверенности, импортом/экспортом и эволюцией
 
-Полный журнал изменений смотрите в [Releases](https://github.com/affaan-m/ECC/releases).
+Полный журнал изменений смотрите в [Releases](https://github.com/ApexForge-devz/PowerUser).
 
 ---
 
@@ -174,13 +174,13 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 
 - **Рекомендуемый вариант по умолчанию:** установите плагин Claude Code, затем скопируйте только те папки правил, которые вам действительно нужны.
 - **Используйте ручной установщик только если** вам нужен более тонкий контроль, вы хотите полностью избежать пути через плагин или ваша сборка Claude Code не может разрешить self-hosted запись в marketplace.
-- **Не накладывайте методы установки друг на друга.** Самая частая сломанная конфигурация: сначала `/plugin install`, затем `install.sh --profile full` или `npx ecc-universal install --profile full`.
+- **Не накладывайте методы установки друг на друга.** Самая частая сломанная конфигурация: сначала `/plugin install`, затем `install.sh --profile full` или `npx poweruser-universal install --profile full`.
 
-Если вы уже наложили несколько установок и видите дублирование, сразу переходите к разделу [Сброс / удаление ECC](#сброс--удаление-ecc).
+Если вы уже наложили несколько установок и видите дублирование, сразу переходите к разделу [Сброс / удаление PowerUser](#сброс--удаление-poweruser).
 
 ### Путь с малым контекстом / без хуков
 
-Если хуки кажутся слишком глобальными или вам нужны только правила, агенты, команды и основные навыки рабочих процессов ECC, пропустите плагин и используйте минимальный ручной профиль:
+Если хуки кажутся слишком глобальными или вам нужны только правила, агенты, команды и основные навыки рабочих процессов PowerUser, пропустите плагин и используйте минимальный ручной профиль:
 
 ```bash
 ./install.sh --profile minimal --target claude
@@ -189,7 +189,7 @@ ECC v2.0.0-rc.1 добавляет публичную историю опера�
 ```powershell
 .\install.ps1 --profile minimal --target claude
 # или
-npx ecc-universal install --profile minimal --target claude
+npx poweruser-universal install --profile minimal --target claude
 ```
 
 Этот профиль намеренно исключает `hooks-runtime`.
@@ -208,10 +208,10 @@ npx ecc-universal install --profile minimal --target claude
 
 ### Сначала найдите нужные компоненты
 
-Если вы не уверены, какой профиль ECC или компонент установить, спросите упакованный advisor из любого проекта:
+Если вы не уверены, какой профиль PowerUser или компонент установить, спросите упакованный advisor из любого проекта:
 
 ```bash
-npx ecc-universal consult "security reviews" --target claude
+npx poweruser-universal consult "security reviews" --target claude
 ```
 
 Он вернёт подходящие компоненты, связанные профили и команды предпросмотра/установки. Используйте команду предпросмотра перед установкой, если хотите посмотреть точный план файлов.
@@ -222,62 +222,62 @@ npx ecc-universal consult "security reviews" --target claude
 
 ```bash
 # Добавьте marketplace
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # Установите плагин
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 ### Примечание об именовании и миграции
 
-У ECC теперь три публичных идентификатора, и они не взаимозаменяемы:
+У PowerUser теперь три публичных идентификатора, и они не взаимозаменяемы:
 
-- исходный репозиторий GitHub: `affaan-m/ECC`
-- идентификатор Claude marketplace/plugin: `ecc@ecc`
-- npm-пакет: `ecc-universal`
+- исходный репозиторий GitHub: `ApexForge-devz/PowerUser`
+- идентификатор Claude marketplace/plugin: `poweruser@poweruser`
+- npm-пакет: `poweruser-universal`
 
-Это сделано намеренно. Установки Anthropic marketplace/plugin ключуются каноническим идентификатором плагина, поэтому ECC использует `ecc@ecc`, чтобы имена инструментов и пространства имен slash-команд оставались достаточно короткими для строгих валидаторов Desktop/API. Старые публикации могут всё ещё показывать прежний длинный marketplace-идентификатор; считайте его только устаревшим alias. Отдельно npm-пакет остался `ecc-universal`, поэтому npm-установки и marketplace-установки намеренно используют разные имена.
+Это сделано намеренно. Установки Anthropic marketplace/plugin ключуются каноническим идентификатором плагина, поэтому PowerUser использует `poweruser@poweruser`, чтобы имена инструментов и пространства имен slash-команд оставались достаточно короткими для строгих валидаторов Desktop/API. Старые публикации могут всё ещё показывать прежний длинный marketplace-идентификатор; считайте его только устаревшим alias. Отдельно npm-пакет остался `poweruser-universal`, поэтому npm-установки и marketplace-установки намеренно используют разные имена.
 
 ### Шаг 2: Установите правила (обязательно)
 
 > ПРЕДУПРЕЖДЕНИЕ: **Важно:** плагины Claude Code не могут автоматически распространять `rules`.
 >
-> Если вы уже установили ECC через `/plugin install`, **не запускайте после этого `./install.sh --profile full`, `.\install.ps1 --profile full` или `npx ecc-universal install --profile full`**. Плагин уже загружает навыки, команды и хуки ECC. Запуск полного установщика после установки плагина скопирует те же компоненты в пользовательские директории и может создать дублирующиеся навыки и дублирующееся runtime-поведение.
+> Если вы уже установили PowerUser через `/plugin install`, **не запускайте после этого `./install.sh --profile full`, `.\install.ps1 --profile full` или `npx poweruser-universal install --profile full`**. Плагин уже загружает навыки, команды и хуки PowerUser. Запуск полного установщика после установки плагина скопирует те же компоненты в пользовательские директории и может создать дублирующиеся навыки и дублирующееся runtime-поведение.
 >
-> Для установки через плагин вручную скопируйте только нужные директории `rules/` в `~/.claude/rules/ecc/`. Начните с `rules/common` плюс один языковой или framework-пакет, который вы действительно используете. Не копируйте все директории правил, если явно не хотите весь этот контекст в Claude.
+> Для установки через плагин вручную скопируйте только нужные директории `rules/` в `~/.claude/rules/poweruser/`. Начните с `rules/common` плюс один языковой или framework-пакет, который вы действительно используете. Не копируйте все директории правил, если явно не хотите весь этот контекст в Claude.
 >
-> Используйте полный установщик только если делаете полностью ручную установку ECC вместо пути через плагин.
+> Используйте полный установщик только если делаете полностью ручную установку PowerUser вместо пути через плагин.
 >
-> Если ваша локальная установка Claude была очищена или сброшена, это не значит, что нужно повторно покупать ECC. Начните с `node scripts/ecc.js list-installed`, затем запустите `node scripts/ecc.js doctor` и `node scripts/ecc.js repair` перед любой переустановкой. Обычно это восстанавливает файлы, управляемые ECC, без пересборки всей настройки. Если проблема связана с аккаунтом или marketplace-доступом к ECC Tools, восстановление billing/account нужно делать отдельно.
+> Если ваша локальная установка Claude была очищена или сброшена, это не значит, что нужно повторно покупать PowerUser. Начните с `node scripts/poweruser.js list-installed`, затем запустите `node scripts/poweruser.js doctor` и `node scripts/poweruser.js repair` перед любой переустановкой. Обычно это восстанавливает файлы, управляемые PowerUser, без пересборки всей настройки. Если проблема связана с аккаунтом или marketplace-доступом к PowerUser Tools, восстановление billing/account нужно делать отдельно.
 
 ```bash
 # Сначала клонируйте репозиторий
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 
 # Установите зависимости (выберите пакетный менеджер)
 npm install        # или: pnpm install | yarn install | bun install
 
-# Путь установки через плагин: скопируйте только правила ECC в пространство имён ECC
-mkdir -p ~/.claude/rules/ecc
-cp -R rules/common ~/.claude/rules/ecc/
-cp -R rules/typescript ~/.claude/rules/ecc/
+# Путь установки через плагин: скопируйте только правила PowerUser в пространство имён PowerUser
+mkdir -p ~/.claude/rules/poweruser
+cp -R rules/common ~/.claude/rules/poweruser/
+cp -R rules/typescript ~/.claude/rules/poweruser/
 
-# Полностью ручной путь установки ECC (используйте вместо /plugin install)
+# Полностью ручной путь установки PowerUser (используйте вместо /plugin install)
 # ./install.sh --profile full
 ```
 
 ```powershell
 # Windows PowerShell
 
-# Путь установки через плагин: скопируйте только правила ECC в пространство имён ECC
-New-Item -ItemType Directory -Force -Path "$HOME/.claude/rules/ecc" | Out-Null
-Copy-Item -Recurse rules/common "$HOME/.claude/rules/ecc/"
-Copy-Item -Recurse rules/typescript "$HOME/.claude/rules/ecc/"
+# Путь установки через плагин: скопируйте только правила PowerUser в пространство имён PowerUser
+New-Item -ItemType Directory -Force -Path "$HOME/.claude/rules/poweruser" | Out-Null
+Copy-Item -Recurse rules/common "$HOME/.claude/rules/poweruser/"
+Copy-Item -Recurse rules/typescript "$HOME/.claude/rules/poweruser/"
 
-# Полностью ручной путь установки ECC (используйте вместо /plugin install)
+# Полностью ручной путь установки PowerUser (используйте вместо /plugin install)
 # .\install.ps1 --profile full
-# npx ecc-universal install --profile full
+# npx poweruser-universal install --profile full
 ```
 
 Инструкции по ручной установке смотрите в README в папке `rules/`. При ручном копировании правил копируйте всю языковую директорию целиком (например, `rules/common` или `rules/golang`), а не файлы внутри неё, чтобы относительные ссылки продолжали работать и имена файлов не конфликтовали.
@@ -293,23 +293,23 @@ Copy-Item -Recurse rules/typescript "$HOME/.claude/rules/ecc/"
 ```powershell
 .\install.ps1 --profile full
 # или
-npx ecc-universal install --profile full
+npx poweruser-universal install --profile full
 ```
 
 Если выбираете этот путь, на нём и остановитесь. Не запускайте дополнительно `/plugin install`.
 
-### Сброс / удаление ECC
+### Сброс / удаление PowerUser
 
-Если ECC кажется дублированным, навязчивым или сломанным, не переустанавливайте его снова поверх самого себя.
+Если PowerUser кажется дублированным, навязчивым или сломанным, не переустанавливайте его снова поверх самого себя.
 
-- **Путь через плагин:** удалите плагин из Claude Code, затем удалите конкретные папки правил, которые вы вручную скопировали в `~/.claude/rules/ecc/`.
+- **Путь через плагин:** удалите плагин из Claude Code, затем удалите конкретные папки правил, которые вы вручную скопировали в `~/.claude/rules/poweruser/`.
 - **Ручной установщик / CLI-путь:** из корня репозитория сначала посмотрите preview удаления:
 
 ```bash
 node scripts/uninstall.js --dry-run
 ```
 
-Затем удалите файлы, управляемые ECC:
+Затем удалите файлы, управляемые PowerUser:
 
 ```bash
 node scripts/uninstall.js
@@ -318,18 +318,18 @@ node scripts/uninstall.js
 Также можно использовать lifecycle-wrapper:
 
 ```bash
-node scripts/ecc.js list-installed
-node scripts/ecc.js doctor
-node scripts/ecc.js repair
-node scripts/ecc.js uninstall --dry-run
+node scripts/poweruser.js list-installed
+node scripts/poweruser.js doctor
+node scripts/poweruser.js repair
+node scripts/poweruser.js uninstall --dry-run
 ```
 
-ECC удаляет только файлы, записанные в его install-state. Он не удалит посторонние файлы, которые сам не устанавливал.
+PowerUser удаляет только файлы, записанные в его install-state. Он не удалит посторонние файлы, которые сам не устанавливал.
 
 Если вы смешали методы, очищайте в таком порядке:
 
 1. Удалите установку плагина Claude Code.
-2. Запустите команду удаления ECC из корня репозитория, чтобы удалить файлы, управляемые install-state.
+2. Запустите команду удаления PowerUser из корня репозитория, чтобы удалить файлы, управляемые install-state.
 3. Удалите любые дополнительные папки правил, которые вы скопировали вручную и больше не хотите использовать.
 4. Переустановите один раз, используя один путь.
 
@@ -337,23 +337,23 @@ ECC удаляет только файлы, записанные в его insta
 
 ```bash
 # Навыки — основной рабочий интерфейс.
-# Существующие slash-style имена команд продолжают работать, пока ECC мигрирует с commands/.
+# Существующие slash-style имена команд продолжают работать, пока PowerUser мигрирует с commands/.
 
 # Установка через плагин использует каноническую форму с namespace
-/ecc:plan "Добавить аутентификацию пользователей"
+/poweruser:plan "Добавить аутентификацию пользователей"
 
 # Ручная установка сохраняет более короткую slash-форму:
 # /plan "Добавить аутентификацию пользователей"
 
 # Проверить доступные команды
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 **Готово.** Теперь у вас есть доступ к 50 агентам, 185 навыкам и 68 устаревшим совместимым заглушкам команд.
 
 ### Dashboard GUI
 
-Запустите настольную панель управления, чтобы визуально изучить компоненты ECC:
+Запустите настольную панель управления, чтобы визуально изучить компоненты PowerUser:
 
 ```bash
 npm run dashboard
@@ -442,7 +442,7 @@ export ECC_SESSION_START_CONTEXT=off
 Этот репозиторий — **плагин Claude Code**: установите его напрямую или скопируйте компоненты вручную.
 
 ```
-ECC/
+PowerUser/
 |-- .claude-plugin/   # Манифесты плагина и marketplace
 |   |-- plugin.json         # Метаданные плагина и пути компонентов
 |   |-- marketplace.json    # Каталог marketplace для /plugin marketplace add
@@ -514,7 +514,7 @@ ECC/
 |   |-- springboot-security/        # Безопасность Spring Boot (НОВОЕ)
 |   |-- springboot-tdd/             # Spring Boot TDD (НОВОЕ)
 |   |-- springboot-verification/    # Spring Boot verification (НОВОЕ)
-|   |-- configure-ecc/              # Интерактивный мастер установки (НОВОЕ)
+|   |-- configure-poweruser/              # Интерактивный мастер установки (НОВОЕ)
 |   |-- security-scan/              # Интеграция аудитора безопасности AgentShield (НОВОЕ)
 |   |-- java-coding-standards/     # Стандарты кодирования Java (НОВОЕ)
 |   |-- jpa-patterns/              # Паттерны JPA/Hibernate (НОВОЕ)
@@ -579,7 +579,7 @@ ECC/
 |   |-- verify.md           # /verify - Предпочитайте skill verification-loop
 |   |-- orchestrate.md      # /orchestrate - Предпочитайте dmux-workflows или multi-workflow
 |
-|-- rules/            # Always-follow guidelines (копируйте в ~/.claude/rules/ecc/)
+|-- rules/            # Always-follow guidelines (копируйте в ~/.claude/rules/poweruser/)
 |   |-- README.md            # Обзор структуры и руководство по установке
 |   |-- common/              # Языконезависимые принципы
 |   |   |-- coding-style.md    # Иммутабельность, организация файлов
@@ -640,7 +640,7 @@ ECC/
 |
 |-- assets/           # Assets для dashboard
 |   |-- images/
-|       |-- ecc-logo.png
+|       |-- poweruser-logo.png
 |
 |-- marketplace.json  # Self-hosted marketplace config (для /plugin marketplace add)
 ```
@@ -668,7 +668,7 @@ ECC/
 
 Для продвинутых возможностей (10k+ коммитов, auto-PR, командный обмен):
 
-[Установить GitHub App](https://github.com/apps/skill-creator) | [ecc.tools](https://ecc.tools)
+[Установить GitHub App](https://github.com/apps/skill-creator) | [poweruser.tools](https://github.com/ApexForge-devz/PowerUser)
 
 ```bash
 # Оставьте комментарий в любом issue:
@@ -690,16 +690,16 @@ ECC/
 
 ```bash
 # Быстрое сканирование (установка не нужна)
-npx ecc-agentshield scan
+npx poweruser-agentshield scan
 
 # Автоисправление безопасных проблем
-npx ecc-agentshield scan --fix
+npx poweruser-agentshield scan --fix
 
 # Глубокий анализ с тремя агентами Opus 4.6
-npx ecc-agentshield scan --opus --stream
+npx poweruser-agentshield scan --opus --stream
 
 # Генерировать безопасный конфиг с нуля
-npx ecc-agentshield init
+npx poweruser-agentshield init
 ```
 
 **Что сканируется:** CLAUDE.md, settings.json, MCP configs, хуки, определения агентов и навыки по 5 категориям: обнаружение секретов (14 паттернов), аудит разрешений, анализ hook injection, профилирование рисков MCP-серверов и ревью конфигураций агентов.
@@ -710,7 +710,7 @@ npx ecc-agentshield init
 
 Используйте `/security-scan` в Claude Code, чтобы запустить его, или добавьте в CI через [GitHub Action](https://github.com/affaan-m/agentshield).
 
-[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/ecc-agentshield)
+[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/poweruser-agentshield)
 
 ### Непрерывное обучение v2
 
@@ -751,7 +751,7 @@ Claude Code v2.1+ **автоматически загружает** `hooks/hooks
 Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded file
 ```
 
-**История:** это уже приводило к повторяющимся циклам fix/revert в репозитории ([#29](https://github.com/affaan-m/ECC/issues/29), [#52](https://github.com/affaan-m/ECC/issues/52), [#103](https://github.com/affaan-m/ECC/issues/103)). Поведение менялось между версиями Claude Code, что вызывало путаницу. Теперь есть регрессионный тест, который не даёт вернуть эту ошибку.
+**История:** это уже приводило к повторяющимся циклам fix/revert в репозитории ([#29](https://github.com/ApexForge-devz/PowerUser), [#52](https://github.com/ApexForge-devz/PowerUser), [#103](https://github.com/ApexForge-devz/PowerUser)). Поведение менялось между версиями Claude Code, что вызывало путаницу. Теперь есть регрессионный тест, который не даёт вернуть эту ошибку.
 
 ---
 
@@ -763,10 +763,10 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 
 ```bash
 # Добавить этот репозиторий как marketplace
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # Установить плагин
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 Или добавьте напрямую в `~/.claude/settings.json`:
@@ -774,15 +774,15 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "poweruser": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/ECC"
+        "repo": "ApexForge-devz/PowerUser"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "poweruser@poweruser": true
   }
 }
 ```
@@ -793,20 +793,20 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 >
 > ```bash
 > # Сначала клонируйте репозиторий
-> git clone https://github.com/affaan-m/ECC.git
+> git clone https://github.com/ApexForge-devz/PowerUser.git
 >
 > # Вариант A: правила user-level (применяются ко всем проектам)
-> mkdir -p ~/.claude/rules/ecc
-> cp -r ECC/rules/common ~/.claude/rules/ecc/
-> cp -r ECC/rules/typescript ~/.claude/rules/ecc/   # выберите свой стек
-> cp -r ECC/rules/python ~/.claude/rules/ecc/
-> cp -r ECC/rules/golang ~/.claude/rules/ecc/
-> cp -r ECC/rules/php ~/.claude/rules/ecc/
+> mkdir -p ~/.claude/rules/poweruser
+> cp -r PowerUser/rules/common ~/.claude/rules/poweruser/
+> cp -r PowerUser/rules/typescript ~/.claude/rules/poweruser/   # выберите свой стек
+> cp -r PowerUser/rules/python ~/.claude/rules/poweruser/
+> cp -r PowerUser/rules/golang ~/.claude/rules/poweruser/
+> cp -r PowerUser/rules/php ~/.claude/rules/poweruser/
 >
 > # Вариант B: правила project-level (применяются только к текущему проекту)
-> mkdir -p .claude/rules/ecc
-> cp -r ECC/rules/common .claude/rules/ecc/
-> cp -r ECC/rules/typescript .claude/rules/ecc/     # выберите свой стек
+> mkdir -p .claude/rules/poweruser
+> cp -r PowerUser/rules/common .claude/rules/poweruser/
+> cp -r PowerUser/rules/typescript .claude/rules/poweruser/     # выберите свой стек
 > ```
 
 ---
@@ -817,35 +817,35 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/affaan-m/ECC.git
+git clone https://github.com/ApexForge-devz/PowerUser.git
 
 # Скопировать агентов в ваш конфиг Claude
-cp ECC/agents/*.md ~/.claude/agents/
+cp PowerUser/agents/*.md ~/.claude/agents/
 
 # Скопировать директории правил (common + language-specific)
-mkdir -p ~/.claude/rules/ecc
-cp -r ECC/rules/common ~/.claude/rules/ecc/
-cp -r ECC/rules/typescript ~/.claude/rules/ecc/   # выберите свой стек
-cp -r ECC/rules/python ~/.claude/rules/ecc/
-cp -r ECC/rules/golang ~/.claude/rules/ecc/
-cp -r ECC/rules/php ~/.claude/rules/ecc/
+mkdir -p ~/.claude/rules/poweruser
+cp -r PowerUser/rules/common ~/.claude/rules/poweruser/
+cp -r PowerUser/rules/typescript ~/.claude/rules/poweruser/   # выберите свой стек
+cp -r PowerUser/rules/python ~/.claude/rules/poweruser/
+cp -r PowerUser/rules/golang ~/.claude/rules/poweruser/
+cp -r PowerUser/rules/php ~/.claude/rules/poweruser/
 
 # Сначала скопировать навыки (основной рабочий интерфейс)
 # Рекомендуется для новых пользователей: только core/general skills
 mkdir -p ~/.claude/skills
-cp -r ECC/.agents/skills/* ~/.claude/skills/
-cp -r ECC/skills/search-first ~/.claude/skills/
+cp -r PowerUser/.agents/skills/* ~/.claude/skills/
+cp -r PowerUser/skills/search-first ~/.claude/skills/
 # Claude Code загружает навыки только из прямых подкаталогов ~/.claude/skills.
-# Не вкладывайте ручную установку в ~/.claude/skills/ecc/.
+# Не вкладывайте ручную установку в ~/.claude/skills/poweruser/.
 
 # Опционально: добавляйте нишевые/framework-specific skills только при необходимости
 # for s in django-patterns django-tdd laravel-patterns springboot-patterns; do
-# cp -r ECC/skills/$s ~/.claude/skills/
+# cp -r PowerUser/skills/$s ~/.claude/skills/
 # done
 
 # Опционально: сохранить поддерживаемую slash-command совместимость во время миграции
 mkdir -p ~/.claude/commands
-cp ECC/commands/*.md ~/.claude/commands/
+cp PowerUser/commands/*.md ~/.claude/commands/
 
 # Retired shims находятся в legacy-command-shims/commands/.
 # Копируйте отдельные файлы оттуда только если вам всё ещё нужны старые имена вроде /tdd.
@@ -853,7 +853,7 @@ cp ECC/commands/*.md ~/.claude/commands/
 
 #### Установить хуки
 
-Не копируйте сырой repo-файл `hooks/hooks.json` в `~/.claude/settings.json` или `~/.claude/hooks/hooks.json`. Этот файл ориентирован на плагин/репозиторий и должен устанавливаться через установщик ECC или загружаться как плагин, поэтому прямое копирование не является поддерживаемым ручным способом установки.
+Не копируйте сырой repo-файл `hooks/hooks.json` в `~/.claude/settings.json` или `~/.claude/hooks/hooks.json`. Этот файл ориентирован на плагин/репозиторий и должен устанавливаться через установщик PowerUser или загружаться как плагин, поэтому прямое копирование не является поддерживаемым ручным способом установки.
 
 Используйте установщик, чтобы установить только Claude hook runtime и корректно переписать пути команд:
 
@@ -869,25 +869,25 @@ pwsh -File .\install.ps1 --target claude --modules hooks-runtime
 
 Это записывает разрешённые хуки в `~/.claude/hooks/hooks.json` и не трогает существующий `~/.claude/settings.json`.
 
-Если вы установили ECC через `/plugin install`, не копируйте эти хуки в `settings.json`. Claude Code v2.1+ уже автоматически загружает plugin `hooks/hooks.json`, а дублирование в `settings.json` вызывает двойное выполнение и кроссплатформенные конфликты хуков.
+Если вы установили PowerUser через `/plugin install`, не копируйте эти хуки в `settings.json`. Claude Code v2.1+ уже автоматически загружает plugin `hooks/hooks.json`, а дублирование в `settings.json` вызывает двойное выполнение и кроссплатформенные конфликты хуков.
 
 Примечание для Windows: директория конфигурации Claude — `%USERPROFILE%\\.claude`, а не `~/claude`.
 
 #### Настроить MCP
 
-Установки Claude plugin намеренно не включают автоматически bundled MCP server definitions ECC. Это предотвращает слишком длинные имена plugin MCP tools на строгих сторонних gateway, но оставляет доступной ручную настройку MCP.
+Установки Claude plugin намеренно не включают автоматически bundled MCP server definitions PowerUser. Это предотвращает слишком длинные имена plugin MCP tools на строгих сторонних gateway, но оставляет доступной ручную настройку MCP.
 
 Для live-изменений серверов Claude Code используйте команду Claude Code `/mcp` или CLI-managed MCP setup. Используйте `/mcp` для отключений во время выполнения Claude Code; Claude Code сохраняет эти решения в `~/.claude.json`.
 
 Для repo-local MCP-доступа скопируйте нужные определения MCP-серверов из `mcp-configs/mcp-servers.json` в project-scoped `.mcp.json`.
 
-Если у вас уже запущены собственные копии MCP, bundled в ECC, задайте:
+Если у вас уже запущены собственные копии MCP, bundled в PowerUser, задайте:
 
 ```bash
 export ECC_DISABLED_MCPS="github,context7,exa,playwright,sequential-thinking,memory"
 ```
 
-ECC-managed install и Codex sync flows будут пропускать или удалять эти bundled servers вместо повторного добавления дубликатов. `ECC_DISABLED_MCPS` — это фильтр установки/синхронизации ECC, а не live-переключатель Claude Code.
+PowerUser-managed install и Codex sync flows будут пропускать или удалять эти bundled servers вместо повторного добавления дубликатов. `ECC_DISABLED_MCPS` — это фильтр установки/синхронизации PowerUser, а не live-переключатель Claude Code.
 
 **Важно:** замените placeholders `YOUR_*_HERE` на реальные API keys.
 
@@ -912,7 +912,7 @@ model: opus
 
 ### Навыки
 
-Навыки — основной рабочий интерфейс. Их можно вызывать напрямую, предлагать автоматически и переиспользовать агентами. ECC всё ещё поставляет поддерживаемые `commands/` во время миграции, а retired short-name shims живут в `legacy-command-shims/` только для явного opt-in. Новая разработка рабочих процессов должна сначала попадать в `skills/`.
+Навыки — основной рабочий интерфейс. Их можно вызывать напрямую, предлагать автоматически и переиспользовать агентами. PowerUser всё ещё поставляет поддерживаемые `commands/` во время миграции, а retired short-name shims живут в `legacy-command-shims/` только для явного opt-in. Новая разработка рабочих процессов должна сначала попадать в `skills/`.
 
 ```markdown
 # TDD Workflow
@@ -962,8 +962,8 @@ rules/
 
 | Я хочу... | Использовать | Агент |
 |-----------|---------------|-------|
-| Спланировать новую функцию | `/ecc:plan "Добавить auth"` | planner |
-| Спроектировать архитектуру системы | `/ecc:plan` + агент architect | architect |
+| Спланировать новую функцию | `/poweruser:plan "Добавить auth"` | planner |
+| Спроектировать архитектуру системы | `/poweruser:plan` + агент architect | architect |
 | Писать код сначала через тесты | skill `tdd-workflow` | tdd-guide |
 | Проверить только что написанный код | `/code-review` | code-reviewer |
 | Исправить падающую сборку | `/build-fix` | build-error-resolver |
@@ -982,7 +982,7 @@ Slash-формы ниже показаны там, где они остаютс�
 
 **Начало новой функции:**
 ```
-/ecc:plan "Добавить OAuth-аутентификацию пользователей"
+/poweruser:plan "Добавить OAuth-аутентификацию пользователей"
                                               → planner создаёт blueprint реализации
 tdd-workflow skill                            → tdd-guide принуждает писать тесты сначала
 /code-review                                  → code-reviewer проверяет работу
@@ -1010,7 +1010,7 @@ e2e-testing skill                             → e2e-runner: тесты кри�
 <summary><b>Как проверить, какие агенты/команды установлены?</b></summary>
 
 ```bash
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 Показывает всех доступных агентов, команды и навыки из плагина.
@@ -1019,13 +1019,13 @@ e2e-testing skill                             → e2e-runner: тесты кри�
 <details>
 <summary><b>Хуки не работают / я вижу ошибки "Duplicate hooks file"</b></summary>
 
-Это самая частая проблема. **НЕ добавляйте поле `"hooks"` в `.claude-plugin/plugin.json`.** Claude Code v2.1+ автоматически загружает `hooks/hooks.json` из установленных плагинов. Явное объявление вызывает ошибки обнаружения дубликатов. См. [#29](https://github.com/affaan-m/ECC/issues/29), [#52](https://github.com/affaan-m/ECC/issues/52), [#103](https://github.com/affaan-m/ECC/issues/103).
+Это самая частая проблема. **НЕ добавляйте поле `"hooks"` в `.claude-plugin/plugin.json`.** Claude Code v2.1+ автоматически загружает `hooks/hooks.json` из установленных плагинов. Явное объявление вызывает ошибки обнаружения дубликатов. См. [#29](https://github.com/ApexForge-devz/PowerUser), [#52](https://github.com/ApexForge-devz/PowerUser), [#103](https://github.com/ApexForge-devz/PowerUser).
 </details>
 
 <details>
-<summary><b>Можно ли использовать ECC с Claude Code на custom API endpoint или model gateway?</b></summary>
+<summary><b>Можно ли использовать PowerUser с Claude Code на custom API endpoint или model gateway?</b></summary>
 
-Да. ECC не хардкодит транспортные настройки Anthropic-hosted окружения. Он запускается локально через обычный CLI/plugin-интерфейс Claude Code, поэтому работает с:
+Да. PowerUser не хардкодит транспортные настройки Anthropic-hosted окружения. Он запускается локально через обычный CLI/plugin-интерфейс Claude Code, поэтому работает с:
 
 - Anthropic-hosted Claude Code
 - официальными Claude Code gateway-настройками через `ANTHROPIC_BASE_URL` и `ANTHROPIC_AUTH_TOKEN`
@@ -1039,7 +1039,7 @@ export ANTHROPIC_AUTH_TOKEN=your-token
 claude
 ```
 
-Если ваш gateway переименовывает модели, настраивайте это в Claude Code, а не в ECC. Хуки, навыки, команды и правила ECC не зависят от model provider, если CLI `claude` уже работает.
+Если ваш gateway переименовывает модели, настраивайте это в Claude Code, а не в PowerUser. Хуки, навыки, команды и правила PowerUser не зависят от model provider, если CLI `claude` уже работает.
 
 Официальные ссылки:
 - [Claude Code LLM gateway docs](https://docs.anthropic.com/en/docs/claude-code/llm-gateway)
@@ -1064,11 +1064,11 @@ claude
 
 ```bash
 # Только агенты
-cp ECC/agents/*.md ~/.claude/agents/
+cp PowerUser/agents/*.md ~/.claude/agents/
 
 # Только правила
-mkdir -p ~/.claude/rules/ecc/
-cp -r ECC/rules/common ~/.claude/rules/ecc/
+mkdir -p ~/.claude/rules/poweruser/
+cp -r PowerUser/rules/common ~/.claude/rules/poweruser/
 ```
 
 Каждый компонент полностью независим.
@@ -1077,11 +1077,11 @@ cp -r ECC/rules/common ~/.claude/rules/ecc/
 <details>
 <summary><b>Работает ли это с Cursor / OpenCode / Codex / Antigravity?</b></summary>
 
-Да. ECC кроссплатформенный:
+Да. PowerUser кроссплатформенный:
 - **Cursor**: предварительно адаптированные конфиги в `.cursor/`. См. [Поддержка Cursor IDE](#поддержка-cursor-ide).
 - **Gemini CLI**: экспериментальная project-local поддержка через `.gemini/GEMINI.md` и общий plumbing установщика.
 - **OpenCode**: полная поддержка плагина в `.opencode/`. См. [Поддержка OpenCode](#поддержка-opencode).
-- **Codex**: первоклассная поддержка macOS app и CLI, с guards против adapter drift и SessionStart fallback. См. PR [#257](https://github.com/affaan-m/ECC/pull/257).
+- **Codex**: первоклассная поддержка macOS app и CLI, с guards против adapter drift и SessionStart fallback. См. PR [#257](https://github.com/ApexForge-devz/PowerUser).
 - **Antigravity**: плотная настройка для workflows, skills, agents и flattened rules в `.agents/`. См. [Antigravity Guide](../ANTIGRAVITY-GUIDE.md).
 - **Ненативные среды**: ручной fallback path для Grok и похожих интерфейсов. См. [Manual Adaptation Guide](../MANUAL-ADAPTATION-GUIDE.md).
 - **Claude Code**: нативно — это основная цель.
@@ -1137,7 +1137,7 @@ node tests/hooks/hooks.test.js
 
 ### Заметки об экосистеме сообщества
 
-Они не поставляются вместе с ECC и не аудируются этим репозиторием, но о них стоит знать, если вы изучаете более широкую экосистему Claude Code skills:
+Они не поставляются вместе с PowerUser и не аудируются этим репозиторием, но о них стоит знать, если вы изучаете более широкую экосистему Claude Code skills:
 
 - [claude-seo](https://github.com/AgriciDaniel/claude-seo) — SEO-focused коллекция skills и agents
 - [claude-ads](https://github.com/AgriciDaniel/claude-ads) — коллекция ad-audit и paid-growth workflows
@@ -1147,7 +1147,7 @@ node tests/hooks/hooks.test.js
 
 ## Поддержка Cursor IDE
 
-ECC предоставляет поддержку Cursor IDE с хуками, правилами, агентами, навыками, командами и MCP-конфигами, адаптированными под layout проекта Cursor.
+PowerUser предоставляет поддержку Cursor IDE с хуками, правилами, агентами, навыками, командами и MCP-конфигами, адаптированными под layout проекта Cursor.
 
 ### Быстрый старт (Cursor)
 
@@ -1170,16 +1170,16 @@ ECC предоставляет поддержку Cursor IDE с хуками, п
 | Hook Events | 15 | sessionStart, beforeShellExecution, afterFileEdit, beforeMCPExecution, beforeSubmitPrompt и ещё 10 |
 | Hook Scripts | 16 | Тонкие Node.js скрипты, делегирующие в `scripts/hooks/` через общий adapter |
 | Rules | 34 | 9 common (alwaysApply) + 25 language-specific (TypeScript, Python, Go, Swift, PHP) |
-| Agents | 50 | `.cursor/agents/ecc-*.md` при установке; с префиксом, чтобы избежать конфликтов с user или marketplace agents |
+| Agents | 50 | `.cursor/agents/poweruser-*.md` при установке; с префиксом, чтобы избежать конфликтов с user или marketplace agents |
 | Skills | Shared + Bundled | `.cursor/skills/` для адаптированных дополнений |
 | Commands | Shared | `.cursor/commands/` при установке |
 | MCP Config | Shared | `.cursor/mcp.json` при установке |
 
 ### Заметки о загрузке Cursor
 
-ECC не устанавливает root `AGENTS.md` в `.cursor/`. Cursor воспринимает вложенные `AGENTS.md` как directory context, поэтому копирование identity ECC-репозитория в host project загрязняло бы этот проект.
+PowerUser не устанавливает root `AGENTS.md` в `.cursor/`. Cursor воспринимает вложенные `AGENTS.md` как directory context, поэтому копирование identity PowerUser-репозитория в host project загрязняло бы этот проект.
 
-Cursor-native loading behavior может различаться между сборками Cursor. ECC устанавливает агентов как `.cursor/agents/ecc-*.md`; если ваша сборка Cursor не показывает project agents, эти файлы всё равно работают как явные reference definitions, а не скрытый global prompt context.
+Cursor-native loading behavior может различаться между сборками Cursor. PowerUser устанавливает агентов как `.cursor/agents/poweruser-*.md`; если ваша сборка Cursor не показывает project agents, эти файлы всё равно работают как явные reference definitions, а не скрытый global prompt context.
 
 ### Архитектура хуков (DRY adapter pattern)
 
@@ -1213,7 +1213,7 @@ alwaysApply: false
 
 ## Поддержка Codex macOS App + CLI
 
-ECC предоставляет **первоклассную поддержку Codex** как для macOS app, так и для CLI: reference configuration, Codex-specific supplement `AGENTS.md` и общие skills.
+PowerUser предоставляет **первоклассную поддержку Codex** как для macOS app, так и для CLI: reference configuration, Codex-specific supplement `AGENTS.md` и общие skills.
 
 ### Быстрый старт (Codex App + CLI)
 
@@ -1221,19 +1221,19 @@ ECC предоставляет **первоклассную поддержку C
 # Запустить Codex CLI в репозитории — AGENTS.md и .codex/ определяются автоматически
 codex
 
-# Автоматическая настройка: синхронизировать assets ECC (AGENTS.md, skills, MCP servers) в ~/.codex
-npm install && bash scripts/sync-ecc-to-codex.sh
-# или: pnpm install && bash scripts/sync-ecc-to-codex.sh
-# или: yarn install && bash scripts/sync-ecc-to-codex.sh
-# или: bun install && bash scripts/sync-ecc-to-codex.sh
+# Автоматическая настройка: синхронизировать assets PowerUser (AGENTS.md, skills, MCP servers) в ~/.codex
+npm install && bash scripts/sync-poweruser-to-codex.sh
+# или: pnpm install && bash scripts/sync-poweruser-to-codex.sh
+# или: yarn install && bash scripts/sync-poweruser-to-codex.sh
+# или: bun install && bash scripts/sync-poweruser-to-codex.sh
 
 # Или вручную: скопировать reference config в домашнюю директорию
 cp .codex/config.toml ~/.codex/config.toml
 ```
 
-Sync script безопасно сливает MCP-серверы ECC в существующий `~/.codex/config.toml` через стратегию **add-only**: он никогда не удаляет и не изменяет ваши существующие серверы. Запускайте с `--dry-run`, чтобы посмотреть изменения, или с `--update-mcp`, чтобы принудительно обновить ECC-серверы до последнего рекомендуемого конфига.
+Sync script безопасно сливает MCP-серверы PowerUser в существующий `~/.codex/config.toml` через стратегию **add-only**: он никогда не удаляет и не изменяет ваши существующие серверы. Запускайте с `--dry-run`, чтобы посмотреть изменения, или с `--update-mcp`, чтобы принудительно обновить PowerUser-серверы до последнего рекомендуемого конфига.
 
-Для Context7 ECC использует каноническое имя секции Codex `[mcp_servers.context7]`, но всё ещё запускает пакет `@upstash/context7-mcp`. Если у вас уже есть legacy-запись `[mcp_servers.context7-mcp]`, `--update-mcp` мигрирует её на каноническое имя секции.
+Для Context7 PowerUser использует каноническое имя секции Codex `[mcp_servers.context7]`, но всё ещё запускает пакет `@upstash/context7-mcp`. Если у вас уже есть legacy-запись `[mcp_servers.context7-mcp]`, `--update-mcp` мигрирует её на каноническое имя секции.
 
 Codex macOS app:
 - Откройте этот репозиторий как workspace.
@@ -1276,7 +1276,7 @@ Skills в `.agents/skills/` автоматически загружаются Co
 | documentation-lookup | Актуальные docs библиотек и фреймворков через Context7 MCP |
 | e2e-testing | Playwright E2E tests |
 | eval-harness | Eval-driven development |
-| ecc-conventions | Development conventions и patterns для проекта |
+| poweruser-conventions | Development conventions и patterns для проекта |
 | exa-search | Neural search через Exa MCP для web, code, company research |
 | fal-ai-media | Unified media generation для images, video и audio |
 | frontend-patterns | React/Next.js patterns |
@@ -1296,7 +1296,7 @@ Skills в `.agents/skills/` автоматически загружаются Co
 
 ### Ключевое ограничение
 
-Codex **пока не предоставляет parity с Claude-style hook execution**. Принуждение ECC там instruction-based через `AGENTS.md`, опциональные overrides `model_instructions_file` и настройки sandbox/approval.
+Codex **пока не предоставляет parity с Claude-style hook execution**. Принуждение PowerUser там instruction-based через `AGENTS.md`, опциональные overrides `model_instructions_file` и настройки sandbox/approval.
 
 ### Поддержка multi-agent
 
@@ -1307,7 +1307,7 @@ Codex **пока не предоставляет parity с Claude-style hook exe
 - Направьте каждую роль на файл в `.codex/agents/`
 - Используйте `/agent` в CLI, чтобы inspect или steer child agents
 
-ECC поставляет три sample role configs:
+PowerUser поставляет три sample role configs:
 
 | Роль | Назначение |
 |------|------------|
@@ -1319,7 +1319,7 @@ ECC поставляет три sample role configs:
 
 ## Поддержка OpenCode
 
-ECC предоставляет **полную поддержку OpenCode**, включая плагины и хуки.
+PowerUser предоставляет **полную поддержку OpenCode**, включая плагины и хуки.
 
 ### Быстрый старт
 
@@ -1404,26 +1404,26 @@ opencode
 
 **Вариант 1: использовать напрямую**
 ```bash
-cd ECC
+cd PowerUser
 opencode
 ```
 
 **Вариант 2: установить как npm package**
 ```bash
-npm install ecc-universal
+npm install poweruser-universal
 ```
 
 Затем добавьте в `opencode.json`:
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["poweruser-universal"]
 }
 ```
 
-Эта npm plugin entry включает опубликованный OpenCode plugin module ECC (hooks/events и plugin tools).
-Она **не** добавляет автоматически полный catalog команд/агентов/instructions ECC в конфиг вашего проекта.
+Эта npm plugin entry включает опубликованный OpenCode plugin module PowerUser (hooks/events и plugin tools).
+Она **не** добавляет автоматически полный catalog команд/агентов/instructions PowerUser в конфиг вашего проекта.
 
-Для полной настройки ECC OpenCode:
+Для полной настройки PowerUser OpenCode:
 - запустите OpenCode внутри этого репозитория, или
 - скопируйте bundled `.opencode/` config assets в ваш проект и подключите entries `instructions`, `agent` и `command` в `opencode.json`
 
@@ -1438,7 +1438,7 @@ npm install ecc-universal
 
 ## Паритет возможностей между инструментами
 
-ECC — **первый плагин, который помогает максимально использовать каждый крупный инструмент AI-кодинга**. Вот как сравниваются среды:
+PowerUser — **первый плагин, который помогает максимально использовать каждый крупный инструмент AI-кодинга**. Вот как сравниваются среды:
 
 | Возможность | Claude Code | Cursor IDE | Codex CLI | OpenCode |
 |-------------|-------------|------------|-----------|----------|
@@ -1531,7 +1531,7 @@ ECC — **первый плагин, который помогает макси�
 - Держите включёнными менее 10 MCP на проект
 - Держите активными менее 80 tools
 - Используйте `/mcp`, чтобы отключать неиспользуемые Claude Code MCP servers; эти runtime-решения сохраняются в `~/.claude.json`
-- Используйте `ECC_DISABLED_MCPS` только для фильтрации MCP-конфигов, генерируемых ECC, во время install/sync flows
+- Используйте `ECC_DISABLED_MCPS` только для фильтрации MCP-конфигов, генерируемых PowerUser, во время install/sync flows
 
 ### Предупреждение о стоимости Agent Teams
 
@@ -1573,13 +1573,13 @@ Agent Teams создаёт несколько context windows. Каждый уч
 
 ## Проекты сообщества
 
-Проекты, построенные на ECC или вдохновлённые им:
+Проекты, построенные на PowerUser или вдохновлённые им:
 
 | Проект | Описание |
 |--------|----------|
 | [EVC](https://github.com/SaigonXIII/evc) | Marketing agent workspace — 42 команды для content operators, brand governance и multi-channel publishing. [Визуальный обзор](https://saigonxiii.github.io/evc). |
 
-Построили что-то с ECC? Откройте PR, чтобы добавить это сюда.
+Построили что-то с PowerUser? Откройте PR, чтобы добавить это сюда.
 
 ---
 
@@ -1593,14 +1593,14 @@ Agent Teams создаёт несколько context windows. Каждый уч
 
 ## История звёзд
 
-[![Star History Chart](https://api.star-history.com/svg?repos=affaan-m/ECC&type=Date)](https://star-history.com/#affaan-m/ECC&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date)](https://star-history.com/#ApexForge-devz/PowerUser&Date)
 
 ---
 
 ## Ссылки
 
-- **Краткое руководство (начните здесь):** [The Shorthand Guide to ECC](https://x.com/affaanmustafa/status/2012378465664745795)
-- **Подробное руководство (продвинутый уровень):** [The Longform Guide to ECC](https://x.com/affaanmustafa/status/2014040193557471352)
+- **Краткое руководство (начните здесь):** [The Shorthand Guide to PowerUser](https://x.com/affaanmustafa/status/2012378465664745795)
+- **Подробное руководство (продвинутый уровень):** [The Longform Guide to PowerUser](https://x.com/affaanmustafa/status/2014040193557471352)
 - **Руководство по безопасности:** [Security Guide](../../the-security-guide.md) | [Тред](https://x.com/affaanmustafa/status/2033263813387223421)
 - **Подписаться:** [@affaanmustafa](https://x.com/affaanmustafa)
 
