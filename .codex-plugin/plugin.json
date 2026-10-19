@@ -1,14 +1,12 @@
 {
-  "name": "ecc",
+  "name": "poweruser",
   "version": "2.2.3",
-  "description": "Harness-native ECC workflows for Codex: shared skills, production-ready MCP configs, and selective-install-aligned conventions for TDD, security scanning, code review, and autonomous development.",
+  "description": "PowerUser agent workflows for Codex: reusable skills, MCP configuration, test-driven development, security scanning, code review, and autonomous engineering.",
   "author": {
-    "name": "Affaan Mustafa",
-    "email": "me@affaanmustafa.com",
-    "url": "https://x.com/affaanmustafa"
+    "name": "ApexForge-devz"
   },
-  "homepage": "https://ecc.tools",
-  "repository": "https://github.com/affaan-m/ECC",
+  "homepage": "https://github.com/ApexForge-devz/PowerUser",
+  "repository": "https://github.com/ApexForge-devz/PowerUser",
   "license": "MIT",
   "keywords": [
     "codex",
@@ -18,33 +16,34 @@
     "code-review",
     "security",
     "workflow",
-    "automation"
+    "automation",
+    "poweruser"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "hooks": "./hooks/codex-hooks.json",
   "interface": {
-    "displayName": "ECC",
-    "shortDescription": "281 ECC skills plus MCP configs for TDD, security, code review, and autonomous development.",
-    "longDescription": "ECC is a harness-native operator system for Codex and adjacent agent harnesses. It packages reusable skills, MCP configs, TDD workflows, security scanning, code review, architecture decisions, operator workflows, and release gates in one installable plugin.",
-    "developerName": "Affaan Mustafa",
+    "displayName": "PowerUser",
+    "shortDescription": "Agent workflows for TDD, security, code review, and engineering automation.",
+    "longDescription": "PowerUser is a harness-native agent workflow toolkit for Codex and adjacent coding harnesses. It packages reusable skills, MCP configs, TDD workflows, security scanning, code review, architecture guidance, operator workflows, and release gates.",
+    "developerName": "ApexForge-devz",
     "category": "Coding",
     "capabilities": [
       "Interactive",
       "Read",
       "Write"
     ],
-    "websiteURL": "https://ecc.tools",
+    "websiteURL": "https://github.com/ApexForge-devz/PowerUser",
     "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
     "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
-    "brandColor": "#E07856",
+    "brandColor": "#4B6CB7",
     "composerIcon": "./assets/ecc-icon.svg",
     "logo": "./assets/hero.png",
     "screenshots": [],
     "defaultPrompt": [
-      "Use the tdd-workflow skill to write tests before implementation.",
-      "Use the security-review skill to scan for OWASP Top 10 vulnerabilities.",
-      "Use the verification-loop skill to verify correctness before shipping changes."
+      "Use the tdd-workflow skill to write tests before implementation when appropriate.",
+      "Use the security-review skill when reviewing security-sensitive changes.",
+      "Use the verification-loop skill to verify correctness before considering work complete."
     ]
   }
 }
