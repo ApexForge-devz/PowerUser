@@ -108,7 +108,7 @@ function parsePluginList(stdout) {
     ) {
       fail(
         'INVALID_PLUGIN_INVENTORY',
-        'Claude plugin inventory contains an invalid ECC plugin entry'
+        'Claude plugin inventory contains an invalid PowerUser plugin entry'
       );
     }
   }
@@ -187,12 +187,12 @@ function assertGitAvailable(options = {}, dependencies = {}) {
   if (result.error?.code === 'ENOENT') {
     fail(
       'GIT_NOT_FOUND',
-      'Git is required for Claude marketplace setup but `git` is not on PATH. Install Git, ensure `git` is on PATH, then rerun ECC setup.',
+      'Git is required for Claude marketplace setup but `git` is not on PATH. Install Git, ensure `git` is on PATH, then rerun PowerUser setup.',
       {
         phase: 'preflight',
         recovery: [
           'Install Git from https://git-scm.com/downloads and ensure `git` is on PATH.',
-          'Rerun ECC setup.',
+          'Rerun PowerUser setup.',
         ],
       }
     );
@@ -204,7 +204,7 @@ function assertGitAvailable(options = {}, dependencies = {}) {
       `Git is required for Claude marketplace setup but could not run${detail ? `: ${detail}` : '.'}`,
       {
         phase: 'preflight',
-        recovery: ['Repair Git, ensure `git --version` succeeds, then rerun ECC setup.'],
+        recovery: ['Repair Git, ensure `git --version` succeeds, then rerun PowerUser setup.'],
       }
     );
   }
@@ -260,7 +260,7 @@ function runClaude(args, options = {}, dependencies = {}) {
     if (result.error.code === 'ENOENT') {
       fail(
         'CLAUDE_NOT_FOUND',
-        'Claude Code is not installed or `claude` is not on PATH. Install Claude Code, then rerun ECC setup.',
+        'Claude Code is not installed or `claude` is not on PATH. Install Claude Code, then rerun PowerUser setup.',
         { phase: options.phase || 'inventory' }
       );
     }
@@ -482,7 +482,7 @@ function assertSafeLocalInventory(options) {
   if (manual) {
     fail(
       'MANUAL_PLUGIN_INSTALL',
-      `A manual ECC plugin layout exists at ${manual.manifestPath}. Remove or migrate the manual install before setup.`
+      `A manual PowerUser plugin layout exists at ${manual.manifestPath}. Remove or migrate the manual install before setup.`
     );
   }
   let managedInstalls;
@@ -495,7 +495,7 @@ function assertSafeLocalInventory(options) {
   if (overlap) {
     fail(
       'MANAGED_INSTALL_OVERLAP',
-      `Managed ECC content at ${overlap.statePath} overlaps the Claude plugin. Remove that managed overlap before setup.`
+      `Managed PowerUser content at ${overlap.statePath} overlaps the Claude plugin. Remove that managed overlap before setup.`
     );
   }
   return managedInstalls;
