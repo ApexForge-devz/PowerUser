@@ -1,8 +1,7 @@
 {
   "name": "poweruser",
   "owner": {
-    "name": "Affaan Mustafa",
-    "email": "me@affaanmustafa.com"
+    "name": "ApexForge-devz"
   },
   "metadata": {
     "description": "PowerUser skills, hooks, rules, MCP conventions, and agent workflows"
@@ -14,8 +13,7 @@
       "description": "PowerUser operator layer: specialized agents, skills, hooks, rules, selective install profiles, and production engineering workflows.",
       "version": "2.2.3",
       "author": {
-        "name": "Affaan Mustafa",
-        "email": "me@affaanmustafa.com"
+        "name": "ApexForge-devz"
       },
       "homepage": "https://github.com/ApexForge-devz/PowerUser",
       "repository": "https://github.com/ApexForge-devz/PowerUser",
