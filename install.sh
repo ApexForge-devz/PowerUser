@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install.sh — Legacy shell entrypoint for the ECC installer.
+# install.sh — Legacy shell entrypoint for the PowerUser installer.
 #
 # This wrapper resolves the real repo/package root when invoked through a
 # symlinked npm bin, then delegates to the Node-based installer runtime.
@@ -24,9 +24,9 @@ SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 
 # Auto-install Node dependencies when running from a git clone.
 # SECURITY: --ignore-scripts blocks preinstall/postinstall RCE from a
-# compromised dependency. ECC deps are pure JS (no native build step).
+# compromised dependency. PowerUser deps are pure JS (no native build step).
 if [ ! -d "$SCRIPT_DIR/node_modules" ]; then
-    echo "[ECC] Installing dependencies..."
+    echo "[PowerUser] Installing dependencies..."
     (cd "$SCRIPT_DIR" && npm install --ignore-scripts --no-audit --no-fund --loglevel=error)
 fi
 
