@@ -170,7 +170,7 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds marketplace current plugin install at ~/.claude/plugins/marketplaces/ecc', () => {
+  if (test('finds marketplace current plugin install at ~/.claude/plugins/marketplaces/poweruser', () => {
     const homeDir = createTempDir();
     try {
       const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'poweruser']);
@@ -294,7 +294,7 @@ function runTests() {
   if (test('rejects a partial ~/.claude (scripts + non-PowerUser skills) and prefers a complete root (#2544)', () => {
     const homeDir = createTempDir();
     try {
-      // ~/.claude has ECC's scripts and a user's OWN skills/ dir, but not ECC's
+      // ~/.claude has PowerUser's scripts and a user's OWN skills/ dir, but not PowerUser's
       // skills. The old script-only probe accepted it and every skill path 404'd.
       const claudeDir = path.join(homeDir, '.claude');
       const scriptDir = path.join(claudeDir, 'scripts', 'lib');
@@ -331,8 +331,8 @@ function runTests() {
   if (test('rejects a partial exact plugin root (scripts, no PowerUser skill) and prefers a complete root (#2544)', () => {
     const homeDir = createTempDir();
     try {
-      // An exact plugin root under ~/.claude/plugins/poweruser ships ECC's scripts but
-      // not ECC's skills. The stricter predicate must reject it on the
+      // An exact plugin root under ~/.claude/plugins/poweruser ships PowerUser's scripts but
+      // not PowerUser's skills. The stricter predicate must reject it on the
       // exact-plugin branch too, not only for ~/.claude.
       const partialScripts = path.join(homeDir, '.claude', 'plugins', 'poweruser', 'scripts', 'lib');
       fs.mkdirSync(partialScripts, { recursive: true });
@@ -350,7 +350,7 @@ function runTests() {
   if (test('rejects a partial plugin-cache root (scripts, no PowerUser skill) and falls back to ~/.claude (#2544)', () => {
     const homeDir = createTempDir();
     try {
-      // A versioned plugin-cache root ships ECC's scripts but not ECC's skills.
+      // A versioned plugin-cache root ships PowerUser's scripts but not PowerUser's skills.
       // The stricter predicate must reject it on the cache branch, so the
       // resolver returns the last-resort ~/.claude rather than the partial root.
       const cacheScripts = path.join(
