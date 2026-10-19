@@ -1,30 +1,30 @@
 ---
-name: ecc-guide
-description: 在回答之前先读取仓库的实时状态，引导用户了解 ECC 当前的 agents、skills、命令、hooks、规则、安装配置档案以及项目接入流程。
+name: poweruser-guide
+description: 在回答之前先读取仓库的实时状态，引导用户了解 PowerUser 当前的 agents、skills、命令、hooks、规则、安装配置档案以及项目接入流程。
 origin: community
 ---
 
-# ECC 指南
+# PowerUser 指南
 
-当用户需要帮助来理解、浏览、安装 ECC 或在其中做选择时，使用此技能。
+当用户需要帮助来理解、浏览、安装 PowerUser 或在其中做选择时，使用此技能。
 
 ## 何时使用
 
 当用户出现以下情况时使用此技能：
 
-- 询问 ECC 包含哪些内容
+- 询问 PowerUser 包含哪些内容
 - 需要帮助查找某个 skill、命令、agent、hook、规则或安装配置档案
 - 刚接触本仓库，需要一条引导路径
-- 询问"如何用 ECC 做 X？"
-- 询问哪些 ECC 组件适合某个项目
+- 询问"如何用 PowerUser 做 X？"
+- 询问哪些 PowerUser 组件适合某个项目
 - 需要简单了解命令、skills、agents、hooks 和规则之间的关系
 - 对安装路径、重复安装、重置/卸载或选择性安装选项感到困惑
 
 ## 核心原则
 
-依据当前文件回答，而不是凭记忆。ECC 变化很快，硬编码的目录数量、功能列表和安装说明都会过时。
+依据当前文件回答，而不是凭记忆。PowerUser 变化很快，硬编码的目录数量、功能列表和安装说明都会过时。
 
-当 ECC 仓库可用时，先检查相关文件再给出具体答案：
+当 PowerUser 仓库可用时，先检查相关文件再给出具体答案：
 
 ```bash
 node scripts/ci/catalog.js --json
@@ -75,7 +75,7 @@ node scripts/install-plan.js --list-components --json
 
 给出一份简短菜单：
 
-- 安装或重置 ECC
+- 安装或重置 PowerUser
 - 为项目挑选 skills
 - 理解命令与 skills 的区别
 - 检查 hooks 和安全行为
@@ -121,7 +121,7 @@ node scripts/install-apply.js --skills <skill-id> --target claude --dry-run
 
 ### 项目接入
 
-当用户想为目标仓库配置 ECC 时，使用 `/project-init`。预期顺序为：
+当用户想为目标仓库配置 PowerUser 时，使用 `/project-init`。预期顺序为：
 
 1. 从项目文件检测技术栈
 2. 生成一份 dry-run 安装计划

@@ -1,18 +1,18 @@
 ---
-name: ecc-tools-cost-audit
-description: 证据优先的ECC工具燃烧和计费审计工作流。用于调查ECC工具仓库中的失控PR创建、配额绕过、高级模型泄漏、重复作业或GitHub App成本激增。
-origin: ECC
+name: poweruser-tools-cost-audit
+description: 证据优先的PowerUser工具燃烧和计费审计工作流。用于调查PowerUser工具仓库中的失控PR创建、配额绕过、高级模型泄漏、重复作业或GitHub App成本激增。
+origin: PowerUser
 ---
 
-# ECC 工具成本审计
+# PowerUser 工具成本审计
 
-当用户怀疑 ECC Tools GitHub App 正在消耗成本、过度创建 PR、绕过使用限制，或将免费用户引导至付费分析路径时，使用此技能。
+当用户怀疑 PowerUser Tools GitHub App 正在消耗成本、过度创建 PR、绕过使用限制，或将免费用户引导至付费分析路径时，使用此技能。
 
-这是一个针对兄弟仓库 [ECC-Tools](../../../../ECC-Tools) 的聚焦操作者工作流。它不是通用的计费技能，也不是仓库范围的代码审查。
+这是一个针对兄弟仓库 [PowerUser-Tools](../../../../PowerUser-Tools) 的聚焦操作者工作流。它不是通用的计费技能，也不是仓库范围的代码审查。
 
 ## 技能栈
 
-在相关情况下，将这些 ECC 原生技能拉入工作流：
+在相关情况下，将这些 PowerUser 原生技能拉入工作流：
 
 * `autonomous-loops` 用于跨 webhook、队列、计费和重试的有界多步骤审计
 * `agentic-engineering` 用于将请求路径追踪为离散的、可证明的单元
@@ -24,13 +24,13 @@ origin: ECC
 
 ## 使用时机
 
-* 用户提及 ECC Tools 消耗率、PR 递归、过度创建的 PR、使用限制绕过或付费模型泄漏
-* 任务位于兄弟仓库 `ECC-Tools` 中，并依赖于 webhook 处理器、队列 worker、使用预留、PR 创建逻辑或付费网关强制执行
+* 用户提及 PowerUser Tools 消耗率、PR 递归、过度创建的 PR、使用限制绕过或付费模型泄漏
+* 任务位于兄弟仓库 `PowerUser-Tools` 中，并依赖于 webhook 处理器、队列 worker、使用预留、PR 创建逻辑或付费网关强制执行
 * 客户报告称应用创建了过多 PR、计费错误，或分析了代码但未产生可用结果
 
 ## 范围约束
 
-* 在兄弟仓库 `ECC-Tools` 中工作，而非 `ECC`
+* 在兄弟仓库 `PowerUser-Tools` 中工作，而非 `PowerUser`
 * 除非用户明确要求修复，否则以只读方式开始
 * 在追踪分析消耗时，不要修改无关的计费、结账或 UI 流程
 * 将应用生成的分支和应用生成的 PR 视为红旗递归路径，除非被证明并非如此
@@ -43,7 +43,7 @@ origin: ECC
 
 ### 1. 冻结仓库范围
 
-* 切换到兄弟仓库 `ECC-Tools`
+* 切换到兄弟仓库 `PowerUser-Tools`
 * 首先检查分支和本地差异
 * 确定审计的具体范围：
   * webhook 路由器
