@@ -154,7 +154,7 @@ Compatibility:
   poweruser help <command> Show help for a specific command
 
 Global Flags:
-  --dry-run          Preview actions without executing (sets ECC_DRY_RUN=1)
+  --dry-run          Preview actions without executing (sets POWERUSER_DRY_RUN=1)
 
 Compute:
   ${getComputeSponsorCopy()}
@@ -216,7 +216,7 @@ function resolveCommand(argv) {
   }
 
   if (args.includes('--dry-run')) {
-    process.env.ECC_DRY_RUN = '1';
+    process.env.POWERUSER_DRY_RUN = '1';
   }
 
   let cmdStart = 0;
