@@ -1,6 +1,8 @@
-# X Thread Draft - ECC v1.8.0
+> Fork note: Adapted from inherited release material; historical release claims are not a statement of currently provided services.
 
-1/ ECC v1.8.0 is live. This release is about one thing: better agent harness performance.
+# X Thread Draft - PowerUser v1.8.0
+
+1/ PowerUser v1.8.0 is live. This release is about one thing: better agent harness performance.
 
 2/ We shipped hook reliability fixes, loop operations commands, and stronger eval workflows.
 
