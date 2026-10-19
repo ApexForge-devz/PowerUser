@@ -1,6 +1,6 @@
-# ECC
+# PowerUser
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/stargazers)
+[![Stars](https://img.shields.io/github/stars/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -33,12 +33,12 @@
 <tr>
 <td width="50%">
 <a href="https://x.com/affaanmustafa/status/2012378465664745795">
-<img src="https://github.com/user-attachments/assets/1a471488-59cc-425b-8345-5245c7efbcef" alt="ECC 簡明指南" />
+<img src="https://github.com/user-attachments/assets/1a471488-59cc-425b-8345-5245c7efbcef" alt="PowerUser 簡明指南" />
 </a>
 </td>
 <td width="50%">
 <a href="https://x.com/affaanmustafa/status/2014040193557471352">
-<img src="https://github.com/user-attachments/assets/c9ca43bc-b149-427f-b551-af6840c368f0" alt="ECC 完整指南" />
+<img src="https://github.com/user-attachments/assets/c9ca43bc-b149-427f-b551-af6840c368f0" alt="PowerUser 完整指南" />
 </a>
 </td>
 </tr>
@@ -67,10 +67,10 @@
 
 ```bash
 # 新增市集
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # 安裝外掛程式
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 ### 第二步：安裝規則（必需）
@@ -79,23 +79,23 @@
 
 ```bash
 # 首先複製儲存庫
-git clone https://github.com/affaan-m/ECC.git
+git clone https://github.com/ApexForge-devz/PowerUser.git
 
 # 複製規則（應用於所有專案）
-cp -r ECC/rules/* ~/.claude/rules/
+cp -r PowerUser/rules/* ~/.claude/rules/
 ```
 
 ### 第三步：開始使用
 
 ```bash
 # 嘗試一個指令（外掛安裝使用命名空間形式）
-/ecc:plan "新增使用者認證"
+/poweruser:plan "新增使用者認證"
 
 # 手動安裝（選項2）使用簡短形式：
 # /plan "新增使用者認證"
 
 # 查看可用指令
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 **完成！** 您現在使用 15+ 代理程式、30+ 技能和 20+ 指令。
@@ -142,7 +142,7 @@ node scripts/setup-package-manager.js --detect
 本儲存庫是一個 **Claude Code 外掛程式** - 可直接安裝或手動複製元件。
 
 ```
-ECC/
+PowerUser/
 |-- .claude-plugin/   # 外掛程式和市集清單
 |   |-- plugin.json         # 外掛程式中繼資料和元件路徑
 |   |-- marketplace.json    # 用於 /plugin marketplace add 的市集目錄
@@ -239,11 +239,11 @@ ECC/
 
 ## 生態系統工具
 
-### ecc.tools - 技能建立器
+### poweruser.tools - 技能建立器
 
 從您的儲存庫自動生成 Claude Code 技能。
 
-[安裝 GitHub App](https://github.com/apps/skill-creator) | [ecc.tools](https://ecc.tools)
+[安裝 GitHub App](https://github.com/apps/skill-creator) | [poweruser.tools](https://github.com/ApexForge-devz/PowerUser)
 
 分析您的儲存庫並建立：
 - **SKILL.md 檔案** - 可直接用於 Claude Code 的技能
@@ -267,10 +267,10 @@ ECC/
 
 ```bash
 # 將此儲存庫新增為市集
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # 安裝外掛程式
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 或直接新增到您的 `~/.claude/settings.json`：
@@ -278,15 +278,15 @@ ECC/
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "poweruser": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/ECC"
+        "repo": "ApexForge-devz/PowerUser"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "poweruser@poweruser": true
   }
 }
 ```
@@ -301,26 +301,26 @@ ECC/
 
 ```bash
 # 複製儲存庫
-git clone https://github.com/affaan-m/ECC.git
+git clone https://github.com/ApexForge-devz/PowerUser.git
 
 # 將代理程式複製到您的 Claude 設定
-cp ECC/agents/*.md ~/.claude/agents/
+cp PowerUser/agents/*.md ~/.claude/agents/
 
 # 複製規則
-cp ECC/rules/*.md ~/.claude/rules/
+cp PowerUser/rules/*.md ~/.claude/rules/
 
 # 複製指令
-cp ECC/commands/*.md ~/.claude/commands/
+cp PowerUser/commands/*.md ~/.claude/commands/
 
 # 複製技能
-cp -r ECC/skills/* ~/.claude/skills/
+cp -r PowerUser/skills/* ~/.claude/skills/
 ```
 
 #### 將鉤子新增到 settings.json
 
 僅在手動安裝時，才將 `hooks/hooks.json` 中的鉤子複製到您的 `~/.claude/settings.json`。
 
-如果您是透過 `/plugin install` 安裝 ECC，請不要再把這些鉤子複製到 `settings.json`。Claude Code v2.1+ 會自動載入外掛中的 `hooks/hooks.json`，重複註冊會導致重複執行以及 `${CLAUDE_PLUGIN_ROOT}` 無法解析。
+如果您是透過 `/plugin install` 安裝 PowerUser，請不要再把這些鉤子複製到 `settings.json`。Claude Code v2.1+ 會自動載入外掛中的 `hooks/hooks.json`，重複註冊會導致重複執行以及 `${CLAUDE_PLUGIN_ROOT}` 無法解析。
 
 #### 設定 MCP
 
@@ -459,14 +459,14 @@ node tests/hooks/hooks.test.js
 
 ## Star 歷史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=affaan-m/ECC&type=Date)](https://star-history.com/#affaan-m/ECC&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date)](https://star-history.com/#ApexForge-devz/PowerUser&Date)
 
 ---
 
 ## 連結
 
-- **簡明指南（從這裡開始）：** [ECC 簡明指南](https://x.com/affaanmustafa/status/2012378465664745795)
-- **完整指南（進階）：** [ECC 完整指南](https://x.com/affaanmustafa/status/2014040193557471352)
+- **簡明指南（從這裡開始）：** [PowerUser 簡明指南](https://x.com/affaanmustafa/status/2012378465664745795)
+- **完整指南（進階）：** [PowerUser 完整指南](https://x.com/affaanmustafa/status/2014040193557471352)
 - **追蹤：** [@affaanmustafa](https://x.com/affaanmustafa)
 - **zenith.chat：** [zenith.chat](https://zenith.chat)
 - **技能目錄：** awesome-agent-skills（社區維護的智能體技能目錄）
