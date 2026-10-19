@@ -31,7 +31,7 @@ function runTests() {
     const parsed = parseInstallArgs([
       'node',
       'scripts/install-apply.js',
-      '--target', 'cursor',
+      '--target', 'opencode',
       '--profile', 'developer',
       '--modules', 'platform-configs, workflow-quality ,platform-configs',
       '--with', 'lang:typescript',
@@ -41,7 +41,7 @@ function runTests() {
       '--json'
     ]);
 
-    assert.strictEqual(parsed.target, 'cursor');
+    assert.strictEqual(parsed.target, 'opencode');
     assert.strictEqual(parsed.profileId, 'developer');
     assert.strictEqual(parsed.configPath, 'ecc-install.json');
     assert.deepStrictEqual(parsed.moduleIds, ['platform-configs', 'workflow-quality']);
@@ -49,17 +49,6 @@ function runTests() {
     assert.deepStrictEqual(parsed.excludeComponentIds, ['capability:media']);
     assert.strictEqual(parsed.dryRun, true);
     assert.strictEqual(parsed.json, true);
-    assert.deepStrictEqual(parsed.languages, []);
-  })) passed++; else failed++;
-
-  if (test('parses --locale argument', () => {
-    const parsed = parseInstallArgs([
-      'node',
-      'scripts/install-apply.js',
-      '--locale', 'ja'
-    ]);
-
-    assert.strictEqual(parsed.locale, 'ja');
     assert.deepStrictEqual(parsed.languages, []);
   })) passed++; else failed++;
 
@@ -83,18 +72,6 @@ function runTests() {
     assert.strictEqual(declined.noHooks, true);
   })) passed++; else failed++;
 
-  if (test('requires a --locale value', () => {
-    assert.throws(
-      () => parseInstallArgs([
-        'node',
-        'scripts/install-apply.js',
-        '--locale',
-        '--dry-run'
-      ]),
-      /Missing value for --locale/
-    );
-  })) passed++; else failed++;
-
   if (test('normalizes legacy language installs into a canonical request', () => {
     const request = normalizeInstallRequest({
       target: 'claude',
@@ -110,126 +87,9 @@ function runTests() {
     assert.strictEqual(request.profileId, null);
   })) passed++; else failed++;
 
-  if (test('normalizes locale-only installs as manifest component requests', () => {
-    const request = normalizeInstallRequest({
-      target: 'claude',
-      profileId: null,
-      moduleIds: [],
-      includeComponentIds: [],
-      excludeComponentIds: [],
-      languages: [],
-      locale: 'ja',
-    });
-
-    assert.strictEqual(request.mode, 'manifest');
-    assert.strictEqual(request.target, 'claude');
-    assert.deepStrictEqual(request.includeComponentIds, ['locale:ja']);
-    assert.deepStrictEqual(request.legacyLanguages, []);
-  })) passed++; else failed++;
-
-  if (test('allows legacy language installs to include a locale component', () => {
-    const request = normalizeInstallRequest({
-      target: 'claude',
-      profileId: null,
-      moduleIds: [],
-      includeComponentIds: [],
-      excludeComponentIds: [],
-      languages: ['typescript'],
-      locale: 'ja-JP',
-    });
-
-    assert.strictEqual(request.mode, 'legacy-compat');
-    assert.deepStrictEqual(request.legacyLanguages, ['typescript']);
-    assert.deepStrictEqual(request.includeComponentIds, ['locale:ja']);
-  })) passed++; else failed++;
-
-  if (test('accepts canonical locale components with legacy languages on Claude targets', () => {
-    for (const target of ['claude', 'claude-project']) {
-      const request = normalizeInstallRequest(parseInstallArgs([
-        'node', 'install-apply.js', '--target', target,
-        '--with', 'locale:zh-cn', '--with', 'locale:ja',
-        'typescript', '--no-hooks',
-      ]));
-      assert.strictEqual(request.mode, 'legacy-compat');
-      assert.deepStrictEqual(request.includeComponentIds, ['locale:zh-cn', 'locale:ja']);
-      assert.deepStrictEqual(request.legacyLanguages, ['typescript']);
-      assert.strictEqual(request.hookConsent, 'declined');
-    }
-  })) passed++; else failed++;
-
-  if (test('accepts config-backed locale components with legacy languages', () => {
-    const request = normalizeInstallRequest({
-      languages: ['typescript'],
-      config: { target: 'claude', includeComponentIds: ['locale:zh-cn'] },
-    });
-    assert.strictEqual(request.mode, 'legacy-compat');
-    assert.deepStrictEqual(request.includeComponentIds, ['locale:zh-cn']);
-  })) passed++; else failed++;
-
-  if (test('keeps non-locale manifest selections incompatible with legacy languages', () => {
-    const invalidSelections = [
-      { profileId: 'core' },
-      { moduleIds: ['rules-core'] },
-      { includeComponentIds: ['locale:zh-cn', 'skill:tdd-workflow'] },
-      { includeComponentIds: ['locale:fr'] },
-      { includeComponentIds: ['locale:zh-CN'] },
-      { excludeComponentIds: ['skill:tdd-workflow'] },
-      { config: { includeComponentIds: ['skill:tdd-workflow'] } },
-      { target: 'cursor' },
-      { target: 'antigravity' },
-    ];
-    for (const selection of invalidSelections) {
-      assert.throws(() => normalizeInstallRequest({
-        target: 'claude', languages: ['typescript'],
-        includeComponentIds: ['locale:zh-cn'], ...selection,
-      }), /cannot be combined/, JSON.stringify(selection));
-    }
-  })) passed++; else failed++;
-
-  if (test('locale components without legacy languages retain manifest mode', () => {
-    for (const profileId of [null, 'core']) {
-      const request = normalizeInstallRequest({
-        target: 'claude', profileId, includeComponentIds: ['locale:zh-cn'],
-      });
-      assert.strictEqual(request.mode, 'manifest');
-      assert.strictEqual(request.profileId, profileId);
-      assert.deepStrictEqual(request.includeComponentIds, ['locale:zh-cn']);
-    }
-  })) passed++; else failed++;
-
-  if (test('rejects unsupported locale codes', () => {
-    assert.throws(
-      () => normalizeInstallRequest({
-        target: 'claude',
-        profileId: null,
-        moduleIds: [],
-        includeComponentIds: [],
-        excludeComponentIds: [],
-        languages: [],
-        locale: 'fr',
-      }),
-      /Unsupported locale/
-    );
-  })) passed++; else failed++;
-
-  if (test('rejects --locale for non-Claude targets', () => {
-    assert.throws(
-      () => normalizeInstallRequest({
-        target: 'cursor',
-        profileId: null,
-        moduleIds: [],
-        includeComponentIds: [],
-        excludeComponentIds: [],
-        languages: [],
-        locale: 'ja',
-      }),
-      /--locale can only be used with --target claude/
-    );
-  })) passed++; else failed++;
-
   if (test('normalizes manifest installs into a canonical request', () => {
     const request = normalizeInstallRequest({
-      target: 'cursor',
+      target: 'opencode',
       profileId: 'developer',
       moduleIds: [],
       includeComponentIds: ['lang:typescript'],
@@ -239,7 +99,7 @@ function runTests() {
     });
 
     assert.strictEqual(request.mode, 'manifest');
-    assert.strictEqual(request.target, 'cursor');
+    assert.strictEqual(request.target, 'opencode');
     assert.strictEqual(request.profileId, 'developer');
     assert.strictEqual(request.hookConsent, 'enabled');
     assert.deepStrictEqual(request.includeComponentIds, ['lang:typescript']);
@@ -249,7 +109,7 @@ function runTests() {
 
   if (test('merges config-backed component selections with CLI overrides', () => {
     const request = normalizeInstallRequest({
-      target: 'cursor',
+      target: 'opencode',
       profileId: null,
       moduleIds: ['platform-configs'],
       includeComponentIds: ['framework:nextjs'],
@@ -267,7 +127,7 @@ function runTests() {
     });
 
     assert.strictEqual(request.mode, 'manifest');
-    assert.strictEqual(request.target, 'cursor');
+    assert.strictEqual(request.target, 'opencode');
     assert.strictEqual(request.profileId, 'developer');
     assert.deepStrictEqual(request.moduleIds, ['workflow-quality', 'platform-configs']);
     assert.deepStrictEqual(request.includeComponentIds, ['lang:typescript', 'framework:nextjs']);
@@ -278,7 +138,7 @@ function runTests() {
   if (test('validates explicit module IDs against the manifest catalog', () => {
     assert.throws(
       () => normalizeInstallRequest({
-        target: 'cursor',
+        target: 'opencode',
         profileId: null,
         moduleIds: ['ghost-module'],
         includeComponentIds: [],

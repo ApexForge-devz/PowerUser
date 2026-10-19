@@ -232,7 +232,7 @@ function writeManagedState(plan, overrides = {}) {
         stateOperation(destination, { sourcePath: source }),
       ]);
       writeManagedState(plan, {
-        target: { id: 'cursor-project', target: 'cursor' },
+        target: { id: 'opencode-home', target: 'opencode' },
         operations: [stateOperation(destination)],
       });
 

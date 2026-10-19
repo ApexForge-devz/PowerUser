@@ -1,7 +1,7 @@
 {
   "name": "poweruser-universal",
   "version": "2.2.3",
-  "description": "Harness-native agent operating system for Codex, OpenCode, Cursor, Gemini, Claude Code, and terminal workflows - skills, hooks, rules, MCP conventions, and operator control-plane patterns",
+  "description": "Open-source agent workflows, skills, hooks, rules, and installer support for Claude Code, Codex, Hermes, Kimi, and OpenCode.",
   "main": ".opencode/dist/index.js",
   "types": ".opencode/dist/index.d.ts",
   "exports": {
@@ -30,8 +30,6 @@
     "security",
     "automation",
     "best-practices",
-    "cursor",
-    "cursor-ide",
     "opencode",
     "codex",
     "presentations",
@@ -51,23 +49,15 @@
     "url": "https://github.com/ApexForge-devz/PowerUser/issues"
   },
   "files": [
-    ".adal/",
     ".agents/",
     ".claude-plugin/",
     ".codex/",
     ".codex-plugin/",
-    ".qoder-plugin/",
-    ".cursor/",
-    ".gemini/",
     ".github/PULL_REQUEST_TEMPLATE.md",
     ".hermes/",
     ".kimi/",
     ".opencode/",
     ".opencode/dist/",
-    ".pi/",
-    ".openclaw/",
-    ".qwen/",
-    ".zed/",
     ".mcp.json",
     "AGENTS.md",
     "COMMANDS-QUICK-REF.md",
@@ -97,7 +87,6 @@
     "plugins/poweruser/",
     "rules/",
     "schemas/",
-    "scripts/agent-convert.js",
     "scripts/catalog.js",
     "scripts/ci/scan-supply-chain-iocs.js",
     "scripts/ci/supply-chain-advisory-sources.js",
@@ -106,9 +95,7 @@
     "scripts/consult.js",
     "scripts/profile.js",
     "scripts/astra-review.js",
-    "scripts/dsh/generate-hooks-config.js",
     "scripts/auto-update.js",
-    "scripts/claw.js",
     "scripts/control-pane.js",
     "scripts/codex/check-plugin-cache.js",
     "scripts/codex/merge-codex-config.js",
@@ -119,10 +106,8 @@
     "scripts/feedback.js",
     "scripts/memory.js",
     "scripts/memory-mcp.mjs",
-    "scripts/gemini-adapt-agents.js",
     "scripts/gateguard-report.js",
     "scripts/github-coordination.js",
-    "scripts/qwen-adapt-agents.js",
     "scripts/harness-adapter-compliance.js",
     "scripts/harness-audit.js",
     "scripts/eval-harness.js",
@@ -217,7 +202,6 @@
     "skills/data-scraper-agent/",
     "skills/database-migrations/",
     "skills/deep-research/",
-    "skills/deepseek-harness-setup/",
     "skills/defi-amm-security/",
     "skills/deployment-patterns/",
     "skills/dev-team/",
@@ -293,7 +277,6 @@
     "skills/mle-workflow/",
     "skills/mybatis-patterns/",
     "skills/mysql-patterns/",
-    "skills/nanoclaw-repl/",
     "skills/nestjs-patterns/",
     "skills/netmiko-ssh-automation/",
     "skills/network-bgp-diagnostics/",
@@ -441,7 +424,6 @@
     "skills/motion-patterns/",
     "skills/nextjs-turbopack/",
     "skills/nuxt4-patterns/",
-    "skills/openclaw-persona-forge/",
     "skills/operator-approval-loop/",
     "skills/opensource-pipeline/",
     "skills/orch-add-feature/",
@@ -481,8 +463,6 @@
     "docs/design/poweruser-ito-compute-integration.md",
     "docs/design/poweruser-fleet-dashboard.md",
     "schemas/poweruser-install-config.schema.json",
-    "scaffolds/cursor/",
-    "pi/core/skills/poweruser-council/",
     ".opencode/plugins/poweruser-hooks.ts",
     "scripts/discord/"
   ],
@@ -518,7 +498,6 @@
     "security:ioc-scan": "node scripts/ci/scan-supply-chain-iocs.js",
     "security:advisory-sources": "node scripts/ci/supply-chain-advisory-sources.js",
     "test:plugin-setup-platform": "node docker/plugin-setup/run-platform-tests.js",
-    "claw": "node scripts/claw.js",
     "orchestrate:status": "node scripts/orchestration-status.js",
     "orchestrate:worker": "bash scripts/orchestrate-codex-worker.sh",
     "orchestrate:tmux": "node scripts/orchestrate-worktrees.js",
@@ -539,17 +518,6 @@
     "ajv": "8.20.0",
     "js-yaml": "4.3.2",
     "sql.js": "1.14.2"
-  },
-  "pi": {
-    "extensions": [
-      "./.pi/extensions/index.ts"
-    ],
-    "skills": [
-      "./skills"
-    ],
-    "prompts": [
-      "./commands"
-    ]
   },
   "devDependencies": {
     "@eslint/js": "9.39.2",

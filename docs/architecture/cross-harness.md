@@ -12,7 +12,7 @@ The goal is to keep the durable parts of agentic work in one repo:
 - session and orchestration patterns
 - durable, harness-neutral memory documents
 
-Claude Code, Codex, OpenCode, Cursor, Gemini, and future harnesses should adapt those assets at the edge instead of requiring a new workflow model for every tool.
+Claude Code, Codex, Hermes, Kimi, and OpenCode should adapt those assets at the edge instead of requiring a new workflow model for every tool.
 
 For the operator-facing support matrix and scorecard workflow, see
 [Harness Adapter Compliance Matrix](harness-adapter-compliance.md).
@@ -23,9 +23,9 @@ For the full-stack platform framing and product-integration loop, see
 
 | Surface | Shared Source | Harness Adapter | Current Status |
 |---------|---------------|-----------------|----------------|
-| Skills | `skills/*/SKILL.md` | Claude plugin, Codex plugin, `.agents/skills`, Cursor skill copies, OpenCode plugin/config | Supported with harness-specific packaging |
-| Rules and instructions | `rules/`, `AGENTS.md`, translated docs | Claude rules install, Codex `AGENTS.md`, Cursor rules, OpenCode instructions | Supported, but not identical across harnesses |
-| Hooks | `hooks/hooks.json`, `scripts/hooks/` | Claude native hooks, OpenCode plugin events, Cursor hook adapter | Hook-backed in Claude/OpenCode/Cursor; instruction-backed in Codex |
+| Skills | `skills/*/SKILL.md` | Claude plugin, Codex plugin, `.agents/skills` for Codex/Kimi, Hermes imports, OpenCode plugin/config | Supported with harness-specific packaging |
+| Rules and instructions | `rules/`, `AGENTS.md`, English docs | Claude rules install, Codex/Kimi instructions, Hermes rules, OpenCode instructions | Supported, but not identical across harnesses |
+| Hooks | `hooks/hooks.json`, `scripts/hooks/`, `hooks/hermes/` | Claude native hooks, Hermes hooks, OpenCode plugin events | Native/adapter behavior differs by harness; Codex hook parity is instruction-backed |
 | MCPs | `.mcp.json`, `mcp-configs/` | Native MCP config import per harness | Supported where the harness exposes MCP |
 | Commands | `commands/`, CLI scripts | Claude slash commands, compatibility shims, CLI entrypoints | Supported, but command semantics vary |
 | Memory | `.ecc/memory/`, `~/.ecc/memory/` | `ecc memory` CLI or opt-in `ecc-memory-mcp` stdio server | Supported with explicit recall and unreviewed writes |
@@ -52,8 +52,6 @@ Each harness has different loading and enforcement behavior:
 - Claude Code loads plugin assets and has native hook execution.
 - Codex reads `AGENTS.md`, plugin metadata, skills, and MCP config, but hook parity is instruction-driven.
 - OpenCode has a plugin/event system that can reuse ECC hook logic through an adapter layer.
-- Cursor uses its own rule and hook layout, so ECC maintains translated surfaces under `.cursor/`.
-- Gemini support is install/instruction oriented and should be treated as a compatibility surface, not as full hook parity.
 
 Adapters should stay thin. The shared behavior belongs in `skills/`, `rules/`, `hooks/`, `scripts/`, and `mcp-configs/`.
 
@@ -63,7 +61,7 @@ The session snapshot side of this contract (`ecc.session.v1`) is specified in
 [session-adapter-contract.md](session-adapter-contract.md).
 
 ECC Memory Vault is the common knowledge-transfer surface for Claude, Codex,
-Hermes, Cursor, OpenCode, and other agents. It stores portable
+Hermes, Kimi, and OpenCode. It stores portable
 `ecc.memory.v1` Markdown documents in three scopes:
 
 - project: `<repo>/.ecc/memory/project/`
@@ -99,9 +97,7 @@ The trust boundary is consistent across every adapter:
   never turns memory frontmatter into a self-asserted approval;
 - active execution state remains in GitHub or Linear, not only in memory.
 
-`skills/unified-memory/SKILL.md` owns this workflow. Codex and Cursor receive
-behavior-identical packaging copies under `.agents/skills/` and
-`.cursor/skills/`; Hermes can import the canonical skill. No harness owns a
+`skills/unified-memory/SKILL.md` owns this workflow. Codex and Kimi use the shared skill packaging under `.agents/skills/`; Hermes can import the canonical skill. No harness owns a
 separate authoritative memory store.
 
 ## Hermes Boundary
@@ -159,7 +155,8 @@ Supported today:
 - Claude Code plugin packaging
 - Codex plugin metadata and MCP reference config
 - OpenCode package/plugin surface
-- Cursor-adapted rules, hooks, and skills
+- Hermes home install and Hermes-specific hooks
+- Kimi Code project instructions and shared Agent Skills
 - file-first cross-harness memory through the CLI and opt-in MCP adapter
 - `ecc2/` as an alpha Rust control plane
 

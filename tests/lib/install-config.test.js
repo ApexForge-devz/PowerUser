@@ -83,7 +83,7 @@ function runTests() {
       const configPath = path.join(cwd, 'ecc-install.json');
       writeJson(configPath, {
         version: 1,
-        target: 'cursor',
+        target: 'opencode',
         profile: 'developer',
         modules: ['platform-configs', 'platform-configs'],
         include: ['lang:typescript', 'framework:nextjs', 'lang:typescript'],
@@ -95,7 +95,7 @@ function runTests() {
 
       const config = loadInstallConfig('ecc-install.json', { cwd });
       assert.strictEqual(config.path, configPath);
-      assert.strictEqual(config.target, 'cursor');
+      assert.strictEqual(config.target, 'opencode');
       assert.strictEqual(config.profileId, 'developer');
       assert.deepStrictEqual(config.moduleIds, ['platform-configs']);
       assert.deepStrictEqual(config.includeComponentIds, ['lang:typescript', 'framework:nextjs']);
@@ -111,7 +111,7 @@ function runTests() {
 
     try {
       const configPath = path.join(cwd, 'ecc-install.json');
-      const value = { version: 1, target: 'cursor', modules: ['rules-core'] };
+      const value = { version: 1, target: 'opencode', modules: ['rules-core'] };
       writeJson(configPath, value);
       const expected = loadInstallConfig(configPath);
       const content = `\uFEFF${JSON.stringify(value, null, 2).replace(/\n/g, '\r\n')}\r\n`;

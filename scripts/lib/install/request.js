@@ -3,7 +3,7 @@
 const { validateInstallModuleIds } = require('../install-manifests');
 const { resolveHookConsentFlags } = require('./hook-consent');
 
-const LEGACY_INSTALL_TARGETS = ['claude', 'claude-project', 'cursor', 'antigravity'];
+const LEGACY_INSTALL_TARGETS = ['claude', 'claude-project', 'codex', 'hermes', 'kimi', 'opencode'];
 
 function dedupeStrings(values) {
   return [...new Set((Array.isArray(values) ? values : []).map(value => String(value).trim()).filter(Boolean))];

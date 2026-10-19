@@ -5,7 +5,7 @@ const { getInstallTargetAdapter, planInstallTargetScaffold } = require('./instal
 const { resolveInvocationEnvironment } = require('./invocation-environment');
 
 const DEFAULT_REPO_ROOT = path.join(__dirname, '../..');
-const SUPPORTED_INSTALL_TARGETS = ['claude', 'claude-project', 'cursor', 'antigravity', 'codex', 'copilot', 'gemini', 'opencode', 'codebuddy', 'joycode', 'qwen', 'zed', 'hermes', 'openclaw', 'kimi', 'adal'];
+const SUPPORTED_INSTALL_TARGETS = ['claude', 'claude-project', 'codex', 'hermes', 'kimi', 'opencode'];
 const COMPONENT_FAMILY_PREFIXES = {
   baseline: 'baseline:',
   language: 'lang:',
@@ -31,28 +31,6 @@ const LEGACY_COMPAT_BASE_MODULE_IDS_BY_TARGET = Object.freeze({
     'platform-configs',
     'workflow-quality',
   ],
-  cursor: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'hooks-runtime',
-    'platform-configs',
-    'workflow-quality',
-  ],
-  antigravity: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'skill-unified-memory',
-    'workflow-quality',
-  ],
-  zed: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'platform-configs',
-    'workflow-quality',
-  ],
   hermes: [
     'rules-core',
     'agents-core',
@@ -60,21 +38,7 @@ const LEGACY_COMPAT_BASE_MODULE_IDS_BY_TARGET = Object.freeze({
     'platform-configs',
     'workflow-quality',
   ],
-  openclaw: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'platform-configs',
-    'workflow-quality',
-  ],
   kimi: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'platform-configs',
-    'workflow-quality',
-  ],
-  adal: [
     'rules-core',
     'agents-core',
     'commands-core',
@@ -508,9 +472,7 @@ function resolveLegacyCompatibilitySelection(options = {}) {
     || LEGACY_COMPAT_BASE_MODULE_IDS_BY_TARGET.claude;
   const moduleIds = dedupeStrings([
     ...baseModuleIds,
-    ...(target === 'antigravity'
-      ? []
-      : canonicalLegacyLanguages.flatMap(language => LEGACY_LANGUAGE_EXTRA_MODULE_IDS[language] || [])),
+    ...canonicalLegacyLanguages.flatMap(language => LEGACY_LANGUAGE_EXTRA_MODULE_IDS[language] || []),
   ]);
 
   assertKnownModuleIds(moduleIds, manifests);

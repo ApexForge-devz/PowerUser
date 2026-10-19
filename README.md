@@ -1,8 +1,12 @@
 # PowerUser
 
-PowerUser is an open-source collection of agent workflows, skills, hooks, rules, and tooling for software engineering across supported coding-agent environments.
+PowerUser is an open-source collection of agent workflows, skills, hooks, rules, and tooling for Claude Code, Codex, Hermes, Kimi, and OpenCode.
 
 This fork is maintained at **[ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)**. It builds on the upstream project and retains its MIT license and applicable attribution notices.
+
+## Supported coding agents
+
+PowerUser maintains integration support for **Claude Code, Codex, Hermes, Kimi, and OpenCode**. Other agent-platform adapters and their native configuration files are not included.
 
 ## Catalog
 
