@@ -1,10 +1,10 @@
 **اللغة:** [English](../../README.md) | **العربية** | [বাংলা](../bn/README.md) | [Deutsch](../de-DE/README.md) | [Español](../es/README.md) | [Português (Brasil)](../pt-BR/README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md) | [Tiếng Việt](../vi-VN/README.md) | [ไทย](../th/README.md) | [Українська](../uk-UA/README.md) | [Polski](../pl/README.md)
 
-# ECC
+# PowerUser
 
-![ECC — نظام تشغيل مهام الوكلاء الأصلي لبيئات العمل](../../assets/hero.png)
+![PowerUser — نظام تشغيل مهام الوكلاء الأصلي لبيئات العمل](../../assets/hero.png)
 
-> يغطي هذا التوثيق دليل البدء السريع والواجهات والمفاهيم الأساسية لنظام ECC.
+> يغطي هذا التوثيق دليل البدء السريع والواجهات والمفاهيم الأساسية لنظام PowerUser.
 > مصدر المحتوى الإنجليزي المعتمد هو الفرع main في المستودع الرسمي.
 > يظل الكتالوج الكامل والمحدّث باستمرار متوفراً في [README باللغة الإنجليزية](../../README.md)؛
 > وتتم متابعة وتحديث الأقسام دورياً لضمان الدقة والتوافق.
@@ -13,7 +13,7 @@
 
 **نظام تشغيل مهام الوكلاء الأصلي لبيئات العمل (Harness-Native Agent Operating System).**
 
-مشروع ECC ليس مجرد مجموعة من ملفات الإعداد الثابتة. بل يدمج وكلاء متخصصين (Agents)،
+مشروع PowerUser ليس مجرد مجموعة من ملفات الإعداد الثابتة. بل يدمج وكلاء متخصصين (Agents)،
 ومهارات معيارية (Skills)، ومعالجات أحداث تلقائية (Hooks)، وقواعد توجيهية (Rules)،
 وتكوينات بروتوكول سياق النموذج (MCP)، وطبقة توافق للأوامر السابقة (Commands).
 صُمم النظام بناءً على ممارسات عمل حقيقية ويمتد ليعمل بتناسق عبر بيئات متعددة:
@@ -21,13 +21,13 @@
 
 ## المصادر الرسمية
 
-ثبّت ECC حصرياً عبر القنوات الرسمية المعتمدة:
+ثبّت PowerUser حصرياً عبر القنوات الرسمية المعتمدة:
 
-- مستودع المشروع الرسمي: [github.com/affaan-m/ECC](https://github.com/affaan-m/ECC)
-- حزم npm المعتمدة: [`ecc-universal`](https://www.npmjs.com/package/ecc-universal) و[`ecc-agentshield`](https://www.npmjs.com/package/ecc-agentshield)
-- تطبيق [ECC Tools على GitHub](https://github.com/apps/ecc-tools)
-- معرّف الإضافة المعتمد: `ecc@ecc`
-- الموقع الرسمي: [ecc.tools](https://ecc.tools)
+- مستودع المشروع الرسمي: [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)
+- حزم npm المعتمدة: [`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) و[`poweruser-agentshield`](https://www.npmjs.com/package/poweruser-agentshield)
+- تطبيق [PowerUser Tools على GitHub](https://github.com/apps/poweruser-tools)
+- معرّف الإضافة المعتمد: `poweruser@poweruser`
+- الموقع الرسمي: [poweruser.tools](https://github.com/ApexForge-devz/PowerUser)
 
 يُرجى الحذر من النسخ غير الرسمية أو المستودعات البديلة غير المعتمدة حيث لا تخضع للمراجعة الأمنية أو الصيانة من قبل فريق المشروع.
 
@@ -38,15 +38,15 @@
 ### الإعداد التفاعلي الموجه (الموصى به)
 
 ```bash
-npx ecc-universal@2.2.3 setup
+npx poweruser-universal@2.2.3 setup
 ```
 
 يمكنك أيضاً استخدام مدير الحزم المفضل لديك:
 
 ```bash
-pnpm dlx ecc-universal@2.2.3 setup
-yarn dlx ecc-universal@2.2.3 setup
-bunx ecc-universal@2.2.3 setup
+pnpm dlx poweruser-universal@2.2.3 setup
+yarn dlx poweruser-universal@2.2.3 setup
+bunx poweruser-universal@2.2.3 setup
 ```
 
 قبل تشغيل كود الحزمة، تحقق من مصدر الإصدار وسلامة السجل المعتمد.
@@ -56,8 +56,8 @@ bunx ecc-universal@2.2.3 setup
 في Claude Code، أضف سوق الإضافات ثم ثبّت الإضافة المعتمدة:
 
 ```text
-/plugin marketplace add https://github.com/affaan-m/ECC
-/plugin install ecc@ecc
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
+/plugin install poweruser@poweruser
 ```
 
 بعد ذلك، ابدأ بـ `rules/common` بالإضافة إلى حزم اللغات وأطر العمل التي تستخدمها بالفعل في مشروعك.
@@ -66,11 +66,11 @@ bunx ecc-universal@2.2.3 setup
 ### Codex
 
 ```bash
-codex plugin marketplace add affaan-m/ECC
-codex plugin add ecc@ecc
+codex plugin marketplace add ApexForge-devz/PowerUser
+codex plugin add poweruser@poweruser
 ```
 
-في Codex، استخدم `$configure-ecc` لإجراء التكوين المخصص المناسب لمزود الخدمة في بيئتك.
+في Codex، استخدم `$configure-poweruser` لإجراء التكوين المخصص المناسب لمزود الخدمة في بيئتك.
 
 ### البيئات الأخرى (Other Harnesses)
 
@@ -90,7 +90,7 @@ codex plugin add ecc@ecc
 
 ## تثبيت التوثيق العربي
 
-تستخدم اللغة العربية الرمز `ar`، ويُقبل أيضاً الاسم المستعار `ar-SA`. استخدم نسخة محلية من المستودع تحتوي على الدليل `docs/ar/` والمكوّن `locale:ar`. نفّذ الأوامر التالية من المجلد الرئيسي للمستودع بعد تثبيت تبعيات المشروع (يتطلب Node.js 18 أو أحدث). الإصدار الحالي من حزمة `ecc-universal` قد لا يتضمن التوثيق العربي بعد.
+تستخدم اللغة العربية الرمز `ar`، ويُقبل أيضاً الاسم المستعار `ar-SA`. استخدم نسخة محلية من المستودع تحتوي على الدليل `docs/ar/` والمكوّن `locale:ar`. نفّذ الأوامر التالية من المجلد الرئيسي للمستودع بعد تثبيت تبعيات المشروع (يتطلب Node.js 18 أو أحدث). الإصدار الحالي من حزمة `poweruser-universal` قد لا يتضمن التوثيق العربي بعد.
 
 أولاً، عاين خطة التثبيت دون كتابة الملفات (Dry Run):
 
@@ -104,9 +104,9 @@ node scripts/install-apply.js --target claude --locale ar --dry-run
 node scripts/install-apply.js --target claude --locale ar
 ```
 
-يثبت هذا الخيار وحدة التوثيق `docs-ar` بشكل مستقل؛ ولا يثبت الملف التعريفي الكامل لـ ECC ولا الخطافات التلقائية.
+يثبت هذا الخيار وحدة التوثيق `docs-ar` بشكل مستقل؛ ولا يثبت الملف التعريفي الكامل لـ PowerUser ولا الخطافات التلقائية.
 
-## مكونات وواجهات ECC
+## مكونات وواجهات PowerUser
 
 | الواجهة | الدور البرمجي والوظيفي |
 |---|---|
@@ -171,4 +171,4 @@ node scripts/install-apply.js --target claude --locale ar
 
 ---
 
-**إذا كان ECC يقدم لك قيمة في عملك، شارك بنجمة للمستودع، واقرأ الأدلة، وابنِ برمجيات استثنائية.**
+**إذا كان PowerUser يقدم لك قيمة في عملك، شارك بنجمة للمستودع، واقرأ الأدلة، وابنِ برمجيات استثنائية.**

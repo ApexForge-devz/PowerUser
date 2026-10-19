@@ -1,15 +1,15 @@
 **ভাষা:** [English](../../README.md) | [العربية](../ar/README.md) | [Português (Brasil)](../pt-BR/README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md) | [Tiếng Việt](../vi-VN/README.md) | [ไทย](../th/README.md) | [Deutsch](../de-DE/README.md) | [Español](../es/README.md) | [Українська](../uk-UA/README.md) | [اردو](../ur/README.md) | [Polski](../pl/README.md) | বাংলা
 
-# ECC
+# PowerUser
 
-![ECC - এজেন্টিক কাজের জন্য হার্নেস-নেটিভ অপারেটর সিস্টেম](../../assets/hero.png)
+![PowerUser - এজেন্টিক কাজের জন্য হার্নেস-নেটিভ অপারেটর সিস্টেম](../../assets/hero.png)
 
-[![Stars](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Fstars&style=flat)](https://github.com/affaan-m/ECC/stargazers)
-[![Forks](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Fforks&style=flat)](https://github.com/affaan-m/ECC/network/members)
-[![Contributors](https://img.shields.io/github/contributors/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
-[![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
-[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/ecc-tools)
+[![Stars](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Fstars&style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![Forks](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Fforks&style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![Contributors](https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser)
+[![npm poweruser-universal](https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-universal)
+[![npm poweruser-agentshield](https://img.shields.io/npm/dw/poweruser-agentshield?label=poweruser-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-agentshield)
+[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/poweruser-tools)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 
 > **182K+ স্টার** | **28K+ ফর্ক** | **170+ অবদানকারী** | **12+ ভাষা ইকোসিস্টেম** | **Anthropic হ্যাকাথন বিজয়ী**
@@ -76,12 +76,12 @@
 
 - Claude Code, Codex ও Kimi Code জুড়ে ম্যানিফেস্ট-চালিত গাইডেড সেটআপ, সেই সঙ্গে ইনস্টল-স্টেট মালিকানা, `doctor`, `repair` ও `uninstall`।
 - নেটিভ Antigravity ইনস্টল, পাতলা Pi অ্যাডাপ্টার, এবং Linux, macOS ও Windows-এ পরীক্ষিত প্যাকড-আর্টিফ্যাক্ট রিলিজ গেট।
-- Plan Canvas ব্রাউজার রিভিউ, ইউনিফায়েড মেমরি ভল্ট (`ecc memory`) ও Itô কম্পিউট স্কিল পরিবার।
+- Plan Canvas ব্রাউজার রিভিউ, ইউনিফায়েড মেমরি ভল্ট (`poweruser memory`) ও Itô কম্পিউট স্কিল পরিবার।
 
 ### v2.1 — Plan Canvas, Kimi হার্নেস (২০২৬ জুলাই)
 
 - **Plan Canvas** — আপনার এজেন্ট একটি প্ল্যান লেখে, তারপর একটি ব্রাউজার ক্যানভাসে খোলে। ক্লিক করুন, টীকা যোগ করুন, সাইড রেইল থেকে চ্যাট করুন।
-- **Kimi Code ইনস্টল টার্গেট** (`--target kimi`) — ECC সরাসরি Moonshot AI-এর Kimi Code CLI-তে ইনস্টল হয়।
+- **Kimi Code ইনস্টল টার্গেট** (`--target kimi`) — PowerUser সরাসরি Moonshot AI-এর Kimi Code CLI-তে ইনস্টল হয়।
 - **GPU-তে সেলফ-হোস্ট** — Itô কম্পিউট স্পনসরের সাথে যাচাইকৃত পথ।
 - **Hermes + OpenClaw ইনস্টল টার্গেট**, Codex নেভিগেশন গাইড।
 
@@ -89,9 +89,9 @@
 
 - **কন্ট্রোল-প্লেন সাবস্ট্রেট** — সেশন অ্যাডাপ্টার + MCP ইনভেন্টরি।
 - **`orch-*` অর্কেস্ট্রেটর পরিবার** — ক্রস-হার্নেস অর্কেস্ট্রেশন।
-- **ECC Discord কমিউনিটি** চালু।
+- **PowerUser Discord কমিউনিটি** চালু।
 
-সম্পূর্ণ পরিবর্তনের তালিকা [Releases](https://github.com/affaan-m/ECC/releases)-এ দেখুন।
+সম্পূর্ণ পরিবর্তনের তালিকা [Releases](https://github.com/ApexForge-devz/PowerUser)-এ দেখুন।
 
 ---
 
@@ -103,10 +103,10 @@
 
 ```bash
 # মার্কেটপ্লেস যোগ করুন
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # প্লাগইন ইনস্টল করুন
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 ### ২য় ধাপ: রুল ইনস্টল (আবশ্যক)
@@ -114,18 +114,18 @@
 > **গুরুত্বপূর্ণ:** Claude Code প্লাগইন `rules` স্বয়ংক্রিয়ভাবে ডেপ্লয় করতে পারে না। ম্যানুয়ালি ইনস্টল করতে হবে:
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
-mkdir -p ~/.claude/rules/ecc
-cp -R rules/common ~/.claude/rules/ecc/
-cp -R rules/typescript ~/.claude/rules/ecc/    # অথবা python, golang
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
+mkdir -p ~/.claude/rules/poweruser
+cp -R rules/common ~/.claude/rules/poweruser/
+cp -R rules/typescript ~/.claude/rules/poweruser/    # অথবা python, golang
 ```
 
 ### ৩য় ধাপ: ব্যবহার শুরু করুন
 
 ```bash
-/ecc:plan "ব্যবহারকারী অথেনটিকেশন যোগ করুন"
-/plugin list ecc@ecc
+/poweruser:plan "ব্যবহারকারী অথেনটিকেশন যোগ করুন"
+/plugin list poweruser@poweruser
 ```
 
 **হয়ে গেছে!** এখন আপনি 69 এজেন্ট, 295 স্কিল এবং 94 কমান্ড ব্যবহার করতে পারবেন।
@@ -154,7 +154,7 @@ cp -R rules/typescript ~/.claude/rules/ecc/    # অথবা python, golang
 এই রিপোজিটরি একটি **Claude Code প্লাগইন** — সরাসরি ইনস্টল করুন অথবা কম্পোনেন্ট ম্যানুয়ালি কপি করুন।
 
 ```text
-ECC/
+PowerUser/
 |-- agents/           # বিশেষায়িত সাবএজেন্ট (69)
 |   |-- planner.md           # ফিচার বাস্তবায়ন পরিকল্পনা
 |   |-- code-reviewer.md     # মান ও নিরাপত্তা পর্যালোচনা
@@ -181,7 +181,7 @@ ECC/
 
 | যা করতে চান | কমান্ড | এজেন্ট |
 |-------------|--------|--------|
-| নতুন ফিচার পরিকল্পনা | `/ecc:plan "ফিচার বর্ণনা"` | planner |
+| নতুন ফিচার পরিকল্পনা | `/poweruser:plan "ফিচার বর্ণনা"` | planner |
 | টেস্ট আগে লিখে কোডিং | `tdd-workflow` স্কিল | tdd-guide |
 | কোড রিভিউ | `/code-review` | code-reviewer |
 | বিল্ড ব্যর্থতা সমাধান | `/build-fix` | build-error-resolver |
@@ -193,7 +193,7 @@ ECC/
 **নতুন ফিচার:**
 
 ```text
-/ecc:plan "OAuth দিয়ে অথেনটিকেশন যোগ"  -> পরিকল্পনা তৈরি
+/poweruser:plan "OAuth দিয়ে অথেনটিকেশন যোগ"  -> পরিকল্পনা তৈরি
 tdd-workflow স্কিল                       -> টেস্ট-ফার্স্ট ডেভেলপমেন্ট
 /code-review                             -> কোড পর্যালোচনা
 ```
@@ -214,7 +214,7 @@ tdd-workflow স্কিল  -> বাগ পুনরুৎপাদনকা�
 <summary><b>ইনস্টল করা এজেন্ট/কমান্ড কীভাবে দেখব?</b></summary>
 
 ```bash
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 </details>
@@ -222,7 +222,7 @@ tdd-workflow স্কিল  -> বাগ পুনরুৎপাদনকা�
 <details>
 <summary><b>Cursor / OpenCode / Codex-এও কাজ করে?</b></summary>
 
-হ্যাঁ। ECC ক্রস-প্ল্যাটফর্ম — Claude Code, Cursor, OpenCode, Codex, Antigravity এবং আরও অনেক হার্নেসে কাজ করে।
+হ্যাঁ। PowerUser ক্রস-প্ল্যাটফর্ম — Claude Code, Cursor, OpenCode, Codex, Antigravity এবং আরও অনেক হার্নেসে কাজ করে।
 </details>
 
 <details>
