@@ -1,5 +1,5 @@
 /**
- * Behavioral tests for ecc_dashboard.py helper functions.
+ * Behavioral tests for poweruser_dashboard.py helper functions.
  */
 
 const assert = require('assert');
@@ -7,7 +7,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const repoRoot = path.join(__dirname, '..', '..');
-const runtimeHelpersPath = path.join(repoRoot, 'scripts', 'lib', 'ecc_dashboard_runtime.py');
+const runtimeHelpersPath = path.join(repoRoot, 'scripts', 'lib', 'poweruser_dashboard_runtime.py');
 
 function test(name, fn) {
   try {
@@ -47,7 +47,7 @@ function runPython(source) {
 }
 
 function runTests() {
-  console.log('\n=== Testing ecc_dashboard.py ===\n');
+  console.log('\n=== Testing poweruser_dashboard.py ===\n');
 
   let passed = 0;
   let failed = 0;
@@ -55,7 +55,7 @@ function runTests() {
   if (test('build_terminal_launch keeps Linux path separate from shell command text', () => {
     const output = runPython(`
 import importlib.util, json
-spec = importlib.util.spec_from_file_location("ecc_dashboard_runtime", r"""${runtimeHelpersPath}""")
+spec = importlib.util.spec_from_file_location("poweruser_dashboard_runtime", r"""${runtimeHelpersPath}""")
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 argv, kwargs = module.build_terminal_launch('/tmp/proj; rm -rf ~', os_name='posix', system_name='Linux')
@@ -72,7 +72,7 @@ print(json.dumps({'argv': argv, 'kwargs': kwargs}))
   if (test('build_terminal_launch uses cwd + CREATE_NEW_CONSOLE style launch on Windows', () => {
     const output = runPython(`
 import importlib.util, json
-spec = importlib.util.spec_from_file_location("ecc_dashboard_runtime", r"""${runtimeHelpersPath}""")
+spec = importlib.util.spec_from_file_location("poweruser_dashboard_runtime", r"""${runtimeHelpersPath}""")
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 argv, kwargs = module.build_terminal_launch(r'C:\\\\Users\\\\user\\\\proj & del C:\\\\*', os_name='nt', system_name='Windows')
@@ -88,11 +88,11 @@ print(json.dumps({'argv': argv, 'kwargs': kwargs}))
   if (test('launch_terminal rejects missing or non-directory paths', () => {
     const output = runPython(`
 import importlib.util, json
-spec = importlib.util.spec_from_file_location("ecc_dashboard_runtime", r"""${runtimeHelpersPath}""")
+spec = importlib.util.spec_from_file_location("poweruser_dashboard_runtime", r"""${runtimeHelpersPath}""")
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 try:
-    module.launch_terminal('/definitely/not/a/real/ecc/path')
+    module.launch_terminal('/definitely/not/a/real/poweruser/path')
 except ValueError as exc:
     print(json.dumps({'error': str(exc)}))
 `);
@@ -103,7 +103,7 @@ except ValueError as exc:
   if (test('maximize_window falls back to Linux zoom attribute when zoomed state is unsupported', () => {
     const output = runPython(`
 import importlib.util, json
-spec = importlib.util.spec_from_file_location("ecc_dashboard_runtime", r"""${runtimeHelpersPath}""")
+spec = importlib.util.spec_from_file_location("poweruser_dashboard_runtime", r"""${runtimeHelpersPath}""")
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 

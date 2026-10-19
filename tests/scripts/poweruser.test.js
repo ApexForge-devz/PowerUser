@@ -1,5 +1,5 @@
 /**
- * Tests for scripts/ecc.js
+ * Tests for scripts/poweruser.js
  */
 
 const assert = require('assert');
@@ -10,14 +10,14 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const { createInstallState, writeInstallState } = require('../../scripts/lib/install-state');
 
-const SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'ecc.js');
+const SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'poweruser.js');
 
 function runCli(args, options = {}) {
   const envOverrides = {
     ...(options.env || {}),
   };
   const inheritedEnv = Object.fromEntries(
-    Object.entries(process.env).filter(([key]) => key !== 'ECC_DRY_RUN')
+    Object.entries(process.env).filter(([key]) => key !== 'POWERUSER_DRY_RUN')
   );
   const homeAlias = typeof envOverrides.HOME === 'string' && !('USERPROFILE' in envOverrides)
     ? { USERPROFILE: envOverrides.HOME }
@@ -55,7 +55,7 @@ function runTest(name, fn) {
 }
 
 function main() {
-  console.log('\n=== Testing ecc.js ===\n');
+  console.log('\n=== Testing poweruser.js ===\n');
 
   let passed = 0;
   let failed = 0;
@@ -64,7 +64,7 @@ function main() {
     ['shows top-level help', () => {
       const result = runCli(['--help']);
       assert.strictEqual(result.status, 0);
-      assert.match(result.stdout, /ECC selective-install CLI/);
+      assert.match(result.stdout, /PowerUser selective-install CLI/);
       assert.match(result.stdout, /catalog/);
       assert.match(result.stdout, /list-installed/);
       assert.match(result.stdout, /doctor/);
@@ -78,7 +78,7 @@ function main() {
       assert.match(result.stdout, /feedback/);
     }],
     ['delegates explicit install command', () => {
-      const homeDir = createTempDir('ecc-cli-install-home-');
+      const homeDir = createTempDir('poweruser-cli-install-home-');
       try {
         const result = runCli(['install', '--dry-run', '--json', 'typescript'], {
           env: {
@@ -97,7 +97,7 @@ function main() {
       }
     }],
     ['routes implicit top-level args to install', () => {
-      const homeDir = createTempDir('ecc-cli-install-home-');
+      const homeDir = createTempDir('poweruser-cli-install-home-');
       try {
         const result = runCli(['--dry-run', '--json', 'typescript'], {
           env: {
@@ -133,7 +133,7 @@ function main() {
       const result = runCli(['consult', 'security', 'reviews', '--json']);
       assert.strictEqual(result.status, 0, result.stderr);
       const payload = parseJson(result.stdout);
-      assert.strictEqual(payload.schemaVersion, 'ecc.consult.v1');
+      assert.strictEqual(payload.schemaVersion, 'poweruser.consult.v1');
       assert.strictEqual(payload.matches[0].componentId, 'capability:security');
     }],
     ['supports help for the control-pane subcommand', () => {
@@ -143,8 +143,8 @@ function main() {
       assert.match(result.stdout, /control-pane/);
     }],
     ['delegates lifecycle commands', () => {
-      const homeDir = createTempDir('ecc-cli-home-');
-      const projectRoot = createTempDir('ecc-cli-project-');
+      const homeDir = createTempDir('poweruser-cli-home-');
+      const projectRoot = createTempDir('poweruser-cli-project-');
       const result = runCli(['list-installed', '--json'], {
         cwd: projectRoot,
         env: { HOME: homeDir },
@@ -154,12 +154,12 @@ function main() {
       assert.deepStrictEqual(payload.records, []);
     }],
     ['keeps uninstall read-only when global --dry-run precedes the command', () => {
-      const homeDir = createTempDir('ecc-cli-uninstall-home-');
-      const projectRoot = createTempDir('ecc-cli-uninstall-project-');
+      const homeDir = createTempDir('poweruser-cli-uninstall-home-');
+      const projectRoot = createTempDir('poweruser-cli-uninstall-project-');
 
       try {
         const targetRoot = path.join(projectRoot, '.cursor');
-        const statePath = path.join(targetRoot, 'ecc-install-state.json');
+        const statePath = path.join(targetRoot, 'poweruser-install-state.json');
         const managedPath = path.join(targetRoot, 'managed-rule.md');
         const managedContent = 'managed\n';
         fs.mkdirSync(targetRoot, { recursive: true });
@@ -227,8 +227,8 @@ function main() {
       }
     }],
     ['delegates auto-update command', () => {
-      const homeDir = createTempDir('ecc-cli-home-');
-      const projectRoot = createTempDir('ecc-cli-project-');
+      const homeDir = createTempDir('poweruser-cli-home-');
+      const projectRoot = createTempDir('poweruser-cli-project-');
       const result = runCli(['auto-update', '--dry-run', '--json'], {
         cwd: projectRoot,
         env: { HOME: homeDir },
@@ -238,12 +238,12 @@ function main() {
       assert.deepStrictEqual(payload.results, []);
     }],
     ['delegates session-inspect command', () => {
-      const homeDir = createTempDir('ecc-cli-home-');
+      const homeDir = createTempDir('poweruser-cli-home-');
       const sessionsDir = path.join(homeDir, '.claude', 'sessions');
       fs.mkdirSync(sessionsDir, { recursive: true });
       fs.writeFileSync(
         path.join(sessionsDir, '2026-03-13-a1b2c3d4-session.tmp'),
-        '# ECC Session\n\n**Branch:** feat/ecc-cli\n'
+        '# PowerUser Session\n\n**Branch:** feat/poweruser-cli\n'
       );
 
       const result = runCli(['session-inspect', 'claude:latest'], {
@@ -253,11 +253,11 @@ function main() {
       assert.strictEqual(result.status, 0, result.stderr);
       const payload = parseJson(result.stdout);
       assert.strictEqual(payload.adapterId, 'claude-history');
-      assert.strictEqual(payload.workers[0].branch, 'feat/ecc-cli');
+      assert.strictEqual(payload.workers[0].branch, 'feat/poweruser-cli');
     }],
     ['delegates loop-status command', () => {
-      const homeDir = createTempDir('ecc-cli-home-');
-      const transcriptDir = path.join(homeDir, '.claude', 'projects', '-tmp-ecc');
+      const homeDir = createTempDir('poweruser-cli-home-');
+      const transcriptDir = path.join(homeDir, '.claude', 'projects', '-tmp-poweruser');
       fs.mkdirSync(transcriptDir, { recursive: true });
       fs.writeFileSync(
         path.join(transcriptDir, 'session-loop.jsonl'),
@@ -282,7 +282,7 @@ function main() {
 
       assert.strictEqual(result.status, 0, result.stderr);
       const payload = parseJson(result.stdout);
-      assert.strictEqual(payload.schemaVersion, 'ecc.loop-status.v1');
+      assert.strictEqual(payload.schemaVersion, 'poweruser.loop-status.v1');
       assert.strictEqual(payload.sessions[0].sessionId, 'session-loop');
     }],
     ['supports help for a subcommand', () => {
@@ -294,7 +294,7 @@ function main() {
       const result = runCli(['feedback', '--json']);
       assert.strictEqual(result.status, 0, result.stderr);
       const payload = parseJson(result.stdout);
-      assert.strictEqual(payload.schemaVersion, 'ecc.feedback.v1');
+      assert.strictEqual(payload.schemaVersion, 'poweruser.feedback.v1');
       assert.strictEqual(payload.diagnosticsUploaded, false);
     }],
     ['supports help for the auto-update subcommand', () => {
@@ -328,7 +328,7 @@ function main() {
       assert.match(result.stdout, /Usage: node scripts\/ci\/scan-supply-chain-iocs\.js/);
     }],
     ['delegates security-ioc-scan command', () => {
-      const projectRoot = createTempDir('ecc-cli-ioc-scan-');
+      const projectRoot = createTempDir('poweruser-cli-ioc-scan-');
       fs.writeFileSync(
         path.join(projectRoot, 'package.json'),
         JSON.stringify({ dependencies: { leftpad: '1.0.0' } }, null, 2)

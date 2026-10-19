@@ -1,5 +1,5 @@
 /**
- * Published npm binary aliases for the primary ECC CLI.
+ * Published npm binary aliases for the primary PowerUser CLI.
  *
  * The CI matrix sets CLAUDE_CODE_PACKAGE_MANAGER. Each lane must execute the
  * packed artifact through its own package runner instead of silently falling
@@ -120,7 +120,7 @@ function getPackedFixture() {
     return packedFixture;
   }
 
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-universal-bin-'));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-universal-bin-'));
   const packResult = run(
     'npm',
     ['pack', '--json', '--ignore-scripts', '--pack-destination', directory]
@@ -149,13 +149,13 @@ function prepareLocalPackedProject(packageManager) {
   const projectDirectory = path.join(fixture.directory, 'local-project');
   const modulesDirectory = path.join(projectDirectory, 'node_modules');
   const extractedDirectory = path.join(modulesDirectory, 'package');
-  const packageDirectory = path.join(modulesDirectory, 'ecc-universal');
+  const packageDirectory = path.join(modulesDirectory, 'poweruser-universal');
   const binDirectory = path.join(modulesDirectory, '.bin');
 
   fs.mkdirSync(projectDirectory, { recursive: true });
   fs.writeFileSync(
     path.join(projectDirectory, 'package.json'),
-    `${JSON.stringify({ name: 'ecc-packed-smoke', private: true }, null, 2)}\n`
+    `${JSON.stringify({ name: 'poweruser-packed-smoke', private: true }, null, 2)}\n`
   );
   if (packageManager === 'yarn') {
     // This empty fixture has no dependencies. Generate only its local lockfile
@@ -178,7 +178,7 @@ function prepareLocalPackedProject(packageManager) {
   fs.renameSync(extractedDirectory, packageDirectory);
   fs.mkdirSync(binDirectory, { recursive: true });
 
-  for (const executable of ['ecc', 'ecc-universal']) {
+  for (const executable of ['poweruser', 'poweruser-universal']) {
     const scriptPath = path.join(packageDirectory, packageJson.bin[executable]);
     fs.chmodSync(scriptPath, 0o755);
     if (process.platform === 'win32') {
@@ -186,11 +186,11 @@ function prepareLocalPackedProject(packageManager) {
       const target = packageJson.bin[executable].replace(/\//g, '\\');
       fs.writeFileSync(
         cmdPath,
-        `@ECHO off\r\nnode "%~dp0\\..\\ecc-universal\\${target}" %*\r\n`
+        `@ECHO off\r\nnode "%~dp0\\..\\poweruser-universal\\${target}" %*\r\n`
       );
     } else {
       fs.symlinkSync(
-        path.join('..', 'ecc-universal', packageJson.bin[executable]),
+        path.join('..', 'poweruser-universal', packageJson.bin[executable]),
         path.join(binDirectory, executable)
       );
     }
@@ -215,7 +215,7 @@ function getRunnerInvocation(packageManager, executable, args) {
           args: [
             'exec',
             '--offline',
-            '--package=./node_modules/ecc-universal',
+            '--package=./node_modules/poweruser-universal',
             '--',
             executable,
             ...args,
@@ -278,7 +278,7 @@ function launchPackedBinary(executable, args) {
   });
 }
 
-console.log(`\n=== ECC universal packed binary tests (${activePackageManager}) ===\n`);
+console.log(`\n=== PowerUser universal packed binary tests (${activePackageManager}) ===\n`);
 
 test('CI selects a supported package runner', () => {
   assert.ok(
@@ -309,38 +309,38 @@ test('Windows package shims use one safely quoted command line', () => {
   );
 });
 
-test('published package exposes ecc and ecc-universal through scripts/ecc.js', () => {
-  assert.strictEqual(packageJson.bin.ecc, 'scripts/ecc.js');
-  assert.strictEqual(packageJson.bin['ecc-universal'], 'scripts/ecc.js');
+test('published package exposes poweruser and poweruser-universal through scripts/poweruser.js', () => {
+  assert.strictEqual(packageJson.bin.poweruser, 'scripts/poweruser.js');
+  assert.strictEqual(packageJson.bin['poweruser-universal'], 'scripts/poweruser.js');
   assert.deepStrictEqual(packageLock.packages[''].bin, packageJson.bin);
 
   const fixture = getPackedFixture();
   assert.ok(
-    fixture.publishedPaths.has('scripts/ecc.js'),
+    fixture.publishedPaths.has('scripts/poweruser.js'),
     'npm package should publish the shared CLI target'
   );
 });
 
-test('packed ecc-universal launches the guided Claude setup help', () => {
-  const result = launchPackedBinary('ecc-universal', ['setup', '--help']);
-  assert.match(result.stdout, /ECC guided setup/);
+test('packed poweruser-universal launches the guided Claude setup help', () => {
+  const result = launchPackedBinary('poweruser-universal', ['setup', '--help']);
+  assert.match(result.stdout, /PowerUser guided setup/);
 });
 
-test('packed ecc-universal launches the guided multi-harness help', () => {
+test('packed poweruser-universal launches the guided multi-harness help', () => {
   const result = launchPackedBinary(
-    'ecc-universal',
+    'poweruser-universal',
     ['install', '--guided', '--help']
   );
-  assert.match(result.stdout, /ECC guided multi-harness install/);
+  assert.match(result.stdout, /PowerUser guided multi-harness install/);
   assert.match(result.stdout, /Claude Code/);
   assert.match(result.stdout, /Codex/);
   assert.match(result.stdout, /Kimi/);
 });
 
-test('packed ecc alias launches the primary dispatcher', () => {
-  const result = launchPackedBinary('ecc', ['--help']);
-  assert.match(result.stdout, /ECC selective-install CLI/);
-  assert.match(result.stdout, /ecc install --guided/);
+test('packed poweruser alias launches the primary dispatcher', () => {
+  const result = launchPackedBinary('poweruser', ['--help']);
+  assert.match(result.stdout, /PowerUser selective-install CLI/);
+  assert.match(result.stdout, /poweruser install --guided/);
 });
 
 if (packedFixture) {
