@@ -1,8 +1,10 @@
-# ECC v1.8.0 Release Notes
+> Fork note: Adapted from inherited release history. Historical upstream capabilities and release-era details do not imply that PowerUser provides associated hosted services.
+
+# PowerUser v1.8.0 Release Notes
 
 ## Positioning
 
-ECC v1.8.0 positions the project as an agent harness performance system, not just a config bundle.
+PowerUser v1.8.0 positions the project as an agent harness performance system, not just a config bundle.
 
 ## Key Improvements
 
