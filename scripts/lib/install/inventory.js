@@ -51,7 +51,7 @@ function findManualClaudePlugin(options = {}) {
     ['poweruser', 'plugin.json'],
     ['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
     ['poweruser@poweruser', 'plugin.json'],
-    // Legacy install paths, kept for existing ECC installs.
+    // Legacy install paths, kept for existing installations of the former plugin.
     ['poweruser', '.claude-plugin', 'plugin.json'],
     ['poweruser', 'plugin.json'],
     ['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
