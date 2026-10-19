@@ -1,6 +1,6 @@
 ---
 name: configure-poweruser
-description: "Run the conversational PowerUser setup wizard inside the current harness: inventory the install, collect scope (user/project/local) and hook mode (off/minimal/standard/strict) in Claude Code, use Codex's native plugin lifecycle, or install the project surface under ./.kimi-code, then preview, apply, and verify. Use when installing, updating, reconfiguring, or repairing an PowerUser installation, changing hook profiles, or moving PowerUser between install scopes."
+description: "Run the conversational PowerUser setup wizard inside the current harness: inventory the install, collect scope (user/project/local) and hook mode (off/minimal/standard/strict) in Claude Code, use Codex's native plugin lifecycle, or install the project surface under ./.kimi-code, then preview, apply, and verify. Use when installing, updating, reconfiguring, or repairing a PowerUser installation, changing hook profiles, or moving PowerUser between install scopes."
 metadata:
   origin: PowerUser
 ---
@@ -150,14 +150,14 @@ If the PowerUser marketplace is missing, add it. Otherwise refresh its snapshot:
 
 ```bash
 codex plugin marketplace add ApexForge-devz/PowerUser
-codex plugin marketplace upgrade PowerUser --json
+codex plugin marketplace upgrade poweruser --json
 ```
 
 Ask for one confirmation, then install or idempotently refresh the installed
 cache and verify it:
 
 ```bash
-codex plugin add PowerUser@PowerUser --json
+codex plugin add poweruser@poweruser --json
 codex plugin list --json
 ```
 
