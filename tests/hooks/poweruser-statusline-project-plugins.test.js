@@ -5,7 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { readInstalledPlugins } = require('../../scripts/lib/statusline-render');
-const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-plugin-project-'));
+const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-plugin-project-'));
 const config = path.join(root, 'profile');const a = path.join(root, 'A');const b = path.join(root, 'B');
 for (const dir of [config, a, b]) fs.mkdirSync(path.join(dir, '.claude'), { recursive: true });
 fs.mkdirSync(path.join(config, 'plugins'));
@@ -15,9 +15,9 @@ const records = { 'a-only@fixture': [{ scope: 'local', projectPath: a, version: 
 const write = value => fs.writeFileSync(path.join(config, 'plugins/installed_plugins.json'), JSON.stringify({ version: 2, plugins: value }));
 const settings = (dir, name, value) => fs.writeFileSync(path.join(dir, '.claude', name), JSON.stringify({ enabledPlugins: value }));
 function cli(project) {
-  const result = spawnSync(process.execPath, [path.resolve(__dirname, '../../scripts/hooks/ecc-statusline.js')], {
+  const result = spawnSync(process.execPath, [path.resolve(__dirname, '../../scripts/hooks/poweruser-statusline.js')], {
     input: JSON.stringify({ model: { display_name: 'Fixture' }, workspace: { current_dir: project } }), encoding: 'utf8', timeout: 5000,
-    env: { ...process.env, CLAUDE_CONFIG_DIR: config, ECC_STATUSLINE_USAGE: '1', ECC_STATUSLINE_COMPACT: '0' },
+    env: { ...process.env, CLAUDE_CONFIG_DIR: config, POWERUSER_STATUSLINE_USAGE: '1', POWERUSER_STATUSLINE_COMPACT: '0' },
   });assert.equal(result.status, 0, result.stderr);return result.stdout;
 }
 const tests = [

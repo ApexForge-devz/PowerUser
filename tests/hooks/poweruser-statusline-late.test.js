@@ -7,7 +7,7 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const test = require('node:test');
 const { resolveWindowsBashCandidates } = require('../../scripts/lib/windows-bash');
-const { buildUsageLines } = require('../../scripts/hooks/ecc-statusline');
+const { buildUsageLines } = require('../../scripts/hooks/poweruser-statusline');
 const { buildUsageLine } = require('../../scripts/lib/statusline-render');
 const shellQuote = value => {
   const portable = process.platform === 'win32' ? value.split('\\').join('/') : value;
@@ -18,24 +18,24 @@ const repoRoot = path.resolve(__dirname, '../..');
 const stripAnsi = value => value.replace(/\x1b\[[0-9;]*m/g, '');
 
 function registeredDisplay(t, payload, options = {}, bridge) {
-  const home = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-statusline-late-'));
+  const home = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-statusline-late-'));
   t.after(() => fs.rmSync(home, { recursive: true, force: true }));
   const configDir = path.join(home, 'selected profile');
   fs.mkdirSync(configDir);
   const temporaryDir = path.join(home, 'tmp');
   fs.mkdirSync(temporaryDir);
-  if (bridge) fs.writeFileSync(path.join(temporaryDir, `ecc-metrics-${payload.session_id}.json`), JSON.stringify(bridge));
+  if (bridge) fs.writeFileSync(path.join(temporaryDir, `poweruser-metrics-${payload.session_id}.json`), JSON.stringify(bridge));
   const example = JSON.parse(fs.readFileSync(path.join(repoRoot, 'examples/statusline.json'), 'utf8'));
   const command = example.statusLine.command.replace(/^node /, `${shellQuote(process.execPath)} `)
-    .replace('"<plugin-root>/scripts/hooks/ecc-statusline.js"',
-      shellQuote(path.join(repoRoot, 'scripts/hooks/ecc-statusline.js')));
+    .replace('"<plugin-root>/scripts/hooks/poweruser-statusline.js"',
+      shellQuote(path.join(repoRoot, 'scripts/hooks/poweruser-statusline.js')));
   const settingsPath = path.join(configDir, 'settings.json');
   fs.writeFileSync(settingsPath, JSON.stringify({ statusLine: { ...example.statusLine, command } }));
   const before = fs.readFileSync(settingsPath);
   const settings = JSON.parse(before);
   const env = { ...process.env, HOME: home, USERPROFILE: home, CLAUDE_CONFIG_DIR: configDir, TMPDIR: temporaryDir, TEMP: temporaryDir, TMP: temporaryDir,
-    ECC_STATUSLINE_USAGE: '1', ECC_STATUSLINE_COMPACT: '0', ECC_BAR_GLYPHS: 'ascii', ...options };
-  if (env.ECC_STATUSLINE_USAGE === undefined) delete env.ECC_STATUSLINE_USAGE;
+    POWERUSER_STATUSLINE_USAGE: '1', POWERUSER_STATUSLINE_COMPACT: '0', PowerUser_BAR_GLYPHS: 'ascii', ...options };
+  if (env.POWERUSER_STATUSLINE_USAGE === undefined) delete env.POWERUSER_STATUSLINE_USAGE;
   const shell = process.platform === 'win32' ? resolveWindowsBashCandidates(['bash.exe', 'bash'], { env })[0] : '/bin/sh';
   assert.ok(shell, 'A native Git Bash executable is required for the Windows registration check');
   const result = spawnSync(shell, ['-c', settings.statusLine.command], {
@@ -49,7 +49,7 @@ function registeredDisplay(t, payload, options = {}, bridge) {
 for (const [window, label] of [['five_hour', '5h'], ['seven_day', '7d'], ['spend_limit', 'spend']]) {
   test(`registered compact display preserves independently supplied ${window}`, t => {
     const output = registeredDisplay(t, { model: { display_name: 'Fixture' }, workspace: { current_dir: '/fixture/project' },
-      rate_limits: { [window]: { used_percentage: 23.5 } } }, { ECC_STATUSLINE_COMPACT: '1' });
+      rate_limits: { [window]: { used_percentage: 23.5 } } }, { POWERUSER_STATUSLINE_COMPACT: '1' });
     assert.match(output, new RegExp(`${label} 24%`));
     assert.equal(output.split('\n').length, 1);
     assert.doesNotMatch(output, /[_\u2588\u2591]/, 'abbreviated usage has no bar');
@@ -59,7 +59,7 @@ for (const [window, label] of [['five_hour', '5h'], ['seven_day', '7d'], ['spend
 for (const compact of ['0', '1']) {
   test(`registered opt-in display honors ASCII context glyphs, compact=${compact}`, t => {
     const output = registeredDisplay(t, { context_window: { remaining_percentage: 80 } },
-      { ECC_STATUSLINE_COMPACT: compact });
+      { POWERUSER_STATUSLINE_COMPACT: compact });
     assert.match(output, /[|_]{10} 24%/);
     assert.doesNotMatch(output, /[\u2588\u2591]/);
   });
@@ -70,8 +70,8 @@ test('registered default display keeps its original exact output despite optiona
     context_window: { remaining_percentage: 80 }, cost: { total_duration_ms: 125000 },
     rate_limits: { spend_limit: { used_percentage: 50 }, five_hour: { used_percentage: 30 } } };
   const expected = `Fixture \u2502 project ${'\u2588'.repeat(2)}${'\u2591'.repeat(8)} 24%`;
-  assert.equal(registeredDisplay(t, payload, { ECC_STATUSLINE_USAGE: undefined, ECC_STATUSLINE_COMPACT: '1' }), expected);
-  assert.equal(registeredDisplay(t, payload, { ECC_STATUSLINE_USAGE: '0' }), expected);
+  assert.equal(registeredDisplay(t, payload, { POWERUSER_STATUSLINE_USAGE: undefined, POWERUSER_STATUSLINE_COMPACT: '1' }), expected);
+  assert.equal(registeredDisplay(t, payload, { POWERUSER_STATUSLINE_USAGE: '0' }), expected);
 });
 
 test('registered opt-in display uses stdin session duration without bridge metrics', t => {
@@ -116,6 +116,6 @@ test('registered command prefers stdin duration over bridge and preserves legacy
   assert.match(enabled, /2m/);
   assert.doesNotMatch(enabled, /10m/);
   assert.doesNotMatch(registeredDisplay(t, { ...data, cost: { total_duration_ms: 0 } }, {}, bridge), /10m/);
-  assert.match(registeredDisplay(t, data, { ECC_STATUSLINE_USAGE: '0' }, bridge), /\$1\.23 2t 1f 10m/);
+  assert.match(registeredDisplay(t, data, { POWERUSER_STATUSLINE_USAGE: '0' }, bridge), /\$1\.23 2t 1f 10m/);
   assert.match(registeredDisplay(t, { ...data, cost: { total_duration_ms: -1 } }, {}, bridge), /10m/);
 });
