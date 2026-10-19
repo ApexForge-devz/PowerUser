@@ -39,7 +39,7 @@ function walkMarkdown(rootPath) {
   return files;
 }
 
-console.log('\n=== Testing ECC 2.0 release surface ===\n');
+console.log('\n=== Testing PowerUser 2.0 release surface ===\n');
 
 const expectedReleaseFiles = [
   'release-notes.md',
@@ -64,10 +64,10 @@ test('release candidate directory includes the public launch pack', () => {
   }
 });
 
-test('README links to Hermes setup and current release notes', () => {
+test('README identifies the PowerUser fork and documents the Codex plugin', () => {
   const readme = read('README.md');
-  assert.ok(readme.includes('docs/HERMES-SETUP.md'), 'README must link to Hermes setup');
-  assert.ok(readme.includes('docs/releases/2.0.0/release-notes.md'), 'README must link to the 2.0.0 release notes');
+  assert.ok(readme.includes('ApexForge-devz/PowerUser'), 'README must identify the fork');
+  assert.ok(readme.includes('Codex desktop plugin'), 'README must document the Codex plugin path');
 });
 
 test('cross-harness architecture doc exists and names core harnesses', () => {
@@ -108,10 +108,10 @@ test('release docs do not contain unresolved public-link placeholders', () => {
 
 test('business launch copy stays aligned with the rc.1 public surface', () => {
   const source = read('docs/business/social-launch-copy.md');
-  assert.ok(source.includes('ECC v2.0.0-rc.1'), 'business launch copy should use the rc.1 release');
+  assert.ok(source.includes('PowerUser v2.0.0-rc.1'), 'business launch copy should use the rc.1 release');
   assert.ok(source.includes('preview pack is ready for final release review'), 'business launch copy should stay pre-publication until release URLs exist');
-  assert.ok(source.includes('https://github.com/affaan-m/ECC'), 'business launch copy should include the public repo URL');
-  assert.ok(source.includes('https://github.com/affaan-m/ECC/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'), 'business launch copy should link to the rc.1 release notes');
+  assert.ok(source.includes('https://github.com/affaan-m/PowerUser'), 'business launch copy should include the public repo URL');
+  assert.ok(source.includes('https://github.com/affaan-m/PowerUser/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'), 'business launch copy should link to the rc.1 release notes');
   assert.ok(!source.includes('<repo-link>'), 'business launch copy should not contain repo placeholders');
   assert.ok(!source.includes('v1.8.0'), 'business launch copy should not stay pinned to v1.8.0');
 });
@@ -121,14 +121,14 @@ test('announcement drafts avoid live-release claims before publication', () => {
 
   for (const relativePath of announcementFiles) {
     const source = read(relativePath);
-    assert.ok(!/ECC v2\.0\.0-rc\.1 is live\./.test(source), `${relativePath} must not claim rc.1 is live before the release gate completes`);
+    assert.ok(!/PowerUser v2\.0\.0-rc\.1 is live\./.test(source), `${relativePath} must not claim rc.1 is live before the release gate completes`);
   }
 });
 
 test('Hermes setup uses release-candidate wording for the rc.1 surface', () => {
   const source = read('docs/HERMES-SETUP.md');
   assert.ok(source.includes('Public Release Candidate Scope'));
-  assert.ok(source.includes('ECC v2.0.0-rc.1 documents the Hermes surface'));
+  assert.ok(source.includes('PowerUser v2.0.0-rc.1 documents the Hermes surface'));
   assert.ok(!source.includes('Public Preview Scope'));
 });
 
@@ -140,9 +140,9 @@ test('Hermes setup cross-links adjacent migration and architecture docs', () => 
   assert.ok(!source.includes('0.5. Generate and review artifacts with `ecc migrate plan` /'));
 });
 
-test('release docs preserve the ECC/Hermes boundary', () => {
+test('release docs preserve the PowerUser/Hermes boundary', () => {
   const releaseNotes = read('docs/releases/2.0.0-rc.1/release-notes.md');
-  assert.ok(releaseNotes.includes('ECC is the reusable substrate'));
+  assert.ok(releaseNotes.includes('PowerUser is the reusable substrate'));
   assert.ok(releaseNotes.includes('Hermes as the operator shell'));
 });
 
@@ -176,7 +176,7 @@ test('preview pack manifest assembles release, Hermes, and publication gates', (
     'npm `ecc-universal@2.0.0-rc.1`',
     'Claude plugin tag',
     'Codex repo-marketplace distribution evidence',
-    'ECC Tools billing/product readiness'
+    'PowerUser Tools billing/product readiness'
   ]) {
     assert.ok(manifest.includes(blocker), `preview pack manifest missing blocker ${blocker}`);
   }
@@ -220,7 +220,7 @@ test('owner approval packet consolidates the final gated decisions', () => {
     assert.ok(packet.includes(command), `owner approval packet missing command ${command}`);
   }
 
-  for (const urlSurface of ['GitHub prerelease URL', 'npm rc package URL', 'Claude plugin tag URL', 'Primary launch video URL', 'ECC Tools billing/readiness URL']) {
+  for (const urlSurface of ['GitHub prerelease URL', 'npm rc package URL', 'Claude plugin tag URL', 'Primary launch video URL', 'PowerUser Tools billing/readiness URL']) {
     assert.ok(packet.includes(urlSurface), `owner approval packet missing ${urlSurface}`);
   }
 
@@ -230,7 +230,7 @@ test('owner approval packet consolidates the final gated decisions', () => {
 });
 
 test('GA roadmap mirrors the current May 19 release evidence', () => {
-  const roadmap = read('docs/ECC-2.0-GA-ROADMAP.md');
+  const roadmap = read('docs/PowerUser-2.0-GA-ROADMAP.md');
 
   for (const marker of [
     'owner-approval-packet-2026-05-19.md',
@@ -263,8 +263,8 @@ test('rc.1 quickstart gives a clone-to-cross-harness path', () => {
   for (const heading of ['Clone', 'Install', 'Verify', 'First Skill', 'Switch Harness']) {
     assert.ok(quickstart.includes(`## ${heading}`), `Missing ${heading} section`);
   }
-  assert.ok(quickstart.includes('git clone https://github.com/affaan-m/ECC.git'));
-  assert.ok(quickstart.includes('cd ECC'));
+  assert.ok(quickstart.includes('git clone https://github.com/affaan-m/PowerUser.git'));
+  assert.ok(quickstart.includes('cd PowerUser'));
   assert.ok(quickstart.includes('node tests/run-all.js'));
   assert.ok(quickstart.includes('skills/hermes-imports/SKILL.md'));
 });
@@ -284,12 +284,12 @@ test('release docs use release-candidate wording consistently', () => {
   assert.ok(!releaseNotes.includes('## Preview Boundaries'));
 });
 
-test('launch checklist records the ecc2 alpha version policy', () => {
-  const cargoToml = read('ecc2/Cargo.toml');
+test('launch checklist records the poweruser2 alpha version policy', () => {
+  const cargoToml = read('poweruser2/Cargo.toml');
   const launchChecklist = read('docs/releases/2.0.0-rc.1/launch-checklist.md');
   assert.ok(cargoToml.includes('version = "0.1.0"'));
-  assert.ok(launchChecklist.includes('`ecc2/Cargo.toml` stays at `0.1.0`'));
-  assert.ok(!launchChecklist.includes('confirm whether `ecc2/Cargo.toml` moves'));
+  assert.ok(launchChecklist.includes('`poweruser2/Cargo.toml` stays at `0.1.0`'));
+  assert.ok(!launchChecklist.includes('confirm whether `poweruser2/Cargo.toml` moves'));
 });
 
 test('release video suite manifest gates the content launch lane', () => {
@@ -299,9 +299,9 @@ test('release video suite manifest gates the content launch lane', () => {
   const packageJson = JSON.parse(read('package.json'));
 
   for (const marker of [
-    'ECC 2.0 Video Suite Production Manifest',
-    'ECC_VIDEO_SOURCE_ROOT',
-    'ECC_VIDEO_RELEASE_SUITE_ROOT',
+    'PowerUser 2.0 Video Suite Production Manifest',
+    'PowerUser_VIDEO_SOURCE_ROOT',
+    'PowerUser_VIDEO_RELEASE_SUITE_ROOT',
     'video-use compatible workflow',
     'Self-Eval Gate',
     'Do Not Publish If',
@@ -411,7 +411,7 @@ test('publication readiness checklist gates public release actions on evidence',
     assert.ok(source.includes(field), `publication readiness missing ${field}`);
   }
 
-  for (const surface of ['GitHub release', 'npm package', 'Claude plugin', 'Codex plugin', 'Codex repo marketplace', 'OpenCode package', 'ECC Tools billing reference', 'Announcement copy']) {
+  for (const surface of ['GitHub release', 'npm package', 'Claude plugin', 'Codex plugin', 'Codex repo marketplace', 'OpenCode package', 'PowerUser Tools billing reference', 'Announcement copy']) {
     assert.ok(source.includes(surface), `publication readiness missing ${surface}`);
   }
 
@@ -426,8 +426,8 @@ test('publication readiness checklist gates public release actions on evidence',
   assert.ok(may15Evidence.includes('AgentShield PR #85'));
   assert.ok(may15Evidence.includes('AgentShield PR #86'));
   assert.ok(may15Evidence.includes('ci-context.json'));
-  assert.ok(may15Evidence.includes('ECC Tools PR #73'));
-  assert.ok(may15Evidence.includes('ECC-Tools PR #75'));
+  assert.ok(may15Evidence.includes('PowerUser Tools PR #73'));
+  assert.ok(may15Evidence.includes('PowerUser-Tools PR #75'));
   assert.ok(may15Evidence.includes('| Platform audit |'));
   assert.ok(may15Evidence.includes('Ready; open PRs 0/20'));
   assert.ok(may15Evidence.includes('passed 15/15'));
@@ -437,8 +437,8 @@ test('publication readiness checklist gates public release actions on evidence',
   assert.ok(may15Evidence.includes('codex plugin marketplace add <local-checkout>'));
   assert.ok(may15Evidence.includes('Plugin Directory publishing is still blocked'));
   assert.ok(may15Evidence.includes('announcementGate.ready === true'));
-  assert.ok(source.includes('ECC-Tools #92 main CI'));
-  assert.ok(source.includes('ECC-Tools #93 main CI'));
+  assert.ok(source.includes('PowerUser-Tools #92 main CI'));
+  assert.ok(source.includes('PowerUser-Tools #93 main CI'));
   assert.ok(source.includes('do not claim official Plugin Directory listing before OpenAI submission evidence'));
   assert.ok(source.includes('release-name-plugin-publication-checklist-2026-05-18.md'));
   assert.ok(source.includes('Release name and plugin publication checklist'));
@@ -457,11 +457,11 @@ test('publication readiness checklist gates public release actions on evidence',
 test('release name and plugin publication checklist freezes rc.1 surfaces', () => {
   const checklist = read('docs/releases/2.0.0-rc.1/release-name-plugin-publication-checklist-2026-05-18.md');
   const launchChecklist = read('docs/releases/2.0.0-rc.1/launch-checklist.md');
-  const referenceArchitecture = read('docs/ECC-2.0-REFERENCE-ARCHITECTURE.md');
+  const referenceArchitecture = read('docs/PowerUser-2.0-REFERENCE-ARCHITECTURE.md');
 
   for (const value of [
-    'Ship `v2.0.0-rc.1` as **ECC**',
-    '`affaan-m/ECC`',
+    'Ship `v2.0.0-rc.1` as **PowerUser**',
+    '`affaan-m/PowerUser`',
     '`ecc-universal`',
     '`ecc` on npm is occupied',
     '`@affaan-m/ecc` is unclaimed on npm',
@@ -489,7 +489,7 @@ test('release name and plugin publication checklist freezes rc.1 surfaces', () =
   assert.ok(referenceArchitecture.includes('Keep the release/name/plugin publication checklist current'));
 });
 
-test('active release identity surfaces use canonical ECC repo URLs', () => {
+test('active release identity surfaces use canonical PowerUser repo URLs', () => {
   const activeFiles = [
     'README.md',
     '.codex-plugin/README.md',
@@ -502,7 +502,7 @@ test('active release identity surfaces use canonical ECC repo URLs', () => {
     'docs/releases/2.0.0-rc.1/publication-readiness.md',
     'docs/releases/2.0.0-rc.1/naming-and-publication-matrix.md',
     'docs/releases/2.0.0-rc.1/release-url-ledger-2026-05-19.md',
-    'ecc2/Cargo.toml',
+    'poweruser2/Cargo.toml',
     'scripts/platform-audit.js',
     'scripts/discussion-audit.js'
   ];
@@ -520,7 +520,7 @@ test('active release identity surfaces use canonical ECC repo URLs', () => {
 
 test('release checklist and roadmap link to publication readiness evidence gate', () => {
   const launchChecklist = read('docs/releases/2.0.0-rc.1/launch-checklist.md');
-  const roadmap = read('docs/ECC-2.0-GA-ROADMAP.md');
+  const roadmap = read('docs/PowerUser-2.0-GA-ROADMAP.md');
 
   assert.ok(launchChecklist.includes('publication-readiness.md'));
   assert.ok(launchChecklist.includes('fresh evidence'));
