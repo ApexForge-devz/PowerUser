@@ -127,7 +127,7 @@ function parseMarketplaceList(stdout) {
     ) {
       fail(
         'INVALID_MARKETPLACE_INVENTORY',
-        'Claude marketplace inventory contains an invalid `ecc` entry'
+        'Claude marketplace inventory contains an invalid `poweruser` entry'
       );
     }
   }
@@ -398,7 +398,7 @@ function currentEccPlugins(plugins) {
   return plugins.filter(plugin => plugin?.id === CURRENT_PLUGIN_ID);
 }
 
-function assertNoConflictingEccPlugins(plugins) {
+function assertNoConflictingPowerUserPlugins(plugins) {
   const legacy = plugins.find(plugin => (
     LEGACY_PLUGIN_IDS.has(plugin?.id)
     // Legacy install id prefix, kept for existing installs.
@@ -423,7 +423,7 @@ function assertNoConflictingEccPlugins(plugins) {
   if (conflictingPowerUser) {
     fail(
       'DUPLICATE_ECC_PLUGIN',
-      `${conflictingPowerUser.id} is already installed and would duplicate ECC surfaces. Uninstall it before setting up ${CURRENT_PLUGIN_ID}.`,
+      `${conflictingPowerUser.id} is already installed and would duplicate PowerUser surfaces. Uninstall it before setting up ${CURRENT_PLUGIN_ID}.`,
       {
         observedScopes: [conflictingPowerUser.scope],
         recovery: [
@@ -435,7 +435,7 @@ function assertNoConflictingEccPlugins(plugins) {
 }
 
 function inspectPluginInventory(plugins, requestedScope) {
-  assertNoConflictingEccPlugins(plugins);
+  assertNoConflictingPowerUserPlugins(plugins);
   const installed = currentEccPlugins(plugins);
   const observedScopes = installed.map(plugin => plugin.scope);
   if (installed.length > 1 || new Set(observedScopes).size !== observedScopes.length) {
@@ -536,7 +536,7 @@ function ensureOfficialMarketplace(options) {
   if (!verified || !isOfficialMarketplace(verified)) {
     fail(
       'MARKETPLACE_VERIFICATION_FAILED',
-      'Could not verify the official ECC marketplace after the marketplace change.',
+      'Could not verify the PowerUser marketplace after the marketplace change.',
       { phase: 'marketplace-verification' }
     );
   }
@@ -697,7 +697,7 @@ module.exports = {
   VALID_HOOK_MODES,
   VALID_SCOPES,
   buildWindowsCommandLine,
-  assertNoConflictingEccPlugins,
+  assertNoConflictingPowerUserPlugins,
   assertSafeLocalInventory,
   assertGitAvailable,
   createDryRunClaudeRunner,
