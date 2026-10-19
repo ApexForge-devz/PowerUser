@@ -1,14 +1,14 @@
-# ECC Pro: Hosted Multi-Repo Agent Security Posture Dashboard
+# PowerUser hosted: Hosted Multi-Repo Agent Security Posture Dashboard
 
 > Status: draft design for review. Produced 2026-06-21 by an architecture agent grounded
-> in the existing ecc-agentshield primitives. Proposes the hosted ECC Pro surface; does not
-> implement it. Companion to docs/ECC-PRO-SECURITY-ROADMAP.md (the "next" flagship item).
+> in the existing poweruser-agentshield primitives. Proposes the hosted PowerUser hosted surface; does not
+> implement it. Companion to docs/PowerUser-PRO-SECURITY-ROADMAP.md (the "next" flagship item).
 
 ## 1. Title, Thesis, and Wedge
 
-ECC Pro is a hosted, authenticated, multi-repo "Sentry for agent security" surface built on top of the existing `ecc-agentshield` local CLI primitives. AgentShield already does ~30K npm downloads/month with near-zero monetization. The thesis: the continuous and fleet primitives that make a hosted product valuable already exist as local CLI building blocks (evidence packs with `bundleDigest` integrity, `operatorReadback`/`reviewItems` promotion routing, `fs.watch` drift detection, NDJSON runtime allow/block logging, baseline diffing, and policy promotion gates). The fastest path to MRR is not new science; it is hosting these primitives as authenticated multi-repo and multi-org surfaces and unifying config-scan posture with runtime telemetry over time.
+PowerUser hosted is a hosted, authenticated, multi-repo "Sentry for agent security" surface built on top of the existing `poweruser-agentshield` local CLI primitives. AgentShield already does ~30K npm downloads/month with near-zero monetization. The thesis: the continuous and fleet primitives that make a hosted product valuable already exist as local CLI building blocks (evidence packs with `bundleDigest` integrity, `operatorReadback`/`reviewItems` promotion routing, `fs.watch` drift detection, NDJSON runtime allow/block logging, baseline diffing, and policy promotion gates). The fastest path to MRR is not new science; it is hosting these primitives as authenticated multi-repo and multi-org surfaces and unifying config-scan posture with runtime telemetry over time.
 
-The wedge: Snyk and similar SCA tools are scan-only and have no concept of agent-runtime semantics (no PreToolUse deny decisions, no MCP/hook/agent injection model, no drift-over-time on agent config). Sentry has time-series and alerting but zero security semantics; it does not know what a hardcoded `sk-ant-` key, a `Bash(*)` allow rule, or an `autoApprove` MCP server is. CodeRabbit reviews PR diffs but is point-in-time and has no fleet posture rollup or runtime block-rate trend. ECC Pro is the only surface that charts `score` trend, `drift` history, `blocked-command` rate, and `injection-attempt` rate across a fleet of repos, anchored on a security-specific rule engine (102 rules across secrets/permissions/hooks/mcp/agents) that nobody else has. AgentShield was featured at the Cerebral Valley x Anthropic Claude Code Hackathon (Feb 2026); the hosted surface is the commercial extension of that featured tooling.
+The wedge: Snyk and similar SCA tools are scan-only and have no concept of agent-runtime semantics (no PreToolUse deny decisions, no MCP/hook/agent injection model, no drift-over-time on agent config). Sentry has time-series and alerting but zero security semantics; it does not know what a hardcoded `sk-ant-` key, a `Bash(*)` allow rule, or an `autoApprove` MCP server is. CodeRabbit reviews PR diffs but is point-in-time and has no fleet posture rollup or runtime block-rate trend. PowerUser hosted is the only surface that charts `score` trend, `drift` history, `blocked-command` rate, and `injection-attempt` rate across a fleet of repos, anchored on a security-specific rule engine (102 rules across secrets/permissions/hooks/mcp/agents) that nobody else has. AgentShield was featured at the Cerebral Valley x Anthropic Claude Code Hackathon (Feb 2026); the hosted surface is the commercial extension of that featured tooling.
 
 ## 2. Scope: Free Local-First vs Pro Hosted
 
@@ -30,7 +30,7 @@ Pro, hosted, account-required (the recurring-revenue surface):
 - Multi-repo and org rollup: cross-repo posture, fleet `operatorReadback` aggregation, org-level score trend.
 - Authenticated ingestion endpoints for CI scan results, `runtime.ndjson` streaming, and watch/drift events.
 - Hosted dashboard frontend (posture, drift timeline, blocked-command rate, injection-attempt rate, secret-exposure events).
-- Hosted alerting and routing: turn `reviewItems` into assignable tickets, deliver to Slack/Linear/GitHub via the ecc-tools GitHub App.
+- Hosted alerting and routing: turn `reviewItems` into assignable tickets, deliver to Slack/Linear/GitHub via the poweruser-tools GitHub App.
 - RBAC, audit log, retention/compliance, SSO (Enterprise).
 - Hosted policy promotion gate: org-level promotion approval workflow on top of `policy promote` `reviewItems`.
 
@@ -80,13 +80,13 @@ Component diagram (ASCII):
                                       |
                                       v
   +-----------------------------+        +-------------------------------------------+
-  | DASHBOARD FRONTEND (Next.js) |        | ROUTING/ALERTS (ecc-tools GitHub App,      |
+  | DASHBOARD FRONTEND (Next.js) |        | ROUTING/ALERTS (poweruser-tools GitHub App,      |
   |  posture, trends, drift, fleet|        |  Slack/Linear) from reviewItems + tickets  |
   +-----------------------------+        +-------------------------------------------+
 ```
 
 Ingestion sources and their existing producers:
-- CI scan results: GitHub Action already emits the full `SecurityReport` JSON, SARIF, and an evidence pack with `manifest.json` (`bundleDigest`, per-artifact `sha256`/`bytes`) plus `ci-context.json` (`EvidencePackGitHubContext`: `repository`, `sha`, `runId`, `workflow`, `ref`, `actor`). The Action gets a new optional input `ecc-pro-ingest-url` + token; on success it POSTs the inspected pack summary (`EvidencePackInspectionResult`) and the manifest digest.
+- CI scan results: GitHub Action already emits the full `SecurityReport` JSON, SARIF, and an evidence pack with `manifest.json` (`bundleDigest`, per-artifact `sha256`/`bytes`) plus `ci-context.json` (`EvidencePackGitHubContext`: `repository`, `sha`, `runId`, `workflow`, `ref`, `actor`). The Action gets a new optional input `poweruser-pro-ingest-url` + token; on success it POSTs the inspected pack summary (`EvidencePackInspectionResult`) and the manifest digest.
 - Runtime telemetry: the PreToolUse hook (`evaluateToolCall` -> `logEvalResult`) writes `RuntimeLogEntry` lines to `.agentshield/runtime.ndjson`. A small `agentshield runtime ship` command (Pro) tails and batch-POSTs new NDJSON lines.
 - Watch/drift events: `startWatcher` already computes `DriftResult` and calls `dispatchAlert`. We add a `webhook` alert target that points at the hosted ingest endpoint; the existing `formatWebhookPayload` carries `newFindings`, `resolvedFindings`, `scoreDelta`, `isRegression`, `hasCritical`.
 
@@ -257,7 +257,7 @@ Time-series rollups to chart (materialized from the entities above, bucketed by 
 ## 6. Auth Model
 
 Identity and tenancy:
-- Org is the top-level tenant, anchored to a GitHub org login (the ecc-tools GitHub App install scope is the natural onboarding boundary). `repo` rows are children of exactly one `org`; `github_repo_id` from `EvidencePackGitHubContext.repositoryId` is the stable external key.
+- Org is the top-level tenant, anchored to a GitHub org login (the poweruser-tools GitHub App install scope is the natural onboarding boundary). `repo` rows are children of exactly one `org`; `github_repo_id` from `EvidencePackGitHubContext.repositoryId` is the stable external key.
 - Multi-tenant isolation: every row carries `org_id`. On Supabase Postgres, enforce Row Level Security so every query is filtered by the caller's `org_id`; the query API never accepts a client-supplied `org_id` that is not in the caller's token claims. No cross-org joins exist in any query path.
 
 API tokens:
@@ -279,18 +279,18 @@ Prohibited handling (hard requirements, enforced server-side):
 ## 7. MVP vs v2 vs v3 (Build Order)
 
 MVP (smallest shippable Pro v1) -- "history + multi-repo posture for CI scans":
-1. Org/repo model, GitHub App (ecc-tools) install -> org/repo provisioning, org-scoped ingest tokens with RLS isolation.
+1. Org/repo model, GitHub App (poweruser-tools) install -> org/repo provisioning, org-scoped ingest tokens with RLS isolation.
 2. `POST /v1/ingest/scan` consuming `EvidencePackInspectionResult` + `ci-context`; persist `scan`, `finding`, `evidence_pack`, `policy_eval`, `baseline_comparison`; idempotent on `bundleDigest`; reject-if-not-redacted guard.
-3. GitHub Action gets `ecc-pro-ingest-url` + token inputs; on scan it POSTs the inspected summary.
+3. GitHub Action gets `poweruser-pro-ingest-url` + token inputs; on scan it POSTs the inspected summary.
 4. Dashboard v1: `score_trend` chart, per-repo finding table (severity + `runtimeConfidence` filter), org fleet table reusing `operatorReadback.status`.
-5. Stripe billing, Team plan ($19/seat/mo per the existing ecc-tools Pro listing), per-org token quota.
+5. Stripe billing, Team plan ($19/seat/mo per the existing poweruser-tools Pro listing), per-org token quota.
 
 This is shippable because it only stitches existing artifacts to storage + a chart. No new scanning logic.
 
 v2 -- "runtime telemetry + drift over time + routing":
 6. `POST /v1/ingest/runtime` + `agentshield runtime ship` shipper; `runtime_event` store; `blocked_command_rate` and `injection_attempt_rate` charts.
 7. `POST /v1/ingest/drift` + `watch` webhook target -> hosted; `drift_history` chart; `secret_exposure_events` timeline.
-8. `review_item` ingestion + assignable tickets, alert routing to Slack/Linear/GitHub via ecc-tools App, reusing `approvalId` and `ticket.externalId` for dedupe.
+8. `review_item` ingestion + assignable tickets, alert routing to Slack/Linear/GitHub via poweruser-tools App, reusing `approvalId` and `ticket.externalId` for dedupe.
 
 v3 -- "Enterprise governance":
 9. Hosted policy promotion gate: org approval workflow on top of `policy promote` `reviewItems`; required approvals before `operatorReadback.ready`.
@@ -298,7 +298,7 @@ v3 -- "Enterprise governance":
 
 ## 8. Pricing and Packaging Hooks
 
-- Team ($19/seat/mo, matches the current ecc-tools Pro listing): per-seat billing; included repo cap (e.g. 25 repos); 90-day history retention; scan + drift ingestion; Slack/GitHub routing; standard RBAC (owner/admin/member/viewer).
+- Team ($19/seat/mo, matches the current poweruser-tools Pro listing): per-seat billing; included repo cap (e.g. 25 repos); 90-day history retention; scan + drift ingestion; Slack/GitHub routing; standard RBAC (owner/admin/member/viewer).
 - Enterprise (per-repo or platform-fee, sales-assisted): metered by `repo` count rather than seats because security platform value scales with fleet size, not headcount; unlimited seats; SSO/SAML; unlimited retention + audit-log export; hosted policy promotion approval gate; `regulated`/`enterprise` policy packs with required-approval enforcement; data residency.
 
 Gating levers (what flips Team -> Enterprise): runtime telemetry retention window, number of repos under management, SSO requirement, policy-promotion approval workflow, audit-log export, and `routesRequiringApproval` enforcement (Enterprise can require that `operatorReadback.requiresApproval` blocks promotion; Team only surfaces it). Per-seat captures small teams; per-repo captures the platform-team buyer whose value is fleet breadth.
@@ -314,7 +314,7 @@ Risks:
 Open questions:
 - Should drift/runtime ingestion from purely local `watch`/runtime (no CI, `provider: "local"`) be allowed for Pro, given there is no GitHub-verifiable repo identity? Proposal: allow it but tag `provider: local` and require a repo-scoped token bound at mint time to a `full_name`.
 - Do we attribute runtime events to a GitHub identity (`ci-context.actor`) for per-developer block-rate, or keep them repo-anonymous for privacy? Leaning repo-anonymous by default with opt-in actor attribution.
-- Is org identity strictly GitHub-org-bound, or do we need a GitHub-independent org for GitLab/local-only users in v2? MVP is GitHub-org-bound via the ecc-tools App.
+- Is org identity strictly GitHub-org-bound, or do we need a GitHub-independent org for GitLab/local-only users in v2? MVP is GitHub-org-bound via the poweruser-tools App.
 - For the `injection_attempt_rate` chart, do we trust runtime `reason` string matching, or do we need a structured `matchedRule` field shipped from `EvalResult` (which has `matchedRule`) instead of only `RuntimeLogEntry` (which drops it)? Proposal: extend the runtime shipper to include `matchedRule` so injection attribution is structured, not string-parsed.
 
 Relevant grounding files (all absolute):
@@ -324,4 +324,4 @@ Relevant grounding files (all absolute):
 - `agentshield/src/baseline/types.ts` (`SerializedBaseline`, `SerializedFinding`, `BaselineComparison`) and `agentshield/src/baseline/index.ts` (`fingerprintFinding`)
 - `agentshield/src/policy/types.ts` (`PolicyEvaluation`, `PolicyPack`, `PolicyExceptionSummary`)
 - `agentshield/src/types.ts` (`Finding`, `RuntimeConfidence`, `FindingCategory`, `SecurityReport`, `SecurityScore`)
-- `agentshield/README.md` (GitHub Action inputs/outputs, ecc-tools GitHub App, `ecc-agentshield` npm, ECC Tools Pro $19/seat/mo)
+- `agentshield/README.md` (GitHub Action inputs/outputs, poweruser-tools GitHub App, `poweruser-agentshield` npm, PowerUser Tools Pro $19/seat/mo)

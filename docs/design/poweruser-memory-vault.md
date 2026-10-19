@@ -1,12 +1,12 @@
-# ECC Memory Vault
+# PowerUser Memory Vault
 
 ## Capability
 
 An operator can save, inspect, search, and hand off durable context through one
 human-readable vault that Claude Code, Codex, Hermes, OpenCode, and other
-harnesses can share. Project and team memories live under `.ecc/memory/`; user
-memories live under `~/.ecc/memory/`. The same `ecc.memory.v1` documents are
-available through the `ecc memory` CLI and an opt-in local stdio MCP server, so
+harnesses can share. Project and team memories live under `.poweruser/memory/`; user
+memories live under `~/.poweruser/memory/`. The same `poweruser.memory.v1` documents are
+available through the `poweruser memory` CLI and an opt-in local stdio MCP server, so
 knowledge transfer does not depend on email, one vendor's transcript format, or
 one harness's hook support.
 
@@ -38,7 +38,7 @@ one harness's hook support.
 A bounded scan can be incomplete even when it has found a matching ID. Direct
 reads reject truncated scans and scans containing invalid or unreadable memory
 documents before claiming absence, uniqueness or complete backlinks. The core
-error is `ECC_MEMORY_INCOMPLETE`; local MCP returns the safe tool error
+error is `POWERUSER_MEMORY_INCOMPLETE`; local MCP returns the safe tool error
 `MEMORY_READ_INCOMPLETE`. No partial memory content is returned in that case.
 Search retains its existing diagnostics so callers can inspect partial results
 without interpreting them as a complete inventory. Entries excluded by the
@@ -77,8 +77,8 @@ OS accounts, containers, or equivalent filesystem isolation.
   decides when recalled context becomes governed project truth.
 - **Harness agent:** writes unreviewed facts, notes, lessons, and handoffs; reads
   active memories targeted to itself or all harnesses.
-- **ECC CLI:** deterministic local create/read/search/doctor interface.
-- **ECC Memory MCP:** stdio adapter exposing the same create/read/search/doctor
+- **PowerUser CLI:** deterministic local create/read/search/doctor interface.
+- **PowerUser Memory MCP:** stdio adapter exposing the same create/read/search/doctor
   operations. It has no review or promotion tool.
 - **ECC2 context graph:** optional projection populated from the Markdown
   directory connector for richer relationship and session views.
@@ -86,7 +86,7 @@ OS accounts, containers, or equivalent filesystem isolation.
 ### Surfaces
 
 ```text
-<repo>/.ecc/memory/
+<repo>/.poweruser/memory/
 ├── project/
 │   ├── contexts/
 │   ├── decisions/
@@ -99,7 +99,7 @@ OS accounts, containers, or equivalent filesystem isolation.
 └── team/
     └── <same kind directories>
 
-~/.ecc/memory/
+~/.poweruser/memory/
 └── <same kind directories>
 ```
 
@@ -109,7 +109,7 @@ exists with unexpected content. The team scope is intended to be inspected by
 a human before it is committed, but committed vault entries remain unreviewed
 context. The user scope follows the operator across repos and is recalled only
 when explicitly requested.
-`ECC_MEMORY_PROJECT_ROOT` and `ECC_MEMORY_USER_ROOT` may override the two vault
+`POWERUSER_MEMORY_PROJECT_ROOT` and `POWERUSER_MEMORY_USER_ROOT` may override the two vault
 locations explicitly.
 
 ### Document contract
@@ -118,7 +118,7 @@ Each memory is a Markdown file with strict JSON-valued YAML frontmatter:
 
 ```markdown
 ---
-schema: "ecc.memory.v1"
+schema: "poweruser.memory.v1"
 id: "mem_20260726_01k123example"
 title: "Authentication migration handoff"
 kind: "handoff"
@@ -166,12 +166,12 @@ approval boundary.
 CLI:
 
 ```text
-ecc memory init [--scope project|team|user]
-ecc memory save --title <text> [--body-file <path>|--stdin] [metadata flags]
-ecc memory handoff --from <harness> --target <harness> --title <text> ...
-ecc memory search <query> [--scope ...] [--target-harness ...] [--json]
-ecc memory read <id> [--scope ...] [--json]
-ecc memory doctor [--json]
+poweruser memory init [--scope project|team|user]
+poweruser memory save --title <text> [--body-file <path>|--stdin] [metadata flags]
+poweruser memory handoff --from <harness> --target <harness> --title <text> ...
+poweruser memory search <query> [--scope ...] [--target-harness ...] [--json]
+poweruser memory read <id> [--scope ...] [--json]
+poweruser memory doctor [--json]
 ```
 
 MCP tools:
@@ -187,11 +187,11 @@ The CLI searches active `project` and `team` memories by default. `user` recall
 requires an explicit `--scope user`. Its `--target-harness` option is a
 caller-selected routing filter, not an authorization boundary.
 
-The MCP server requires a lowercase `ECC_MEMORY_HARNESS` identity at launch.
+The MCP server requires a lowercase `POWERUSER_MEMORY_HARNESS` identity at launch.
 That server-side identity supplies `source_harness` for writes and constrains
 search/read to memories targeted to that harness or `all`; clients cannot
 override it in tool arguments. MCP access to `user` scope is disabled unless
-the operator also sets `ECC_MEMORY_ALLOW_USER_SCOPE=1`, after which the client
+the operator also sets `POWERUSER_MEMORY_ALLOW_USER_SCOPE=1`, after which the client
 must still request that scope explicitly. MCP writes always produce unreviewed
 documents. Structured errors omit stack traces and secret values.
 

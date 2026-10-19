@@ -1,4 +1,4 @@
-# ECC × Itô Compute Integration
+# PowerUser × Itô Compute Integration
 
 Status: **Implemented local CLI bridge; managed inference remains unavailable**
 
@@ -13,36 +13,36 @@ The distribution chain remains provider-neutral:
     GPU compute (Itô or another selected provider)
       -> any open-source model
       -> model harness
-      -> ECC meta-harness
+      -> PowerUser meta-harness
 
-Itô is ECC's preferred compute sponsor, never an exclusive provider. Owned
+Itô is PowerUser's preferred compute sponsor, never an exclusive provider. Owned
 hardware, existing clusters, and other providers remain valid.
 
 ## Implemented boundary
 
-ECC delegates to the canonical Itô package in
-`Ito-Markets/ito-cloud-runtime/cli/ito-compute-cli`. ECC does not maintain a
+PowerUser delegates to the canonical Itô package in
+`Ito-Markets/ito-cloud-runtime/cli/ito-compute-cli`. PowerUser does not maintain a
 second API client or response schema.
 
 The wrapper exposes only the canonical CLI's `login`, `logout`, `auth`, `find`, `status`, and `evals`
 operations:
 
-    ecc ito login [--no-browser]
-    ecc ito logout
-    ecc ito auth
-    ecc ito find <all required RFQ constraints>
-    ecc ito status
-    ecc ito evals --cluster <id> --live-sixtytwo --nodes <list> --config-dir <dir>
+    poweruser ito login [--no-browser]
+    poweruser ito logout
+    poweruser ito auth
+    poweruser ito find <all required RFQ constraints>
+    poweruser ito status
+    poweruser ito evals --cluster <id> --live-sixtytwo --nodes <list> --config-dir <dir>
 
 The canonical MCP server exposes only `ito_auth`, `ito_find`, and `ito_status`.
-ECC includes an opt-in configuration template pointing to the local built MCP
+PowerUser includes an opt-in configuration template pointing to the local built MCP
 entry. It does not enable the server by default.
 
-The former browser/manual-copy command is retired. `ecc ito login` delegates to
+The former browser/manual-copy command is retired. `poweruser ito login` delegates to
 the canonical CLI's device authorization, which opens the Itô verification page
 by default and persists a device token in macOS Keychain. `--no-browser`
-suppresses that page handoff. ECC itself performs no browser automation and
-stores no economic state. `ecc ito auth` is validation-only, never starts
+suppresses that page handoff. PowerUser itself performs no browser automation and
+stores no economic state. `poweruser ito auth` is validation-only, never starts
 device login, and rejects `--no-browser`.
 
 ## Local install
@@ -54,11 +54,11 @@ device login, and rejects `--no-browser`.
     npm ci
     npm run check
 
-Set `ECC_ITO_CLI_EXECUTABLE` to the explicit absolute built entry:
+Set `POWERUSER_ITO_CLI_EXECUTABLE` to the explicit absolute built entry:
 
     /absolute/path/to/ito-cloud-runtime/cli/ito-compute-cli/dist/bin/ito.js
 
-ECC does not resolve the credential-bearing client through `PATH`; this avoids
+PowerUser does not resolve the credential-bearing client through `PATH`; this avoids
 forwarding authentication material to an unrelated executable with the same
 name.
 
@@ -71,7 +71,7 @@ endpoint overrides, and the minimum process environment; it never inherits
 `ITO_API_KEY`. The `auth`, `find`, and `status` commands forward `ITO_API_KEY`
 directly when configured; `ITO_AUTH_MODE=legacy` is not required. Device tokens
 use macOS Keychain by default. Explicit file fallback retains owner-only 0700
-directory and 0600 token-file permissions. ECC does not inspect or log secrets.
+directory and 0600 token-file permissions. PowerUser does not inspect or log secrets.
 
 ## Authority and economics
 
@@ -91,29 +91,29 @@ directory and 0600 token-file permissions. ECC does not inspect or log secrets.
   and existing absolute configuration directory. It receives no `ITO_API_KEY`
   or unrelated cloud/model credentials and cannot rent, launch, recover,
   repair, reset, purchase, or order resources.
-- ECC returns the canonical process's stdout, stderr, and exit code unchanged.
+- PowerUser returns the canonical process's stdout, stderr, and exit code unchanged.
 - An inventory row or RFQ is not a capacity reservation.
 - Only a non-null canonical firm quote is firm.
 - After an ambiguous transport error, check `status` before repeating `find`.
-- Global ECC dry-run does not create a local success result; the wrapper fails
+- Global PowerUser dry-run does not create a local success result; the wrapper fails
   closed without invoking the canonical CLI.
 
 All durable RFQ, quote, procurement, and reservation state remains owned by the
-Itô platform. ECC adds no shadow store.
+Itô platform. PowerUser adds no shadow store.
 
 ## Unsupported in this slice
 
-ECC exposes no quote lock, purchase, workload execution, or inference command.
+PowerUser exposes no quote lock, purchase, workload execution, or inference command.
 Node qualification is live-only through the separately gated canonical
-adapter; the ECC bridge does not expose its paper fixture mode.
+adapter; the PowerUser bridge does not expose its paper fixture mode.
 
-Managed inference remains unavailable. ECC does not claim that Itô created a
+Managed inference remains unavailable. PowerUser does not claim that Itô created a
 model endpoint, deployed a workload, reserved capacity, or moved funds.
 
 ### Inference-serving contract
 
 `skills/ito-inference` is the only canonical serving skill; `ito-serve` is
-trigger language, not a second installed skill. The current ECC bridge has no
+trigger language, not a second installed skill. The current PowerUser bridge has no
 `serve` verb and rejects it before resolving or spawning the canonical client.
 The canonical runtime documents `inference` only as an unsupported compatibility
 probe, and MCP remains limited to auth, find, and status. Serving requests
@@ -135,7 +135,7 @@ attacks. Authentication alone is never workload authority.
 The same canonical client must expose structured, tenant-scoped status, logs,
 metrics, cancel, and cleanup with bounded timeouts and revocation-aware errors.
 After an ambiguous transport failure, callers reconcile by idempotency key
-before retrying. ECC must never replace that control plane with root SSH, local
+before retrying. PowerUser must never replace that control plane with root SSH, local
 serving scripts, browser automation, or an unreviewed purchase endpoint.
 
 ## Skill and install shape
@@ -153,10 +153,10 @@ does not bundle the unpublished CLI.
 
 The integration works from a local build. Distribution remains blocked until
 `ito-compute-cli` has an approved package-publication policy and is published
-or replaced by another verified distribution channel. ECC must not claim npm
+or replaced by another verified distribution channel. PowerUser must not claim npm
 availability before a registry read confirms it.
 
-The ECC package version remains unchanged in this worktree. Its version bump,
+The PowerUser package version remains unchanged in this worktree. Its version bump,
 release commit, and publication are intentionally deferred to the release owner
 after review.
 
