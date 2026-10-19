@@ -3,13 +3,13 @@
 </p>
 
 <p align="center">
-  <a href="https://www.star-history.com/affaan-m/PowerUser">
+  <a href="https://www.star-history.com/#ApexForge-devz/PowerUser">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=trending&theme=dark" />
       <img src="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=trending" alt="GitHub Trending Repository of the Day" height="46" />
     </picture>
   </a>
-  <a href="https://www.star-history.com/affaan-m/PowerUser">
+  <a href="https://www.star-history.com/#ApexForge-devz/PowerUser">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=rank&theme=dark" />
       <img src="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=rank" alt="Star History Global Rank" height="46" />
@@ -39,8 +39,8 @@
 
 <p align="center">
   <a href="https://discord.gg/36yGMHGFbR"><img src="https://img.shields.io/discord/1496644400590094540?logo=discord&logoColor=white&label=Discord&color=5865F2" alt="Discord" /></a>
-  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/Website-github.com/ApexForge-devz/PowerUser-E07856?logo=googlechrome&logoColor=white" alt="Website" /></a>
-  <a href="https://github.com/apps/PowerUser-tools"><img src="https://img.shields.io/badge/GitHub%20App-PowerUser%20Tools-181717?logo=github&logoColor=white" alt="GitHub App" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/Repository-PowerUser-blue?logo=github" alt="Website" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/GitHub%20App-PowerUser%20Tools-181717?logo=github&logoColor=white" alt="GitHub App" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license" /></a>
 </p>
 
@@ -48,12 +48,12 @@
   <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/github/stars/ApexForge-devz/PowerUser?style=flat" alt="GitHub stars" /></a>
   <a href="https://github.com/ApexForge-devz/PowerUser/forks"><img src="https://img.shields.io/github/forks/ApexForge-devz/PowerUser?style=flat" alt="GitHub forks" /></a>
   <a href="https://github.com/ApexForge-devz/PowerUser/graphs/contributors"><img src="https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat" alt="Contributors" /></a>
-  <a href="https://github.com/marketplace/PowerUser-tools"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.github.com/ApexForge-devz/PowerUser%2Fbadge%2Finstalls&logo=github" alt="GitHub App installs" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white" alt="GitHub App installs" /></a>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/poweruser-universal"><img src="https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal&logo=npm" alt="poweruser-universal npm downloads" /></a>
-  <a href="https://www.npmjs.com/package/PowerUser-agentshield"><img src="https://img.shields.io/npm/dw/PowerUser-agentshield?label=PowerUser-agentshield&logo=npm" alt="PowerUser-agentshield npm downloads" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/Install-from%20source-blue" alt="poweruser-universal npm downloads" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/License-MIT-blue" alt="poweruser-agentshield npm downloads" /></a>
 </p>
 
 <p align="center">
@@ -67,7 +67,7 @@
 </p>
 
 > [!WARNING]
-> **Official sources only.** Install PowerUser only from verified channels: the GitHub repository [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser), the npm packages [`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) and [`PowerUser-agentshield`](https://www.npmjs.com/package/PowerUser-agentshield), the [GitHub App](https://github.com/apps/PowerUser-tools), the plugin slug `poweruser@poweruser`, and the project website [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser). Third-party re-uploads and unofficial mirrors are not maintained or reviewed by the project and may contain malware.
+> **Official sources only.** Install PowerUser only from verified channels: the GitHub repository [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser), the npm packages [`poweruser-universal`](https://github.com/ApexForge-devz/PowerUser) and [`poweruser-agentshield`](https://github.com/ApexForge-devz/PowerUser), the [GitHub App](https://github.com/ApexForge-devz/PowerUser), the plugin slug `poweruser@poweruser`, and the project website [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser). Third-party re-uploads and unofficial mirrors are not maintained or reviewed by the project and may contain malware.
 
 ## Install with Claude Code
 
@@ -79,10 +79,10 @@ Use the [guided setup](#install-PowerUser) or [native plugin commands](#claude-c
 <tr>
 <td width="33%" align="center">
   <a href="https://github.com/ApexForge-devz/PowerUser/pricing">
-    <img src="assets/images/community/PowerUser-tools-mark.svg" height="42" alt="PowerUser Tools" /><br />
+    <img src="assets/images/community/ecc-tools-mark.svg" height="42" alt="PowerUser Tools" /><br />
     <strong>PowerUser Pro + GitHub App</strong>
   </a><br />
-  <sub><a href="https://github.com/apps/PowerUser-tools">Install free</a> · <a href="https://github.com/ApexForge-devz/PowerUser/pricing">Private repos from $19/seat/mo</a></sub>
+  <sub><a href="https://github.com/ApexForge-devz/PowerUser">Install free</a> · <a href="https://github.com/ApexForge-devz/PowerUser/pricing">Private repos from $19/seat/mo</a></sub>
 </td>
 <td width="33%" align="center">
   <a href="https://github.com/sponsors/affaan-m">
@@ -153,7 +153,7 @@ Access to 71 agents, 311 skills, and 97 legacy command shims, plus hooks, rules,
 | AgentShield      |    Included | Scanning for prompts, hooks, MCP config, permissions, secrets, and agent files       |
 
 <p align="center">
-  <a href="https://www.star-history.com/affaan-m/PowerUser">
+  <a href="https://www.star-history.com/#ApexForge-devz/PowerUser">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date&theme=dark" />
       <img src="https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date" alt="Live star history chart for ApexForge-devz/PowerUser" width="100%" />
@@ -216,7 +216,7 @@ PowerUser 2.2 supports the same guided setup through modern package runners:
 | Yarn 2+ | `yarn dlx poweruser-universal@2.2.3 setup` |
 | Bun | `bunx poweruser-universal@2.2.3 setup` |
 
-The examples select [the published PowerUser 2.2.3 release](https://www.npmjs.com/package/poweruser-universal/v/2.2.3), matching this repository's release version. A version pin is not a security audit or an integrity check. Review the release source and registry integrity before running package code; use a reviewed checkout for unreleased changes.
+The examples select [the published PowerUser 2.2.3 release](https://github.com/ApexForge-devz/PowerUser), matching this repository's release version. A version pin is not a security audit or an integrity check. Review the release source and registry integrity before running package code; use a reviewed checkout for unreleased changes.
 
 Yarn Classic 1 does not provide `yarn dlx`; use `npx`, install the package globally, or upgrade Yarn for a temporary one-shot run.
 
@@ -232,7 +232,7 @@ It lets you select any combination of Claude Code, Codex, and Kimi Code, shows e
 
 | Harness | Guided install behavior |
 |---|---|
-| Claude Code | Native `poweruser@poweruser` plugin with one `user`, `project`, or `local` scope and an PowerUser hook profile |
+| Claude Code | Native `poweruser@poweruser` plugin with one `user`, `project`, or `local` scope and a PowerUser hook profile |
 | Codex | Native Codex marketplace/plugin lifecycle; hook review and trust remain Codex-owned |
 | Kimi Code | Managed project files under `./.kimi-code`; PowerUser hooks, model/provider settings, and authentication are not configured |
 
@@ -260,7 +260,7 @@ npx poweruser-universal@2.2.3 install --profile minimal --target claude --with c
 npx poweruser-universal@2.2.3 doctor --target kimi
 ```
 
-Do not use `npx PowerUser-install --profile minimal --target claude`: `PowerUser-install` is a binary name inside `poweruser-universal`, not a separately published npm package.
+Do not use `npx PowerUser-install --profile minimal --target claude`: `poweruser-install` is a binary name inside `poweruser-universal`, not a separately published npm package.
 
 PowerUser also ships advanced managed adapters for `cursor`, `antigravity`, `gemini`, `opencode`, `codebuddy`, `joycode`, `qwen`, `zed`, `hermes`, and `openclaw`. Those targets still use their documented `PowerUser install --target ...` paths until each adapter has passed the guided collision, update, repair, and uninstall lifecycle matrix. Neither wizard silently installs into every detected harness.
 
@@ -360,7 +360,7 @@ codex plugin list --json
 node scripts/codex/check-plugin-cache.js
 ```
 
-Both add commands are idempotent. To refresh later, run `codex plugin marketplace upgrade PowerUser` followed by `codex plugin add poweruser@poweruser`. Codex stores one enabled plugin state in the active `CODEX_HOME`; it does not offer Claude's `user`, `project`, and `local` scopes. Its native hooks require an explicit trust decision and do not use Claude's four PowerUser hook profiles. Inside Codex, invoke `$configure-PowerUser` for the guided provider-aware flow.
+Both add commands are idempotent. To refresh later, run `codex plugin marketplace upgrade poweruser` followed by `codex plugin add poweruser@poweruser`. Codex stores one enabled plugin state in the active `CODEX_HOME`; it does not offer Claude's `user`, `project`, and `local` scopes. Its native hooks require an explicit trust decision and do not use Claude's four PowerUser hook profiles. Inside Codex, invoke `$configure-poweruser` for the guided provider-aware flow.
 
 The older `scripts/sync-PowerUser-to-codex.sh` path is a deprecated compatibility option for users who intentionally need copied and merged configuration in `~/.codex`; it is not required for the native plugin. New sync runs write an ownership manifest so cleanup can preserve modified user files. Run Codex once first so `~/.codex/config.toml` exists, then:
 
@@ -814,7 +814,7 @@ The Kimi Code harness and the model-serving layer are separate. PowerUser config
 </td>
 <td width="33%" align="center">
   <a href=".kimi/README.md">
-    <img src="assets/images/community/PowerUser-tools-mark.svg" height="52" alt="PowerUser Tools" /><br />
+    <img src="assets/images/community/ecc-tools-mark.svg" height="52" alt="PowerUser Tools" /><br />
     <strong>3. Run Kimi Code with PowerUser</strong>
   </a><br />
   <sub>Install project instructions and skills, then start Kimi Code.</sub>
@@ -1964,8 +1964,8 @@ Install PowerUser only from official sources:
 
 - GitHub repository: <https://github.com/ApexForge-devz/PowerUser>
 - Claude Code plugin: `poweruser@poweruser`
-- npm packages: [`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) and [`PowerUser-agentshield`](https://www.npmjs.com/package/PowerUser-agentshield)
-- GitHub App: <https://github.com/apps/PowerUser-tools>
+- npm packages: [`poweruser-universal`](https://github.com/ApexForge-devz/PowerUser) and [`poweruser-agentshield`](https://github.com/ApexForge-devz/PowerUser)
+- GitHub App: <https://github.com/ApexForge-devz/PowerUser>
 - Website: <https://github.com/ApexForge-devz/PowerUser>
 
 Scan a project with an already installed, reviewed AgentShield binary (see [runner provenance](#agentshield-runner-provenance)):
@@ -2020,7 +2020,7 @@ This analyzes your git history locally and generates SKILL.md files.
 
 For advanced features (10k+ commits, auto-PRs, team sharing):
 
-[Install PowerUser Tools GitHub App](https://github.com/apps/PowerUser-tools) | [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)
+[Install PowerUser Tools GitHub App](https://github.com/ApexForge-devz/PowerUser) | [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)
 
 ```bash
 # Comment on any issue:
@@ -2041,7 +2041,7 @@ Both options create:
 Scan your agent configuration for vulnerabilities, misconfigurations, and injection risks.
 
 <a id="agentshield-runner-provenance"></a>
-**Runner provenance:** these commands require an already installed, reviewed AgentShield binary from `PowerUser-agentshield`. The [official package](https://www.npmjs.com/package/PowerUser-agentshield) documents the `agentshield` CLI. Record the selected release, reviewed source and verified package integrity in your installation record. Registry publication alone does not establish an audit; PowerUser does not supply an audited AgentShield pin here. Do not substitute an unversioned one-shot download. `/security-scan` is workflow guidance and has the same runner prerequisite.
+**Runner provenance:** these commands require an already installed, reviewed AgentShield binary from `poweruser-agentshield`. The [official package](https://github.com/ApexForge-devz/PowerUser) documents the `agentshield` CLI. Record the selected release, reviewed source and verified package integrity in your installation record. Registry publication alone does not establish an audit; PowerUser does not supply an audited AgentShield pin here. Do not substitute an unversioned one-shot download. `/security-scan` is workflow guidance and has the same runner prerequisite.
 
 ```bash
 # Scan only the intended project directory
@@ -2065,7 +2065,7 @@ agentshield init
 
 Use `/security-scan` in Claude Code to run it, or add to CI with the [GitHub Action](https://github.com/affaan-m/agentshield).
 
-[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/PowerUser-agentshield)
+[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://github.com/ApexForge-devz/PowerUser)
 </details>
 
 <details>
@@ -2113,7 +2113,7 @@ Run the cache check from an PowerUser checkout:
 node scripts/codex/check-plugin-cache.js
 ```
 
-If it reports unresolved parent references, refresh the native cache with `codex plugin marketplace upgrade PowerUser`, run `codex plugin add poweruser@poweruser` again, and restart Codex. Registration in `codex plugin list` confirms the marketplace entry, while the cache check verifies that the installed manifest can resolve its skills, MCP configuration, and assets. Use `bash scripts/sync-PowerUser-to-codex.sh` only when you intentionally need the legacy copied-configuration compatibility path.
+If it reports unresolved parent references, refresh the native cache with `codex plugin marketplace upgrade poweruser`, run `codex plugin add poweruser@poweruser` again, and restart Codex. Registration in `codex plugin list` confirms the marketplace entry, while the cache check verifies that the installed manifest can resolve its skills, MCP configuration, and assets. Use `bash scripts/sync-PowerUser-to-codex.sh` only when you intentionally need the legacy copied-configuration compatibility path.
 </details>
 
 More answers: [TROUBLESHOOTING.md](TROUBLESHOOTING.md) covers memory, hooks, installation, performance, and common error messages. [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) tracks workarounds for open Claude Code bugs.
@@ -2152,7 +2152,7 @@ PowerUser Pro adds private-repo analysis, PR-triggered audits, AgentShield-backe
 <td width="25%" align="center"><a href="https://github.com/ApexForge-devz/PowerUser/pricing"><strong>PowerUser Pro</strong><br /><sub>Hosted GitHub App for private repos</sub></a></td>
 <td width="25%" align="center"><a href="https://github.com/sponsors/affaan-m"><strong>Sponsor PowerUser</strong><br /><sub>Fund the OSS work</sub></a></td>
 <td width="25%" align="center"><a href="https://github.com/ApexForge-devz/PowerUser/discussions"><strong>Community</strong><br /><sub>Q&amp;A, ideas, and Show and Tell</sub></a></td>
-<td width="25%" align="center"><a href="https://github.com/apps/PowerUser-tools"><strong>GitHub App</strong><br /><sub>PR audits and hosted workflows</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/ApexForge-devz/PowerUser"><strong>GitHub App</strong><br /><sub>PR audits and hosted workflows</sub></a></td>
 </tr>
 </table>
 
