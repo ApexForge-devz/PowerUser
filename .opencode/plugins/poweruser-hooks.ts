@@ -1,5 +1,5 @@
 /**
- * ECC Plugin Hooks for OpenCode
+ * PowerUser Plugin Hooks for OpenCode
  *
  * This plugin translates Claude Code hooks to OpenCode's plugin system.
  * OpenCode's plugin system is MORE sophisticated than Claude Code with 20+ events
@@ -25,7 +25,7 @@ import dependencyAnalyzerTool from "../tools/dependency-analyzer.ts"
  *
  * The plugin is ESM: tsc compiles it to .opencode/dist/plugins/*.js and OpenCode
  * loads the .ts directly, so `__dirname` is not defined there. Reading it used to
- * throw inside a try/catch and silently degrade the reported ECC version to the
+ * throw inside a try/catch and silently degrade the reported PowerUser version to the
  * default. `import.meta.url` is the ESM source of truth; the `__dirname` check is
  * kept first only so a CJS consumer of this module still resolves correctly.
  */
@@ -68,7 +68,7 @@ interface TodoEvent {
 }
 
 /**
- * Artifacts that identify an ECC root, one per capability this plugin needs.
+ * Artifacts that identify an PowerUser root, one per capability this plugin needs.
  *
  * These are required runtime files, never optional content: `skills/` belongs to
  * the optional `workflow-quality` module, so probing for a skill rejected
@@ -80,14 +80,14 @@ interface TodoEvent {
  * layout detection rather than an authenticity control: a directory only
  * qualifies because it contains what we are going to read.
  */
-const ECC_ROOT_PROBES = {
+const PowerUser_ROOT_PROBES = {
   // scripts/lib/utils.js is the shared library every scripts/ module requires.
   root: [path.join("scripts", "lib", "utils.js")],
   // What the skill-run telemetry hook imports at runtime.
   skillTracker: [path.join("scripts", "hooks", "skill-run-tracker.js")],
   // What the resolver embedded in commands requires once they read
   // CLAUDE_PLUGIN_ROOT, and the version lookup for shell.env.
-  resolver: [path.join("scripts", "lib", "resolve-ecc-root.js")],
+  resolver: [path.join("scripts", "lib", "resolve-poweruser-root.js")],
 } as const
 
 /**
@@ -104,7 +104,7 @@ const ECC_ROOT_PROBES = {
  * Returns null when no ancestor qualifies, so callers can leave the capability
  * disabled instead of advertising a root that does not hold the artifact.
  */
-function findEccRootDir(startDir: string, probes: readonly string[]): string | null {
+function findPowerUserRootDir(startDir: string, probes: readonly string[]): string | null {
   let current = startDir
   for (let depth = 0; depth < 5; depth += 1) {
     if (probes.every((probe) => fs.existsSync(path.join(current, probe)))) {
@@ -118,17 +118,17 @@ function findEccRootDir(startDir: string, probes: readonly string[]): string | n
 }
 
 /**
- * Read the ECC version from package.json.
+ * Read the PowerUser version from package.json.
  *
- * Candidates are tried in order — the resolved ECC root first, then the two
+ * Candidates are tried in order — the resolved PowerUser root first, then the two
  * plausible parent depths of the plugin — because the layout differs between an
  * installed root (`<root>/plugins`), the compiled bundle (`<root>/dist/plugins`)
  * and a repo checkout (`<repo>/.opencode/plugins`). Falls back to a default if
  * no package.json can be read.
  */
-function getECCVersion(eccRootDir?: string | null): string {
+function getPowerUserVersion(poweruserRootDir?: string | null): string {
   const candidates = [
-    eccRootDir,
+    poweruserRootDir,
     path.resolve(PLUGIN_DIR, ".."),
     path.resolve(PLUGIN_DIR, "..", ".."),
   ]
@@ -148,9 +148,9 @@ function getECCVersion(eccRootDir?: string | null): string {
   return "2.0.0"
 }
 
-type ECCHooksPluginFn = (input: PluginInput) => Promise<Record<string, unknown>>
+type PowerUserHooksPluginFn = (input: PluginInput) => Promise<Record<string, unknown>>
 
-export const ECCHooksPlugin: ECCHooksPluginFn = async ({
+export const PowerUserHooksPlugin: PowerUserHooksPluginFn = async ({
   client,
   $,
   directory,
@@ -186,11 +186,11 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
 
   // Helper to call the SDK's log API with correct signature
   const log = (level: "debug" | "info" | "warn" | "error", message: string) =>
-    client.app.log({ body: { service: "ecc", level, message } })
+    client.app.log({ body: { service: "poweruser", level, message } })
 
   // Loaded lazily (instead of via a top-level import) so that a missing or
   // partially-installed `~/.opencode/plugins/lib` directory (e.g. an
-  // interrupted or partial ECC install on Termux/Android) only disables
+  // interrupted or partial PowerUser install on Termux/Android) only disables
   // changed-files tracking, rather than throwing during module evaluation.
   // This plugin is OpenCode's startup entry point, so a static import
   // failure here previously crashed the whole plugin -- and with it, the
@@ -212,8 +212,8 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       .then(() =>
         log(
           "warn",
-          "[ECC] changed-files tracking disabled: could not load the changed-files store. " +
-            "Run `ecc repair --target opencode` to restore the missing files. Other ECC hooks are unaffected."
+          "[PowerUser] changed-files tracking disabled: could not load the changed-files store. " +
+            "Run `poweruser repair --target opencode` to restore the missing files. Other PowerUser hooks are unaffected."
         )
       )
       .catch(() => {})
@@ -237,11 +237,11 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
   let recordSkillRun: ((payload: unknown) => void) | undefined
   // Detection is scoped to the tracker itself, so a modular install that omits
   // optional content still gets telemetry.
-  const trackerRoot = findEccRootDir(PLUGIN_DIR, ECC_ROOT_PROBES.skillTracker)
+  const trackerRoot = findPowerUserRootDir(PLUGIN_DIR, PowerUser_ROOT_PROBES.skillTracker)
   // The root advertised to commands is a different question: those commands
   // require the resolver, so a root without it would break them again.
-  const eccRoot =
-    findEccRootDir(PLUGIN_DIR, ECC_ROOT_PROBES.resolver) ?? findEccRootDir(PLUGIN_DIR, ECC_ROOT_PROBES.root)
+  const poweruserRoot =
+    findPowerUserRootDir(PLUGIN_DIR, PowerUser_ROOT_PROBES.resolver) ?? findPowerUserRootDir(PLUGIN_DIR, PowerUser_ROOT_PROBES.root)
   try {
     const trackerPath = trackerRoot
       ? path.join(trackerRoot, "scripts", "hooks", "skill-run-tracker.js")
@@ -266,8 +266,8 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       .then(() =>
         log(
           "warn",
-          "[ECC] skill-run telemetry disabled: could not load scripts/hooks/skill-run-tracker.js. " +
-            "Run `ecc repair --target opencode` to restore the missing files. Other ECC hooks are unaffected."
+          "[PowerUser] skill-run telemetry disabled: could not load scripts/hooks/skill-run-tracker.js. " +
+            "Run `poweruser repair --target opencode` to restore the missing files. Other PowerUser hooks are unaffected."
         )
       )
       .catch(() => {})
@@ -278,9 +278,9 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
     return "standard"
   }
 
-  const currentProfile = normalizeProfile(process.env.ECC_HOOK_PROFILE)
+  const currentProfile = normalizeProfile(process.env.PowerUser_HOOK_PROFILE)
   const disabledHooks = new Set(
-    (process.env.ECC_DISABLED_HOOKS || "")
+    (process.env.PowerUser_DISABLED_HOOKS || "")
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean)
@@ -323,11 +323,11 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       if (hookEnabled("post:edit:format", ["strict"]) && event.path.match(/\.(ts|tsx|js|jsx)$/)) {
         try {
           await $`prettier --write ${event.path} 2>/dev/null`
-          log("info", `[ECC] Formatted: ${event.path}`)
+          log("info", `[PowerUser] Formatted: ${event.path}`)
         } catch (error: unknown) {
           // Prettier not installed or failed - log but continue
           const errorMessage = error instanceof Error ? error.message : String(error)
-          log("debug", `[ECC] Prettier formatting failed for ${event.path}: ${errorMessage}`)
+          log("debug", `[PowerUser] Prettier formatting failed for ${event.path}: ${errorMessage}`)
         }
       }
 
@@ -339,7 +339,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
             const lines = result.trim().split("\n").length
             log(
               "warn",
-              `[ECC] console.log found in ${event.path} (${lines} occurrence${lines > 1 ? "s" : ""})`
+              `[PowerUser] console.log found in ${event.path} (${lines} occurrence${lines > 1 ? "s" : ""})`
             )
           }
         } catch {
@@ -382,10 +382,10 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       ) {
         try {
           await $`npx tsc --noEmit 2>&1`
-          log("info", "[ECC] TypeScript check passed")
+          log("info", "[PowerUser] TypeScript check passed")
         } catch (error: unknown) {
           const err = error as { stdout?: string }
-          log("warn", "[ECC] TypeScript errors detected:")
+          log("warn", "[PowerUser] TypeScript errors detected:")
           if (err.stdout) {
             // Log first few errors
             const errors = err.stdout.split("\n").slice(0, 5)
@@ -400,7 +400,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
         input.tool === "bash" &&
         input.args?.toString().includes("gh pr create")
       ) {
-        log("info", "[ECC] PR created - check GitHub Actions status")
+        log("info", "[PowerUser] PR created - check GitHub Actions status")
       }
 
       // Skill telemetry (#2463). OpenCode's tool is named `skill`, so the
@@ -458,7 +458,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       ) {
         log(
           "info",
-          "[ECC] Remember to review changes before pushing: git diff origin/main...HEAD"
+          "[PowerUser] Remember to review changes before pushing: git diff origin/main...HEAD"
         )
       }
 
@@ -479,7 +479,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
         ) {
           log(
             "warn",
-            `[ECC] Creating ${filePath} - consider if this documentation is necessary`
+            `[PowerUser] Creating ${filePath} - consider if this documentation is necessary`
           )
         }
       }
@@ -494,7 +494,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
         ) {
           log(
             "info",
-            "[ECC] Long-running command detected - consider using background execution"
+            "[PowerUser] Long-running command detected - consider using background execution"
           )
         }
       }
@@ -510,11 +510,11 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
     "session.created": async () => {
       if (!hookEnabled("session:start", ["minimal", "standard", "strict"])) return
 
-      log("info", `[ECC] Session started - profile=${currentProfile}`)
+      log("info", `[PowerUser] Session started - profile=${currentProfile}`)
 
       // Check for project-specific context files
       if (hasProjectFile("CLAUDE.md")) {
-        log("info", "[ECC] Found CLAUDE.md - loading project context")
+        log("info", "[PowerUser] Found CLAUDE.md - loading project context")
       }
     },
 
@@ -529,7 +529,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       if (!hookEnabled("stop:check-console-log", ["minimal", "standard", "strict"])) return
       if (editedFiles.size === 0) return
 
-      log("info", "[ECC] Session idle - running console.log audit")
+      log("info", "[PowerUser] Session idle - running console.log audit")
 
       let totalConsoleLogCount = 0
       const filesWithConsoleLogs: string[] = []
@@ -552,32 +552,32 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       if (totalConsoleLogCount > 0) {
         log(
           "warn",
-          `[ECC] Audit: ${totalConsoleLogCount} console.log statement(s) in ${filesWithConsoleLogs.length} file(s)`
+          `[PowerUser] Audit: ${totalConsoleLogCount} console.log statement(s) in ${filesWithConsoleLogs.length} file(s)`
         )
         filesWithConsoleLogs.forEach((f) =>
           log("warn", `  - ${f}`)
         )
-        log("warn", "[ECC] Remove console.log statements before committing")
+        log("warn", "[PowerUser] Remove console.log statements before committing")
       } else {
-        log("info", "[ECC] Audit passed: No console.log statements found")
+        log("info", "[PowerUser] Audit passed: No console.log statements found")
       }
 
       // Desktop notification (cross-platform)
       try {
         if (process.platform === "darwin") {
           // macOS
-          await $`osascript -e 'display notification "Task completed!" with title "OpenCode ECC"' 2>/dev/null`
+          await $`osascript -e 'display notification "Task completed!" with title "OpenCode PowerUser"' 2>/dev/null`
         } else if (process.platform === "win32") {
           // Windows - PowerShell notification
-          await $`powershell -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Task completed!', 'OpenCode ECC', 'OK', 'Information')" 2>/dev/null`
+          await $`powershell -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Task completed!', 'OpenCode PowerUser', 'OK', 'Information')" 2>/dev/null`
         } else if (process.platform === "linux") {
           // Linux - notify-send (requires libnotify)
-          await $`notify-send "OpenCode ECC" "Task completed!" 2>/dev/null`
+          await $`notify-send "OpenCode PowerUser" "Task completed!" 2>/dev/null`
         }
       } catch (error: unknown) {
         // Notification not supported or failed - log but continue
         const errorMessage = error instanceof Error ? error.message : String(error)
-        log("debug", `[ECC] Desktop notification failed: ${errorMessage}`)
+        log("debug", `[PowerUser] Desktop notification failed: ${errorMessage}`)
       }
 
       // Clear tracked files for next task
@@ -593,7 +593,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
      */
     "session.deleted": async () => {
       if (!hookEnabled("session:end-marker", ["minimal", "standard", "strict"])) return
-      log("info", "[ECC] Session ended - cleaning up")
+      log("info", "[PowerUser] Session ended - cleaning up")
       editedFiles.clear()
       changedFilesStore?.clearChanges()
       pendingToolChanges.clear()
@@ -627,7 +627,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
       const completed = event.todos.filter((t) => t.done).length
       const total = event.todos.length
       if (total > 0) {
-        log("info", `[ECC] Progress: ${completed}/${total} tasks completed`)
+        log("info", `[PowerUser] Progress: ${completed}/${total} tasks completed`)
       }
     },
 
@@ -636,14 +636,14 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
      * OpenCode-specific: Inject environment variables into shell commands
      *
      * Triggers: Before shell command execution
-     * Action: Sets PROJECT_ROOT, PACKAGE_MANAGER, DETECTED_LANGUAGES, ECC_VERSION
+     * Action: Sets PROJECT_ROOT, PACKAGE_MANAGER, DETECTED_LANGUAGES, PowerUser_VERSION
      */
     "shell.env": async (_input: { cwd: string }, output: { env: Record<string, string> }) => {
       const env: Record<string, string> = {
-        ECC_VERSION: getECCVersion(eccRoot),
-        ECC_PLUGIN: "true",
-        ECC_HOOK_PROFILE: currentProfile,
-        ECC_DISABLED_HOOKS: process.env.ECC_DISABLED_HOOKS || "",
+        PowerUser_VERSION: getPowerUserVersion(poweruserRoot),
+        PowerUser_PLUGIN: "true",
+        PowerUser_HOOK_PROFILE: currentProfile,
+        PowerUser_DISABLED_HOOKS: process.env.PowerUser_DISABLED_HOOKS || "",
         PROJECT_ROOT: worktreePath,
       }
 
@@ -680,11 +680,11 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
         env.PRIMARY_LANGUAGE = detected[0]
       }
 
-      // resolve-ecc-root.js only probes ~/.claude and Claude Code's plugin
+      // resolve-poweruser-root.js only probes ~/.claude and Claude Code's plugin
       // cache, so under OpenCode it fell back to ~/.claude and every command
       // carrying the inlined resolver failed to find its scripts. That resolver
       // reads CLAUDE_PLUGIN_ROOT first, so exporting the root here fixes them
-      // through the mechanism ECC already provides -- rather than editing the
+      // through the mechanism PowerUser already provides -- rather than editing the
       // command files that embed the locator.
       //
       // Only set when a root actually exists, and never replace a root someone
@@ -695,8 +695,8 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
         (process.env.CLAUDE_PLUGIN_ROOT || "").trim() ||
           (output.env?.CLAUDE_PLUGIN_ROOT || "").trim()
       )
-      if (eccRoot && !rootAlreadySet) {
-        env.CLAUDE_PLUGIN_ROOT = eccRoot
+      if (poweruserRoot && !rootAlreadySet) {
+        env.CLAUDE_PLUGIN_ROOT = poweruserRoot
       }
 
       // OpenCode reads the supplied output object and ignores callback return values.
@@ -708,16 +708,16 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
      * OpenCode-specific: Control context compaction behavior
      *
      * Triggers: Before context compaction
-     * Action: Push ECC context block and compaction guidance
+     * Action: Push PowerUser context block and compaction guidance
      */
     "experimental.session.compacting": async (
       _input: { sessionID: string },
       output: { context: string[]; prompt?: string }
     ) => {
       const contextBlock = [
-        "# ECC Context (preserve across compaction)",
+        "# PowerUser Context (preserve across compaction)",
         "",
-        "## Active Plugin: ECC v2.2.3",
+        "## Active Plugin: PowerUser v2.2.3",
         "- Hooks: file.edited, tool.execute.before/after, session.created/idle/deleted, shell.env, compacting, permission.ask",
         "- Tools: run-tests, check-coverage, security-audit, format-code, lint-check, git-summary, changed-files",
         "- Agents: 13 specialized (planner, architect, tdd-guide, code-reviewer, security-reviewer, build-error-resolver, e2e-runner, refactor-cleaner, doc-updater, go-reviewer, go-build-resolver, database-reviewer, python-reviewer)",
@@ -738,16 +738,16 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
         contextBlock.push("")
       }
 
-      const eccContext = [
+      const poweruserContext = [
         contextBlock.join("\n"),
         "Focus on preserving: 1) Current task status and progress, 2) Key decisions made, 3) Files created/modified, 4) Remaining work items, 5) Any security concerns flagged. Discard: verbose tool outputs, intermediate exploration, redundant file listings.",
       ]
 
       // OpenCode requires output assignment and skips context when a prompt is set.
       if (output.prompt !== undefined) {
-        output.prompt = [output.prompt, ...eccContext].join("\n\n")
+        output.prompt = [output.prompt, ...poweruserContext].join("\n\n")
       } else {
-        output.context = [...output.context, ...eccContext]
+        output.context = [...output.context, ...poweruserContext]
       }
     },
 
@@ -759,7 +759,7 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
      * Action: Auto-approve reads, formatters, and test commands; log all for audit
      */
     "permission.ask": async (event: PermissionEvent) => {
-      log("info", `[ECC] Permission requested for: ${event.tool}`)
+      log("info", `[PowerUser] Permission requested for: ${event.tool}`)
 
       try {
         // Handle both string args and object args with command property
@@ -774,29 +774,29 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
 
         // Auto-approve: read/search tools
         if (["read", "glob", "grep", "search", "list"].includes(event.tool)) {
-          log("debug", `[ECC] Auto-approved read-only tool: ${event.tool}`)
+          log("debug", `[PowerUser] Auto-approved read-only tool: ${event.tool}`)
           return { approved: true, reason: "Read-only operation" }
         }
 
         // Auto-approve: formatters
         if (event.tool === "bash" && /^(npx )?(@biomejs\/biome|prettier|black|gofmt|rustfmt|swift-format)/.test(cmd)) {
-          log("debug", `[ECC] Auto-approved formatter: ${cmd}`)
+          log("debug", `[PowerUser] Auto-approved formatter: ${cmd}`)
           return { approved: true, reason: "Formatter execution" }
         }
 
         // Auto-approve: test execution
         if (event.tool === "bash" && /^(npm test|npx vitest|npx jest|pytest|go test|cargo test)/.test(cmd)) {
-          log("debug", `[ECC] Auto-approved test execution: ${cmd}`)
+          log("debug", `[PowerUser] Auto-approved test execution: ${cmd}`)
           return { approved: true, reason: "Test execution" }
         }
 
         // Everything else: let user decide
-        log("debug", `[ECC] Permission requires user approval: ${event.tool}`)
+        log("debug", `[PowerUser] Permission requires user approval: ${event.tool}`)
         return { approved: undefined }
       } catch (error: unknown) {
         // Error in permission handling - log and deny for safety
         const errorMessage = error instanceof Error ? error.message : String(error)
-        log("error", `[ECC] Permission handling error for ${event.tool}: ${errorMessage}`)
+        log("error", `[PowerUser] Permission handling error for ${event.tool}: ${errorMessage}`)
         return { approved: false, reason: `Error: ${errorMessage}` }
       }
     },
@@ -808,4 +808,4 @@ export const ECCHooksPlugin: ECCHooksPluginFn = async ({
   }
 }
 
-export default ECCHooksPlugin
+export default PowerUserHooksPlugin
