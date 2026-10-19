@@ -8,7 +8,7 @@ const { isWithinRoot, realpathNearestExisting } = require('../path-safety');
 const CURRENT_PLUGIN_ID = 'poweruser@poweruser';
 // Legacy plugin ids, kept so existing installations are still recognized.
 const LEGACY_PLUGIN_IDS = new Set([
-  'ecc@ecc',
+  'poweruser@poweruser',
   'everything-claude-code@everything-claude-code',
   'everything-claude-code@ecc',
 ]);
@@ -52,10 +52,10 @@ function findManualClaudePlugin(options = {}) {
     ['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
     ['poweruser@poweruser', 'plugin.json'],
     // Legacy install paths, kept for existing ECC installs.
-    ['ecc', '.claude-plugin', 'plugin.json'],
-    ['ecc', 'plugin.json'],
-    ['ecc@ecc', '.claude-plugin', 'plugin.json'],
-    ['ecc@ecc', 'plugin.json'],
+    ['poweruser', '.claude-plugin', 'plugin.json'],
+    ['poweruser', 'plugin.json'],
+    ['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
+    ['poweruser@poweruser', 'plugin.json'],
     // Legacy install dir, kept for existing installs.
     ['everything-claude-code', '.claude-plugin', 'plugin.json'],
     ['everything-claude-code', 'plugin.json'],
@@ -77,7 +77,7 @@ function validateManagedState(state, statePath, expectedRoot) {
   const selectedModules = state?.resolution?.selectedModules;
   const operations = state?.operations;
   if (
-    state?.schemaVersion !== 'poweruser.install.v1' && state?.schemaVersion !== 'ecc.install.v1'
+    state?.schemaVersion !== 'poweruser.install.v1' && state?.schemaVersion !== 'poweruser.install.v1'
     || !state.target
     || typeof state.target !== 'object'
     || Array.isArray(state.target)
