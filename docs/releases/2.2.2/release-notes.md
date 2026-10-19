@@ -1,12 +1,14 @@
-# ECC 2.2.2
+> Fork note: Adapted from inherited release history. Historical upstream capabilities and partnerships do not imply that PowerUser provides associated hosted services.
 
-ECC 2.2.2 adds `pi/core`, a curated Pi-native skills+prompts-only profile built for
+# PowerUser 2.2.2
+
+PowerUser 2.2.2 adds `pi/core`, a curated Pi-native skills+prompts-only profile built for
 downstream packagers that mirror GitHub Releases, plus a set of packaging, memory,
 hooks, and Windows compatibility fixes.
 
 ## Pi core profile
 
-`pi/core/` is a self-contained package (`ecc-pi-core`) that mirrors of the release
+`pi/core/` is a self-contained package (`poweruser-pi-core`) that mirrors of the release
 tarball can copy directly: no build step, no extensions, no hooks, no runtime
 downloads, and no network or SaaS dependencies.
 
@@ -16,7 +18,7 @@ downloads, and no network or SaaS dependencies.
 - Generated deterministically from the explicit include/exclude lists in
   `manifests/pi-core.json` by `scripts/build-pi-core.js` and committed, so the
   release tarball contains it verbatim. `pi/core/CURATION.md` lists every excluded
-  skill and command with its reason; the `council` skill ships as `ecc-council`
+  skill and command with its reason; the `council` skill ships as `poweruser-council`
   inside pi/core to avoid catalog name clashes.
 - The build fails on safety violations: non-allowlisted URL hosts, pipe-to-shell
   or fetch-and-run download forms, secrets or tokens, absolute per-user home
