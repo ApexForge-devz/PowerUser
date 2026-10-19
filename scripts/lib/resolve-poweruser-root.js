@@ -25,7 +25,7 @@ const PLUGIN_ROOT_SEGMENTS = [
 // install (scripts copied, skills not) must not qualify for skill-resolving
 // callers, which build `skills/...` paths against the resolved root (#2544).
 // Checking "skills/ exists" is not enough — a user's own ~/.claude/skills/ can
-// be present with none of PowerUser skills — so we probe for a sentinel skill that
+// be present with none of the PowerUser skills — so we probe for a sentinel skill that
 // ships in every PowerUser root and is exactly what the failing skill commands need.
 // If that skill is ever renamed, move this sentinel with it.
 const DEFAULT_SCRIPT_PROBE = path.join('scripts', 'lib', 'utils.js');
@@ -58,7 +58,7 @@ function resolvePowerUserRoot(options = {}) {
       : rawDir;
   const claudeDir = expandedDir ? path.resolve(expandedDir) : path.join(homeDir, '.claude');
 
-  // Decide whether a candidate directory is a usable ECC root. An explicit
+  // Decide whether a candidate directory is a usable PowerUser root. An explicit
   // caller probe is honored exactly (script consumers know the artifact they
   // need). With the default probe the caller is a skill consumer, so a
   // candidate must contain both ECC's scripts and a sentinel PowerUser skill —
