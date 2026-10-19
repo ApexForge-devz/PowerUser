@@ -1,4 +1,4 @@
-# ECC 2.2 release-readiness TDD evidence
+# PowerUser 2.2 release-readiness TDD evidence
 
 Date: 2026-08-25
 
@@ -29,7 +29,7 @@ Commit `01779a4a` added final-review regressions for OpenCode configuration over
 
 Commit `dac154ef` added an end-to-end OpenCode override regression covering discovery, doctor, and uninstall through the same explicit configuration root. It failed before environment-aware lifecycle routing.
 
-The full suite then exposed three guided Kimi collision checks that rejected ECC's own new bridge checkpoint before reaching the protected destination. Commit `15815eca` advanced the expected fingerprint only for ECC-authored state writes while preserving every external state and destination collision check.
+The full suite then exposed three guided Kimi collision checks that rejected PowerUser's own new bridge checkpoint before reaching the protected destination. Commit `15815eca` advanced the expected fingerprint only for PowerUser-authored state writes while preserving every external state and destination collision check.
 
 Commit `2331afbf` reproduced the hosted-runner failure where ambient OpenCode configuration overrides escaped into callers that supplied an explicit temporary home. Both adapter-root and MCP-inventory regressions failed before invocation contexts were isolated.
 

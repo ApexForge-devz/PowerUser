@@ -1,8 +1,8 @@
-# ECC-039 PowerShell GateGuard and Audit Alignment Plan
+# PowerUser-039 PowerShell GateGuard and Audit Alignment Plan
 
 ## Status
 
-- Ticket: ECC-039
+- Ticket: PowerUser-039
 - Size: large
 - Priority: critical
 - Baseline: `origin/main` at `e04ea0b9`
@@ -64,7 +64,7 @@ production code was changed:
 - PR #2897 reinforced that quoted delimiters must not terminate executable
   ranges and that executable expressions inside double quotes still run.
 - PR #2865 and related open work cover separate Bash and hook hardening. Those
-  changes remain outside ECC-039 and were not absorbed into this patch.
+  changes remain outside PowerUser-039 and were not absorbed into this patch.
 
 ## Design Decision
 
@@ -237,9 +237,9 @@ still exercised through the Node hook boundary.
 
 ## Roadmap and Scope
 
-This is post-2.2 hardening of the ECC 2 trustworthy substrate. It makes the
+This is post-2.2 hardening of the PowerUser 2 trustworthy substrate. It makes the
 policy/evidence seam truthful at configured hook boundaries and prepares for
-future evidence contracts while keeping ECC authoritative over policy,
+future evidence contracts while keeping PowerUser authoritative over policy,
 enforcement, canonical evidence, and workflow outcomes.
 
 Out of scope are a general PowerShell parser, exact interpretation of arbitrary

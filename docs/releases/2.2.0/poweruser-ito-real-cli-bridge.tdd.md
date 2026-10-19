@@ -1,4 +1,4 @@
-# ECC × Itô Real CLI Bridge — TDD Evidence
+# PowerUser × Itô Real CLI Bridge — TDD Evidence
 
 Date: 2026-08-05
 
@@ -7,11 +7,11 @@ handoff. No external plan file was executed.
 
 ## User journeys
 
-1. As an ECC operator, I can explicitly invoke streaming device `login`, then
+1. As an PowerUser operator, I can explicitly invoke streaming device `login`, then
    use validation-only `auth`, `find`, and `status`, or revoke the device with
    `logout`, without a duplicate client.
 2. As a security reviewer, I can prove unsupported operations, missing local
-   installs, and ECC dry-run requests fail before any child process or network
+   installs, and PowerUser dry-run requests fail before any child process or network
    operation.
 3. As an agent-harness user, I can install one truthful skill that names only
    the real CLI commands and MCP tools.
