@@ -21,7 +21,7 @@ const {
   resolvePowerUserRoot,
   normalizePluginRootForPlatform,
   INLINE_RESOLVE
-} = require('../../scripts/lib/resolve-ecc-root');
+} = require('../../scripts/lib/resolve-poweruser-root');
 
 // Sentinel PowerUser skill that resolvePowerUserRoot() requires (alongside the script tree)
 // before accepting a root for skill consumers. Kept in sync with the module's
