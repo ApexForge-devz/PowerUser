@@ -1661,8 +1661,8 @@ mod tests {
         fs::create_dir_all(&repo)?;
 
         run_git(&repo, &["init", "-b", "main"])?;
-        run_git(&repo, &["config", "user.email", "ecc@example.com"])?;
-        run_git(&repo, &["config", "user.name", "ECC"])?;
+        run_git(&repo, &["config", "user.email", "poweruser@example.com"])?;
+        run_git(&repo, &["config", "user.name", "PowerUser"])?;
         fs::write(repo.join("README.md"), "hello\n")?;
         run_git(&repo, &["add", "README.md"])?;
         run_git(&repo, &["commit", "-m", "init"])?;
@@ -1672,24 +1672,24 @@ mod tests {
 
     #[test]
     fn create_for_session_uses_configured_branch_prefix() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-worktree-prefix-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-worktree-prefix-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         let mut cfg = Config::default();
         cfg.worktree_root = root.join("worktrees");
-        cfg.worktree_branch_prefix = "bots/ecc".to_string();
+        cfg.worktree_branch_prefix = "bots/poweruser".to_string();
 
         let worktree = create_for_session_in_repo("worker-123", &cfg, &repo)?;
-        assert_eq!(worktree.branch, "bots/ecc/worker-123");
+        assert_eq!(worktree.branch, "bots/poweruser/worker-123");
 
         let branch = Command::new("git")
             .arg("-C")
             .arg(&repo)
-            .args(["rev-parse", "--abbrev-ref", "bots/ecc/worker-123"])
+            .args(["rev-parse", "--abbrev-ref", "bots/poweruser/worker-123"])
             .output()?;
         assert!(branch.status.success());
         assert_eq!(
             String::from_utf8_lossy(&branch.stdout).trim(),
-            "bots/ecc/worker-123"
+            "bots/poweruser/worker-123"
         );
 
         remove(&worktree)?;
@@ -1700,7 +1700,7 @@ mod tests {
     #[test]
     fn create_for_session_rejects_invalid_branch_prefix() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-invalid-prefix-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-invalid-prefix-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         let mut cfg = Config::default();
         cfg.worktree_root = root.join("worktrees");
@@ -1718,7 +1718,7 @@ mod tests {
 
     #[test]
     fn diff_summary_reports_clean_and_dirty_worktrees() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-worktree-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-worktree-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
 
         let worktree_dir = root.join("wt-1");
@@ -1728,7 +1728,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/test",
+                "poweruser/test",
                 worktree_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -1736,7 +1736,7 @@ mod tests {
 
         let info = WorktreeInfo {
             path: worktree_dir.clone(),
-            branch: "ecc/test".to_string(),
+            branch: "poweruser/test".to_string(),
             base_branch: "main".to_string(),
         };
 
@@ -1762,7 +1762,7 @@ mod tests {
 
     #[test]
     fn diff_file_preview_reports_branch_and_working_tree_files() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-worktree-preview-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-worktree-preview-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
 
         let worktree_dir = root.join("wt-1");
@@ -1772,7 +1772,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/test",
+                "poweruser/test",
                 worktree_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -1785,7 +1785,7 @@ mod tests {
 
         let info = WorktreeInfo {
             path: worktree_dir.clone(),
-            branch: "ecc/test".to_string(),
+            branch: "poweruser/test".to_string(),
             base_branch: "main".to_string(),
         };
 
@@ -1809,7 +1809,7 @@ mod tests {
 
     #[test]
     fn diff_patch_preview_reports_branch_and_working_tree_sections() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-worktree-patch-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-worktree-patch-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
 
         let worktree_dir = root.join("wt-1");
@@ -1819,7 +1819,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/test",
+                "poweruser/test",
                 worktree_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -1832,7 +1832,7 @@ mod tests {
 
         let info = WorktreeInfo {
             path: worktree_dir.clone(),
-            branch: "ecc/test".to_string(),
+            branch: "poweruser/test".to_string(),
             base_branch: "main".to_string(),
         };
 
@@ -1855,7 +1855,7 @@ mod tests {
     #[test]
     fn merge_readiness_reports_ready_worktree() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-merge-ready-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-merge-ready-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
 
         let worktree_dir = root.join("wt-1");
@@ -1865,7 +1865,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/test",
+                "poweruser/test",
                 worktree_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -1877,7 +1877,7 @@ mod tests {
 
         let info = WorktreeInfo {
             path: worktree_dir.clone(),
-            branch: "ecc/test".to_string(),
+            branch: "poweruser/test".to_string(),
             base_branch: "main".to_string(),
         };
 
@@ -1899,7 +1899,7 @@ mod tests {
     #[test]
     fn merge_readiness_reports_conflicted_worktree() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-merge-conflict-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-merge-conflict-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
 
         let worktree_dir = root.join("wt-1");
@@ -1909,7 +1909,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/test",
+                "poweruser/test",
                 worktree_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -1922,7 +1922,7 @@ mod tests {
 
         let info = WorktreeInfo {
             path: worktree_dir.clone(),
-            branch: "ecc/test".to_string(),
+            branch: "poweruser/test".to_string(),
             base_branch: "main".to_string(),
         };
 
@@ -1944,7 +1944,7 @@ mod tests {
     #[test]
     fn rebase_onto_base_replays_simple_branch_after_base_advances() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-rebase-success-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-rebase-success-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
 
         let alpha_dir = root.join("wt-alpha");
@@ -1954,7 +1954,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/alpha",
+                "poweruser/alpha",
                 alpha_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -1969,7 +1969,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/beta",
+                "poweruser/beta",
                 beta_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -1979,18 +1979,18 @@ mod tests {
         fs::write(beta_dir.join("README.md"), "hello\nalpha\nbeta\n")?;
         run_git(&beta_dir, &["commit", "-am", "beta follow-up"])?;
 
-        run_git(&repo, &["merge", "--no-edit", "ecc/alpha"])?;
+        run_git(&repo, &["merge", "--no-edit", "poweruser/alpha"])?;
 
         let beta = WorktreeInfo {
             path: beta_dir.clone(),
-            branch: "ecc/beta".to_string(),
+            branch: "poweruser/beta".to_string(),
             base_branch: "main".to_string(),
         };
         let readiness_before = merge_readiness(&beta)?;
         assert_eq!(readiness_before.status, MergeReadinessStatus::Conflicted);
 
         let outcome = rebase_onto_base(&beta)?;
-        assert_eq!(outcome.branch, "ecc/beta");
+        assert_eq!(outcome.branch, "poweruser/beta");
         assert_eq!(outcome.base_branch, "main");
         assert!(!outcome.already_up_to_date);
 
@@ -2020,7 +2020,7 @@ mod tests {
     #[test]
     fn rebase_onto_base_aborts_failed_rebase() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-rebase-fail-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-rebase-fail-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
 
         let worktree_dir = root.join("wt-conflict");
@@ -2030,7 +2030,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/conflict",
+                "poweruser/conflict",
                 worktree_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -2043,7 +2043,7 @@ mod tests {
 
         let info = WorktreeInfo {
             path: worktree_dir.clone(),
-            branch: "ecc/conflict".to_string(),
+            branch: "poweruser/conflict".to_string(),
             base_branch: "main".to_string(),
         };
 
@@ -2068,7 +2068,7 @@ mod tests {
     #[test]
     fn branch_conflict_preview_reports_conflicting_branches() -> Result<()> {
         let root = std::env::temp_dir().join(format!(
-            "ecc2-worktree-branch-conflict-preview-{}",
+            "poweruser2-worktree-branch-conflict-preview-{}",
             Uuid::new_v4()
         ));
         let repo = init_repo(&root)?;
@@ -2080,7 +2080,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/left",
+                "poweruser/left",
                 left_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -2096,7 +2096,7 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/right",
+                "poweruser/right",
                 right_dir.to_str().expect("utf8 path"),
                 "HEAD",
             ],
@@ -2107,12 +2107,12 @@ mod tests {
 
         let left = WorktreeInfo {
             path: left_dir.clone(),
-            branch: "ecc/left".to_string(),
+            branch: "poweruser/left".to_string(),
             base_branch: "main".to_string(),
         };
         let right = WorktreeInfo {
             path: right_dir.clone(),
-            branch: "ecc/right".to_string(),
+            branch: "poweruser/right".to_string(),
             base_branch: "main".to_string(),
         };
 
@@ -2146,7 +2146,7 @@ mod tests {
 
     #[test]
     fn git_status_helpers_stage_unstage_reset_and_commit() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-git-status-helpers-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-git-status-helpers-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         let worktree = WorktreeInfo {
             path: repo.clone(),
@@ -2211,7 +2211,7 @@ mod tests {
 
     #[test]
     fn git_status_patch_view_supports_hunk_stage_and_unstage() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-hunk-stage-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-hunk-stage-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         let worktree = WorktreeInfo {
             path: repo.clone(),
@@ -2286,7 +2286,7 @@ mod tests {
 
     #[test]
     fn reset_hunk_discards_unstaged_then_staged_hunks() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-hunk-reset-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-hunk-reset-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         let worktree = WorktreeInfo {
             path: repo.clone(),
@@ -2368,7 +2368,7 @@ mod tests {
 
     #[test]
     fn latest_commit_subject_reads_head_subject() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-pr-subject-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-pr-subject-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         fs::write(repo.join("README.md"), "subject test\n")?;
         run_git(&repo, &["commit", "-am", "subject test"])?;
@@ -2387,7 +2387,7 @@ mod tests {
 
     #[test]
     fn create_draft_pr_pushes_branch_and_invokes_gh() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-pr-create-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-pr-create-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         let remote = root.join("remote.git");
         run_git(
@@ -2468,7 +2468,7 @@ mod tests {
 
     #[test]
     fn create_draft_pr_forwards_custom_base_labels_and_reviewers() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-pr-create-options-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-pr-create-options-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         let remote = root.join("remote.git");
         run_git(
@@ -2537,11 +2537,11 @@ mod tests {
 
     #[test]
     fn github_compare_url_uses_origin_remote_and_encodes_refs() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-compare-url-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-compare-url-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         run_git(
             &repo,
-            &["remote", "add", "origin", "git@github.com:example/ecc.git"],
+            &["remote", "add", "origin", "git@github.com:example/poweruser.git"],
         )?;
 
         let linked_path = root.join("worker");
@@ -2551,20 +2551,20 @@ mod tests {
                 "worktree",
                 "add",
                 "-b",
-                "ecc/worker-123",
+                "poweruser/worker-123",
                 linked_path.to_str().expect("utf8 path"),
             ],
         )?;
         let worktree = WorktreeInfo {
             path: linked_path,
-            branch: "ecc/worker-123".to_string(),
+            branch: "poweruser/worker-123".to_string(),
             base_branch: "main".to_string(),
         };
 
         let url = github_compare_url(&worktree)?.expect("compare url");
         assert_eq!(
             url,
-            "https://github.com/example/ecc/compare/main...ecc%2Fworker-123?expand=1"
+            "https://github.com/example/poweruser/compare/main...poweruser%2Fworker-123?expand=1"
         );
 
         let _ = fs::remove_dir_all(root);
@@ -2574,8 +2574,8 @@ mod tests {
     #[test]
     fn github_repo_web_url_supports_multiple_remote_formats() {
         assert_eq!(
-            github_repo_web_url("git@github.com:example/ecc.git").as_deref(),
-            Some("https://github.com/example/ecc")
+            github_repo_web_url("git@github.com:example/poweruser.git").as_deref(),
+            Some("https://github.com/example/poweruser")
         );
         assert_eq!(
             github_repo_web_url("https://github.example.com/org/repo.git").as_deref(),
@@ -2590,7 +2590,7 @@ mod tests {
     #[test]
     fn create_for_session_links_shared_node_modules_cache() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-node-cache-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-node-cache-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         fs::write(repo.join("package.json"), "{\n  \"name\": \"repo\"\n}\n")?;
         fs::write(
@@ -2620,7 +2620,7 @@ mod tests {
     #[test]
     fn sync_shared_dependency_dirs_falls_back_when_lockfiles_diverge() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-node-fallback-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-node-fallback-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         fs::write(repo.join("package.json"), "{\n  \"name\": \"repo\"\n}\n")?;
         fs::write(
@@ -2661,7 +2661,7 @@ mod tests {
     #[test]
     fn create_for_session_links_shared_cargo_target_cache() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-worktree-cargo-cache-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-worktree-cargo-cache-{}", Uuid::new_v4()));
         let repo = init_repo(&root)?;
         fs::write(
             repo.join("Cargo.toml"),

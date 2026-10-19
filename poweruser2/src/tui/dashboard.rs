@@ -404,9 +404,9 @@ struct TeamSummary {
 impl SessionCompletionSummary {
     fn title(&self) -> String {
         match self.state {
-            SessionState::Completed => "ECC 2.0: Session completed".to_string(),
-            SessionState::Failed => "ECC 2.0: Session failed".to_string(),
-            _ => "ECC 2.0: Session summary".to_string(),
+            SessionState::Completed => "PowerUser 2.0: Session completed".to_string(),
+            SessionState::Failed => "PowerUser 2.0: Session failed".to_string(),
+            _ => "PowerUser 2.0: Session summary".to_string(),
         }
     }
 
@@ -701,7 +701,7 @@ impl Dashboard {
         let palette = self.theme_palette();
 
         let title = format!(
-            " ECC 2.0 | {running} running / {total} total | {} {}% | {} ",
+            " PowerUser 2.0 | {running} running / {total} total | {} {}% | {} ",
             self.layout_label(),
             self.pane_size_percent,
             self.theme_label()
@@ -3624,7 +3624,7 @@ impl Dashboard {
         ));
         lines.push(String::new());
         lines.push("## Testing".to_string());
-        lines.push("- Verified in ECC 2.0 dashboard workflow".to_string());
+        lines.push("- Verified in PowerUser 2.0 dashboard workflow".to_string());
         lines.join("\n")
     }
 
@@ -4193,7 +4193,7 @@ impl Dashboard {
         ));
         self.notify_desktop(
             NotificationEvent::BudgetAlert,
-            "ECC 2.0: Budget alert",
+            "PowerUser 2.0: Budget alert",
             &format!("{summary_suffix} | tokens {token_budget} | cost {cost_budget}"),
         );
         self.notify_webhook(
@@ -4238,7 +4238,7 @@ impl Dashboard {
                             } else if self.cfg.desktop_notifications.session_completed {
                                 self.notify_desktop(
                                     NotificationEvent::SessionCompleted,
-                                    "ECC 2.0: Session completed",
+                                    "PowerUser 2.0: Session completed",
                                     &format!(
                                         "{} | {}",
                                         format_session_id(&session.id),
@@ -4260,7 +4260,7 @@ impl Dashboard {
                                 "failure_summary",
                             );
                             failed_notifications.push((
-                                "ECC 2.0: Session failed".to_string(),
+                                "PowerUser 2.0: Session failed".to_string(),
                                 format!(
                                     "{} | {}",
                                     format_session_id(&session.id),
@@ -4371,7 +4371,7 @@ impl Dashboard {
             truncate_for_dashboard(&comms::preview(&message.msg_type, &message.content), 96);
         self.notify_desktop(
             NotificationEvent::ApprovalRequest,
-            "ECC 2.0: Approval needed",
+            "PowerUser 2.0: Approval needed",
             &format!(
                 "{} from {} | {}",
                 format_session_id(&message.to_session),
@@ -6951,7 +6951,7 @@ impl Dashboard {
                     truncate_for_dashboard(&session.task, 96)
                 )
             })
-            .unwrap_or_else(|| "New ECC 2.0 session".to_string())
+            .unwrap_or_else(|| "New PowerUser 2.0 session".to_string())
     }
 
     fn spawn_prompt_seed(&self) -> String {
@@ -9035,7 +9035,7 @@ fn completion_summary_observation_details(
 
 fn session_started_webhook_body(session: &Session, compare_url: Option<&str>) -> String {
     let mut lines = vec![
-        "*ECC 2.0: Session started*".to_string(),
+        "*PowerUser 2.0: Session started*".to_string(),
         format!(
             "`{}` {}",
             format_session_id(&session.id),
@@ -9122,7 +9122,7 @@ fn budget_alert_webhook_body(
     active_sessions: usize,
 ) -> String {
     [
-        "*ECC 2.0: Budget alert*".to_string(),
+        "*PowerUser 2.0: Budget alert*".to_string(),
         summary_suffix.to_string(),
         format!("Tokens `{token_budget}`"),
         format!("Cost `{cost_budget}`"),
@@ -9133,7 +9133,7 @@ fn budget_alert_webhook_body(
 
 fn approval_request_webhook_body(message: &SessionMessage, preview: &str) -> String {
     [
-        "*ECC 2.0: Approval needed*".to_string(),
+        "*PowerUser 2.0: Approval needed*".to_string(),
         format!(
             "To `{}` from `{}`",
             format_session_id(&message.to_session),
@@ -9244,7 +9244,7 @@ fn build_conflict_protocol(
 
     lines.push("Resolution steps".to_string());
     lines.push(format!(
-        "1. Inspect current patch: ecc worktree-status {session_id} --patch"
+        "1. Inspect current patch: poweruser worktree-status {session_id} --patch"
     ));
     lines.push(format!("2. Open worktree: cd {}", worktree.path.display()));
     lines.push("3. Resolve conflicts and stage files: git add <paths>".to_string());
@@ -9253,10 +9253,10 @@ fn build_conflict_protocol(
         worktree.branch
     ));
     lines.push(format!(
-        "5. Re-check readiness: ecc worktree-status {session_id} --check"
+        "5. Re-check readiness: poweruser worktree-status {session_id} --check"
     ));
     lines.push(format!(
-        "6. Merge when clear: ecc merge-worktree {session_id}"
+        "6. Merge when clear: poweruser merge-worktree {session_id}"
     ));
 
     Some(lines.join("\n"))
@@ -9293,7 +9293,7 @@ fn build_session_conflict_protocol(
             .to_string(),
     );
     lines.push(format!(
-        "3. Resume the paused session only after reviewing the overlap: ecc resume {}",
+        "3. Resume the paused session only after reviewing the overlap: poweruser resume {}",
         session_id
     ));
 
@@ -9577,7 +9577,7 @@ mod tests {
                 "lead-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/lead"),
+                Some("poweruser/lead"),
                 512,
                 42,
             ),
@@ -9585,7 +9585,7 @@ mod tests {
                 "worker-123456",
                 "reviewer",
                 SessionState::Idle,
-                Some("ecc/worker"),
+                Some("poweruser/worker"),
                 64,
                 5,
             ),
@@ -9617,7 +9617,7 @@ mod tests {
             "worker-123456",
             "reviewer",
             SessionState::Idle,
-            Some("ecc/worker"),
+            Some("poweruser/worker"),
             64,
             5,
         )];
@@ -9654,7 +9654,7 @@ mod tests {
                 "lead-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/lead"),
+                Some("poweruser/lead"),
                 512,
                 42,
             ),
@@ -9662,7 +9662,7 @@ mod tests {
                 "worker-a",
                 "reviewer",
                 SessionState::Idle,
-                Some("ecc/worker-a"),
+                Some("poweruser/worker-a"),
                 64,
                 5,
             ),
@@ -9670,7 +9670,7 @@ mod tests {
                 "worker-b",
                 "reviewer",
                 SessionState::Idle,
-                Some("ecc/worker-b"),
+                Some("poweruser/worker-b"),
                 64,
                 5,
             ),
@@ -9715,7 +9715,7 @@ mod tests {
                 "lead-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/lead"),
+                Some("poweruser/lead"),
                 512,
                 42,
             ),
@@ -9723,7 +9723,7 @@ mod tests {
                 "worker-a",
                 "reviewer",
                 SessionState::Idle,
-                Some("ecc/worker-a"),
+                Some("poweruser/worker-a"),
                 64,
                 5,
             ),
@@ -9731,7 +9731,7 @@ mod tests {
                 "worker-b",
                 "reviewer",
                 SessionState::Idle,
-                Some("ecc/worker-b"),
+                Some("poweruser/worker-b"),
                 64,
                 5,
             ),
@@ -9783,7 +9783,7 @@ mod tests {
                 "lead-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/lead"),
+                Some("poweruser/lead"),
                 512,
                 42,
             )],
@@ -9807,7 +9807,7 @@ mod tests {
                     "focus-12345678",
                     "planner",
                     SessionState::Running,
-                    Some("ecc/focus"),
+                    Some("poweruser/focus"),
                     512,
                     42,
                 ),
@@ -9815,7 +9815,7 @@ mod tests {
                     "failed-87654321",
                     "reviewer",
                     SessionState::Failed,
-                    Some("ecc/failed"),
+                    Some("poweruser/failed"),
                     64,
                     5,
                 ),
@@ -9838,8 +9838,8 @@ mod tests {
         });
 
         let text = dashboard.selected_session_metrics_text();
-        assert!(text.contains("Branch ecc/focus | Base main"));
-        assert!(text.contains("Worktree /tmp/ecc/focus"));
+        assert!(text.contains("Branch poweruser/focus | Base main"));
+        assert!(text.contains("Worktree /tmp/poweruser/focus"));
         assert!(text.contains("Diff 1 file changed, 2 insertions(+)"));
         assert!(text.contains("Changed files"));
         assert!(text.contains("- Branch M src/main.rs"));
@@ -9859,7 +9859,7 @@ mod tests {
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -9887,7 +9887,7 @@ mod tests {
 
     #[test]
     fn toggle_git_status_mode_renders_selected_worktree_status() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-git-status-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-git-status-{}", Uuid::new_v4()));
         init_git_repo(&root)?;
         fs::write(root.join("README.md"), "hello from git status\n")?;
 
@@ -9895,7 +9895,7 @@ mod tests {
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -9928,7 +9928,7 @@ mod tests {
 
     #[test]
     fn toggle_output_mode_from_git_status_opens_selected_file_patch() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-git-patch-view-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-git-patch-view-{}", Uuid::new_v4()));
         init_git_repo(&root)?;
         fs::write(
             root.join("README.md"),
@@ -9939,7 +9939,7 @@ mod tests {
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -9972,7 +9972,7 @@ mod tests {
 
     #[test]
     fn git_patch_mode_stages_only_selected_hunk() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-git-patch-stage-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-git-patch-stage-{}", Uuid::new_v4()));
         init_git_repo(&root)?;
         let original = (1..=12)
             .map(|index| format!("line {index}"))
@@ -9996,7 +9996,7 @@ mod tests {
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10038,7 +10038,7 @@ mod tests {
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -10069,7 +10069,7 @@ mod tests {
 
     #[test]
     fn begin_pr_prompt_seeds_latest_commit_subject() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-pr-prompt-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-pr-prompt-{}", Uuid::new_v4()));
         init_git_repo(&root)?;
         fs::write(root.join("README.md"), "seed pr title\n")?;
         run_git(&root, &["commit", "-am", "seed pr title"])?;
@@ -10078,7 +10078,7 @@ mod tests {
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10118,7 +10118,7 @@ mod tests {
     #[test]
     fn submit_pr_prompt_passes_custom_metadata_to_gh() -> Result<()> {
         let temp_root =
-            std::env::temp_dir().join(format!("ecc2-dashboard-pr-submit-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-dashboard-pr-submit-{}", Uuid::new_v4()));
         let root = temp_root.join("repo");
         init_git_repo(&root)?;
         let remote = temp_root.join("remote.git");
@@ -10178,7 +10178,7 @@ mod tests {
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10223,7 +10223,7 @@ mod tests {
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -10266,7 +10266,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -10313,7 +10313,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10371,7 +10371,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10427,14 +10427,14 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
 
     #[test]
     fn timeline_and_metrics_render_recent_file_activity_details() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-file-activity-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-file-activity-{}", Uuid::new_v4()));
         fs::create_dir_all(&root)?;
         let now = Utc::now();
         let mut session = sample_session(
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10449,7 +10449,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             &metrics_path,
             concat!(
                 "{\"id\":\"evt-1\",\"session_id\":\"focus-12345678\",\"tool_name\":\"Read\",\"input_summary\":\"Read src/lib.rs\",\"output_summary\":\"ok\",\"file_paths\":[\"src/lib.rs\"],\"timestamp\":\"2026-04-09T00:00:00Z\"}\n",
-                "{\"id\":\"evt-2\",\"session_id\":\"focus-12345678\",\"tool_name\":\"Write\",\"input_summary\":\"Write README.md\",\"output_summary\":\"updated readme\",\"file_paths\":[\"README.md\"],\"file_events\":[{\"path\":\"README.md\",\"action\":\"create\",\"diff_preview\":\"+ # ECC 2.0\",\"patch_preview\":\"+ # ECC 2.0\\n+ \\n+ A richer dashboard\"}],\"timestamp\":\"2026-04-09T00:01:00Z\"}\n"
+                "{\"id\":\"evt-2\",\"session_id\":\"focus-12345678\",\"tool_name\":\"Write\",\"input_summary\":\"Write README.md\",\"output_summary\":\"updated readme\",\"file_paths\":[\"README.md\"],\"file_events\":[{\"path\":\"README.md\",\"action\":\"create\",\"diff_preview\":\"+ # PowerUser 2.0\",\"patch_preview\":\"+ # PowerUser 2.0\\n+ \\n+ A richer dashboard\"}],\"timestamp\":\"2026-04-09T00:01:00Z\"}\n"
             ),
         )?;
         dashboard.db.sync_tool_activity_metrics(&metrics_path)?;
@@ -10459,14 +10459,14 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
         let rendered = dashboard.rendered_output_text(180, 30);
         assert!(rendered.contains("read src/lib.rs"));
         assert!(rendered.contains("create README.md"));
-        assert!(rendered.contains("+ # ECC 2.0"));
+        assert!(rendered.contains("+ # PowerUser 2.0"));
         assert!(rendered.contains("+ A richer dashboard"));
         assert!(!rendered.contains("files touched 2"));
 
         let metrics_text = dashboard.selected_session_metrics_text();
         assert!(metrics_text.contains("Recent file activity"));
         assert!(metrics_text.contains("create README.md"));
-        assert!(metrics_text.contains("+ # ECC 2.0"));
+        assert!(metrics_text.contains("+ # PowerUser 2.0"));
         assert!(metrics_text.contains("+ A richer dashboard"));
         assert!(metrics_text.contains("read src/lib.rs"));
 
@@ -10476,14 +10476,14 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
 
     #[test]
     fn metrics_text_surfaces_file_activity_conflicts() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-file-overlaps-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-file-overlaps-{}", Uuid::new_v4()));
         fs::create_dir_all(&root)?;
         let now = Utc::now();
         let mut focus = sample_session(
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10494,7 +10494,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             "delegate-87654321",
             "coder",
             SessionState::Idle,
-            Some("ecc/delegate"),
+            Some("poweruser/delegate"),
             256,
             12,
         );
@@ -10540,7 +10540,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             256,
             7,
         );
@@ -10595,7 +10595,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10643,7 +10643,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         );
@@ -10654,7 +10654,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             "review-87654321",
             "reviewer",
             SessionState::Idle,
-            Some("ecc/review"),
+            Some("poweruser/review"),
             256,
             12,
         );
@@ -10728,7 +10728,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             Some(&session.id),
             "file",
             "dashboard.rs",
-            Some("ecc2/src/tui/dashboard.rs"),
+            Some("poweruser2/src/tui/dashboard.rs"),
             "dashboard renderer",
             &std::collections::BTreeMap::new(),
         )?;
@@ -10785,7 +10785,7 @@ diff --git a/src/lib.rs b/src/lib.rs\n\
             Some(&session.id),
             "file",
             "dashboard.rs",
-            Some("ecc2/src/tui/dashboard.rs"),
+            Some("poweruser2/src/tui/dashboard.rs"),
             "dashboard renderer",
             &std::collections::BTreeMap::new(),
         )?;
@@ -11118,7 +11118,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11130,7 +11130,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             conflicts: vec!["src/main.rs".to_string()],
         });
         dashboard.selected_conflict_protocol = Some(
-            "Conflict protocol for focus-12\nResolution steps\n1. Inspect current patch: ecc worktree-status focus-12345678 --patch"
+            "Conflict protocol for focus-12\nResolution steps\n1. Inspect current patch: poweruser worktree-status focus-12345678 --patch"
                 .to_string(),
         );
 
@@ -11153,7 +11153,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11188,7 +11188,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11204,14 +11204,14 @@ diff --git a/src/lib.rs b/src/lib.rs
             files_changed: 3,
             duration_secs: 12,
             task_preview: "Implement rust tui delegate board".to_string(),
-            branch: Some("ecc/delegate-12345678".to_string()),
+            branch: Some("poweruser/delegate-12345678".to_string()),
             last_output_preview: Some("Investigating pane selection behavior".to_string()),
         }];
 
         let text = dashboard.selected_session_metrics_text();
         assert!(
             text.contains(
-                "- delegate [Running] | next resolve conflict | worktree conflicted | approvals 1 | backlog 2 | progress 1,280 tok / 3 files / 00:00:12 | task Implement rust tui delegate board | branch ecc/delegate-12345678"
+                "- delegate [Running] | next resolve conflict | worktree conflicted | approvals 1 | backlog 2 | progress 1,280 tok / 3 files / 00:00:12 | task Implement rust tui delegate board | branch poweruser/delegate-12345678"
             )
         );
         assert!(text.contains("  last output Investigating pane selection behavior"));
@@ -11224,7 +11224,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11254,7 +11254,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 files_changed: 2,
                 duration_secs: 10,
                 task_preview: "Second delegate".to_string(),
-                branch: Some("ecc/delegate-22345678".to_string()),
+                branch: Some("poweruser/delegate-22345678".to_string()),
                 last_output_preview: Some("Waiting on approval".to_string()),
             },
         ];
@@ -11263,7 +11263,7 @@ diff --git a/src/lib.rs b/src/lib.rs
         let text = dashboard.selected_session_metrics_text();
         assert!(text.contains("- delegate [Running] | next let it run"));
         assert!(text.contains(
-            ">> delegate [Idle] | next review approvals | worktree in progress | approvals 1 | backlog 2 | progress 64 tok / 2 files / 00:00:10 | task Second delegate | branch ecc/delegate-22345678"
+            ">> delegate [Idle] | next review approvals | worktree in progress | approvals 1 | backlog 2 | progress 64 tok / 2 files / 00:00:10 | task Second delegate | branch poweruser/delegate-22345678"
         ));
         assert!(text.contains("  last output Waiting on approval"));
     }
@@ -11275,7 +11275,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11331,7 +11331,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "lead-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/lead"),
+                Some("poweruser/lead"),
                 512,
                 42,
             ),
@@ -11339,7 +11339,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "delegate-12345678",
                 "claude",
                 SessionState::Running,
-                Some("ecc/delegate"),
+                Some("poweruser/delegate"),
                 256,
                 12,
             ),
@@ -11355,7 +11355,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             files_changed: 2,
             duration_secs: 12,
             task_preview: "Investigate focused delegate navigation".to_string(),
-            branch: Some("ecc/delegate".to_string()),
+            branch: Some("poweruser/delegate".to_string()),
             last_output_preview: Some("Reviewing lead metrics".to_string()),
         }];
         dashboard.focused_delegate_session_id = Some("delegate-12345678".to_string());
@@ -11382,7 +11382,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11402,7 +11402,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn toggle_auto_worktree_policy_persists_config() {
-        let tempdir = std::env::temp_dir().join(format!("ecc2-worktree-policy-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-worktree-policy-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&tempdir).unwrap();
         let previous_home = std::env::var_os("HOME");
         std::env::set_var("HOME", &tempdir);
@@ -11412,7 +11412,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11451,7 +11451,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11499,7 +11499,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11539,7 +11539,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11581,7 +11581,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11624,7 +11624,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -11667,7 +11667,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         )];
@@ -11724,7 +11724,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             ),
@@ -11732,7 +11732,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "worker-1234567",
                 "claude",
                 SessionState::Idle,
-                Some("ecc/worker"),
+                Some("poweruser/worker"),
                 256,
                 21,
             ),
@@ -11767,7 +11767,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "focus-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/focus"),
+            Some("poweruser/focus"),
             512,
             42,
         )];
@@ -11828,7 +11828,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "lead-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/lead"),
+            Some("poweruser/lead"),
             512,
             42,
         );
@@ -11836,7 +11836,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "older-worker",
             "planner",
             SessionState::Idle,
-            Some("ecc/older"),
+            Some("poweruser/older"),
             128,
             12,
         );
@@ -11844,7 +11844,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "auth-worker",
             "planner",
             SessionState::Idle,
-            Some("ecc/auth"),
+            Some("poweruser/auth"),
             256,
             24,
         );
@@ -11913,7 +11913,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "lead-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/lead"),
+            Some("poweruser/lead"),
             512,
             42,
         );
@@ -11921,7 +11921,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "idle-worker",
             "planner",
             SessionState::Idle,
-            Some("ecc/idle"),
+            Some("poweruser/idle"),
             128,
             12,
         );
@@ -11965,7 +11965,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "lead-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/lead"),
+            Some("poweruser/lead"),
             512,
             42,
         );
@@ -11973,11 +11973,11 @@ diff --git a/src/lib.rs b/src/lib.rs
             "worker-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/worker"),
+            Some("poweruser/worker"),
             128,
             12,
         );
-        child.task = "Implement delegate metrics board for ECC 2.0".to_string();
+        child.task = "Implement delegate metrics board for PowerUser 2.0".to_string();
 
         let mut dashboard = test_dashboard(vec![lead.clone(), child.clone()], 0);
         dashboard.db.insert_session(&lead).unwrap();
@@ -12028,7 +12028,7 @@ diff --git a/src/lib.rs b/src/lib.rs
         );
         assert_eq!(
             dashboard.selected_child_sessions[0].branch.as_deref(),
-            Some("ecc/worker")
+            Some("poweruser/worker")
         );
         assert_eq!(
             dashboard.selected_child_sessions[0]
@@ -12044,7 +12044,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "lead-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/lead"),
+            Some("poweruser/lead"),
             512,
             42,
         );
@@ -12052,7 +12052,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "worker-conflict",
             "planner",
             SessionState::Running,
-            Some("ecc/conflict"),
+            Some("poweruser/conflict"),
             128,
             12,
         );
@@ -12060,7 +12060,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "worker-idle",
             "planner",
             SessionState::Idle,
-            Some("ecc/idle"),
+            Some("poweruser/idle"),
             64,
             6,
         );
@@ -12111,7 +12111,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "lead-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/lead"),
+            Some("poweruser/lead"),
             512,
             42,
         );
@@ -12119,7 +12119,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "worker-conflict",
             "planner",
             SessionState::Running,
-            Some("ecc/conflict"),
+            Some("poweruser/conflict"),
             128,
             12,
         );
@@ -12127,7 +12127,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "worker-idle",
             "planner",
             SessionState::Idle,
-            Some("ecc/idle"),
+            Some("poweruser/idle"),
             64,
             6,
         );
@@ -12175,7 +12175,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "lead-12345678",
             "planner",
             SessionState::Running,
-            Some("ecc/lead"),
+            Some("poweruser/lead"),
             512,
             42,
         );
@@ -12190,7 +12190,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 &child_id,
                 "planner",
                 SessionState::Running,
-                Some(&format!("ecc/{child_id}")),
+                Some(&format!("poweruser/{child_id}")),
                 64,
                 6,
             );
@@ -12395,7 +12395,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn refresh_builds_completion_summary_popup_from_metrics_activity_and_logs() -> Result<()> {
-        let root = std::env::temp_dir().join(format!("ecc2-completion-popup-{}", Uuid::new_v4()));
+        let root = std::env::temp_dir().join(format!("poweruser2-completion-popup-{}", Uuid::new_v4()));
         fs::create_dir_all(root.join(".claude").join("metrics"))?;
 
         let mut cfg = build_config(&root.join(".claude"));
@@ -12408,7 +12408,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "done-12345678",
             "claude",
             SessionState::Running,
-            Some("ecc/done"),
+            Some("poweruser/done"),
             384,
             95,
         );
@@ -12452,7 +12452,7 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn refresh_persists_completion_summary_observation() -> Result<()> {
         let root =
-            std::env::temp_dir().join(format!("ecc2-completion-observation-{}", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-completion-observation-{}", Uuid::new_v4()));
         fs::create_dir_all(root.join(".claude").join("metrics"))?;
 
         let mut cfg = build_config(&root.join(".claude"));
@@ -12465,7 +12465,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "done-observation",
             "claude",
             SessionState::Running,
-            Some("ecc/observation"),
+            Some("poweruser/observation"),
             144,
             42,
         );
@@ -12567,7 +12567,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn refresh_syncs_tool_activity_metrics_from_hook_file() {
-        let tempdir = std::env::temp_dir().join(format!("ecc2-activity-sync-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-activity-sync-{}", Uuid::new_v4()));
         fs::create_dir_all(tempdir.join("metrics")).unwrap();
         let db_path = tempdir.join("state.db");
         let db = StateStore::open(&db_path).unwrap();
@@ -12726,7 +12726,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             .clone()
             .expect("conflict protocol should be present");
         assert!(conflict_protocol.contains("Session overlap incidents"));
-        assert!(conflict_protocol.contains("ecc resume session-b"));
+        assert!(conflict_protocol.contains("poweruser resume session-b"));
 
         dashboard.refresh();
         assert_eq!(
@@ -12744,7 +12744,7 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn selected_session_metrics_text_includes_harness_summary() -> Result<()> {
         let tempdir = std::env::temp_dir().join(format!(
-            "ecc2-dashboard-harness-metrics-{}",
+            "poweruser2-dashboard-harness-metrics-{}",
             uuid::Uuid::new_v4()
         ));
         fs::create_dir_all(tempdir.join(".claude"))?;
@@ -12754,7 +12754,7 @@ diff --git a/src/lib.rs b/src/lib.rs
         let session = Session {
             id: "sess-harness".to_string(),
             task: "Map harness metadata".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "compat".to_string(),
             agent_type: "claude".to_string(),
             working_dir: tempdir.clone(),
@@ -12782,7 +12782,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -12819,7 +12819,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "focus-12345678",
                 "planner",
                 SessionState::Running,
-                Some("ecc/focus"),
+                Some("poweruser/focus"),
                 512,
                 42,
             )],
@@ -12969,7 +12969,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             "feature_development".to_string(),
             crate::config::OrchestrationTemplateConfig {
                 description: None,
-                project: Some("ecc2-smoke".to_string()),
+                project: Some("poweruser2-smoke".to_string()),
                 task_group: Some("{{task}}".to_string()),
                 agent: Some("claude".to_string()),
                 profile: None,
@@ -13020,7 +13020,7 @@ diff --git a/src/lib.rs b/src/lib.rs
         assert!(dashboard
             .sessions
             .iter()
-            .all(|session| session.project == "ecc2-smoke"));
+            .all(|session| session.project == "poweruser2-smoke"));
         assert!(dashboard
             .sessions
             .iter()
@@ -13057,7 +13057,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn refresh_preserves_selected_session_by_id() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -13105,7 +13105,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn metrics_scroll_uses_independent_offset() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -13150,7 +13150,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn refresh_loads_selected_session_output_and_follows_tail() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -13189,7 +13189,7 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn output_cache_appends_rows_written_by_another_process_without_rehydrating() -> Result<()> {
         let db_path =
-            std::env::temp_dir().join(format!("ecc2-output-cursor-{}.db", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-output-cursor-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let session = sample_session("session-1", "claude", SessionState::Running, None, 0, 0);
         db.insert_session(&session)?;
@@ -13212,7 +13212,7 @@ diff --git a/src/lib.rs b/src/lib.rs
                 "--ignored",
                 "--nocapture",
             ])
-            .env("ECC2_OUTPUT_CURSOR_CHILD_DB", &db_path)
+            .env("PowerUser2_OUTPUT_CURSOR_CHILD_DB", &db_path)
             .status()?;
         assert!(child.success(), "child output writer should succeed");
         dashboard.refresh();
@@ -13239,7 +13239,7 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     #[ignore = "helper invoked by output cursor cross-process test"]
     fn output_cursor_child_writer() -> Result<()> {
-        let Some(db_path) = std::env::var_os("ECC2_OUTPUT_CURSOR_CHILD_DB") else {
+        let Some(db_path) = std::env::var_os("PowerUser2_OUTPUT_CURSOR_CHILD_DB") else {
             return Ok(());
         };
         StateStore::open(Path::new(&db_path))?.append_output_line(
@@ -13252,7 +13252,7 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn output_cache_rehydrates_after_transient_session_list_failure() -> Result<()> {
         let db_path =
-            std::env::temp_dir().join(format!("ecc2-output-recovery-{}.db", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-output-recovery-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let session = sample_session("session-1", "claude", SessionState::Running, None, 0, 0);
         db.insert_session(&session)?;
@@ -13299,7 +13299,7 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn output_cache_tracks_session_add_delete_and_same_id_recreation() -> Result<()> {
         let db_path =
-            std::env::temp_dir().join(format!("ecc2-output-lifecycle-{}.db", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-output-lifecycle-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         db.insert_session(&sample_session(
             "session-1",
@@ -13355,7 +13355,7 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn output_cache_retries_delta_after_transient_output_query_failure() -> Result<()> {
         let db_path =
-            std::env::temp_dir().join(format!("ecc2-output-query-retry-{}.db", Uuid::new_v4()));
+            std::env::temp_dir().join(format!("poweruser2-output-query-retry-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         db.insert_session(&sample_session(
             "session-1",
@@ -13637,7 +13637,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             vec![
                 test_output_line(OutputStream::Stdout, "normal output"),
                 test_output_line(OutputStream::Stdout, "Read(src/lib.rs)"),
-                test_output_line(OutputStream::Stdout, "Updated ecc2/src/tui/dashboard.rs"),
+                test_output_line(OutputStream::Stdout, "Updated poweruser2/src/tui/dashboard.rs"),
                 test_output_line(OutputStream::Stderr, "stderr line"),
             ],
         );
@@ -13659,7 +13659,7 @@ diff --git a/src/lib.rs b/src/lib.rs
         assert_eq!(dashboard.output_filter, OutputFilter::FileChangesOnly);
         assert_eq!(
             dashboard.visible_output_text(),
-            "Updated ecc2/src/tui/dashboard.rs"
+            "Updated poweruser2/src/tui/dashboard.rs"
         );
         assert_eq!(dashboard.output_title(), " Output file changes ");
         assert_eq!(
@@ -14041,7 +14041,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn stop_selected_uses_session_manager_transition() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14077,7 +14077,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn resume_selected_requeues_failed_session() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14088,11 +14088,11 @@ diff --git a/src/lib.rs b/src/lib.rs
             task_group: "general".to_string(),
             agent_type: "claude".to_string(),
             state: SessionState::Failed,
-            working_dir: PathBuf::from("/tmp/ecc2-resume"),
+            working_dir: PathBuf::from("/tmp/poweruser2-resume"),
             pid: None,
             worktree: Some(WorktreeInfo {
-                path: PathBuf::from("/tmp/ecc2-resume"),
-                branch: "ecc/failed-1".to_string(),
+                path: PathBuf::from("/tmp/poweruser2-resume"),
+                branch: "poweruser/failed-1".to_string(),
                 base_branch: "main".to_string(),
             }),
             created_at: now,
@@ -14117,10 +14117,10 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn cleanup_selected_worktree_clears_session_metadata() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
-        let worktree_path = std::env::temp_dir().join(format!("ecc2-cleanup-{}", Uuid::new_v4()));
+        let worktree_path = std::env::temp_dir().join(format!("poweruser2-cleanup-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&worktree_path)?;
 
         db.insert_session(&Session {
@@ -14134,7 +14134,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             pid: None,
             worktree: Some(WorktreeInfo {
                 path: worktree_path.clone(),
-                branch: "ecc/stopped-1".to_string(),
+                branch: "poweruser/stopped-1".to_string(),
                 base_branch: "main".to_string(),
             }),
             created_at: now,
@@ -14162,7 +14162,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn prune_inactive_worktrees_sets_operator_note_when_clear() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14197,11 +14197,11 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn prune_inactive_worktrees_reports_pruned_and_skipped_counts() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
-        let active_path = std::env::temp_dir().join(format!("ecc2-active-{}", Uuid::new_v4()));
-        let stopped_path = std::env::temp_dir().join(format!("ecc2-stopped-{}", Uuid::new_v4()));
+        let active_path = std::env::temp_dir().join(format!("poweruser2-active-{}", Uuid::new_v4()));
+        let stopped_path = std::env::temp_dir().join(format!("poweruser2-stopped-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&active_path)?;
         std::fs::create_dir_all(&stopped_path)?;
 
@@ -14216,7 +14216,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             pid: None,
             worktree: Some(WorktreeInfo {
                 path: active_path.clone(),
-                branch: "ecc/running-1".to_string(),
+                branch: "poweruser/running-1".to_string(),
                 base_branch: "main".to_string(),
             }),
             created_at: now,
@@ -14235,7 +14235,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             pid: None,
             worktree: Some(WorktreeInfo {
                 path: stopped_path.clone(),
-                branch: "ecc/stopped-1".to_string(),
+                branch: "poweruser/stopped-1".to_string(),
                 base_branch: "main".to_string(),
             }),
             created_at: now,
@@ -14271,10 +14271,10 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn prune_inactive_worktrees_reports_retained_sessions_within_retention() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
-        let retained_path = std::env::temp_dir().join(format!("ecc2-retained-{}", Uuid::new_v4()));
+        let retained_path = std::env::temp_dir().join(format!("poweruser2-retained-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&retained_path)?;
 
         db.insert_session(&Session {
@@ -14288,7 +14288,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             pid: None,
             worktree: Some(WorktreeInfo {
                 path: retained_path.clone(),
-                branch: "ecc/stopped-1".to_string(),
+                branch: "poweruser/stopped-1".to_string(),
                 base_branch: "main".to_string(),
             }),
             created_at: now,
@@ -14367,7 +14367,7 @@ diff --git a/src/lib.rs b/src/lib.rs
             .operator_note
             .clone()
             .context("operator note should be set")?;
-        assert!(note.contains("merged ecc/merge1234 into"));
+        assert!(note.contains("merged poweruser/merge1234 into"));
         assert!(note.contains(&format!("for {}", format_session_id(&session_id))));
 
         let session = dashboard
@@ -14475,7 +14475,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn delete_selected_session_removes_inactive_session() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14510,7 +14510,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn auto_dispatch_backlog_sets_operator_note_when_clear() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14545,7 +14545,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn rebalance_selected_team_sets_operator_note_when_clear() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14580,7 +14580,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn rebalance_all_teams_sets_operator_note_when_clear() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14615,7 +14615,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[tokio::test]
     async fn coordinate_backlog_sets_operator_note_when_clear() -> Result<()> {
-        let db_path = std::env::temp_dir().join(format!("ecc2-dashboard-{}.db", Uuid::new_v4()));
+        let db_path = std::env::temp_dir().join(format!("poweruser2-dashboard-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let now = Utc::now();
 
@@ -14760,12 +14760,12 @@ diff --git a/src/lib.rs b/src/lib.rs
         dashboard.pane_size_percent = DEFAULT_GRID_SIZE_PERCENT;
 
         for _ in 0..20 {
-            dashboard.adjust_pane_size_with_save(5, Path::new("/tmp/ecc2-noop.toml"), |_| Ok(()));
+            dashboard.adjust_pane_size_with_save(5, Path::new("/tmp/poweruser2-noop.toml"), |_| Ok(()));
         }
         assert_eq!(dashboard.pane_size_percent, MAX_PANE_SIZE_PERCENT);
 
         for _ in 0..40 {
-            dashboard.adjust_pane_size_with_save(-5, Path::new("/tmp/ecc2-noop.toml"), |_| Ok(()));
+            dashboard.adjust_pane_size_with_save(-5, Path::new("/tmp/poweruser2-noop.toml"), |_| Ok(()));
         }
         assert_eq!(dashboard.pane_size_percent, MIN_PANE_SIZE_PERCENT);
     }
@@ -14893,7 +14893,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn pane_command_mode_sets_layout() {
-        let tempdir = std::env::temp_dir().join(format!("ecc2-pane-command-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-pane-command-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&tempdir).unwrap();
         let previous_home = std::env::var_os("HOME");
         std::env::set_var("HOME", &tempdir);
@@ -14923,7 +14923,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
     #[test]
     fn cycle_pane_layout_rotates_and_hides_log_when_leaving_grid() {
-        let tempdir = std::env::temp_dir().join(format!("ecc2-cycle-pane-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-cycle-pane-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&tempdir).unwrap();
         let previous_home = std::env::var_os("HOME");
         std::env::set_var("HOME", &tempdir);
@@ -14952,9 +14952,9 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn cycle_pane_layout_persists_config() {
         let mut dashboard = test_dashboard(Vec::new(), 0);
-        let tempdir = std::env::temp_dir().join(format!("ecc2-layout-policy-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-layout-policy-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&tempdir).unwrap();
-        let config_path = tempdir.join("ecc2.toml");
+        let config_path = tempdir.join("poweruser2.toml");
 
         dashboard.cycle_pane_layout_with_save(&config_path, |cfg| cfg.save_to_path(&config_path));
 
@@ -14977,9 +14977,9 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn pane_resize_persists_linear_setting() {
         let mut dashboard = test_dashboard(Vec::new(), 0);
-        let tempdir = std::env::temp_dir().join(format!("ecc2-pane-size-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-pane-size-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&tempdir).unwrap();
-        let config_path = tempdir.join("ecc2.toml");
+        let config_path = tempdir.join("poweruser2.toml");
 
         dashboard.adjust_pane_size_with_save(5, &config_path, |cfg| cfg.save_to_path(&config_path));
 
@@ -15009,7 +15009,7 @@ diff --git a/src/lib.rs b/src/lib.rs
         dashboard.cfg.grid_pane_size_percent = 63;
         dashboard.pane_size_percent = 41;
 
-        dashboard.cycle_pane_layout_with_save(Path::new("/tmp/ecc2-noop.toml"), |_| Ok(()));
+        dashboard.cycle_pane_layout_with_save(Path::new("/tmp/poweruser2-noop.toml"), |_| Ok(()));
 
         assert_eq!(dashboard.cfg.pane_layout, PaneLayout::Grid);
         assert_eq!(dashboard.pane_size_percent, 63);
@@ -15027,7 +15027,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
         let note = dashboard.auto_split_layout_after_spawn_with_save(
             2,
-            Path::new("/tmp/ecc2-noop.toml"),
+            Path::new("/tmp/poweruser2-noop.toml"),
             |_| Ok(()),
         );
 
@@ -15057,7 +15057,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
         let note = dashboard.auto_split_layout_after_spawn_with_save(
             2,
-            Path::new("/tmp/ecc2-noop.toml"),
+            Path::new("/tmp/poweruser2-noop.toml"),
             |_| Ok(()),
         );
 
@@ -15088,7 +15088,7 @@ diff --git a/src/lib.rs b/src/lib.rs
 
         let note = dashboard.auto_split_layout_after_spawn_with_save(
             3,
-            Path::new("/tmp/ecc2-noop.toml"),
+            Path::new("/tmp/poweruser2-noop.toml"),
             |_| Ok(()),
         );
 
@@ -15128,9 +15128,9 @@ diff --git a/src/lib.rs b/src/lib.rs
     #[test]
     fn toggle_theme_persists_config() {
         let mut dashboard = test_dashboard(Vec::new(), 0);
-        let tempdir = std::env::temp_dir().join(format!("ecc2-theme-policy-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-theme-policy-{}", Uuid::new_v4()));
         std::fs::create_dir_all(&tempdir).unwrap();
-        let config_path = tempdir.join("ecc2.toml");
+        let config_path = tempdir.join("poweruser2.toml");
 
         dashboard.toggle_theme_with_save(&config_path, |cfg| cfg.save_to_path(&config_path));
 
@@ -15302,7 +15302,7 @@ diff --git a/src/lib.rs b/src/lib.rs
         Config {
             db_path: root.join("state.db"),
             worktree_root: root.join("worktrees"),
-            worktree_branch_prefix: "ecc".to_string(),
+            worktree_branch_prefix: "poweruser".to_string(),
             max_parallel_sessions: 4,
             max_parallel_worktrees: 4,
             worktree_retention_secs: 0,
@@ -15340,8 +15340,8 @@ diff --git a/src/lib.rs b/src/lib.rs
     fn init_git_repo(path: &Path) -> Result<()> {
         fs::create_dir_all(path)?;
         run_git(path, &["init", "-q"])?;
-        run_git(path, &["config", "user.name", "ECC Tests"])?;
-        run_git(path, &["config", "user.email", "ecc-tests@example.com"])?;
+        run_git(path, &["config", "user.name", "PowerUser Tests"])?;
+        run_git(path, &["config", "user.email", "poweruser-tests@example.com"])?;
         // Keep fixtures hermetic: a global core.hooksPath (e.g. identity-checking
         // pre-push hooks) must not run inside test repos.
         run_git(path, &["config", "core.hooksPath", "hooks-disabled"])?;
