@@ -732,7 +732,7 @@ mod tests {
     impl TestDir {
         fn new(label: &str) -> Result<Self, Box<dyn std::error::Error>> {
             let path =
-                std::env::temp_dir().join(format!("ecc2-{}-{}", label, uuid::Uuid::new_v4()));
+                std::env::temp_dir().join(format!("poweruser2-{}-{}", label, uuid::Uuid::new_v4()));
             fs::create_dir_all(&path)?;
             Ok(Self { path })
         }

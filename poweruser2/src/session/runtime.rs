@@ -264,7 +264,7 @@ mod tests {
 
     #[tokio::test]
     async fn capture_command_output_persists_lines_and_events() -> Result<()> {
-        let db_path = env::temp_dir().join(format!("ecc2-runtime-{}.db", Uuid::new_v4()));
+        let db_path = env::temp_dir().join(format!("poweruser2-runtime-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let session_id = "session-1".to_string();
         let now = Utc::now();
@@ -332,7 +332,7 @@ mod tests {
 
     #[tokio::test]
     async fn capture_command_output_updates_heartbeat_for_quiet_processes() -> Result<()> {
-        let db_path = env::temp_dir().join(format!("ecc2-runtime-heartbeat-{}.db", Uuid::new_v4()));
+        let db_path = env::temp_dir().join(format!("poweruser2-runtime-heartbeat-{}.db", Uuid::new_v4()));
         let db = StateStore::open(&db_path)?;
         let session_id = "session-heartbeat".to_string();
         let now = Utc::now();

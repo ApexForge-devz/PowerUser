@@ -5729,7 +5729,7 @@ mod tests {
     impl TestDir {
         fn new(label: &str) -> Result<Self> {
             let path =
-                std::env::temp_dir().join(format!("ecc2-{}-{}", label, uuid::Uuid::new_v4()));
+                std::env::temp_dir().join(format!("poweruser2-{}-{}", label, uuid::Uuid::new_v4()));
             fs::create_dir_all(&path)?;
             Ok(Self { path })
         }
@@ -5879,7 +5879,7 @@ mod tests {
             rusqlite::params![
                 "sess-legacy",
                 "Backfill harness metadata",
-                "ecc",
+                "poweruser",
                 "legacy",
                 "gemini-cli",
                 repo_root.display().to_string(),
@@ -5911,7 +5911,7 @@ mod tests {
         db.insert_session(&Session {
             id: "sess-custom".to_string(),
             task: "Run custom harness".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "compat".to_string(),
             agent_type: "acme-runner".to_string(),
             working_dir: PathBuf::from(tempdir.path()),
@@ -6517,7 +6517,7 @@ mod tests {
             Some("session-1"),
             "file",
             "dashboard.rs",
-            Some("ecc2/src/tui/dashboard.rs"),
+            Some("poweruser2/src/tui/dashboard.rs"),
             "Primary dashboard surface",
             &metadata,
         )?;
@@ -6525,7 +6525,7 @@ mod tests {
             Some("session-1"),
             "file",
             "dashboard.rs",
-            Some("ecc2/src/tui/dashboard.rs"),
+            Some("poweruser2/src/tui/dashboard.rs"),
             "Updated dashboard summary",
             &metadata,
         )?;
@@ -6747,7 +6747,7 @@ mod tests {
         db.insert_session(&Session {
             id: "session-1".to_string(),
             task: "Investigate auth callback recovery".to_string(),
-            project: "ecc-tools".to_string(),
+            project: "poweruser-tools".to_string(),
             task_group: "incident".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -6780,7 +6780,7 @@ mod tests {
             Some("session-1"),
             "file",
             "dashboard.rs",
-            Some("ecc2/src/tui/dashboard.rs"),
+            Some("poweruser2/src/tui/dashboard.rs"),
             "Renders the TUI dashboard",
             &BTreeMap::new(),
         )?;
@@ -7006,7 +7006,7 @@ mod tests {
             "claude",
             Some("planner"),
             tempdir.path(),
-            "ecc-core",
+            "poweruser-core",
             "scheduled maintenance",
             true,
             due_next_run,
@@ -7062,7 +7062,7 @@ mod tests {
             Some("session-1"),
             "file",
             "dashboard.rs",
-            Some("ecc2/src/tui/dashboard.rs"),
+            Some("poweruser2/src/tui/dashboard.rs"),
             "",
             &BTreeMap::new(),
         )?;
@@ -7070,7 +7070,7 @@ mod tests {
             Some("session-1"),
             "function",
             "render_metrics",
-            Some("ecc2/src/tui/dashboard.rs"),
+            Some("poweruser2/src/tui/dashboard.rs"),
             "",
             &BTreeMap::new(),
         )?;
