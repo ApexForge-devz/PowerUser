@@ -491,7 +491,13 @@
     "!**/.pytest_cache/**",
     "skills/conventional-commit-review/",
     "skills/brownfield-retrospective/",
-    "skills/agent-runtime-gateway-smoke-test/"
+    "skills/agent-runtime-gateway-smoke-test/",
+    "docs/design/poweruser-ito-compute-integration.md",
+    "docs/design/poweruser-fleet-dashboard.md",
+    "schemas/poweruser-install-config.schema.json",
+    "scaffolds/cursor/",
+    "pi/core/skills/poweruser-council/",
+    ".opencode/plugins/poweruser-hooks.ts"
   ],
   "bin": {
     "poweruser": "scripts/poweruser.js",
