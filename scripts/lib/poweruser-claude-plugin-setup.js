@@ -394,7 +394,7 @@ function writeClaudePluginOptions(settingsPath, hooks) {
   return settingsPath;
 }
 
-function currentEccPlugins(plugins) {
+function currentPowerUserPlugins(plugins) {
   return plugins.filter(plugin => plugin?.id === CURRENT_PLUGIN_ID);
 }
 
@@ -436,7 +436,7 @@ function assertNoConflictingPowerUserPlugins(plugins) {
 
 function inspectPluginInventory(plugins, requestedScope) {
   assertNoConflictingPowerUserPlugins(plugins);
-  const installed = currentEccPlugins(plugins);
+  const installed = currentPowerUserPlugins(plugins);
   const observedScopes = installed.map(plugin => plugin.scope);
   if (installed.length > 1 || new Set(observedScopes).size !== observedScopes.length) {
     fail(
@@ -551,7 +551,7 @@ function verifyPluginAtScope(options) {
       { cwd: options.projectRoot, phase: options.phase || 'plugin-verification' }
     ).stdout
   );
-  const installed = currentEccPlugins(plugins);
+  const installed = currentPowerUserPlugins(plugins);
   const valid = (
     installed.length === 1
     && installed[0].scope === options.scope
@@ -701,7 +701,7 @@ module.exports = {
   assertSafeLocalInventory,
   assertGitAvailable,
   createDryRunClaudeRunner,
-  currentEccPlugins,
+  currentPowerUserPlugins,
   deriveHookMode,
   ensureOfficialMarketplace,
   ensurePluginAtScope,
