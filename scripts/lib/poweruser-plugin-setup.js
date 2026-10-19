@@ -232,7 +232,7 @@ async function resolveMarketplaceRepository(marketplace, options = {}, dependenc
     const detail = String(error?.stderr || error?.message || '').trim();
     fail(
       'MARKETPLACE_COLLISION',
-      `Refusing the existing \`ecc\` marketplace because its Git provenance could not be verified${detail ? `: ${detail}` : ''}.`,
+      `Refusing the existing \`poweruser\` marketplace because its Git provenance could not be verified${detail ? `: ${detail}` : ''}.`,
       { phase: options.phase || 'marketplace-provenance' }
     );
   }
@@ -260,7 +260,7 @@ async function assertOfficialMarketplace(
     const detail = String(error?.message || error || '').trim();
     fail(
       'MARKETPLACE_COLLISION',
-      `Refusing the existing \`ecc\` marketplace because its provenance could not be verified${detail ? `: ${detail}` : ''}.`,
+      `Refusing the existing \`poweruser\` marketplace because its provenance could not be verified${detail ? `: ${detail}` : ''}.`,
       { phase }
     );
   }
