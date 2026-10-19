@@ -133,7 +133,7 @@ const ADAPTER_RECORDS = Object.freeze([
     risk_notes: ['Keep Hermes-specific lifecycle hooks isolated under hooks/hermes and verify them in the target runtime.'],
     last_verified_at: '2026-10-20',
     owner: 'PowerUser maintainers',
-    source_docs: ['.hermes/README.md', 'docs/HERMES-SETUP.md', 'scripts/lib/install-targets/hermes-home.js'],
+    source_docs: ['.hermes/README.md', 'docs/HERMES-HOOKS.md', 'scripts/lib/install-targets/hermes-home.js'],
   },
   {
     id: 'kimi',
