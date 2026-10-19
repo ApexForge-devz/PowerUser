@@ -422,7 +422,7 @@ function assertNoConflictingPowerUserPlugins(plugins) {
   ));
   if (conflictingPowerUser) {
     fail(
-      'DUPLICATE_ECC_PLUGIN',
+      'DUPLICATE_POWERUSER_PLUGIN',
       `${conflictingPowerUser.id} is already installed and would duplicate PowerUser surfaces. Uninstall it before setting up ${CURRENT_PLUGIN_ID}.`,
       {
         observedScopes: [conflictingPowerUser.scope],
@@ -464,7 +464,7 @@ function inspectPluginInventory(plugins, requestedScope) {
       {
         observedScopes,
         recovery: [
-          `ecc setup --mode claude-plugin --scope ${scope} --move-scope --yes`,
+          `poweruser setup --mode claude-plugin --scope ${scope} --move-scope --yes`,
         ],
       }
     );
