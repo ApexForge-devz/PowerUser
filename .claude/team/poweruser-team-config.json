@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generatedBy": "ecc-tools",
+  "generatedBy": "poweruser-tools",
   "profile": "full",
   "sharedSkills": [
-    ".agents/skills/ecc-conventions/SKILL.md"
+    ".agents/skills/poweruser-conventions/SKILL.md"
   ],
   "commandFiles": [
     ".claude/commands/database-migration.md",
