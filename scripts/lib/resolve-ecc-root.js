@@ -4,40 +4,41 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const CURRENT_PLUGIN_SLUG = 'ecc';
-// Legacy install id, kept for existing installs.
-const LEGACY_PLUGIN_SLUG = 'everything-claude-code';
+const CURRENT_PLUGIN_SLUG = 'poweruser';
+// Legacy identifiers are retained so existing ECC installations continue to resolve.
+const LEGACY_PLUGIN_SLUGS = ['ecc', 'everything-claude-code'];
 const CURRENT_PLUGIN_HANDLE = `${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`;
-const LEGACY_PLUGIN_HANDLE = `${LEGACY_PLUGIN_SLUG}@${LEGACY_PLUGIN_SLUG}`;
-const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, LEGACY_PLUGIN_SLUG];
+const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, ...LEGACY_PLUGIN_SLUGS];
 const PLUGIN_ROOT_SEGMENTS = [
   [CURRENT_PLUGIN_SLUG],
   [CURRENT_PLUGIN_HANDLE],
   ['marketplaces', CURRENT_PLUGIN_SLUG],
-  [LEGACY_PLUGIN_SLUG],
-  [LEGACY_PLUGIN_HANDLE],
-  ['marketplaces', LEGACY_PLUGIN_SLUG],
+  ...LEGACY_PLUGIN_SLUGS.flatMap((slug) => [
+    [slug],
+    [`${slug}@${slug}`],
+    ['marketplaces', slug],
+  ]),
 ];
 
-// Artifacts that identify a COMPLETE ECC root when the caller gives no explicit
-// probe. A real ECC root ships both the script tree AND ECC's skills; a partial
+// Artifacts that identify a COMPLETE PowerUser root when the caller gives no explicit
+// probe. A real PowerUser root ships both the script tree AND PowerUser skills; a partial
 // install (scripts copied, skills not) must not qualify for skill-resolving
 // callers, which build `skills/...` paths against the resolved root (#2544).
 // Checking "skills/ exists" is not enough — a user's own ~/.claude/skills/ can
-// be present with none of ECC's skills — so we probe for a sentinel skill that
+// be present with none of PowerUser skills — so we probe for a sentinel skill that
 // ships in every ECC root and is exactly what the failing skill commands need.
 // If that skill is ever renamed, move this sentinel with it.
 const DEFAULT_SCRIPT_PROBE = path.join('scripts', 'lib', 'utils.js');
 const DEFAULT_SKILL_PROBE = path.join('skills', 'continuous-learning-v2');
 
 /**
- * Resolve the ECC source root directory.
+ * Resolve the PowerUser source root directory.
  *
  * Tries, in order:
  *   1. CLAUDE_PLUGIN_ROOT env var (set by Claude Code for hooks, or by user)
  *   2. Standard install location (~/.claude/) — when scripts exist there
  *   3. Known plugin roots under ~/.claude/plugins/ (current + legacy slugs)
- *   4. Plugin cache auto-detection — scans ~/.claude/plugins/cache/{ecc,everything-claude-code}/
+ *   4. Plugin cache auto-detection — scans ~/.claude/plugins/cache/{poweruser,ecc,everything-claude-code}/
  *   5. Fallback to ~/.claude/ (original behaviour)
  *
  * @param {object} [options]
@@ -48,7 +49,7 @@ const DEFAULT_SKILL_PROBE = path.join('skills', 'continuous-learning-v2');
  *                                    given, it is honored exactly (script
  *                                    consumers pass their own script path). When
  *                                    omitted, a candidate must contain BOTH the
- *                                    ECC script tree and a sentinel ECC skill,
+ *                                    PowerUser script tree and a sentinel PowerUser skill,
  *                                    so a partial install (scripts without
  *                                    skills) is rejected for skill consumers.
  * @returns {string} Resolved ECC root path
@@ -77,7 +78,7 @@ function resolveEccRoot(options = {}) {
   // Decide whether a candidate directory is a usable ECC root. An explicit
   // caller probe is honored exactly (script consumers know the artifact they
   // need). With the default probe the caller is a skill consumer, so a
-  // candidate must contain both ECC's scripts and a sentinel ECC skill —
+  // candidate must contain both ECC's scripts and a sentinel PowerUser skill —
   // otherwise a scripts-only ~/.claude short-circuits and every skill path
   // resolves to a location that does not exist (#2544).
   const isRoot = options.probe
@@ -154,7 +155,7 @@ function normalizePluginRootForPlatform(rootDir, platform = process.platform) {
  *   const _r = <paste INLINE_RESOLVE>;
  *   const sm = require(_r + '/scripts/lib/session-manager');
  */
-const INLINE_RESOLVE = `(function(){var p=require('path'),f=require('fs'),o=require('os');var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var d=(process.env.CLAUDE_CONFIG_DIR||'').trim()||p.join(o.homedir(),'.claude');if(d==='~')d=o.homedir();else if(d.charAt(0)==='~'&&(d.charAt(1)==='/'||d.charCodeAt(1)===92))d=p.join(o.homedir(),d.slice(2));d=p.resolve(d);function L(x){try{return require(p.join(x,'scripts','lib','resolve-ecc-root')).resolveEccRoot()}catch(_){return null}}var r=L(d);if(r)return r;var s=['ecc','ecc@ecc','marketplaces/ecc','everything-claude-code','everything-claude-code@everything-claude-code','marketplaces/everything-claude-code'];for(var i=0;i<s.length;i++){r=L(p.join(d,'plugins',s[i]));if(r)return r}function D(x){try{return f.readdirSync(x,{withFileTypes:true}).filter(function(z){return z.isDirectory()}).map(function(z){return z.name})}catch(e){if(e.code==='ENOENT')return [];throw e}}var g=['ecc','everything-claude-code'];for(var j=0;j<g.length;j++){var c=p.join(d,'plugins','cache',g[j]);var O=D(c);for(var k=0;k<O.length;k++){var q=p.join(c,O[k]);var V=D(q);for(var m=0;m<V.length;m++){r=L(p.join(q,V[m]));if(r)return r}}}return d})()`;
+const INLINE_RESOLVE = `(function(){var p=require('path'),f=require('fs'),o=require('os');var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var d=(process.env.CLAUDE_CONFIG_DIR||'').trim()||p.join(o.homedir(),'.claude');if(d==='~')d=o.homedir();else if(d.charAt(0)==='~'&&(d.charAt(1)==='/'||d.charCodeAt(1)===92))d=p.join(o.homedir(),d.slice(2));d=p.resolve(d);function L(x){try{return require(p.join(x,'scripts','lib','resolve-ecc-root')).resolveEccRoot()}catch(_){return null}}var r=L(d);if(r)return r;var s=['poweruser','poweruser@poweruser','marketplaces/poweruser','ecc','ecc@ecc','marketplaces/ecc','everything-claude-code','everything-claude-code@everything-claude-code','marketplaces/everything-claude-code'];for(var i=0;i<s.length;i++){r=L(p.join(d,'plugins',s[i]));if(r)return r}function D(x){try{return f.readdirSync(x,{withFileTypes:true}).filter(function(z){return z.isDirectory()}).map(function(z){return z.name})}catch(e){if(e.code==='ENOENT')return [];throw e}}var g=['poweruser','ecc','everything-claude-code'];for(var j=0;j<g.length;j++){var c=p.join(d,'plugins','cache',g[j]);var O=D(c);for(var k=0;k<O.length;k++){var q=p.join(c,O[k]);var V=D(q);for(var m=0;m<V.length;m++){r=L(p.join(q,V[m]));if(r)return r}}}return d})()`;
 
 module.exports = {
   resolveEccRoot,
