@@ -14,7 +14,7 @@ const COMMANDS = [
   { name: 'help', description: 'List PowerUser bot commands' },
   {
     name: 'skill',
-    description: 'Look up an PowerUser skill by name',
+    description: 'Look up a PowerUser skill by name',
     options: [{ type: 3, name: 'name', description: 'skill name or keyword', required: true }],
   },
   {

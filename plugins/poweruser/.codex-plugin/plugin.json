@@ -35,7 +35,7 @@
     "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
     "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
     "brandColor": "#4B6CB7",
-    "composerIcon": "../../assets/ecc-icon.svg",
+    "composerIcon": "../../assets/poweruser-icon.svg",
     "logo": "../../assets/hero.png",
     "screenshots": [],
     "defaultPrompt": [

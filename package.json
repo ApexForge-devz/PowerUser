@@ -497,7 +497,8 @@
     "schemas/poweruser-install-config.schema.json",
     "scaffolds/cursor/",
     "pi/core/skills/poweruser-council/",
-    ".opencode/plugins/poweruser-hooks.ts"
+    ".opencode/plugins/poweruser-hooks.ts",
+    "scripts/discord/"
   ],
   "bin": {
     "poweruser": "scripts/poweruser.js",
