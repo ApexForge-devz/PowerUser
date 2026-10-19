@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Runtime helpers for ecc_dashboard.py that do not depend on tkinter.
+Runtime helpers for poweruser_dashboard.py that do not depend on tkinter.
 """
 
 from __future__ import annotations
