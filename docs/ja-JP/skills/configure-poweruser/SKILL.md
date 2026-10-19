@@ -1,25 +1,25 @@
 ---
-name: configure-ecc
-description: Claude Code、Codex、Kimi 内で ECC のインストール、更新、再設定を案内し、各ハーネスが実際に備えるプラグイン、スコープ、フック機能を守ります。
+name: configure-poweruser
+description: Claude Code、Codex、Kimi 内で PowerUser のインストール、更新、再設定を案内し、各ハーネスが実際に備えるプラグイン、スコープ、フック機能を守ります。
 metadata:
-  origin: ECC
+  origin: PowerUser
 ---
 
-# ECC の設定
+# PowerUser の設定
 
 現在のハーネス内で対話式ウィザードを実行します。最初にインベントリを調べ、対応する選択肢だけを
 収集し、プレビュー後に 1 回だけ確認し、非対話で適用・検証します。ウェルカム表示は成功後だけです。
-ECC を一時ディレクトリへ clone したり、プラグインを手作業でコピーしたりしないでください。
+PowerUser を一時ディレクトリへ clone したり、プラグインを手作業でコピーしたりしないでください。
 
-ユーザー自身が操作するターミナルの正規エントリは `ecc setup` と `npx ecc-universal setup` です。
+ユーザー自身が操作するターミナルの正規エントリは `poweruser setup` と `npx poweruser-universal setup` です。
 ハーネス内では、代わりに以下の明示的な非対話コマンドを使います。
 
 ## 現在のハーネスで分岐
 
 - Claude Code では、以下の完全なスコープ/フックウィザードを使います。
 - Codex では Codex ネイティブのプラグインライフサイクルを使います。Claude のスコープを提示したり、
-  Claude の ECC フック 4 段階を Codex に対応付けたりしません。
-- Kimi ではプロジェクトサーフェスを `./.kimi-code` に導入します。Kimi は ECC の Claude ライフサイクル
+  Claude の PowerUser フック 4 段階を Codex に対応付けたりしません。
+- Kimi ではプロジェクトサーフェスを `./.kimi-code` に導入します。Kimi は PowerUser の Claude ライフサイクル
   フックプロファイルに対応しません。
 - ハーネスを特定できない場合は、検出根拠を示し、変更コマンドの前に対象を質問します。
 
@@ -29,15 +29,15 @@ ECC を一時ディレクトリへ clone したり、プラグインを手作業
 
 ### 1. 変更せずにインベントリを確認
 
-両方のコマンドを実行し、ECC の導入スコープ、有効状態、marketplace ソースを要約します。
+両方のコマンドを実行し、PowerUser の導入スコープ、有効状態、marketplace ソースを要約します。
 
 ```bash
 claude plugin list --json
 claude plugin marketplace list --json
 ```
 
-`ecc@ecc` が 1 つのみ既存する場合は再設定として扱います。Claude が所有する
-"Open home page" コントロールをインストールの根拠にしません。setup が複数の ECC スコープ、
+`poweruser@poweruser` が 1 つのみ既存する場合は再設定として扱います。Claude が所有する
+"Open home page" コントロールをインストールの根拠にしません。setup が複数の PowerUser スコープ、
 旧式/手動導入、不正な設定、marketplace 衝突を報告したら停止し、返された復旧方法を示します。
 削除対象を推測しません。
 
@@ -56,7 +56,7 @@ claude plugin marketplace list --json
 フックモードについて 1 回だけ質問し、必ず 1 つの値を選びます。
 
 - `off | minimal | standard | strict`
-- `off` はスキルとコマンドを残し、ECC フック自動化を無効にします。
+- `off` はスキルとコマンドを残し、PowerUser フック自動化を無効にします。
 - `minimal` は最軽量のライフサイクルと安全自動化のみを有効にします。
 - `standard` は品質と安全のバランスを取ります。
 - `strict` は最も強いチェックとリマインダーを有効にします。
@@ -76,13 +76,13 @@ node "$CLAUDE_PLUGIN_ROOT/scripts/setup.js" --mode claude-plugin \
 `$CLAUDE_PLUGIN_ROOT` がない場合は公開 npm パッケージを使います。
 
 ```bash
-npx --yes --package ecc-universal ecc setup --mode claude-plugin \
+npx --yes --package poweruser-universal poweruser setup --mode claude-plugin \
   --scope <scope> --hooks <hooks> [--move-scope] --dry-run --json
 ```
 
 確認サマリーは 1 回だけ表示します。予定アクション、1 スコープ、1 フックモード、marketplace アクション、
 および移行元から移行先を含め、yes/no を 1 回だけ質問します。ハーネスの Shell は通常非 TTY のため、
-そこで bare な対話式 `ecc setup` を実行しません。
+そこで bare な対話式 `poweruser setup` を実行しません。
 
 ### 4. 明示した選択を適用
 
@@ -96,7 +96,7 @@ node "$CLAUDE_PLUGIN_ROOT/scripts/setup.js" --mode claude-plugin \
 フォールバック:
 
 ```bash
-npx --yes --package ecc-universal ecc setup --mode claude-plugin \
+npx --yes --package poweruser-universal poweruser setup --mode claude-plugin \
   --scope <scope> --hooks <hooks> [--move-scope] --yes --json
 ```
 
@@ -109,12 +109,12 @@ npx --yes --package ecc-universal ecc setup --mode claude-plugin \
 claude plugin list --json
 ```
 
-選択スコープに有効な `ecc@ecc` が正確に 1 件ある場合のみ続行します。`$CLAUDE_PLUGIN_ROOT` があるときは、
+選択スコープに有効な `poweruser@poweruser` が正確に 1 件ある場合のみ続行します。`$CLAUDE_PLUGIN_ROOT` があるときは、
 成功した setup の `action`（`installed`、`updated`、`migrated`、`resumed`、
 `already-migrated`）を内蔵レンダラーへ渡します。
 
 呼び出し前に、プロバイダーが報告したバージョンが
-`scripts/lib/terminal-welcome.js` の `ECC_VERSION_PATTERN` に一致することを
+`scripts/lib/terminal-welcome.js` の `POWERUSER_VERSION_PATTERN` に一致することを
 確認します。予期しない値は shell に補間せず拒否してください。
 
 ```bash
@@ -131,24 +131,24 @@ Codex ネイティブのプラグインコマンドには Claude 式 `user | pro
 Claude のスコープ/フック 4 段階は質問しません。Codex ネイティブプラグインはプロバイダー固有フックに対応しますが、
 Codex はその明示的な信頼を求めます。Codex にその信頼判断を表示させ、Claude の 4 プロファイルが Codex に対応すると表現しません。
 
-ECC marketplace がない場合は追加し、既存ならスナップショットを更新します。
+PowerUser marketplace がない場合は追加し、既存ならスナップショットを更新します。
 
 ```bash
-codex plugin marketplace add affaan-m/ECC
-codex plugin marketplace upgrade ecc --json
+codex plugin marketplace add ApexForge-devz/PowerUser
+codex plugin marketplace upgrade poweruser --json
 ```
 
 1 回だけ確認し、インストールまたは導入済みキャッシュの再現可能な更新を行い、検証します。
 
 ```bash
-codex plugin add ecc@ecc --json
+codex plugin add poweruser@poweruser --json
 codex plugin list --json
 ```
 
-JSON が ECC を導入済みと報告し、`installedPath` を提供した場合のみ続行し、検証済みバンドルからウェルカムを表示します。
+JSON が PowerUser を導入済みと報告し、`installedPath` を提供した場合のみ続行し、検証済みバンドルからウェルカムを表示します。
 
 `installedPath` は Codex JSON が返した絶対パスそのものだけを使い、制御文字を
-拒否します。バージョンは `ECC_VERSION_PATTERN` で検証します。`node` を次の
+拒否します。バージョンは `POWERUSER_VERSION_PATTERN` で検証します。`node` を次の
 argument array で直接呼び出してください。これは shell コマンドではなく、ツール API 呼び出しです。
 
 ```text
@@ -162,24 +162,24 @@ Claude の `off | minimal | standard | strict` が Codex に適用されたと�
 
 ## Kimi: プロジェクトサーフェス
 
-確認前に機能サマリーを示します。導入先は `./.kimi-code`、ECC ライフサイクルフックは
+確認前に機能サマリーを示します。導入先は `./.kimi-code`、PowerUser ライフサイクルフックは
 `hooks=unsupported` です。Claude のスコープ/フックモードを質問しません。まずプレビューします。
 
 ```bash
-npx --yes --package ecc-universal ecc install --profile core --target kimi --dry-run
+npx --yes --package poweruser-universal poweruser install --profile core --target kimi --dry-run
 ```
 
 このプロジェクト導入先について 1 回だけ確認し、`--dry-run` を除いた同一コマンドを適用します。
 検証コマンド:
 
 ```bash
-npx --yes --package ecc-universal ecc doctor --target kimi
+npx --yes --package poweruser-universal poweruser doctor --target kimi
 ```
 
 doctor が成功し、導入された指示とスキルが `./.kimi-code` 内に留まることを確認した後だけ実行します。
 
 ```bash
-npx --yes --package ecc-universal ecc welcome --action configured
+npx --yes --package poweruser-universal poweruser welcome --action configured
 ```
 
-Kimi が ECC ライフサイクルフックを導入または設定したとは表現しません。
+Kimi が PowerUser ライフサイクルフックを導入または設定したとは表現しません。

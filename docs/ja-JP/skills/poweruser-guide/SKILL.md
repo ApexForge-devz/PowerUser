@@ -1,30 +1,30 @@
 ---
-name: ecc-guide
-description: ECC の現在のエージェント、スキル、コマンド、フック、ルール、インストールプロファイル、およびプロジェクトオンボーディングをガイドしています。ライブリポジトリサーフェスを読んでから回答するようユーザーをガイドします。
+name: poweruser-guide
+description: PowerUser の現在のエージェント、スキル、コマンド、フック、ルール、インストールプロファイル、およびプロジェクトオンボーディングをガイドしています。ライブリポジトリサーフェスを読んでから回答するようユーザーをガイドします。
 origin: community
 ---
 
-# ECC Guide
+# PowerUser Guide
 
-Use this skill when a user needs help understanding, navigating, installing, or choosing parts of ECC.
+Use this skill when a user needs help understanding, navigating, installing, or choosing parts of PowerUser.
 
 ## When To Use
 
 Use this skill when the user:
 
-- asks what ECC includes
+- asks what PowerUser includes
 - wants help finding a skill, command, agent, hook, rule, or install profile
 - is new to the repository and needs a guided path
-- asks "how do I do X with ECC?"
-- asks which ECC components fit a project
+- asks "how do I do X with PowerUser?"
+- asks which PowerUser components fit a project
 - needs a lightweight explanation of how commands, skills, agents, hooks, and rules relate
 - is confused by install paths, duplicate installs, reset/uninstall, or selective install options
 
 ## Core Principle
 
-Answer from current files, not memory. ECC changes quickly, so hard-coded catalog counts, feature lists, and install instructions go stale.
+Answer from current files, not memory. PowerUser changes quickly, so hard-coded catalog counts, feature lists, and install instructions go stale.
 
-When the ECC repository is available, inspect the relevant files before giving a concrete answer:
+When the PowerUser repository is available, inspect the relevant files before giving a concrete answer:
 
 ```bash
 node scripts/ci/catalog.js --json
@@ -75,7 +75,7 @@ Avoid:
 
 Give a short menu:
 
-- install or reset ECC
+- install or reset PowerUser
 - pick skills for a project
 - understand commands vs skills
 - inspect hooks and safety behavior
@@ -121,7 +121,7 @@ Warn users not to stack plugin installs and full manual/profile installs unless 
 
 ### Project Onboarding
 
-Use `/project-init` when the user wants ECC configured for a target repo. The expected sequence is:
+Use `/project-init` when the user wants PowerUser configured for a target repo. The expected sequence is:
 
 1. detect the stack from project files
 2. resolve a dry-run install plan

@@ -1,22 +1,22 @@
 ---
-description: ECCの現在のエージェント、スキル、コマンド、フック、インストールプロファイル、ドキュメントをライブリポジトリサーフェスからナビゲートします。
+description: PowerUserの現在のエージェント、スキル、コマンド、フック、インストールプロファイル、ドキュメントをライブリポジトリサーフェスからナビゲートします。
 ---
 
-# /ecc-guide
+# /poweruser-guide
 
-このコマンドをECCの会話型マップとして使用します。完全なREADMEや古いカタログ数をダンプすることなく、タスクに適したECCサーフェスをユーザーが発見するのを支援します。
+このコマンドをPowerUserの会話型マップとして使用します。完全なREADMEや古いカタログ数をダンプすることなく、タスクに適したPowerUserサーフェスをユーザーが発見するのを支援します。
 
 ## 使い方
 
 ```text
-/ecc-guide
-/ecc-guide setup
-/ecc-guide skills
-/ecc-guide commands
-/ecc-guide hooks
-/ecc-guide install
-/ecc-guide find: <クエリ>
-/ecc-guide <機能名またはファイル名>
+/poweruser-guide
+/poweruser-guide setup
+/poweruser-guide skills
+/poweruser-guide commands
+/poweruser-guide hooks
+/poweruser-guide install
+/poweruser-guide find: <クエリ>
+/poweruser-guide <機能名またはファイル名>
 ```
 
 ## 動作ルール
@@ -39,7 +39,7 @@ description: ECCの現在のエージェント、スキル、コマンド、フ�
 - `agents/*.md` — 委任されたエージェントの役割
 - `hooks/README.md`と`hooks/hooks.json` — フックの動作
 - `manifests/install-*.json` — 選択的インストールモジュール、コンポーネント、プロファイル
-- `scripts/ci/catalog.js --json` — ECC内で実行時のライブカタログカウント
+- `scripts/ci/catalog.js --json` — PowerUser内で実行時のライブカタログカウント
 
 ## レスポンスパターン
 
@@ -86,7 +86,7 @@ description: ECCの現在のエージェント、スキル、コマンド、フ�
 
 ## 関連コマンド
 
-- `/project-init` — スタック対応のECCオンボーディング
+- `/project-init` — スタック対応のPowerUserオンボーディング
 - `/harness-audit` — 決定論的リポジトリ準備度スコアリング
 - `/skill-health` — スキル品質チェック
 - `/skill-create` — ローカルgit履歴からの新しいスキル抽出
