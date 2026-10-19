@@ -26,7 +26,7 @@ const PLUGIN_ADD = ['plugin', 'add', 'poweruser@poweruser', '--json'];
 
 function marketplaceInventory(installed = false) {
   return JSON.stringify({
-    marketplaces: installed ? [{ name: 'poweruser', root: '/cache/ecc' }] : [],
+    marketplaces: installed ? [{ name: 'poweruser', root: '/cache/poweruser' }] : [],
   });
 }
 
@@ -49,7 +49,7 @@ function pluginInventory(installed = false, overrides = {}) {
 function marketplaceUpgradeResult(overrides = {}) {
   return JSON.stringify({
     selectedMarketplaces: ['poweruser'],
-    upgradedRoots: ['/cache/ecc'],
+    upgradedRoots: ['/cache/poweruser'],
     errors: [],
     ...overrides,
   });
@@ -109,7 +109,7 @@ async function runTests() {
     ['parses current Codex marketplace and plugin JSON inventory shapes', () => {
       assert.deepStrictEqual(
         parseMarketplaceInventory(marketplaceInventory(true)),
-        [{ name: 'poweruser', root: '/cache/ecc' }]
+        [{ name: 'poweruser', root: '/cache/poweruser' }]
       );
       assert.strictEqual(
         parsePluginInventory(pluginInventory(true)).installed[0].pluginId,
@@ -123,12 +123,12 @@ async function runTests() {
     ['resolves marketplace provenance with execFile and exact Git argv', async () => {
       const fake = createExecFile([{
         command: 'git',
-        args: ['-C', '/cache/ecc', 'remote', 'get-url', 'origin'],
+        args: ['-C', '/cache/poweruser', 'remote', 'get-url', 'origin'],
         stdout: 'https://github.com/ApexForge-devz/PowerUser.git\n',
       }]);
 
       const repository = await resolveMarketplaceRepository(
-        { name: 'poweruser', root: '/cache/ecc' },
+        { name: 'poweruser', root: '/cache/poweruser' },
         { cwd: '/workspace with spaces' },
         { execFile: fake.execFile }
       );
@@ -176,12 +176,12 @@ async function runTests() {
       });
       const provenance = createExecFile([{
         command: 'git',
-        args: ['-C', '/cache/ecc', 'remote', 'get-url', 'origin'],
+        args: ['-C', '/cache/poweruser', 'remote', 'get-url', 'origin'],
         error: provenanceTimeout,
       }]);
       await expectSetupError(
         resolveMarketplaceRepository(
-          { name: 'poweruser', root: '/cache/ecc' },
+          { name: 'poweruser', root: '/cache/poweruser' },
           {},
           { execFile: provenance.execFile }
         ),
@@ -197,13 +197,13 @@ async function runTests() {
       });
       const fake = createExecFile([{
         command: 'git',
-        args: ['-C', '/cache/ecc', 'remote', 'get-url', 'origin'],
+        args: ['-C', '/cache/poweruser', 'remote', 'get-url', 'origin'],
         error: gitFailure,
       }]);
 
       await expectSetupError(
         resolveMarketplaceRepository(
-          { name: 'poweruser', root: '/cache/ecc' },
+          { name: 'poweruser', root: '/cache/poweruser' },
           {},
           { execFile: fake.execFile }
         ),
@@ -313,9 +313,9 @@ async function runTests() {
         () => parseMarketplaceUpgradeResult(
           marketplaceUpgradeResult({
             selectedMarketplaces: ['poweruser', 'other'],
-            upgradedRoots: ['/cache/ecc', '/cache/other'],
+            upgradedRoots: ['/cache/poweruser', '/cache/other'],
           }),
-          { name: 'poweruser', root: '/cache/ecc' }
+          { name: 'poweruser', root: '/cache/poweruser' }
         ),
         error => (
           error.code === 'MARKETPLACE_REFRESH_FAILED'
@@ -325,7 +325,7 @@ async function runTests() {
       assert.throws(
         () => parseMarketplaceUpgradeResult(
           marketplaceUpgradeResult({ errors: [{ message: 'dirty checkout' }] }),
-          { name: 'poweruser', root: '/cache/ecc' }
+          { name: 'poweruser', root: '/cache/poweruser' }
         ),
         error => error.code === 'MARKETPLACE_REFRESH_FAILED'
       );
@@ -345,7 +345,7 @@ async function runTests() {
             provenanceChecks += 1;
             return provenanceChecks === 1
               ? 'https://github.com/ApexForge-devz/PowerUser.git'
-              : 'https://github.com/attacker/ecc.git';
+              : 'https://github.com/attacker/poweruser.git';
           },
         })),
         'MARKETPLACE_COLLISION',
@@ -470,8 +470,8 @@ async function runTests() {
       await expectSetupError(
         reconcileCodexPlugin({}, dependenciesFor(fake, {
           resolveMarketplaceRepository: async marketplace => {
-            assert.strictEqual(marketplace.root, '/cache/ecc');
-            return 'https://github.com/attacker/ecc.git';
+            assert.strictEqual(marketplace.root, '/cache/poweruser');
+            return 'https://github.com/attacker/poweruser.git';
           },
         })),
         'MARKETPLACE_COLLISION',
