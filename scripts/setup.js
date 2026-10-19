@@ -36,7 +36,7 @@ Usage:
 
 Install scopes:
   user      Global for this user; PowerUser is available in every project.
-  project   Shared project configuration; the repository can enable ECC for collaborators.
+  project   Shared project configuration; the repository can enable PowerUser for collaborators.
   local     Private project configuration; PowerUser is enabled here without committing the choice.
 
 Hook preferences:
@@ -261,7 +261,7 @@ async function collectInteractiveOptions(options, defaults = {}, providedTermina
     const hookDefaultIndex = detectedHookDefault === -1 ? 2 : detectedHookDefault;
     const hooks = options.hooks || await askChoice(
       terminal,
-      'How should ECC hooks run?',
+      'How should PowerUser hooks run?',
       hookChoices,
       hookDefaultIndex
     );
@@ -303,7 +303,7 @@ function printResult(result, json) {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     return;
   }
-  process.stdout.write(`\nECC ${result.action} ${result.pluginId} at ${result.scope} scope.\n`);
+  process.stdout.write(`\nPowerUser ${result.action} ${result.pluginId} at ${result.scope} scope.\n`);
   if (result.sourceScope) {
     process.stdout.write(`Previous scope: ${result.sourceScope}\n`);
   }
@@ -384,7 +384,7 @@ function reconcileClaudePlugin(options) {
 
 function applyClaudePlugin(options, interactive) {
   const spinner = interactive && !options.dryRun && !options.json
-    ? startTerminalSpinner('Applying ECC setup...')
+    ? startTerminalSpinner('Applying PowerUser setup...')
     : undefined;
   try {
     return reconcileClaudePlugin(options);
@@ -474,7 +474,7 @@ async function main(argv = process.argv.slice(2)) {
     });
   } catch (error) {
     if (isInteractiveCancellation(error)) {
-      process.stdout.write('\nECC setup cancelled. No changes were made.\n');
+      process.stdout.write('\nPowerUser setup cancelled. No changes were made.\n');
       return;
     }
     printError(error, options?.json);
