@@ -585,7 +585,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ecc-tui"
+name = "poweruser-tui"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -1426,7 +1426,7 @@ dependencies = [
 name = "palette"
 version = "0.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4cbf71184cc5ecc2e4e1baccdb21026c20e5fc3dcf63028a086131b3ab00b6e6"
+checksum = "4cbf71184cc5poweruser2e4e1baccdb21026c20e5fc3dcf63028a086131b3ab00b6e6"
 dependencies = [
  "approx",
  "fast-srgb8",
