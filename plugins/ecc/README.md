@@ -1,4 +1,4 @@
-# plugins/ecc — Legacy Codex Thin-Plugin Artifact
+# plugins/poweruser — Legacy Codex Thin-Plugin Artifact
 
 This directory is retained as a legacy compatibility artifact. The current
 `.agents/plugins/marketplace.json` points at the self-contained repository root,
@@ -30,10 +30,10 @@ bumps both.
 The native marketplace now installs from the repository root. A fresh Codex
 0.146.0 cache contains the configure skill, shared skills, MCP configuration,
 hooks, scripts, and assets, and an authenticated session loads the
-`configure-ecc` skill without hook failures.
+`configure-poweruser` skill without hook failures.
 
 After install, `codex plugin list` is not enough to prove the runtime can load
-the referenced skills and assets. From an ECC checkout, run:
+the referenced skills and assets. From an PowerUser checkout, run:
 
 ```bash
 node scripts/codex/check-plugin-cache.js
@@ -47,5 +47,5 @@ The manual sync flow remains available only as a separate legacy compatibility
 path when copied/merged home configuration is explicitly desired:
 
 ```bash
-npm install && bash scripts/sync-ecc-to-codex.sh
+npm install && bash scripts/sync-poweruser-to-codex.sh
 ```
