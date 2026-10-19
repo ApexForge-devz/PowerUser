@@ -5,7 +5,7 @@ const path = require('path');
 const os = require('os');
 
 const CURRENT_PLUGIN_SLUG = 'poweruser';
-// Legacy identifiers are retained so existing ECC installations continue to resolve.
+// Legacy identifiers are retained so existing installations continue to resolve.
 const LEGACY_PLUGIN_SLUGS = ['ecc', 'everything-claude-code'];
 const CURRENT_PLUGIN_HANDLE = `${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`;
 const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, ...LEGACY_PLUGIN_SLUGS];
@@ -34,7 +34,7 @@ const DEFAULT_SKILL_PROBE = path.join('skills', 'continuous-learning-v2');
 /**
  * Resolve the PowerUser source root directory.
  *
- * The resolver prioritizes the PowerUser plugin and retains ECC cache locations
+ * The resolver prioritizes the PowerUser plugin and retains legacy cache locations
  * as legacy aliases for existing installations.
  */
 function resolvePowerUserRoot(options = {}) {
@@ -61,7 +61,7 @@ function resolvePowerUserRoot(options = {}) {
   // Decide whether a candidate directory is a usable PowerUser root. An explicit
   // caller probe is honored exactly (script consumers know the artifact they
   // need). With the default probe the caller is a skill consumer, so a
-  // candidate must contain both ECC's scripts and a sentinel PowerUser skill —
+  // candidate must contain both PowerUser's scripts and a sentinel PowerUser skill —
   // otherwise a scripts-only ~/.claude short-circuits and every skill path
   // resolves to a location that does not exist (#2544).
   const isRoot = options.probe
@@ -138,7 +138,7 @@ function normalizePluginRootForPlatform(rootDir, platform = process.platform) {
  *   const _r = <paste INLINE_RESOLVE>;
  *   const sm = require(_r + '/scripts/lib/session-manager');
  */
-const INLINE_RESOLVE = `(function(){var p=require('path'),f=require('fs'),o=require('os');var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var d=(process.env.CLAUDE_CONFIG_DIR||'').trim()||p.join(o.homedir(),'.claude');if(d==='~')d=o.homedir();else if(d.charAt(0)==='~'&&(d.charAt(1)==='/'||d.charCodeAt(1)===92))d=p.join(o.homedir(),d.slice(2));d=p.resolve(d);function L(x){try{return require(p.join(x,'scripts','lib','resolve-poweruser-root')).resolvePowerUserRoot()}catch(_){return null}}var r=L(d);if(r)return r;var s=['poweruser','poweruser@poweruser','marketplaces/poweruser','ecc','poweruser@poweruser','marketplaces/ecc','everything-claude-code','everything-claude-code@everything-claude-code','marketplaces/everything-claude-code'];for(var i=0;i<s.length;i++){r=L(p.join(d,'plugins',s[i]));if(r)return r}function D(x){try{return f.readdirSync(x,{withFileTypes:true}).filter(function(z){return z.isDirectory()}).map(function(z){return z.name})}catch(e){if(e.code==='ENOENT')return [];throw e}}var g=['poweruser','ecc','everything-claude-code'];for(var j=0;j<g.length;j++){var c=p.join(d,'plugins','cache',g[j]);var O=D(c);for(var k=0;k<O.length;k++){var q=p.join(c,O[k]);var V=D(q);for(var m=0;m<V.length;m++){r=L(p.join(q,V[m]));if(r)return r}}}return d})()`;
+const INLINE_RESOLVE = `(function(){var p=require('path'),f=require('fs'),o=require('os');var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var d=(process.env.CLAUDE_CONFIG_DIR||'').trim()||p.join(o.homedir(),'.claude');if(d==='~')d=o.homedir();else if(d.charAt(0)==='~'&&(d.charAt(1)==='/'||d.charCodeAt(1)===92))d=p.join(o.homedir(),d.slice(2));d=p.resolve(d);function L(x){try{return require(p.join(x,'scripts','lib','resolve-poweruser-root')).resolvePowerUserRoot()}catch(_){return null}}var r=L(d);if(r)return r;var s=['poweruser','poweruser@poweruser','marketplaces/poweruser','ecc','ecc@ecc','marketplaces/ecc','everything-claude-code','everything-claude-code@everything-claude-code','marketplaces/everything-claude-code'];for(var i=0;i<s.length;i++){r=L(p.join(d,'plugins',s[i]));if(r)return r}function D(x){try{return f.readdirSync(x,{withFileTypes:true}).filter(function(z){return z.isDirectory()}).map(function(z){return z.name})}catch(e){if(e.code==='ENOENT')return [];throw e}}var g=['poweruser','ecc','everything-claude-code'];for(var j=0;j<g.length;j++){var c=p.join(d,'plugins','cache',g[j]);var O=D(c);for(var k=0;k<O.length;k++){var q=p.join(c,O[k]);var V=D(q);for(var m=0;m<V.length;m++){r=L(p.join(q,V[m]));if(r)return r}}}return d})()`;
 
 module.exports = {
   resolvePowerUserRoot,
