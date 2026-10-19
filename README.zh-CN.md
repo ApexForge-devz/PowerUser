@@ -1,11 +1,11 @@
-# ECC
+# PowerUser
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/stargazers)
-[![Forks](https://img.shields.io/github/forks/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/network/members)
-[![Contributors](https://img.shields.io/github/contributors/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
-[![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
-[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/ecc-tools)
+[![Stars](https://img.shields.io/github/stars/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser/stargazers)
+[![Forks](https://img.shields.io/github/forks/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser/network/members)
+[![Contributors](https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat)](https://github.com/ApexForge-devz/PowerUser/graphs/contributors)
+[![npm poweruser-universal](https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-universal)
+[![npm poweruser-agentshield](https://img.shields.io/npm/dw/poweruser-agentshield?label=poweruser-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/poweruser-agentshield)
+[![GitHub App Install](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Finstalls&logo=github)](https://github.com/marketplace/poweruser-tools)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -46,12 +46,12 @@
 <tr>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2012378465664745795">
-<img src="https://github.com/user-attachments/assets/1a471488-59cc-425b-8345-5245c7efbcef" alt="The Shorthand Guide to ECC" />
+<img src="https://github.com/user-attachments/assets/1a471488-59cc-425b-8345-5245c7efbcef" alt="The Shorthand Guide to PowerUser" />
 </a>
 </td>
 <td width="33%">
 <a href="https://x.com/affaanmustafa/status/2014040193557471352">
-<img src="https://github.com/user-attachments/assets/c9ca43bc-b149-427f-b551-af6840c368f0" alt="The Longform Guide to ECC" />
+<img src="https://github.com/user-attachments/assets/c9ca43bc-b149-427f-b551-af6840c368f0" alt="The Longform Guide to PowerUser" />
 </a>
 </td>
 <td width="33%">
@@ -82,7 +82,7 @@
 
 ### v2.2.3 — pi/core 配置与发布可靠性（2026年10月）
 
-`pi/core` 配置现在仅以 ECC 称呼本项目，发布工作流在校验已发布的包之前会等待 npm 最多五分钟。
+`pi/core` 配置现在仅以 PowerUser 称呼本项目，发布工作流在校验已发布的包之前会等待 npm 最多五分钟。
 
 ### v2.2.2 — 引导式多 Harness 安装（2026年8月）
 
@@ -90,43 +90,43 @@
 
 ### v2.1.0 — 智能体 Harness 操作系统（2026年6月）
 
-2.0 主线稳定版：261 个技能、control-pane 基底（会话适配器 + MCP 清单）、worktree 生命周期服务，以及 [ECC Discord 社区](https://discord.gg/36yGMHGFbR)。
+2.0 主线稳定版：261 个技能、control-pane 基底（会话适配器 + MCP 清单）、worktree 生命周期服务，以及 [PowerUser Discord 社区](https://discord.gg/36yGMHGFbR)。
 
-### v2.0.0-rc.1 — 表面同步、运营工作流与 ECC 2.0 Alpha（2026年4月）
+### v2.0.0-rc.1 — 表面同步、运营工作流与 PowerUser 2.0 Alpha（2026年4月）
 
 - **公共表面已与真实仓库同步** —— 元数据、目录数量、插件清单以及安装文档现在都与实际开源表面保持一致。
 - **运营与外向型工作流扩展** —— `brand-voice`、`social-graph-ranker`、`customer-billing-ops`、`google-workspace-ops` 等运营型 skill 已纳入同一系统。
 - **媒体与发布工具补齐** —— `manim-video`、`remotion-video-creation` 以及社媒发布能力让技术讲解和发布流程直接在同一仓库内完成。
 - **框架与产品表面继续扩展** —— `nestjs-patterns`、更完整的 Codex/OpenCode 安装表面，以及跨 harness 打包改进，让仓库不再局限于 Claude Code。
-- **ECC 2.0 alpha 已进入仓库** —— `ecc2/` 下的 Rust 控制层现已可在本地构建，并提供 `dashboard`、`start`、`sessions`、`status`、`stop`、`resume` 与 `daemon` 命令。
-- **生态加固持续推进** —— AgentShield、ECC Tools 成本控制、计费门户工作与网站刷新仍围绕核心插件持续交付。
+- **PowerUser 2.0 alpha 已进入仓库** —— `ecc2/` 下的 Rust 控制层现已可在本地构建，并提供 `dashboard`、`start`、`sessions`、`status`、`stop`、`resume` 与 `daemon` 命令。
+- **生态加固持续推进** —— AgentShield、PowerUser Tools 成本控制、计费门户工作与网站刷新仍围绕核心插件持续交付。
 
 ### 当前开发 — 统一记忆库
 
-`ecc memory` 使用可检查的 `ecc.memory.v1` Markdown 文档，在 Claude、
+`poweruser memory` 使用可检查的 `poweruser.memory.v1` Markdown 文档，在 Claude、
 Codex、Hermes 等 harness 之间传递上下文。常规搜索只召回 `project` 和
 `team` 范围内状态为 active 的条目，按 ID 直接读取仍可用于检查非 active
 条目；`user` 范围必须显式请求。首个版本中的所有记忆都保持 unreviewed，
 接受后的知识应进入受治理的项目文档，
 而不是修改记忆的信任字段。召回内容始终是不可信数据，不能作为指令执行。
 
-可选的 `ecc-memory-mcp` 服务必须由操作者设置小写
+可选的 `poweruser-memory-mcp` 服务必须由操作者设置小写
 `ECC_MEMORY_HARNESS` 身份；工具调用方不能覆盖该身份。只有操作者另外设置
 `ECC_MEMORY_ALLOW_USER_SCOPE=1` 后，MCP 调用才能显式请求 `user` 范围。
 该服务默认不会启用。
 
 仅安装 skill、最小配置、手动复制或 Claude 插件不会把记忆库运行时加入
-`PATH`。请先单独安装 ECC npm 运行时：
+`PATH`。请先单独安装 PowerUser npm 运行时：
 
 ```bash
-npm install -g ecc-universal
-ecc memory --help
-command -v ecc-memory-mcp
+npm install -g poweruser-universal
+poweruser memory --help
+command -v poweruser-memory-mcp
 ```
 
 如需启用 MCP，请从 `mcp-configs/mcp-servers.json` 复制
-`ecc-memory-vault` 配置到对应 harness，并为每个 harness 分别启动一个服务
-进程，例如 `ECC_MEMORY_HARNESS=codex ecc-memory-mcp`。不同 harness 可以共享
+`poweruser-memory-vault` 配置到对应 harness，并为每个 harness 分别启动一个服务
+进程，例如 `ECC_MEMORY_HARNESS=codex poweruser-memory-mcp`。不同 harness 可以共享
 同一个二进制文件和记忆库目录，但不能共用同一个服务进程。
 
 ## 快速开始
@@ -139,26 +139,26 @@ command -v ecc-memory-mcp
 
 ```bash
 # 添加市场
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # 安装插件
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
-> 安装名称说明：较早的帖子里可能还会出现较长的旧标识符。Anthropic 的 marketplace/plugin 安装是按规范化插件标识符寻址的，因此 ECC 现在统一为 `ecc@ecc`，让工具名和 slash command 命名空间保持简短。
+> 安装名称说明：较早的帖子里可能还会出现较长的旧标识符。Anthropic 的 marketplace/plugin 安装是按规范化插件标识符寻址的，因此 PowerUser 现在统一为 `poweruser@poweruser`，让工具名和 slash command 命名空间保持简短。
 
 ### 第二步：仅在需要时安装规则
 
 > WARNING: **重要提示：** Claude Code 插件无法自动分发 `rules`。
 >
-> 如果你已经通过 `/plugin install` 安装了 ECC，**不要再运行 `./install.sh --profile full`、`.\install.ps1 --profile full` 或 `npx ecc-universal install --profile full`**。插件已经会自动加载 ECC 的技能、命令和 hooks；此时再执行完整安装，会把同一批内容再次复制到用户目录，导致技能重复以及运行时行为重复。
+> 如果你已经通过 `/plugin install` 安装了 PowerUser，**不要再运行 `./install.sh --profile full`、`.\install.ps1 --profile full` 或 `npx poweruser-universal install --profile full`**。插件已经会自动加载 PowerUser 的技能、命令和 hooks；此时再执行完整安装，会把同一批内容再次复制到用户目录，导致技能重复以及运行时行为重复。
 >
-> 对于插件安装路径，请只手动复制你需要的 `rules/` 目录。只有在你完全不走插件安装、而是选择“纯手动安装 ECC”时，才应该使用完整安装器。
+> 对于插件安装路径，请只手动复制你需要的 `rules/` 目录。只有在你完全不走插件安装、而是选择“纯手动安装 PowerUser”时，才应该使用完整安装器。
 
 ```bash
 # 首先克隆仓库
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 
 # 安装依赖（选择你常用的包管理器）
 npm install        # 或：pnpm install | yarn install | bun install
@@ -168,7 +168,7 @@ mkdir -p ~/.claude/rules
 cp -R rules/common ~/.claude/rules/
 cp -R rules/typescript ~/.claude/rules/
 
-# 纯手动安装 ECC（不要和 /plugin install 叠加）
+# 纯手动安装 PowerUser（不要和 /plugin install 叠加）
 # ./install.sh --profile full
 ```
 
@@ -180,9 +180,9 @@ New-Item -ItemType Directory -Force -Path "$HOME/.claude/rules" | Out-Null
 Copy-Item -Recurse rules/common "$HOME/.claude/rules/"
 Copy-Item -Recurse rules/typescript "$HOME/.claude/rules/"
 
-# 纯手动安装 ECC（不要和 /plugin install 叠加）
+# 纯手动安装 PowerUser（不要和 /plugin install 叠加）
 # .\install.ps1 --profile full
-# npx ecc-universal install --profile full
+# npx poweruser-universal install --profile full
 ```
 
 如需手动安装说明，请查看 `rules/` 文件夹中的 README 文档。手动复制规则文件时，请直接复制**整个语言目录**（例如 `rules/common` 或 `rules/golang`），而非目录内的单个文件，以保证相对路径引用正常、文件名不会冲突。
@@ -191,13 +191,13 @@ Copy-Item -Recurse rules/typescript "$HOME/.claude/rules/"
 
 ```bash
 # 尝试一个命令（插件安装使用命名空间形式）
-/ecc:plan "添加用户认证"
+/poweruser:plan "添加用户认证"
 
 # 手动安装（选项2）使用简短形式：
 # /plan "添加用户认证"
 
 # 查看可用命令
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 
 **完成！** 你现在可以使用 71 个代理、311 个技能和 97 个命令。
@@ -270,7 +270,7 @@ export ECC_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 这个仓库是一个 **Claude Code 插件** - 直接安装或手动复制组件。
 
 ```
-ECC/
+PowerUser/
 |-- .claude-plugin/   # 插件与应用商店清单
 |   |-- plugin.json         # 插件元数据与组件路径
 |   |-- marketplace.json    # 用于 /plugin marketplace add 的自托管应用商店目录
@@ -346,7 +346,7 @@ ECC/
 |   |-- springboot-security/        # Spring Boot 安全（新增）
 |   |-- springboot-tdd/             # Spring Boot TDD（新增）
 |   |-- springboot-verification/    # Spring Boot 验证（新增）
-|   |-- configure-ecc/              # 交互式安装向导（新增）
+|   |-- configure-poweruser/              # 交互式安装向导（新增）
 |   |-- security-scan/              # 集成 AgentShield 安全审计（新增）
 |   |-- java-coding-standards/      # Java 编码规范（新增）
 |   |-- jpa-patterns/               # JPA/Hibernate 模式（新增）
@@ -494,7 +494,7 @@ ECC/
 
 用于高级功能（10k+ 提交、自动 PR、团队共享）：
 
-[安装 GitHub 应用](https://github.com/apps/skill-creator) | [ecc.tools](https://ecc.tools)
+[安装 GitHub 应用](https://github.com/apps/skill-creator) | [poweruser.tools](https://github.com/ApexForge-devz/PowerUser)
 
 ```bash
 # 在任何问题上评论：
@@ -516,16 +516,16 @@ ECC/
 
 ```bash
 # 快速扫描（无需安装）
-npx ecc-agentshield scan
+npx poweruser-agentshield scan
 
 # 自动修复安全问题
-npx ecc-agentshield scan --fix
+npx poweruser-agentshield scan --fix
 
 # 调用 3 个 Opus 4.6 智能体进行深度分析
-npx ecc-agentshield scan --opus --stream
+npx poweruser-agentshield scan --opus --stream
 
 # 从零生成安全配置
-npx ecc-agentshield init
+npx poweruser-agentshield init
 ```
 
 **扫描范围：** CLAUDE.md、settings.json、MCP 配置、钩子、智能体定义与技能模块，覆盖 5 大类别 —— 密钥检测（14 种模式）、权限审计、钩子注入分析、MCP 服务风险评估、智能体配置审查。
@@ -536,7 +536,7 @@ npx ecc-agentshield init
 
 在 Claude Code 中使用 `/security-scan` 运行，或通过 [GitHub Action](https://github.com/affaan-m/agentshield) 集成到 CI。
 
-[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/ecc-agentshield)
+[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/poweruser-agentshield)
 
 ### 持续学习 v2
 
@@ -575,7 +575,7 @@ Claude Code v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/ho
 检测到重复的钩子文件：./hooks/hooks.json 指向已加载的文件
 ```
 
-**历史说明**：该问题曾在本仓库中引发多次「修复-回滚」循环（[#29](https://github.com/affaan-m/ECC/issues/29)、[#52](https://github.com/affaan-m/ECC/issues/52)、[#103](https://github.com/affaan-m/ECC/issues/103)）。因 Claude Code 版本间行为变更导致混淆，现已添加回归测试，防止该问题再次出现。
+**历史说明**：该问题曾在本仓库中引发多次「修复-回滚」循环（[#29](https://github.com/ApexForge-devz/PowerUser/issues/29)、[#52](https://github.com/ApexForge-devz/PowerUser/issues/52)、[#103](https://github.com/ApexForge-devz/PowerUser/issues/103)）。因 Claude Code 版本间行为变更导致混淆，现已添加回归测试，防止该问题再次出现。
 
 ---
 
@@ -587,10 +587,10 @@ Claude Code v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/ho
 
 ```bash
 # 将此仓库添加为市场
-/plugin marketplace add https://github.com/affaan-m/ECC
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
 
 # 安装插件
-/plugin install ecc@ecc
+/plugin install poweruser@poweruser
 ```
 
 或直接添加到你的 `~/.claude/settings.json`：
@@ -598,15 +598,15 @@ Claude Code v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/ho
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "poweruser": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/ECC"
+        "repo": "ApexForge-devz/PowerUser"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "poweruser@poweruser": true
   }
 }
 ```
@@ -617,20 +617,20 @@ Claude Code v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/ho
 >
 > ```bash
 > # 首先克隆仓库
-> git clone https://github.com/affaan-m/ECC.git
+> git clone https://github.com/ApexForge-devz/PowerUser.git
 >
 > # 方案 A：用户级规则（对所有项目生效）
 > mkdir -p ~/.claude/rules
-> cp -r ECC/rules/common ~/.claude/rules/
-> cp -r ECC/rules/typescript ~/.claude/rules/   # 选择你使用的技术栈
-> cp -r ECC/rules/python ~/.claude/rules/
-> cp -r ECC/rules/golang ~/.claude/rules/
-> cp -r ECC/rules/php ~/.claude/rules/
+> cp -r PowerUser/rules/common ~/.claude/rules/
+> cp -r PowerUser/rules/typescript ~/.claude/rules/   # 选择你使用的技术栈
+> cp -r PowerUser/rules/python ~/.claude/rules/
+> cp -r PowerUser/rules/golang ~/.claude/rules/
+> cp -r PowerUser/rules/php ~/.claude/rules/
 >
 > # 方案 B：项目级规则（仅对当前项目生效）
 > mkdir -p .claude/rules
-> cp -r ECC/rules/common .claude/rules/
-> cp -r ECC/rules/typescript .claude/rules/     # 选择你使用的技术栈
+> cp -r PowerUser/rules/common .claude/rules/
+> cp -r PowerUser/rules/typescript .claude/rules/     # 选择你使用的技术栈
 > ```
 
 ---
@@ -641,51 +641,51 @@ Claude Code v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/ho
 
 ```bash
 # 克隆仓库
-git clone https://github.com/affaan-m/ECC.git
+git clone https://github.com/ApexForge-devz/PowerUser.git
 
 # 将智能体文件复制到 Claude 配置目录
-cp ECC/agents/*.md ~/.claude/agents/
+cp PowerUser/agents/*.md ~/.claude/agents/
 
 # 复制规则目录（通用规则 + 特定语言规则）
 mkdir -p ~/.claude/rules
-cp -r ECC/rules/common ~/.claude/rules/
-cp -r ECC/rules/typescript ~/.claude/rules/   # 选择你使用的技术栈
-cp -r ECC/rules/python ~/.claude/rules/
-cp -r ECC/rules/golang ~/.claude/rules/
-cp -r ECC/rules/php ~/.claude/rules/
+cp -r PowerUser/rules/common ~/.claude/rules/
+cp -r PowerUser/rules/typescript ~/.claude/rules/   # 选择你使用的技术栈
+cp -r PowerUser/rules/python ~/.claude/rules/
+cp -r PowerUser/rules/golang ~/.claude/rules/
+cp -r PowerUser/rules/php ~/.claude/rules/
 
 # 优先复制技能模块（核心工作流）
 # 新用户推荐：仅复制核心/通用技能
-cp -r ECC/.agents/skills/* ~/.claude/skills/
-cp -r ECC/skills/search-first ~/.claude/skills/
+cp -r PowerUser/.agents/skills/* ~/.claude/skills/
+cp -r PowerUser/skills/search-first ~/.claude/skills/
 
 # 可选：仅在需要时添加细分领域/框架专属技能
 # for s in django-patterns django-tdd laravel-patterns springboot-patterns quarkus-patterns; do
-# cp -r ECC/skills/$s ~/.claude/skills/
+# cp -r PowerUser/skills/$s ~/.claude/skills/
 # done
 
 # 可选：迁移期间保留维护中的斜杠命令兼容
 mkdir -p ~/.claude/commands
-cp ECC/commands/*.md ~/.claude/commands/
+cp PowerUser/commands/*.md ~/.claude/commands/
 
 # 已退役短命令位于 legacy-command-shims/commands/。
 # 仅在仍需要 /tdd 等旧名称时，单独复制对应文件。
 ```
 
 #### 将钩子配置添加到 settings.json
-仅适用于手动安装：如果你没有通过 Claude 插件方式安装 ECC，可以将 `hooks/hooks.json` 中的钩子配置复制到你的 `~/.claude/settings.json` 文件中。
+仅适用于手动安装：如果你没有通过 Claude 插件方式安装 PowerUser，可以将 `hooks/hooks.json` 中的钩子配置复制到你的 `~/.claude/settings.json` 文件中。
 
-如果你是通过 `/plugin install` 安装 ECC，请不要再把这些钩子复制到 `settings.json`。Claude Code v2.1+ 会自动加载插件中的 `hooks/hooks.json`，重复注册会导致重复执行以及 `${CLAUDE_PLUGIN_ROOT}` 无法解析。
+如果你是通过 `/plugin install` 安装 PowerUser，请不要再把这些钩子复制到 `settings.json`。Claude Code v2.1+ 会自动加载插件中的 `hooks/hooks.json`，重复注册会导致重复执行以及 `${CLAUDE_PLUGIN_ROOT}` 无法解析。
 
 #### 配置 MCP 服务
 从 `mcp-configs/mcp-servers.json` 中复制需要的 MCP 服务定义，粘贴到官方 Claude Code 配置文件 `~/.claude/settings.json` 中；
 若需要仓库本地的 MCP 访问权限，可粘贴到项目级配置文件 `.mcp.json` 中。
 
-如果你已自行运行 ECC 捆绑的 MCP 服务，设置以下环境变量：
+如果你已自行运行 PowerUser 捆绑的 MCP 服务，设置以下环境变量：
 ```bash
 export ECC_DISABLED_MCPS="github,context7,exa,playwright,sequential-thinking,memory"
 ```
-ECC 托管的安装程序和 Codex 同步流程将跳过或移除这些服务，避免重复添加。
+PowerUser 托管的安装程序和 Codex 同步流程将跳过或移除这些服务，避免重复添加。
 
 **重要提示**：将配置中的 `YOUR_*_HERE` 占位符替换为你真实的 API 密钥。
 
@@ -822,13 +822,13 @@ node tests/hooks/hooks.test.js
 
 ## 社区项目
 
-基于 ECC 构建或受其启发的项目：
+基于 PowerUser 构建或受其启发的项目：
 
 | 项目 | 介绍 |
 |------|------|
 | [EVC](https://github.com/SaigonXIII/evc) | 营销智能体工作区 — 包含 42 条命令，面向内容运营、品牌管控与多渠道发布。[可视化概览](https://saigonxiii.github.io/evc)。 |
 
-如果你用 ECC 做了项目，欢迎提交 PR 添加到这里。
+如果你用 PowerUser 做了项目，欢迎提交 PR 添加到这里。
 
 ---
 
@@ -842,14 +842,14 @@ node tests/hooks/hooks.test.js
 
 ## Star 历史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=affaan-m/ECC&type=Date)](https://star-history.com/#affaan-m/ECC&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date)](https://star-history.com/#ApexForge-devz/PowerUser&Date)
 
 ---
 
 ## 链接
 
-- **快速上手指南（入门首选）：** [ECC 简明指南](https://x.com/affaanmustafa/status/2012378465664745795)
-- **长文指南（高阶进阶）：** [ECC 完整版深度指南](https://x.com/affaanmustafa/status/2014040193557471352)
+- **快速上手指南（入门首选）：** [PowerUser 简明指南](https://x.com/affaanmustafa/status/2012378465664745795)
+- **长文指南（高阶进阶）：** [PowerUser 完整版深度指南](https://x.com/affaanmustafa/status/2014040193557471352)
 - **安全指南：** [安全指南](./the-security-guide.md) | [推文详解](https://x.com/affaanmustafa/status/2033263813387223421)
 - **关注作者：** [@affaanmustafa](https://x.com/affaanmustafa)
 

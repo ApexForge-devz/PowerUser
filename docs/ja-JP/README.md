@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="../../assets/hero.png" alt="ECC - エージェントハーネスのオペレーティングシステム" width="100%" />
+  <img src="../../assets/hero.png" alt="PowerUser - エージェントハーネスのオペレーティングシステム" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.star-history.com/affaan-m/ecc">
+  <a href="https://www.star-history.com/#ApexForge-devz/PowerUser">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=affaan-m/ECC&type=trending&theme=dark" />
-      <img src="https://api.star-history.com/badge?repo=affaan-m/ECC&type=trending" alt="GitHub Trending Repository of the Day" height="46" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=trending&theme=dark" />
+      <img src="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=trending" alt="GitHub Trending Repository of the Day" height="46" />
     </picture>
   </a>
-  <a href="https://www.star-history.com/affaan-m/ecc">
+  <a href="https://www.star-history.com/#ApexForge-devz/PowerUser">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=affaan-m/ECC&type=rank&theme=dark" />
-      <img src="https://api.star-history.com/badge?repo=affaan-m/ECC&type=rank" alt="Star History Global Rank" height="46" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=rank&theme=dark" />
+      <img src="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=rank" alt="Star History Global Rank" height="46" />
     </picture>
   </a>
 </p>
@@ -39,21 +39,21 @@
 
 <p align="center">
   <a href="https://discord.gg/36yGMHGFbR"><img src="https://img.shields.io/discord/1496644400590094540?logo=discord&logoColor=white&label=Discord&color=5865F2" alt="Discord" /></a>
-  <a href="https://ecc.tools"><img src="https://img.shields.io/badge/Website-ecc.tools-E07856?logo=googlechrome&logoColor=white" alt="Website" /></a>
-  <a href="https://github.com/apps/ecc-tools"><img src="https://img.shields.io/badge/GitHub%20App-ECC%20Tools-181717?logo=github&logoColor=white" alt="GitHub App" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/Website-poweruser.tools-E07856?logo=googlechrome&logoColor=white" alt="Website" /></a>
+  <a href="https://github.com/apps/poweruser-tools"><img src="https://img.shields.io/badge/GitHub%20App-PowerUser%20Tools-181717?logo=github&logoColor=white" alt="GitHub App" /></a>
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT ライセンス" /></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/affaan-m/ECC/stargazers"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Fstars&style=flat" alt="Stars" /></a>
-  <a href="https://github.com/affaan-m/ECC/network/members"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Fforks&style=flat" alt="Forks" /></a>
-  <a href="https://github.com/affaan-m/ECC/graphs/contributors"><img src="https://img.shields.io/github/contributors/affaan-m/ECC?style=flat" alt="Contributors" /></a>
-  <a href="https://github.com/marketplace/ecc-tools"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Finstalls&logo=github" alt="GitHub App インストール数" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser/stargazers"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Fstars&style=flat" alt="Stars" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser/network/members"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Fforks&style=flat" alt="Forks" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser/graphs/contributors"><img src="https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat" alt="Contributors" /></a>
+  <a href="https://github.com/marketplace/poweruser-tools"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.poweruser.tools%2Fbadge%2Finstalls&logo=github" alt="GitHub App インストール数" /></a>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/ecc-universal"><img src="https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal&logo=npm" alt="ecc-universal npm ダウンロード数" /></a>
-  <a href="https://www.npmjs.com/package/ecc-agentshield"><img src="https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield&logo=npm" alt="ecc-agentshield npm ダウンロード数" /></a>
+  <a href="https://www.npmjs.com/package/poweruser-universal"><img src="https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal&logo=npm" alt="poweruser-universal npm ダウンロード数" /></a>
+  <a href="https://www.npmjs.com/package/poweruser-agentshield"><img src="https://img.shields.io/npm/dw/poweruser-agentshield?label=poweruser-agentshield&logo=npm" alt="poweruser-agentshield npm ダウンロード数" /></a>
 </p>
 
 <p align="center">
@@ -67,27 +67,27 @@
 </p>
 
 > [!WARNING]
-> **公式ソースからのみインストールしてください。** ECC は検証済みのチャネルからのみインストールしてください。GitHub リポジトリ [github.com/affaan-m/ECC](https://github.com/affaan-m/ECC)、npm パッケージ [`ecc-universal`](https://www.npmjs.com/package/ecc-universal) と [`ecc-agentshield`](https://www.npmjs.com/package/ecc-agentshield)、[GitHub App](https://github.com/apps/ecc-tools)、plugin スラッグ `ecc@ecc`、そしてプロジェクト公式サイト [ecc.tools](https://ecc.tools) です。第三者による再アップロードや非公式ミラーはプロジェクトが保守・レビューしておらず、マルウェアを含む可能性があります。
+> **公式ソースからのみインストールしてください。** PowerUser は検証済みのチャネルからのみインストールしてください。GitHub リポジトリ [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)、npm パッケージ [`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) と [`poweruser-agentshield`](https://www.npmjs.com/package/poweruser-agentshield)、[GitHub App](https://github.com/apps/poweruser-tools)、plugin スラッグ `poweruser@poweruser`、そしてプロジェクト公式サイト [poweruser.tools](https://github.com/ApexForge-devz/PowerUser) です。第三者による再アップロードや非公式ミラーはプロジェクトが保守・レビューしておらず、マルウェアを含む可能性があります。
 
 ## Claude Code でインストール
 
-[ガイド付きセットアップ](#ecc-のインストール)または[ネイティブ plugin コマンド](#claude-code-の詳細)を使用してください。どちらも同じ `ecc@ecc` plugin をインストールします。どちらか一方を選び、その上にフルの手動 Claude インストールを重ねないでください。
+[ガイド付きセットアップ](#poweruser-のインストール)または[ネイティブ plugin コマンド](#claude-code-の詳細)を使用してください。どちらも同じ `poweruser@poweruser` plugin をインストールします。どちらか一方を選び、その上にフルの手動 Claude インストールを重ねないでください。
 
 <div align="center">
 
-<table aria-label="ECC primary links">
+<table aria-label="PowerUser primary links">
 <tr>
 <td width="33%" align="center">
-  <a href="https://ecc.tools/pricing">
-    <img src="../../assets/images/community/ecc-tools-mark.svg" height="42" alt="ECC Tools" /><br />
-    <strong>ECC Pro + GitHub App</strong>
+  <a href="https://github.com/ApexForge-devz/PowerUser">
+    <img src="../../assets/images/community/poweruser-tools-mark.svg" height="42" alt="PowerUser Tools" /><br />
+    <strong>PowerUser Pro + GitHub App</strong>
   </a><br />
-  <sub><a href="https://github.com/apps/ecc-tools">無料でインストール</a> · <a href="https://ecc.tools/pricing">プライベートリポジトリは $19/シート/月から</a></sub>
+  <sub><a href="https://github.com/apps/poweruser-tools">無料でインストール</a> · <a href="https://github.com/ApexForge-devz/PowerUser">プライベートリポジトリは $19/シート/月から</a></sub>
 </td>
 <td width="33%" align="center">
   <a href="https://github.com/sponsors/affaan-m">
     <img src="../../assets/images/community/heart.svg" height="42" alt="" /><br />
-    <strong>ECC をスポンサーする</strong>
+    <strong>PowerUser をスポンサーする</strong>
   </a><br />
   <sub>オープンソースプロジェクトを支援する</sub>
 </td>
@@ -103,7 +103,7 @@
 
 </div>
 
-<sub>**OSS は今後も無料です。** このリポジトリは永久に MIT ライセンスです。ECC Pro はプライベートリポジトリ向けのホスト型 GitHub App です。<a href="https://github.com/sponsors/affaan-m">スポンサー</a>と <a href="https://ecc.tools/pricing">Pro 購読者</a>がこの活動を支えています。だからこそ、たった一人のメンテナーが 7 つのハーネスに対して毎週リリースを続けられるのです。</sub>
+<sub>**OSS は今後も無料です。** このリポジトリは永久に MIT ライセンスです。PowerUser Pro はプライベートリポジトリ向けのホスト型 GitHub App です。<a href="https://github.com/sponsors/affaan-m">スポンサー</a>と <a href="https://github.com/ApexForge-devz/PowerUser">Pro 購読者</a>がこの活動を支えています。だからこそ、たった一人のメンテナーが 7 つのハーネスに対して毎週リリースを続けられるのです。</sub>
 
 <div align="center">
 
@@ -111,13 +111,13 @@
 
 <p align="center" aria-label="Partners and sponsors">
   <a href="https://www.coderabbit.ai" title="CodeRabbit"><img src="../../assets/images/sponsors/coderabbit.png" height="54" alt="CodeRabbit" /></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://www.greptile.com/go/ecc" title="Greptile"><img src="../../assets/images/sponsors/greptile.png" height="54" alt="Greptile" /></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://platform.kimi.ai?aff=ecc" title="Moonshot AI - Kimi"><picture><source media="(prefers-color-scheme: dark)" srcset="../../assets/images/sponsors/moonshot-dark.png" /><img src="../../assets/images/sponsors/moonshot.png" width="132" alt="Moonshot AI - Kimi" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://www.greptile.com/go/poweruser" title="Greptile"><img src="../../assets/images/sponsors/greptile.png" height="54" alt="Greptile" /></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://platform.kimi.ai?aff=poweruser" title="Moonshot AI - Kimi"><picture><source media="(prefers-color-scheme: dark)" srcset="../../assets/images/sponsors/moonshot-dark.png" /><img src="../../assets/images/sponsors/moonshot.png" width="132" alt="Moonshot AI - Kimi" /></picture></a>&nbsp;&nbsp;&nbsp;
   <a href="https://compute.itomarkets.com" title="Itô Markets"><picture><source media="(prefers-color-scheme: light)" srcset="../../assets/images/sponsors/ito-transparent-light.png" /><img src="../../assets/images/sponsors/ito-transparent.png" width="96" alt="Itô Markets" /></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://serpapi.com/github-ecc" title="SerpApi: Web Search API"><picture><source media="(prefers-color-scheme: dark)" srcset="../../assets/images/sponsors/serpapi-logo-dark-mode.svg" /><img src="../../assets/images/sponsors/serpapi-logo-light-mode.svg" width="200" alt="SerpApi: Web Search API" /></picture></a>
+  <a href="https://serpapi.com/github-poweruser" title="SerpApi: Web Search API"><picture><source media="(prefers-color-scheme: dark)" srcset="../../assets/images/sponsors/serpapi-logo-dark-mode.svg" /><img src="../../assets/images/sponsors/serpapi-logo-light-mode.svg" width="200" alt="SerpApi: Web Search API" /></picture></a>
 </p>
 
-<sub><strong>過去のスポンサー:</strong> <a href="https://www.atlascloud.ai/?utm_source=github&amp;utm_medium=link&amp;utm_campaign=ECC">Atlas Cloud</a> · <a href="https://github.com/mikejmorgan-ai">Mike Morgan (inactive)</a></sub>
+<sub><strong>過去のスポンサー:</strong> <a href="https://www.atlascloud.ai/?utm_source=github&amp;utm_medium=link&amp;utm_campaign=PowerUser">Atlas Cloud</a> · <a href="https://github.com/mikejmorgan-ai">Mike Morgan (inactive)</a></sub>
 
 <sub><strong>コミュニティスポンサー:</strong> <a href="https://github.com/jasonwu513">@jasonwu513</a> · <a href="https://github.com/1anter">@1anter</a> · <a href="https://github.com/massimotodaro">@massimotodaro</a> · <a href="https://github.com/meadmccabe">@meadmccabe</a></sub>
 
@@ -125,11 +125,11 @@
 
 </div>
 
-<p align="center"><a href="#ecc-のインストール">インストールへジャンプ ↓</a></p>
+<p align="center"><a href="#poweruser-のインストール">インストールへジャンプ ↓</a></p>
 
-# ECC
+# PowerUser
 
-あなたのエージェントはコードを書けますが、ECC はそこに協調的なエンジニアリングシステムとツールボックスを与えます。構築の前に計画し、テストで変更を検証し、新しいコンテキストから自分の作業をレビューし、重要なことを記憶し、繰り返し成功したことを再利用可能な skills とワークフローに変えていきます。
+あなたのエージェントはコードを書けますが、PowerUser はそこに協調的なエンジニアリングシステムとツールボックスを与えます。構築の前に計画し、テストで変更を検証し、新しいコンテキストから自分の作業をレビューし、重要なことを記憶し、繰り返し成功したことを再利用可能な skills とワークフローに変えていきます。
 
 ```text
 plan -> test -> implement -> review -> verify -> remember -> improve
@@ -139,7 +139,7 @@ plan -> test -> implement -> review -> verify -> remember -> improve
 
 > コンテキストウィンドウを最適化し、それ以外はすべて永続化する。
 
-ECC は MIT ライセンスのオープンソースです。現時点では Claude Code で最もよく機能し、サポート対象の Codex 同期パスを備え、Cursor、OpenCode、Gemini、Zed、GitHub Copilot、Antigravity、Qwen、その他のハーネス向けには機能が限定されたアダプターを提供しています。機能の同等性を前提にする前に、[サポート状況マトリクス](#プラットフォームサポート)を確認してください。
+PowerUser は MIT ライセンスのオープンソースです。現時点では Claude Code で最もよく機能し、サポート対象の Codex 同期パスを備え、Cursor、OpenCode、Gemini、Zed、GitHub Copilot、Antigravity、Qwen、その他のハーネス向けには機能が限定されたアダプターを提供しています。機能の同等性を前提にする前に、[サポート状況マトリクス](#プラットフォームサポート)を確認してください。
 
 68 の agents、293 の skills、94 のレガシー command シムに加えて、hooks、rules、メモリ、継続的学習、AgentShield セキュリティスキャンを利用できます。agents は計画、レビュー、ビルド修復、セキュリティ、アーキテクチャ、ドメイン作業に特化しています。
 
@@ -147,24 +147,24 @@ ECC は MIT ライセンスのオープンソースです。現時点では Clau
 | ---------------- | ----------: | ------------------------------------------------------------------------------------ |
 | Agents           |   68 agents | 計画、レビュー、ビルド修復、セキュリティ、アーキテクチャ、ドメイン作業                |
 | Skills           |  293 skills | TDD、リサーチ、セキュリティ、ドキュメント、フロントエンド、データ、ML、運用など       |
-| Commands         | 94 commands | ECC が skills ファーストの構成へ移行する間の便利なエントリーポイント                  |
+| Commands         | 94 commands | PowerUser が skills ファーストの構成へ移行する間の便利なエントリーポイント                  |
 | Hooks とメモリ   |     ランタイム | 強制、セッションサマリー、継続的学習、instincts、コンテキスト制御                  |
 | Rules            |   選択式 | 言語やプロジェクトごとに選ぶ、常時ロードされる標準                                    |
 | AgentShield      |    同梱 | プロンプト、hooks、MCP 設定、パーミッション、シークレット、agent ファイルのスキャン    |
 
 <p align="center">
-  <a href="https://www.star-history.com/affaan-m/ecc">
+  <a href="https://www.star-history.com/#ApexForge-devz/PowerUser">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="../../assets/star-history-dark.svg" />
-      <img src="../../assets/star-history-light.svg" alt="ECC のスター履歴: 2026年1月18日から2月7日までの最初の 40,000 スター" width="100%" />
+      <img src="../../assets/star-history-light.svg" alt="PowerUser のスター履歴: 2026年1月18日から2月7日までの最初の 40,000 スター" width="100%" />
     </picture>
   </a>
 </p>
 
-## ECC のインストール
+## PowerUser のインストール
 
 > [!IMPORTANT]
-> ECC 2.2 には Claude Code、Codex、Kimi Code 向けのガイド付きパッケージセットアップが含まれています。
+> PowerUser 2.2 には Claude Code、Codex、Kimi Code 向けのガイド付きパッケージセットアップが含まれています。
 > ユニバーサルパッケージには Node.js 18 以降が必要です。Claude plugin のセットアップには、
 > さらに Git と Claude Code 2.1 以降が `PATH` 上にあることが必要です。
 
@@ -173,48 +173,48 @@ ECC は MIT ライセンスのオープンソースです。現時点では Clau
 Claude Code plugin のセットアップ、更新、スコープ変更、hook プロファイルの変更には次を使います。
 
 ```bash
-npx ecc-universal@2.2.1 setup
+npx poweruser-universal@2.2.1 setup
 ```
 
 npm がバージョンまたはキャッシュのエラーを報告した場合は、再試行する前にレジストリのバージョンを確認してください。
 
 ```bash
-npm view ecc-universal version
+npm view poweruser-universal version
 ```
 
-ECC 2.2 は、モダンなパッケージランナーでも同じガイド付きセットアップをサポートしています。
+PowerUser 2.2 は、モダンなパッケージランナーでも同じガイド付きセットアップをサポートしています。
 
 | パッケージランナー | ガイド付きセットアップコマンド |
 |---|---|
-| npm / npx | `npx ecc-universal@2.2.1 setup` |
-| pnpm | `pnpm dlx ecc-universal@2.2.1 setup` |
-| Yarn 2+ | `yarn dlx ecc-universal@2.2.1 setup` |
-| Bun | `bunx ecc-universal@2.2.1 setup` |
+| npm / npx | `npx poweruser-universal@2.2.1 setup` |
+| pnpm | `pnpm dlx poweruser-universal@2.2.1 setup` |
+| Yarn 2+ | `yarn dlx poweruser-universal@2.2.1 setup` |
+| Bun | `bunx poweruser-universal@2.2.1 setup` |
 
-これらの例では、このリポジトリのリリースバージョンに対応する[公開済みの ECC 2.2.1 リリース](https://www.npmjs.com/package/ecc-universal/v/2.2.1)を指定しています。バージョンのピン留めはセキュリティ監査でも整合性チェックでもありません。パッケージのコードを実行する前にリリースのソースとレジストリの整合性を確認し、未リリースの変更にはレビュー済みのチェックアウトを使用してください。
+これらの例では、このリポジトリのリリースバージョンに対応する[公開済みの PowerUser 2.2.1 リリース](https://www.npmjs.com/package/poweruser-universal/v/2.2.1)を指定しています。バージョンのピン留めはセキュリティ監査でも整合性チェックでもありません。パッケージのコードを実行する前にリリースのソースとレジストリの整合性を確認し、未リリースの変更にはレビュー済みのチェックアウトを使用してください。
 
 Yarn Classic 1 には `yarn dlx` がありません。`npx` を使うか、パッケージをグローバルにインストールするか、一時的なワンショット実行のために Yarn をアップグレードしてください。
 
-ウィザードは変更を加える前に公式マーケットプレイスとすべてのネイティブ Claude インストールスコープを棚卸しし、その後、選択したスコープに `ecc@ecc` をインストール、更新、または安全に移動します。ECC を更新したいとき、スコープを変えたいとき、hook プロファイルを変えたいときは、いつでも同じコマンドを再実行してください。このセットアップウィザードが現在設定するのは Claude Code plugin です。Codex や Kimi Code には、下記のマルチハーネスウィザードを使用してください。
+ウィザードは変更を加える前に公式マーケットプレイスとすべてのネイティブ Claude インストールスコープを棚卸しし、その後、選択したスコープに `poweruser@poweruser` をインストール、更新、または安全に移動します。PowerUser を更新したいとき、スコープを変えたいとき、hook プロファイルを変えたいときは、いつでも同じコマンドを再実行してください。このセットアップウィザードが現在設定するのは Claude Code plugin です。Codex や Kimi Code には、下記のマルチハーネスウィザードを使用してください。
 
 複数のコーディングエージェントを一つのレビュー済みフローで設定するには、マルチハーネスウィザードを使用します。
 
 ```bash
-npx ecc-universal@2.2.1 install --guided
+npx poweruser-universal@2.2.1 install --guided
 ```
 
 Claude Code、Codex、Kimi Code の任意の組み合わせを選択でき、各インストールチャネルと配置先を表示し、最初の書き込み前にすべての選択をプリフライトし、最後に一度だけ確認を求めます。
 
 | ハーネス | ガイド付きインストールの動作 |
 |---|---|
-| Claude Code | `user`、`project`、`local` のいずれか一つのスコープと ECC hook プロファイルを持つネイティブ `ecc@ecc` plugin |
+| Claude Code | `user`、`project`、`local` のいずれか一つのスコープと PowerUser hook プロファイルを持つネイティブ `poweruser@poweruser` plugin |
 | Codex | ネイティブ Codex マーケットプレイス/plugin ライフサイクル。hook のレビューと信頼は Codex 側が管理 |
-| Kimi Code | `./.kimi-code` 配下の管理されたプロジェクトファイル。ECC hooks、モデル/プロバイダー設定、認証は設定されません |
+| Kimi Code | `./.kimi-code` 配下の管理されたプロジェクトファイル。PowerUser hooks、モデル/プロバイダー設定、認証は設定されません |
 
 自動化のためには、プロバイダー固有の選択をすべて明示してください。
 
 ```bash
-npx ecc-universal@2.2.1 install --guided \
+npx poweruser-universal@2.2.1 install --guided \
   --harness claude --harness codex --harness kimi \
   --claude-scope local --claude-hooks standard \
   --profile core --yes
@@ -223,25 +223,25 @@ npx ecc-universal@2.2.1 install --guided \
 ネイティブのガイド付き Codex パスと管理された Kimi パスを、書き込みなしで先に検証するには次を実行します。
 
 ```bash
-npx ecc-universal@2.2.1 install --guided --harness codex --dry-run
-npx ecc-universal@2.2.1 install --profile core --target kimi --dry-run
+npx poweruser-universal@2.2.1 install --guided --harness codex --dry-run
+npx poweruser-universal@2.2.1 install --profile core --target kimi --dry-run
 ```
 
 2.2 エイリアスを通じて、追加のパッケージ名コマンドも利用できます。
 
 ```bash
-npx ecc-universal@2.2.1 consult "security reviews" --target claude
-npx ecc-universal@2.2.1 install --profile minimal --target claude --with capability:machine-learning
-npx ecc-universal@2.2.1 doctor --target kimi
+npx poweruser-universal@2.2.1 consult "security reviews" --target claude
+npx poweruser-universal@2.2.1 install --profile minimal --target claude --with capability:machine-learning
+npx poweruser-universal@2.2.1 doctor --target kimi
 ```
 
-`npx ecc-install --profile minimal --target claude` は使用しないでください。`ecc-install` は `ecc-universal` 内のバイナリ名であり、個別に公開された npm パッケージではありません。
+`npx poweruser-install --profile minimal --target claude` は使用しないでください。`poweruser-install` は `poweruser-universal` 内のバイナリ名であり、個別に公開された npm パッケージではありません。
 
-ECC は `cursor`、`antigravity`、`gemini`、`opencode`、`codebuddy`、`joycode`、`qwen`、`zed`、`hermes`、`openclaw` 向けの高度な管理アダプターも提供しています。これらのターゲットは、各アダプターがガイド付きの衝突、更新、修復、アンインストールのライフサイクルマトリクスを通過するまで、ドキュメント化された `ecc install --target ...` パスを引き続き使用します。どちらのウィザードも、検出されたすべてのハーネスに黙ってインストールすることはありません。
+PowerUser は `cursor`、`antigravity`、`gemini`、`opencode`、`codebuddy`、`joycode`、`qwen`、`zed`、`hermes`、`openclaw` 向けの高度な管理アダプターも提供しています。これらのターゲットは、各アダプターがガイド付きの衝突、更新、修復、アンインストールのライフサイクルマトリクスを通過するまで、ドキュメント化された `poweruser install --target ...` パスを引き続き使用します。どちらのウィザードも、検出されたすべてのハーネスに黙ってインストールすることはありません。
 
 ### パスは一つだけ選ぶ（ハーネスごと）
 
-ECC は Claude Code、Codex、その他のハーネスで同時に使用できます。ハーネスごとに一つのインストール方法を選んでください。
+PowerUser は Claude Code、Codex、その他のハーネスで同時に使用できます。ハーネスごとに一つのインストール方法を選んでください。
 
 - **推奨デフォルト:** 上記のガイド付き Claude plugin セットアップを実行する
 - **Claude Code でもサポート:** [ネイティブ plugin コマンド](#claude-code-の詳細)を使用する
@@ -251,35 +251,35 @@ ECC は Claude Code、Codex、その他のハーネスで同時に使用でき�
 - **避けてください:** Claude Code plugin + フル Claude 手動インストール
 - **避けてください:** Codex 同期 + Codex マーケットプレイス plugin
 
-**インストール方法を重ねないでください。** 同じハーネスに ECC を二度インストールすると、skills、commands、hooks、設定が重複することがあります。複数のハーネスにそれぞれ一度ずつインストールする分には問題ありません。
+**インストール方法を重ねないでください。** 同じハーネスに PowerUser を二度インストールすると、skills、commands、hooks、設定が重複することがあります。複数のハーネスにそれぞれ一度ずつインストールする分には問題ありません。
 
-すでに複数のインストールを重ねてしまい、重複しているように見える場合は、[ECC のリセット / アンインストール](#ecc-のリセット--アンインストール)に直接進んでください。
+すでに複数のインストールを重ねてしまい、重複しているように見える場合は、[PowerUser のリセット / アンインストール](#poweruser-のリセット--アンインストール)に直接進んでください。
 
-**インストールで困っていますか？** 短い[インストールまたはランタイムの問題フォーム](https://github.com/affaan-m/ECC/issues/new?template=install-problem.yml)を開くか、`ecc feedback` を実行してください。ECC が診断情報を自動でアップロードすることはありません。
+**インストールで困っていますか？** 短い[インストールまたはランタイムの問題フォーム](https://github.com/ApexForge-devz/PowerUser/issues/new?template=install-problem.yml)を開くか、`poweruser feedback` を実行してください。PowerUser が診断情報を自動でアップロードすることはありません。
 
 ### Claude Code の詳細
 
 代わりに、Claude Code 内で Claude Code のネイティブ plugin コマンドを実行することもできます。
 
 ```text
-/plugin marketplace add https://github.com/affaan-m/ECC
-/plugin install ecc@ecc
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
+/plugin install poweruser@poweruser
 ```
 
-ネイティブパスは ECC の skills、agents、commands、および plugin 管理の hooks をインストールします。この方法を選んだ場合は、そこで止めてください。Claude Code にフルの手動インストールを追加で実行しないでください。
+ネイティブパスは PowerUser の skills、agents、commands、および plugin 管理の hooks をインストールします。この方法を選んだ場合は、そこで止めてください。Claude Code にフルの手動インストールを追加で実行しないでください。
 
-これらの組み込みコマンドは Claude Code が所有しており、マーケットプレイス、plugin、または競合するスコープがすでに存在する場合のエラーも同様です。ECC はそのパーサーに介入できません。いずれかのネイティブコマンドが既存のインストールやスコープの競合を報告した場合は、2.2 のガイド付きセットアップを使用するか、競合している Claude plugin スコープを解決してから再試行してください。その上に手動インストールを重ねないでください。
+これらの組み込みコマンドは Claude Code が所有しており、マーケットプレイス、plugin、または競合するスコープがすでに存在する場合のエラーも同様です。PowerUser はそのパーサーに介入できません。いずれかのネイティブコマンドが既存のインストールやスコープの競合を報告した場合は、2.2 のガイド付きセットアップを使用するか、競合している Claude plugin スコープを解決してから再試行してください。その上に手動インストールを重ねないでください。
 
-ECC のインストール後は、`/ecc:configure-ecc` が名前空間付きの Claude 内再設定 skill になります。これは同じ安全なセットアップフローに委譲しますが、plugin のインストール後にのみ利用可能で、初回インストール時に Claude Code 組み込みの `/plugin` コマンドを置き換えることはできません。
+PowerUser のインストール後は、`/poweruser:configure-poweruser` が名前空間付きの Claude 内再設定 skill になります。これは同じ安全なセットアップフローに委譲しますが、plugin のインストール後にのみ利用可能で、初回インストール時に Claude Code 組み込みの `/plugin` コマンドを置き換えることはできません。
 
 Claude Code plugins は `rules` を配布できないため、本当に必要な rule パックだけを追加してください。
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
-mkdir -p ~/.claude/rules/ecc
-cp -R rules/common ~/.claude/rules/ecc/
-cp -R rules/typescript ~/.claude/rules/ecc/  # 使用しているスタックに置き換えてください
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
+mkdir -p ~/.claude/rules/poweruser
+cp -R rules/common ~/.claude/rules/poweruser/
+cp -R rules/typescript ~/.claude/rules/poweruser/  # 使用しているスタックに置き換えてください
 ```
 
 `rules/common` と、実際に使用している言語またはフレームワークのパックを一つ入れるところから始めてください。plugin をインストールした場合は、その後で `./install.sh --profile full` を実行しないでください。
@@ -292,15 +292,15 @@ cp -R rules/typescript ~/.claude/rules/ecc/  # 使用しているスタックに
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "poweruser": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/ECC"
+        "repo": "ApexForge-devz/PowerUser"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "poweruser@poweruser": true
   }
 }
 ```
@@ -309,66 +309,66 @@ cp -R rules/typescript ~/.claude/rules/ecc/  # 使用しているスタックに
 </details>
 
 <details>
-<summary><strong>命名と移行に関する注記（ecc@ecc、affaan-m/ECC、ecc-universal）</strong></summary>
+<summary><strong>命名と移行に関する注記（poweruser@poweruser、ApexForge-devz/PowerUser、poweruser-universal）</strong></summary>
 
-ECC には三つの公開識別子があり、これらは互いに置き換えられません。
+PowerUser には三つの公開識別子があり、これらは互いに置き換えられません。
 
-- GitHub ソースリポジトリ: `affaan-m/ECC`
-- Claude マーケットプレイス/plugin 識別子: `ecc@ecc`
-- npm パッケージ: `ecc-universal`
+- GitHub ソースリポジトリ: `ApexForge-devz/PowerUser`
+- Claude マーケットプレイス/plugin 識別子: `poweruser@poweruser`
+- npm パッケージ: `poweruser-universal`
 
-これは意図的なものです。Anthropic のマーケットプレイス/plugin インストールは正規の plugin 識別子をキーとするため、ECC は厳格な Desktop/API バリデーターに対してツール名とスラッシュコマンドの名前空間を十分に短く保つために `ecc@ecc` を使用しています。古い投稿には以前の長いマーケットプレイス識別子が残っている場合がありますが、それはレガシーエイリアスとしてのみ扱ってください。一方、npm パッケージは `ecc-universal` のままなので、npm インストールとマーケットプレイスインストールは意図的に異なる名前を使用しています。
+これは意図的なものです。Anthropic のマーケットプレイス/plugin インストールは正規の plugin 識別子をキーとするため、PowerUser は厳格な Desktop/API バリデーターに対してツール名とスラッシュコマンドの名前空間を十分に短く保つために `poweruser@poweruser` を使用しています。古い投稿には以前の長いマーケットプレイス識別子が残っている場合がありますが、それはレガシーエイリアスとしてのみ扱ってください。一方、npm パッケージは `poweruser-universal` のままなので、npm インストールとマーケットプレイスインストールは意図的に異なる名前を使用しています。
 
-npm リリースはコミットごとではなくバージョンタグごとに切られるため、`ecc-universal` は `main` へのすべてのプッシュではなく、リリース（2.1、2.2、...）を追跡します。最新の開発版が必要な場合は git からインストールしてください。
+npm リリースはコミットごとではなくバージョンタグごとに切られるため、`poweruser-universal` は `main` へのすべてのプッシュではなく、リリース（2.1、2.2、...）を追跡します。最新の開発版が必要な場合は git からインストールしてください。
 
-ローカルの Claude セットアップが消去またはリセットされた場合でも、何かを買い直す必要があるわけではありません。まず `node scripts/ecc.js list-installed` から始め、次に `node scripts/ecc.js doctor` と `node scripts/ecc.js repair` を実行してから再インストールしてください。通常はこれで、セットアップを組み直すことなく ECC 管理のファイルが復元されます。
+ローカルの Claude セットアップが消去またはリセットされた場合でも、何かを買い直す必要があるわけではありません。まず `node scripts/poweruser.js list-installed` から始め、次に `node scripts/poweruser.js doctor` と `node scripts/poweruser.js repair` を実行してから再インストールしてください。通常はこれで、セットアップを組み直すことなく PowerUser 管理のファイルが復元されます。
 </details>
 
 ### Codex App と CLI
 
-現在の Codex リリースでは、ECC をネイティブのリポジトリマーケットプレイス plugin としてインストールできます。マーケットプレイスエントリはリポジトリルートを使用するため、Codex のキャッシュはマニフェストとともに、参照されるすべての skills、MCP 設定、hook ランタイム、スクリプト、アセットを受け取ります。
+現在の Codex リリースでは、PowerUser をネイティブのリポジトリマーケットプレイス plugin としてインストールできます。マーケットプレイスエントリはリポジトリルートを使用するため、Codex のキャッシュはマニフェストとともに、参照されるすべての skills、MCP 設定、hook ランタイム、スクリプト、アセットを受け取ります。
 
 ```bash
-codex plugin marketplace add affaan-m/ECC
-codex plugin add ecc@ecc
+codex plugin marketplace add ApexForge-devz/PowerUser
+codex plugin add poweruser@poweruser
 codex plugin list --json
 node scripts/codex/check-plugin-cache.js
 ```
 
-どちらの add コマンドも冪等です。後で更新するには、`codex plugin marketplace upgrade ecc` に続けて `codex plugin add ecc@ecc` を実行します。Codex はアクティブな `CODEX_HOME` に一つの有効化された plugin 状態を保存し、Claude の `user`、`project`、`local` スコープは提供しません。そのネイティブ hooks は明示的な信頼の決定を必要とし、Claude の四つの ECC hook プロファイルは使用しません。Codex 内では、ガイド付きのプロバイダー対応フローとして `$configure-ecc` を呼び出してください。
+どちらの add コマンドも冪等です。後で更新するには、`codex plugin marketplace upgrade poweruser` に続けて `codex plugin add poweruser@poweruser` を実行します。Codex はアクティブな `CODEX_HOME` に一つの有効化された plugin 状態を保存し、Claude の `user`、`project`、`local` スコープは提供しません。そのネイティブ hooks は明示的な信頼の決定を必要とし、Claude の四つの PowerUser hook プロファイルは使用しません。Codex 内では、ガイド付きのプロバイダー対応フローとして `$configure-poweruser` を呼び出してください。
 
-従来の `scripts/sync-ecc-to-codex.sh` パスは、`~/.codex` にコピーおよびマージされた設定を意図的に必要とするユーザー向けの非推奨互換オプションであり、ネイティブ plugin には不要です。新しい同期の実行では所有権マニフェストを書き出すため、クリーンアップ時に変更されたユーザーファイルを保護できます。まず Codex を一度実行して `~/.codex/config.toml` が存在する状態にしてから、次を実行します。
+従来の `scripts/sync-poweruser-to-codex.sh` パスは、`~/.codex` にコピーおよびマージされた設定を意図的に必要とするユーザー向けの非推奨互換オプションであり、ネイティブ plugin には不要です。新しい同期の実行では所有権マニフェストを書き出すため、クリーンアップ時に変更されたユーザーファイルを保護できます。まず Codex を一度実行して `~/.codex/config.toml` が存在する状態にしてから、次を実行します。
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 npm install
-bash scripts/sync-ecc-to-codex.sh
+bash scripts/sync-poweruser-to-codex.sh
 ```
 
 Codex の会話やネイティブ plugin キャッシュに触れずに、そのレガシーレイヤーを確認または削除するには次を実行します。
 
 ```bash
-node scripts/ecc.js uninstall --legacy-codex-sync --dry-run
-node scripts/ecc.js uninstall --legacy-codex-sync
+node scripts/poweruser.js uninstall --legacy-codex-sync --dry-run
+node scripts/poweruser.js uninstall --legacy-codex-sync
 ```
 
-マニフェスト以前のインストールは保守的に扱われます。ECC はマークされた `AGENTS.md` ブロックを削除しますが、所有を証明できないコピー済みファイルは保持し、レビュー用に報告します。
+マニフェスト以前のインストールは保守的に扱われます。PowerUser はマークされた `AGENTS.md` ブロックを削除しますが、所有を証明できないコピー済みファイルは保持し、レビュー用に報告します。
 
-プロジェクトローカルのセットアップとして、ECC リポジトリを Codex で直接開くこともできます。Codex はグローバル同期なしで、ルートの `AGENTS.md` と `.codex/` 内の信頼済みプロジェクト設定を読み取ります。同期フローの上にネイティブマーケットプレイス plugin を追加しないでください。
+プロジェクトローカルのセットアップとして、PowerUser リポジトリを Codex で直接開くこともできます。Codex はグローバル同期なしで、ルートの `AGENTS.md` と `.codex/` 内の信頼済みプロジェクト設定を読み取ります。同期フローの上にネイティブマーケットプレイス plugin を追加しないでください。
 
-リポジトリのナビゲーション、サーフェスの所有権、PR 差分パケットのガイダンスについては、[Codex ECC Navigation Map](../CODEX-NAVIGATION-GUIDE.md) を参照してください。ネイティブライフサイクルの詳細は [.codex plugin notes](../../.codex-plugin/README.md) を参照してください。
+リポジトリのナビゲーション、サーフェスの所有権、PR 差分パケットのガイダンスについては、[Codex PowerUser Navigation Map](../CODEX-NAVIGATION-GUIDE.md) を参照してください。ネイティブライフサイクルの詳細は [.codex plugin notes](../../.codex-plugin/README.md) を参照してください。
 
 ### その他のエージェントとエディター
 
 <details>
 <summary><strong>Cursor、OpenCode、Gemini、Zed、Antigravity、Qwen、Hermes、OpenClaw、Kimi、CodeBuddy、JoyCode、Copilot</strong></summary>
 
-ECC を一度クローンし、使用しているハーネスに合ったターゲットを選択します。
+PowerUser を一度クローンし、使用しているハーネスに合ったターゲットを選択します。
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 ```
 
 | ハーネス | インストールまたはセットアップ | 備考 |
@@ -381,15 +381,15 @@ cd ECC
 | Qwen CLI | `./install.sh --profile minimal --target qwen` | [Qwen ガイド](../QWEN-GUIDE.md)を参照 |
 | Hermes | `./install.sh --profile minimal --target hermes` | [Hermes セットアップガイド](../HERMES-SETUP.md)を参照 |
 | OpenClaw | `./install.sh --profile minimal --target openclaw` | 管理されたホームディレクトリインストール |
-| Kimi Code CLI | `./install.sh --profile minimal --target kimi` | プロジェクトローカルの `.kimi-code/` インストール · [Kimi Code を入手](https://www.kimi.ai/code?aff=ecc) |
+| Kimi Code CLI | `./install.sh --profile minimal --target kimi` | プロジェクトローカルの `.kimi-code/` インストール · [Kimi Code を入手](https://www.kimi.ai/code?aff=poweruser) |
 | CodeBuddy | `./install.sh --profile minimal --target codebuddy` | プロジェクトローカルの `.codebuddy/` インストール |
 | JoyCode | `./install.sh --profile minimal --target joycode` | プロジェクトローカルの `.joycode/` インストール |
 
 GitHub Copilot のサポートはすでにこのリポジトリに含まれています。`.github/copilot-instructions.md` が指示レイヤーを提供し、`.github/prompts/` には再利用可能な `/plan`、`/tdd`、`/security-review`、`/build-fix`、`/refactor` のプロンプトが含まれ、`.vscode/settings.json` が `chat.promptFiles` を有効にします。
 
-ネイティブの ECC ターゲットがないハーネスには、[手動適用ガイド](../MANUAL-ADAPTATION-GUIDE.md)を使用してください。hooks やネイティブの skill 検出が利用できるふりをせずに、少数の ECC skills とワークフロー指示をチャット型ツールに持ち込む方法を説明しています。
+ネイティブの PowerUser ターゲットがないハーネスには、[手動適用ガイド](../MANUAL-ADAPTATION-GUIDE.md)を使用してください。hooks やネイティブの skill 検出が利用できるふりをせずに、少数の PowerUser skills とワークフロー指示をチャット型ツールに持ち込む方法を説明しています。
 
-Cursor は agent 定義を `.cursor/agents/ecc-*.md` 配下にインストールします。Cursor ネイティブのロード動作は Cursor のビルドによって異なる場合があります。ECC はルートの `AGENTS.md` を `.cursor/` にインストールしません。このアダプターは Cursor のコンテキストをネイティブの rules と agent サーフェスに限定します。
+Cursor は agent 定義を `.cursor/agents/poweruser-*.md` 配下にインストールします。Cursor ネイティブのロード動作は Cursor のビルドによって異なる場合があります。PowerUser はルートの `AGENTS.md` を `.cursor/` にインストールしません。このアダプターは Cursor のコンテキストをネイティブの rules と agent サーフェスに限定します。
 
 ハーネスごとの詳細な注記（機能の同等性、hook アダプター、制限事項）は、下記の[プラットフォームサポート](#プラットフォームサポート)にあります。
 </details>
@@ -401,10 +401,10 @@ Cursor は agent 定義を `.cursor/agents/ecc-*.md` 配下にインストール
 
 ### 低コンテキスト / hooks なしパス
 
-ランタイム hooks なしで ECC の rules、agents、commands、プラットフォーム設定、コアワークフローを使いたい場合はこちらを使用します。
+ランタイム hooks なしで PowerUser の rules、agents、commands、プラットフォーム設定、コアワークフローを使いたい場合はこちらを使用します。
 
 ```bash
-npx ecc-universal@2.2.1 install --profile minimal --target claude
+npx poweruser-universal@2.2.1 install --profile minimal --target claude
 ```
 
 ソースチェックアウトからの同等のコマンドは次のとおりです。
@@ -421,7 +421,7 @@ Windows:
 
 このプロファイルは意図的に `hooks-runtime` を除外しています。
 
-Claude の手動インストールでは、Claude Code が検出できるように各 skill を `~/.claude/skills/<skill-name>/`（`claude-project` の場合は `.claude/skills/<skill-name>/`）の直下に配置します。古い ECC 手動インストールをアップグレードする場合、インストーラーは ECC のインストール状態に記録されたネストされた `skills/ecc/` ファイルのみを移行します。フラットな skill ディレクトリがユーザー所有の場合、ECC はそれを保持して競合の警告を表示し、ユーザーファイルを上書きする代わりに、古い管理コピーを安全なアンインストールのために追跡し続けます。
+Claude の手動インストールでは、Claude Code が検出できるように各 skill を `~/.claude/skills/<skill-name>/`（`claude-project` の場合は `.claude/skills/<skill-name>/`）の直下に配置します。古い PowerUser 手動インストールをアップグレードする場合、インストーラーは PowerUser のインストール状態に記録されたネストされた `skills/poweruser/` ファイルのみを移行します。フラットな skill ディレクトリがユーザー所有の場合、PowerUser はそれを保持して競合の警告を表示し、ユーザーファイルを上書きする代わりに、古い管理コピーを安全なアンインストールのために追跡し続けます。
 
 hooks を無効にした通常の core プロファイルの場合:
 
@@ -439,7 +439,7 @@ hook ランタイムが必要になった場合にのみ、後から追加しま
 プロファイルまたはモジュールによって hook ランタイムが実体化されるインストールでは、
 明示的な決定が必要です。`--enable-hooks` も `--no-hooks` も指定されていない場合、
 インストーラーは hooks でできることを表示し、何も書き込まずに停止します。ガイド付き
-インストーラー（`ecc install --guided`）はこの選択を対話的に尋ねます。
+インストーラー（`poweruser install --guided`）はこの選択を対話的に尋ねます。
 </details>
 
 <details>
@@ -450,7 +450,7 @@ hook ランタイムが必要になった場合にのみ、後から追加しま
 同梱のアドバイザーに、あなたの作業に合うコンポーネントを尋ねてください。
 
 ```bash
-node scripts/ecc.js consult "security reviews" --target claude
+node scripts/poweruser.js consult "security reviews" --target claude
 ```
 
 一致するコンポーネント、関連するプロファイル、プレビュー/インストールコマンドが返されます。正確なファイル計画を確認したい場合は、インストール前にプレビューコマンドを使用してください。
@@ -459,7 +459,7 @@ node scripts/ecc.js consult "security reviews" --target claude
 
 ```bash
 ./install.sh --target claude --skills tdd-workflow,security-review
-node scripts/ecc.js install --profile minimal --target claude --with capability:machine-learning
+node scripts/poweruser.js install --profile minimal --target claude --with capability:machine-learning
 ```
 
 コンポーネントごとの手動コピーも可能です。各コンポーネントは完全に独立しています。
@@ -469,12 +469,12 @@ node scripts/ecc.js install --profile minimal --target claude --with capability:
 cp agents/*.md ~/.claude/agents/
 
 # rules ディレクトリ（common + 言語固有）
-mkdir -p ~/.claude/rules/ecc
-cp -r rules/common ~/.claude/rules/ecc/
-cp -r rules/typescript ~/.claude/rules/ecc/   # 使用しているスタックを選択
+mkdir -p ~/.claude/rules/poweruser
+cp -r rules/common ~/.claude/rules/poweruser/
+cp -r rules/typescript ~/.claude/rules/poweruser/   # 使用しているスタックを選択
 
 # コア/汎用 skills のみ（Claude Code は ~/.claude/skills の直下から skills をロードします。
-# 手動インストールを ~/.claude/skills/ecc/ 配下にネストしないでください）
+# 手動インストールを ~/.claude/skills/poweruser/ 配下にネストしないでください）
 mkdir -p ~/.claude/skills
 cp -r .agents/skills/* ~/.claude/skills/
 cp -r skills/search-first ~/.claude/skills/
@@ -490,13 +490,13 @@ cp commands/*.md ~/.claude/commands/
 <details>
 <summary><strong>グローバル rules の代わりにプロジェクトローカル rules を使う</strong></summary>
 
-ECC の標準をすべての Claude Code セッションではなく一つのリポジトリにだけ適用したい場合は、プロジェクトローカル rules を使用します。
+PowerUser の標準をすべての Claude Code セッションではなく一つのリポジトリにだけ適用したい場合は、プロジェクトローカル rules を使用します。
 
 ```bash
 cd your-project
-mkdir -p .claude/rules/ecc
-cp -R /path/to/ECC/rules/common .claude/rules/ecc/
-cp -R /path/to/ECC/rules/typescript .claude/rules/ecc/
+mkdir -p .claude/rules/poweruser
+cp -R /path/to/PowerUser/rules/common .claude/rules/poweruser/
+cp -R /path/to/PowerUser/rules/typescript .claude/rules/poweruser/
 ```
 
 rules は常時ロードされるコンテキストなので、`common` と実際に使用しているスタックのパック一つから始めてください。rules を手動でコピーする際は、相対参照が機能し続け、ファイル名が衝突しないように、中のファイルではなく言語ディレクトリ全体（たとえば `rules/common` や `rules/golang`）をコピーしてください。
@@ -508,22 +508,22 @@ rules は常時ロードされるコンテキストなので、`common` と実�
 plugin パスを意図的にスキップする場合にのみ使用してください。
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 ./install.sh --profile full
 ```
 
 Windows:
 
 ```powershell
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 .\install.ps1 --profile full
 ```
 
 このパスを選んだ場合は、そこで止めてください。`/plugin install` を追加で実行しないでください。
 
-厳選した手動インストールの場合、Claude は `~/.claude/skills/` の直下の子として skills を検出します。`~/.claude/skills/ecc/` 配下にネストしないでください。
+厳選した手動インストールの場合、Claude は `~/.claude/skills/` の直下の子として skills を検出します。`~/.claude/skills/poweruser/` 配下にネストしないでください。
 
 #### hooks のインストール
 
@@ -535,10 +535,10 @@ bash ./install.sh --target claude --modules hooks-runtime --enable-hooks
 
 これにより hook スクリプトが `~/.claude/` 配下にインストールされ、解決済みの
 hook エントリが `~/.claude/settings.json` に登録されます。既存のユーザー設定と hooks は
-保持されます。ECC 所有のエントリは安定した ID で追跡されるため、冪等な更新と
+保持されます。PowerUser 所有のエントリは安定した ID で追跡されるため、冪等な更新と
 安全なアンインストールが可能です。
 
-`/plugin install` で ECC をインストールした場合は、それらの hooks を `settings.json` にコピーしないでください。Claude Code v2.1+ はすでに plugin の `hooks/hooks.json` を自動ロードしており、`settings.json` に重複させると二重実行やクロスプラットフォームの hook 競合が発生します。
+`/plugin install` で PowerUser をインストールした場合は、それらの hooks を `settings.json` にコピーしないでください。Claude Code v2.1+ はすでに plugin の `hooks/hooks.json` を自動ロードしており、`settings.json` に重複させると二重実行やクロスプラットフォームの hook 競合が発生します。
 
 Windows では、Claude の設定ルートは `%USERPROFILE%\.claude` です。hook ランタイムは次のようにインストールしてください。
 
@@ -548,19 +548,19 @@ pwsh -File .\install.ps1 --target claude --modules hooks-runtime --enable-hooks
 
 #### MCP の設定
 
-Claude plugin インストールは、ECC に同梱された MCP サーバー定義を意図的に自動有効化しません。これにより、厳格なサードパーティゲートウェイでの plugin MCP ツール名の長すぎる問題を回避しつつ、手動での MCP セットアップは引き続き可能です。
+Claude plugin インストールは、PowerUser に同梱された MCP サーバー定義を意図的に自動有効化しません。これにより、厳格なサードパーティゲートウェイでの plugin MCP ツール名の長すぎる問題を回避しつつ、手動での MCP セットアップは引き続き可能です。
 
 稼働中の Claude Code サーバー変更には、Claude Code の `/mcp` コマンドまたは CLI 管理の MCP セットアップを使用してください。Claude Code はそれらの選択を `~/.claude.json` に永続化します。リポジトリローカルの MCP アクセスには、`mcp-configs/mcp-servers.json` から必要な MCP サーバー定義をプロジェクトスコープの `.mcp.json` にコピーしてください。
 
-ECC が同梱するデフォルトコネクターはちょうど一つ（`chrome-devtools`）だけです。それ以外はすべて CLI/REST API をラップする skill か、オプトインのカタログエントリです。このルールと、以前の六つのデフォルトを廃止した 2026年6月の監査は [docs/MCP-CONNECTOR-POLICY.md](../MCP-CONNECTOR-POLICY.md) にあります。
+PowerUser が同梱するデフォルトコネクターはちょうど一つ（`chrome-devtools`）だけです。それ以外はすべて CLI/REST API をラップする skill か、オプトインのカタログエントリです。このルールと、以前の六つのデフォルトを廃止した 2026年6月の監査は [docs/MCP-CONNECTOR-POLICY.md](../MCP-CONNECTOR-POLICY.md) にあります。
 
-ECC 同梱の MCP を自分でも別途実行している場合は、次を設定してください。
+PowerUser 同梱の MCP を自分でも別途実行している場合は、次を設定してください。
 
 ```bash
 export ECC_DISABLED_MCPS="chrome-devtools"
 ```
 
-ECC 管理のインストールおよび Codex 同期フローは、重複を再追加する代わりに、それらの同梱サーバーをスキップまたは削除します。`ECC_DISABLED_MCPS` は ECC のインストール/同期フィルターであり、稼働中の Claude Code のトグルではありません。
+PowerUser 管理のインストールおよび Codex 同期フローは、重複を再追加する代わりに、それらの同梱サーバーをスキップまたは削除します。`ECC_DISABLED_MCPS` は PowerUser のインストール/同期フィルターであり、稼働中の Claude Code のトグルではありません。
 
 **重要:** `YOUR_*_HERE` プレースホルダーを実際の API キーに置き換えてください。
 </details>
@@ -570,7 +570,7 @@ ECC 管理のインストールおよび Codex 同期フローは、重複を再
 
 `multi-*` commands は、基本の plugin/rules インストールには**含まれていません**。
 
-`/multi-plan`、`/multi-execute`、`/multi-backend`、`/multi-frontend`、`/multi-workflow` を使用するには、`ccg-workflow` ランタイムもインストールする必要があります。[上流の CCG インストールガイド](https://github.com/fengshao1227/ccg-workflow#readme)を使って正確なリリースを選択・レビューし、そのインストール済みランタイムを初期化してください。ECC は CCG を同梱しておらず、互換性があり監査済みの CCG リリースを保証するものでもありません。このガイドは、特定されていないレジストリバージョンをブートストラップしません。
+`/multi-plan`、`/multi-execute`、`/multi-backend`、`/multi-frontend`、`/multi-workflow` を使用するには、`ccg-workflow` ランタイムもインストールする必要があります。[上流の CCG インストールガイド](https://github.com/fengshao1227/ccg-workflow#readme)を使って正確なリリースを選択・レビューし、そのインストール済みランタイムを初期化してください。PowerUser は CCG を同梱しておらず、互換性があり監査済みの CCG リリースを保証するものでもありません。このガイドは、特定されていないレジストリバージョンをブートストラップしません。
 
 このランタイムは、これらの commands が期待する外部依存関係を提供します。たとえば次のものです。
 
@@ -583,26 +583,26 @@ ECC 管理のインストールおよび Codex 同期フローは、重複を再
 <details>
 <summary><strong>リセット、修復、またはアンインストール</strong></summary>
 
-### ECC のリセット / アンインストール
+### PowerUser のリセット / アンインストール
 
 ユニバーサルパッケージからインストールした場合は、インストール時に使用したのと同じ
 プロジェクトディレクトリから次のコマンドを実行してください。
 
 ```bash
-npx ecc-universal@2.2.1 list-installed
-npx ecc-universal@2.2.1 doctor
-npx ecc-universal@2.2.1 repair
-npx ecc-universal@2.2.1 uninstall --dry-run
-npx ecc-universal@2.2.1 uninstall
+npx poweruser-universal@2.2.1 list-installed
+npx poweruser-universal@2.2.1 doctor
+npx poweruser-universal@2.2.1 repair
+npx poweruser-universal@2.2.1 uninstall --dry-run
+npx poweruser-universal@2.2.1 uninstall
 ```
 
 ソースチェックアウトからの場合は、再インストールの前に管理状態を確認してください。
 
 ```bash
-node scripts/ecc.js list-installed
-node scripts/ecc.js doctor
-node scripts/ecc.js repair
-node scripts/ecc.js uninstall --dry-run
+node scripts/poweruser.js list-installed
+node scripts/poweruser.js doctor
+node scripts/poweruser.js repair
+node scripts/poweruser.js uninstall --dry-run
 ```
 
 ソースチェックアウトから直接アンインストールするには次を実行します。
@@ -612,25 +612,25 @@ node scripts/uninstall.js --dry-run
 node scripts/uninstall.js
 ```
 
-ECC をやめる場合、アンインストールコマンドは任意の[20秒フィードバックフォーム](https://github.com/affaan-m/ECC/issues/new?template=quick-feedback.yml)を表示します。これは公開の GitHub issue であり、アンインストールを妨げることはなく、ECC が診断情報をアップロードすることもありません。問題報告、フィードバック、機能要望の窓口を確認するには、いつでも `ecc feedback` を実行できます。
+PowerUser をやめる場合、アンインストールコマンドは任意の[20秒フィードバックフォーム](https://github.com/ApexForge-devz/PowerUser/issues/new?template=quick-feedback.yml)を表示します。これは公開の GitHub issue であり、アンインストールを妨げることはなく、PowerUser が診断情報をアップロードすることもありません。問題報告、フィードバック、機能要望の窓口を確認するには、いつでも `poweruser feedback` を実行できます。
 
-plugin ユーザーは Claude Code から plugin を削除し、その後、手動でコピーして不要になった rule フォルダーだけを削除してください。ECC はインストール状態に記録されたファイルのみを削除します。ハーネスディレクトリ内の無関係なファイルを自分のものとして扱うことはありません。
+plugin ユーザーは Claude Code から plugin を削除し、その後、手動でコピーして不要になった rule フォルダーだけを削除してください。PowerUser はインストール状態に記録されたファイルのみを削除します。ハーネスディレクトリ内の無関係なファイルを自分のものとして扱うことはありません。
 
 複数の方法を重ねてしまった場合は、次の順序でクリーンアップしてください。
 
 1. Claude Code plugin のインストールを削除します。
-2. 管理対象の install-state を含むプロジェクトディレクトリから ECC のアンインストールコマンドを実行します。
+2. 管理対象の install-state を含むプロジェクトディレクトリから PowerUser のアンインストールコマンドを実行します。
 3. 手動でコピーした、もう不要な rules フォルダーを削除します。
 4. 単一の経路を使って一度だけ再インストールします。
 </details>
 
-## ECC を使い始める
+## PowerUser を使い始める
 
 カタログ全体ではなく、必要なワークフローから始めましょう。
 
 | やりたいこと | ここから始める |
 |---|---|
-| 機能を構築する | `/ecc:plan "describe the feature"`、その後 `tdd-workflow` |
+| 機能を構築する | `/poweruser:plan "describe the feature"`、その後 `tdd-workflow` |
 | バグを修正する | 失敗するテストで再現してから `tdd-workflow` を使用 |
 | 新しいコードをレビューする | `/code-review` で新しいコンテキストからのレビュー |
 | ビルドを修復する | `/build-fix` |
@@ -646,7 +646,7 @@ plugin ユーザーは Claude Code から plugin を削除し、その後、手�
 Claude Code の plugin コマンドはネームスペース付きの形式を使います：
 
 ```text
-/ecc:plan "Add authentication"
+/poweruser:plan "Add authentication"
 ```
 
 手動インストールでは、より短い互換形式が使える場合があります：
@@ -658,7 +658,7 @@ Claude Code の plugin コマンドはネームスペース付きの形式を使
 Skills が主要なワークフローの入口です。コマンドは便利なエントリーポイントおよび互換シムとして残っています。インストール済みの内容は次のコマンドで確認できます：
 
 ```bash
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 </details>
 
@@ -669,8 +669,8 @@ Skills が正規のワークフローの入口です。メンテナンスされ�
 
 | やりたいこと | 使う入口 | 使用される agent |
 |--------------|-----------------|------------|
-| 新機能を計画する | `/ecc:plan "Add auth"` | planner |
-| システムアーキテクチャを設計する | `/ecc:plan` + architect agent | architect |
+| 新機能を計画する | `/poweruser:plan "Add auth"` | planner |
+| システムアーキテクチャを設計する | `/poweruser:plan` + architect agent | architect |
 | テストファーストでコードを書く | `tdd-workflow` skill | tdd-guide |
 | 書いたばかりのコードをレビューする | `/code-review` | code-reviewer |
 | 失敗するビルドを修正する | `/build-fix` | build-error-resolver |
@@ -695,7 +695,7 @@ Skills が正規のワークフローの入口です。メンテナンスされ�
 
 **新機能を始める：**
 ```
-/ecc:plan "Add user authentication with OAuth"
+/poweruser:plan "Add user authentication with OAuth"
                                               -> planner creates implementation blueprint
 tdd-workflow skill                            -> tdd-guide enforces write-tests-first
 /code-review                                  -> code-reviewer checks your work
@@ -718,9 +718,9 @@ e2e-testing skill                             -> e2e-runner: critical user flow 
 
 ## セルフホストモデルとカスタムエンドポイント
 
-ECC は各ハーネスの通常の設定を通じて動作するため、ECC のワークフローを変更することなく、公式プロバイダー、互換性のあるカスタム API エンドポイントやモデルゲートウェイ、あるいはセルフホストモデルを利用できます。
+PowerUser は各ハーネスの通常の設定を通じて動作するため、PowerUser のワークフローを変更することなく、公式プロバイダー、互換性のあるカスタム API エンドポイントやモデルゲートウェイ、あるいはセルフホストモデルを利用できます。
 
-Claude Code について、ECC は Anthropic ホストのトランスポート設定をハードコードしていません。最小限のゲートウェイの例：
+Claude Code について、PowerUser は Anthropic ホストのトランスポート設定をハードコードしていません。最小限のゲートウェイの例：
 
 ```bash
 export ANTHROPIC_BASE_URL=https://your-gateway.example.com
@@ -728,13 +728,13 @@ export ANTHROPIC_AUTH_TOKEN=your-token
 claude
 ```
 
-ゲートウェイがモデル名を再マッピングする場合は、ECC ではなく Claude Code 側で設定してください。`claude` CLI がすでに動作している状態であれば、ECC の hooks、skills、コマンド、rules はモデルプロバイダーに依存しません。Anthropic の [LLM ゲートウェイドキュメント](https://docs.anthropic.com/en/docs/claude-code/llm-gateway) と [モデル設定ドキュメント](https://docs.anthropic.com/en/docs/claude-code/model-config) を参照してください。
+ゲートウェイがモデル名を再マッピングする場合は、PowerUser ではなく Claude Code 側で設定してください。`claude` CLI がすでに動作している状態であれば、PowerUser の hooks、skills、コマンド、rules はモデルプロバイダーに依存しません。Anthropic の [LLM ゲートウェイドキュメント](https://docs.anthropic.com/en/docs/claude-code/llm-gateway) と [モデル設定ドキュメント](https://docs.anthropic.com/en/docs/claude-code/model-config) を参照してください。
 
-そのゲートウェイの背後で任意のオープンソースモデルを実行またはセルフホストするには、別途コンピュートとサービングのセットアップが必要です。GPU 容量が必要な場合、[Itô](https://compute.itomarkets.com) は ECC の推奨コンピュートスポンサーですが、どの GPU プロバイダーでも動作します。このスポンサーシップのリンクは受動的なものです。RFQ の発行、容量の予約、コンピュートのプロビジョニング、サービングの設定は行いません。これとは別に、`ecc ito find` は明示的に設定された正規の Itô CLI を呼び出し、認証済みのライブ RFQ を送信しますが、容量の予約は行いません。Itô によるマネージド推論はまだ提供されていません。
+そのゲートウェイの背後で任意のオープンソースモデルを実行またはセルフホストするには、別途コンピュートとサービングのセットアップが必要です。GPU 容量が必要な場合、[Itô](https://compute.itomarkets.com) は PowerUser の推奨コンピュートスポンサーですが、どの GPU プロバイダーでも動作します。このスポンサーシップのリンクは受動的なものです。RFQ の発行、容量の予約、コンピュートのプロビジョニング、サービングの設定は行いません。これとは別に、`poweruser ito find` は明示的に設定された正規の Itô CLI を呼び出し、認証済みのライブ RFQ を送信しますが、容量の予約は行いません。Itô によるマネージド推論はまだ提供されていません。
 
-### ECC + Itô コンピュートで Kimi をセルフホストする
+### PowerUser + Itô コンピュートで Kimi をセルフホストする
 
-Kimi Code ハーネスとモデルサービングレイヤーは別物です。ECC は agent ハーネスを設定します。API エンドポイントを用意する（[Kimi API キーを取得](https://platform.kimi.ai?aff=ecc)）か、自身の GPU 容量でオープンウェイトの Kimi モデルをセルフホストするのはユーザー側です。このアダプターは Kimi Code 0.31.x（`@moonshot-ai/kimi-code`）で検証済みです：
+Kimi Code ハーネスとモデルサービングレイヤーは別物です。PowerUser は agent ハーネスを設定します。API エンドポイントを用意する（[Kimi API キーを取得](https://platform.kimi.ai?aff=poweruser)）か、自身の GPU 容量でオープンウェイトの Kimi モデルをセルフホストするのはユーザー側です。このアダプターは Kimi Code 0.31.x（`@moonshot-ai/kimi-code`）で検証済みです：
 
 <table aria-label="Local Kimi model path" width="100%">
 <tr>
@@ -754,31 +754,31 @@ Kimi Code ハーネスとモデルサービングレイヤーは別物です。E
 </td>
 <td width="33%" align="center">
   <a href="../../.kimi/README.md">
-    <img src="../../assets/images/community/ecc-tools-mark.svg" height="52" alt="ECC Tools" /><br />
-    <strong>3. ECC で Kimi Code を実行する</strong>
+    <img src="../../assets/images/community/poweruser-tools-mark.svg" height="52" alt="PowerUser Tools" /><br />
+    <strong>3. PowerUser で Kimi Code を実行する</strong>
   </a><br />
   <sub>プロジェクトの指示と skills をインストールし、Kimi Code を起動します。</sub>
 </td>
 </tr>
 </table>
 
-Kimi Code の<a href="https://moonshotai.github.io/kimi-cli/en/configuration/providers.html">公式プロバイダーガイド</a>に従ってエンドポイントを設定し、ECC をインストールします：
+Kimi Code の<a href="https://moonshotai.github.io/kimi-cli/en/configuration/providers.html">公式プロバイダーガイド</a>に従ってエンドポイントを設定し、PowerUser をインストールします：
 
 ```bash
 bash ./install.sh --target kimi --profile minimal
-node scripts/ecc.js doctor --target kimi
+node scripts/poweruser.js doctor --target kimi
 kimi
 ```
 
-Kimi Code はインストールされた `.kimi-code/AGENTS.md` の指示と `.kimi-code/skills/` のワークフローをネイティブに検出します。プロジェクトレベルの `.agents/skills/` も公式の検出場所です。ECC はプロジェクトの MCP エントリーを `.kimi-code/mcp.json` に安全にマージし、ユーザーレベルの `~/.kimi-code/config.toml` は変更しません。Kimi Code はネイティブ hooks をサポートしていますが、ECC の現在のマネージドプロジェクトアダプターはそれらを設定しないため、このインストーラーは Kimi の hook プロファイルを提供しません。インストーラーのドライランと回帰テストスイートにより、マネージドな Kimi への書き込みがすべてプロジェクトローカルの `.kimi-code/` ルート内に収まることが検証されています。
+Kimi Code はインストールされた `.kimi-code/AGENTS.md` の指示と `.kimi-code/skills/` のワークフローをネイティブに検出します。プロジェクトレベルの `.agents/skills/` も公式の検出場所です。PowerUser はプロジェクトの MCP エントリーを `.kimi-code/mcp.json` に安全にマージし、ユーザーレベルの `~/.kimi-code/config.toml` は変更しません。Kimi Code はネイティブ hooks をサポートしていますが、PowerUser の現在のマネージドプロジェクトアダプターはそれらを設定しないため、このインストーラーは Kimi の hook プロファイルを提供しません。インストーラーのドライランと回帰テストスイートにより、マネージドな Kimi への書き込みがすべてプロジェクトローカルの `.kimi-code/` ルート内に収まることが検証されています。
 
 ### Itô コンピュート CLI ブリッジ
 
-`ecc ito` は別途インストールされた正規の Itô クライアントに委譲します。ECC は 2 つ目の API クライアントを保守しません。`ecc ito login [--no-browser]` はデバイス認可を実行し、デフォルトで Itô の検証ページを開き、デバイストークンを macOS Keychain に保存します。`--no-browser` はページの引き渡しを抑制します。ECC 自体はブラウザ自動化を行いません。`ecc ito auth` は検証専用で、`--no-browser` を拒否します。利用可能な操作は `ecc ito login`、`ecc ito auth`、`ecc ito find`、`ecc ito status`、および別途ゲートされた `ecc ito evals` です。対応する MCP ツールは引き続き `ito_auth`、`ito_find`、`ito_status` です。`ito_auth` は既存の認証情報を検証し、ノード資格の確認は CLI 専用です。
+`poweruser ito` は別途インストールされた正規の Itô クライアントに委譲します。PowerUser は 2 つ目の API クライアントを保守しません。`poweruser ito login [--no-browser]` はデバイス認可を実行し、デフォルトで Itô の検証ページを開き、デバイストークンを macOS Keychain に保存します。`--no-browser` はページの引き渡しを抑制します。PowerUser 自体はブラウザ自動化を行いません。`poweruser ito auth` は検証専用で、`--no-browser` を拒否します。利用可能な操作は `poweruser ito login`、`poweruser ito auth`、`poweruser ito find`、`poweruser ito status`、および別途ゲートされた `poweruser ito evals` です。対応する MCP ツールは引き続き `ito_auth`、`ito_find`、`ito_status` です。`ito_auth` は既存の認証情報を検証し、ノード資格の確認は CLI 専用です。
 
-`ito-compute-cli` パッケージは現在未公開です。Itô ランタイムリポジトリ（デスクの堅牢化が進むまで非公開。デザインパートナーにはアクセス権が提供されます）の `cli/ito-compute-cli` からローカルでビルドし、`npm ci` と `npm run check` を実行してから、`ECC_ITO_CLI_EXECUTABLE` にそのビルドの `dist/bin/ito.js` の絶対パスを設定してください。login は `ITO_API_KEY` を決して継承しません。auth、find、status は設定されていれば `ITO_API_KEY` を直接転送し、`ITO_AUTH_MODE=legacy` は不要です。`ecc ito logout` は現在のデバイス認証情報を失効させ、リモートでの失効が確認できない場合はローカルコピーを保持します。デバイストークンはデフォルトで macOS Keychain を使用します。明示的なファイルフォールバックでは、所有者のみがアクセスできるディレクトリ/ファイルのパーミッションを維持する必要があります。ECC はこの認証情報を持つクライアントを `PATH` 経由で検出しません。RFQ の権限と MCP セットアップの契約の全容については [`ito-compute` skill](../../skills/ito-compute/SKILL.md) を参照してください。
+`ito-compute-cli` パッケージは現在未公開です。Itô ランタイムリポジトリ（デスクの堅牢化が進むまで非公開。デザインパートナーにはアクセス権が提供されます）の `cli/ito-compute-cli` からローカルでビルドし、`npm ci` と `npm run check` を実行してから、`ECC_ITO_CLI_EXECUTABLE` にそのビルドの `dist/bin/ito.js` の絶対パスを設定してください。login は `ITO_API_KEY` を決して継承しません。auth、find、status は設定されていれば `ITO_API_KEY` を直接転送し、`ITO_AUTH_MODE=legacy` は不要です。`poweruser ito logout` は現在のデバイス認証情報を失効させ、リモートでの失効が確認できない場合はローカルコピーを保持します。デバイストークンはデフォルトで macOS Keychain を使用します。明示的なファイルフォールバックでは、所有者のみがアクセスできるディレクトリ/ファイルのパーミッションを維持する必要があります。PowerUser はこの認証情報を持つクライアントを `PATH` 経由で検出しません。RFQ の権限と MCP セットアップの契約の全容については [`ito-compute` skill](../../skills/ito-compute/SKILL.md) を参照してください。
 
-`find` は認証済みのライブ RFQ を送信します。容量の予約は行いません。`evals` には `ITO_ENABLE_SIXTYTWO_LIVE=1` と `--live-sixtytwo` の両方、別途インストールされた `sixtytwo-cli==0.3.33`、明示的なノードリスト、および既存の絶対パスの設定ディレクトリが必要です。レンタル、起動、復旧、修復、購入はできません。ECC は見積もりロック、購入、ワークロード、推論のいずれの経路も公開せず、クライアントの欠如やライブ呼び出しの失敗をローカルの結果で置き換えることも決してありません。
+`find` は認証済みのライブ RFQ を送信します。容量の予約は行いません。`evals` には `ITO_ENABLE_SIXTYTWO_LIVE=1` と `--live-sixtytwo` の両方、別途インストールされた `sixtytwo-cli==0.3.33`、明示的なノードリスト、および既存の絶対パスの設定ディレクトリが必要です。レンタル、起動、復旧、修復、購入はできません。PowerUser は見積もりロック、購入、ワークロード、推論のいずれの経路も公開せず、クライアントの欠如やライブ呼び出しの失敗をローカルの結果で置き換えることも決してありません。
 
 ## 新機能
 
@@ -786,7 +786,7 @@ Kimi Code はインストールされた `.kimi-code/AGENTS.md` の指示と `.k
 
 - Claude Code、Codex、Kimi Code にわたるガイド付きのマニフェスト駆動セットアップ。install-state の所有権管理、doctor、repair、uninstall を備えています。
 - ネイティブの Antigravity インストール、薄い Pi アダプター、そして Linux、macOS、Windows でテストされたパック済みアーティファクトのリリースゲート。
-- Plan Canvas によるブラウザレビュー、統合メモリボールト（`ecc memory`）、Itô コンピュート skill ファミリー。
+- Plan Canvas によるブラウザレビュー、統合メモリボールト（`poweruser memory`）、Itô コンピュート skill ファミリー。
 
 完全な履歴：[CHANGELOG.md](../../CHANGELOG.md)。リリースごとのノートとエビデンスは [docs/releases/](../releases/) にあります。
 
@@ -797,7 +797,7 @@ Kimi Code はインストールされた `.kimi-code/AGENTS.md` の指示と `.k
 ## 中身
 
 ```text
-ECC/
+PowerUser/
 |-- agents/           # 委譲用の 68 の専門サブエージェント
 |-- skills/           # オンデマンドで読み込まれる 293 の再利用可能なワークフロー
 |-- commands/         # メンテナンスされている 94 のスラッシュコマンドシム
@@ -817,7 +817,7 @@ ECC/
 <summary><strong>注釈付きコンポーネントカタログ</strong></summary>
 
 ```
-ECC/
+PowerUser/
 |-- .claude-plugin/   # Plugin とマーケットプレイスのマニフェスト
 |   |-- plugin.json         # Plugin メタデータとコンポーネントパス
 |   |-- marketplace.json    # /plugin marketplace add 用のマーケットプレイスカタログ
@@ -898,7 +898,7 @@ ECC/
 |   |-- springboot-security/        # Spring Boot セキュリティ
 |   |-- springboot-tdd/             # Spring Boot TDD
 |   |-- springboot-verification/    # Spring Boot 検証
-|   |-- configure-ecc/              # インタラクティブインストールウィザード
+|   |-- configure-poweruser/              # インタラクティブインストールウィザード
 |   |-- security-scan/              # AgentShield セキュリティ監査ツールの統合
 |   |-- java-coding-standards/      # Java コーディング標準
 |   |-- jpa-patterns/               # JPA/Hibernate パターン
@@ -965,7 +965,7 @@ ECC/
 |   |-- verify.md           # /verify - verification-loop skill を推奨
 |   |-- orchestrate.md      # /orchestrate - dmux-workflows または multi-workflow を推奨
 |
-|-- rules/            # 常に従うガイドライン（~/.claude/rules/ecc/ にコピー）
+|-- rules/            # 常に従うガイドライン（~/.claude/rules/poweruser/ にコピー）
 |   |-- README.md            # 構成の概要とインストールガイド
 |   |-- common/              # 言語非依存の原則
 |   |   |-- coding-style.md    # 不変性、ファイル構成
@@ -1032,7 +1032,7 @@ ECC/
 <details>
 <summary><strong>ダッシュボード GUI</strong></summary>
 
-デスクトップダッシュボードを起動して、ECC のコンポーネントを視覚的に探索できます：
+デスクトップダッシュボードを起動して、PowerUser のコンポーネントを視覚的に探索できます：
 
 ```bash
 npm run dashboard
@@ -1070,7 +1070,7 @@ You are a senior code reviewer...
 
 ### Skills
 
-Skills が主要なワークフローの入口です。直接呼び出すことも、自動的に提案されることも、agents から再利用されることもできます。ECC は移行期間中もメンテナンスされている `commands/` を引き続き同梱しており、廃止された短縮名シムは明示的なオプトイン専用として `legacy-command-shims/` に置かれています。新しいワークフローの開発は、まず `skills/` に置くべきです。
+Skills が主要なワークフローの入口です。直接呼び出すことも、自動的に提案されることも、agents から再利用されることもできます。PowerUser は移行期間中もメンテナンスされている `commands/` を引き続き同梱しており、廃止された短縮名シムは明示的なオプトイン専用として `legacy-command-shims/` に置かれています。新しいワークフローの開発は、まず `skills/` に置くべきです。
 
 ```markdown
 # TDD Workflow
@@ -1118,25 +1118,25 @@ rules/
 
 このリポジトリは生のコードです。ガイドがすべてを説明しています。
 
-<table aria-label="ECC guides" width="100%">
+<table aria-label="PowerUser guides" width="100%">
 <tr>
 <td width="33%" align="center">
 <a href="../../the-shortform-guide.md">
-<img src="../../assets/images/guides/shorthand-guide.png" width="213" height="120" alt="ECC 簡潔ガイド" /><br />
+<img src="../../assets/images/guides/shorthand-guide.png" width="213" height="120" alt="PowerUser 簡潔ガイド" /><br />
 <strong>簡潔ガイド</strong>
 </a>
 <br /><sub>セットアップ、基礎、初日からの使い方。<b>まずこれを読んでください。</b>（<a href="https://x.com/affaan/status/2012378465664745795">スレッド</a>）</sub>
 </td>
 <td width="33%" align="center">
 <a href="../../the-longform-guide.md">
-<img src="../../assets/images/guides/longform-guide.png" width="213" height="120" alt="ECC 長文ガイド" /><br />
+<img src="../../assets/images/guides/longform-guide.png" width="213" height="120" alt="PowerUser 長文ガイド" /><br />
 <strong>長文ガイド</strong>
 </a>
 <br /><sub>コンテキストの経済性、メモリ、評価、並列エージェント。（<a href="https://x.com/affaan/status/2014040193557471352">スレッド</a>）</sub>
 </td>
 <td width="33%" align="center">
 <a href="../../the-security-guide.md">
-<img src="../../assets/images/guides/security-guide.png" width="213" height="120" alt="ECC セキュリティガイド" /><br />
+<img src="../../assets/images/guides/security-guide.png" width="213" height="120" alt="PowerUser セキュリティガイド" /><br />
 <strong>セキュリティガイド</strong>
 </a>
 <br /><sub>プロンプトインジェクション、hooks、MCP、AgentShield。（<a href="https://x.com/affaan/status/2033263813387223421">スレッド</a>）</sub>
@@ -1155,9 +1155,9 @@ rules/
 
 [コマンド クイックリファレンス](./COMMANDS-QUICK-REF.md) | [手動適用ガイド](../MANUAL-ADAPTATION-GUIDE.md) | [トラブルシューティング FAQ](../../TROUBLESHOOTING.md) | [ロードマップ](../ROADMAP.md)
 
-## なぜ ECC を選ぶのか
+## なぜ PowerUser を選ぶのか
 
-| 仕組みがない場合                                        | ECC がある場合                                                              |
+| 仕組みがない場合                                        | PowerUser がある場合                                                              |
 | ------------------------------------------------------- | --------------------------------------------------------------------- |
 | 計画はチャット履歴の中に消えていく                       | 計画は実装開始前に編集可能な成果物になる          |
 | 「TDD を使ってください」はモデルが忘れるかもしれない指示 | TDD は証拠付きのゲート化された RED -> GREEN -> REFACTOR ワークフローになる   |
@@ -1169,7 +1169,7 @@ rules/
 ### TDD：テスト駆動開発
 
 ```text
-/ecc:plan "Add usage-based billing alerts"
+/poweruser:plan "Add usage-based billing alerts"
   -> confirm or edit the plan
   -> activate tdd-workflow
   -> capture RED evidence before implementation
@@ -1183,7 +1183,7 @@ rules/
 
 ### Skills がコンテキストを集中させる
 
-rules、skills、agents、hooks はそれぞれ異なる問題を解決します。これらの役割を分離しておくことで、ECC はリポジトリ全体をすべてのセッションに流し込むことなく能力を追加できます。
+rules、skills、agents、hooks はそれぞれ異なる問題を解決します。これらの役割を分離しておくことで、PowerUser はリポジトリ全体をすべてのセッションに流し込むことなく能力を追加できます。
 
 | 概念 | 何をするか | コンテキストでの振る舞い |
 |---|---|---|
@@ -1195,67 +1195,67 @@ rules、skills、agents、hooks はそれぞれ異なる問題を解決します
 
 ### ハーネス間でコンテキストを共有する
 
-ECC の Memory Vault は、Claude、Codex、Hermes、OpenClaw、Kimi、その他のハーネスに対して、永続的なコンテキストと引き継ぎのための単一のローカルで検査可能な Markdown 形式を提供します。プロジェクトおよびチームのメモリは `.ecc/memory/` に、ユーザーのメモリは `~/.ecc/memory/` に置かれます。
+PowerUser の Memory Vault は、Claude、Codex、Hermes、OpenClaw、Kimi、その他のハーネスに対して、永続的なコンテキストと引き継ぎのための単一のローカルで検査可能な Markdown 形式を提供します。プロジェクトおよびチームのメモリは `.poweruser/memory/` に、ユーザーのメモリは `~/.poweruser/memory/` に置かれます。
 
 skill のみ、minimal、manual、Claude plugin のインストールでは、Memory Vault ランタイムは `PATH` に配置されません。CLI やオプションの MCP サーバーを使う前に、npm ランタイムを別途インストールしてください：
 
 ```bash
-npm install -g ecc-universal@2.2.1
-ecc memory init --scope project
-ecc memory search "authentication migration" --target-harness codex
-ecc memory doctor
+npm install -g poweruser-universal@2.2.1
+poweruser memory init --scope project
+poweruser memory search "authentication migration" --target-harness codex
+poweruser memory doctor
 ```
 
-メモリは未レビューのコンテキストであり、実行可能なポリシーではありません。重要な主張は権威ある情報源と照合して検証し、受け入れた知識は管理されたプロジェクトドキュメントに昇格させてください。オプションの `ecc-memory-mcp` サーバーは、デフォルトでは自身を有効化することなく、同じ範囲に限定された save、search、read、doctor の機能を公開します。
+メモリは未レビューのコンテキストであり、実行可能なポリシーではありません。重要な主張は権威ある情報源と照合して検証し、受け入れた知識は管理されたプロジェクトドキュメントに昇格させてください。オプションの `poweruser-memory-mcp` サーバーは、デフォルトでは自身を有効化することなく、同じ範囲に限定された save、search、read、doctor の機能を公開します。
 
 [Unified Memory ワークフローを開く →](../../skills/unified-memory/SKILL.md)
 
 <details>
 <summary><strong>Memory Vault の詳細：スコープ、引き継ぎ、信頼境界</strong></summary>
 
-Memory Vault は、ベンダーのトランスクリプトをコピーしたりエージェント間でコンテキストをメールしたりする代わりに、移植可能な `ecc.memory.v1` Markdown ドキュメントを保存します。プロジェクトメモリはフェイルクローズドの `.gitignore` で保護されています。チームスコープは、人間が検査しバージョン管理された共有にのみ使用してください。チームメモリはコミットされた後も未レビューのコンテキストのままです。
+Memory Vault は、ベンダーのトランスクリプトをコピーしたりエージェント間でコンテキストをメールしたりする代わりに、移植可能な `poweruser.memory.v1` Markdown ドキュメントを保存します。プロジェクトメモリはフェイルクローズドの `.gitignore` で保護されています。チームスコープは、人間が検査しバージョン管理された共有にのみ使用してください。チームメモリはコミットされた後も未レビューのコンテキストのままです。
 
 上記のランタイムをインストールしたら、CLI とオプションの MCP エントリポイントが利用可能であることを確認してください：
 
 ```bash
-ecc memory --help
-command -v ecc-memory-mcp
+poweruser memory --help
+command -v poweruser-memory-mcp
 ```
 
 ```bash
 # プロジェクトの vault を初期化する。
-ecc memory init --scope project
+poweruser memory init --scope project
 
 # 引き継ぎ本文を通常のファイルに書き、次のハーネスを指定する。
-ecc memory handoff \
+poweruser memory handoff \
   --from hermes \
   --target codex \
   --title "Continue authentication migration" \
   --body-file ./handoff.md
 
 # 別のハーネスから呼び出す。
-ecc memory search "authentication migration" --target-harness codex
-ecc memory read <memory-id>
+poweruser memory search "authentication migration" --target-harness codex
+poweruser memory read <memory-id>
 
 # チームメモリを共有する前に vault を検証する。
-ecc memory doctor
+poweruser memory doctor
 ```
 
 メモリ本文は `--stdin` または `--body-file` 経由でのみ受け付けられ、コマンドライン引数の値としては受け付けられません。最初のリリースでは、すべての vault エントリは未レビューかつ作成のみです。人間のレビューは、メモリの信頼度を変えるのではなく、受け入れた知識を管理されたプロジェクトドキュメントに昇格させます。通常の検索による呼び出しは、アクティブなプロジェクトメモリとチームメモリを返します。ID を直接指定した読み取りでは、非アクティブなエントリを検査できます。ユーザースコープの呼び出しは明示的に要求する必要があります。エージェントは重要な主張を権威ある情報源と照合して検証しなければならず、呼び出した本文を実行可能な指示やポリシーとして扱ってはなりません。
 
-オプトインの MCP アクセスには、[`mcp-configs/mcp-servers.json`](../../mcp-configs/mcp-servers.json) の `ecc-memory-vault` エントリを必要な各ハーネスに追加し、`ecc-memory-mcp` を実行してください。サーバーが公開するのは `memory_save`、`memory_search`、`memory_read`、`memory_doctor` のみです。各サーバーは小文字の `ECC_MEMORY_HARNESS` アイデンティティを指定して起動する必要があります。このアイデンティティはサーバーに束縛されており、ツール呼び出し側から指定することはできません。ユーザースコープにはさらに、オペレーターが管理する `ECC_MEMORY_ALLOW_USER_SCOPE=1` のオプトインが必要です。ワークフローと信頼境界については [`skills/unified-memory/SKILL.md`](../../skills/unified-memory/SKILL.md) を、機能契約については [`docs/design/ecc-memory-vault.md`](../design/ecc-memory-vault.md) を参照してください。
+オプトインの MCP アクセスには、[`mcp-configs/mcp-servers.json`](../../mcp-configs/mcp-servers.json) の `poweruser-memory-vault` エントリを必要な各ハーネスに追加し、`poweruser-memory-mcp` を実行してください。サーバーが公開するのは `memory_save`、`memory_search`、`memory_read`、`memory_doctor` のみです。各サーバーは小文字の `ECC_MEMORY_HARNESS` アイデンティティを指定して起動する必要があります。このアイデンティティはサーバーに束縛されており、ツール呼び出し側から指定することはできません。ユーザースコープにはさらに、オペレーターが管理する `ECC_MEMORY_ALLOW_USER_SCOPE=1` のオプトインが必要です。ワークフローと信頼境界については [`skills/unified-memory/SKILL.md`](../../skills/unified-memory/SKILL.md) を、機能契約については [`docs/design/poweruser-memory-vault.md`](../design/poweruser-memory-vault.md) を参照してください。
 </details>
 
 ## プラットフォームサポート
 
-ECC のコアとなる Node.js CLI とマネージドインストーラーは **Windows、macOS、Linux** で動作しますが、オプション機能は完全に同等ではありません。一部の継続的学習、GAN、オーケストレーションのパスは依然として Bash または Python を必要とし、ハーネスごとに公開されている hook、agent、skill の API も異なります。
+PowerUser のコアとなる Node.js CLI とマネージドインストーラーは **Windows、macOS、Linux** で動作しますが、オプション機能は完全に同等ではありません。一部の継続的学習、GAN、オーケストレーションのパスは依然として Bash または Python を必要とし、ハーネスごとに公開されている hook、agent、skill の API も異なります。
 
 | プラットフォーム | ステータス | 現在の制限 |
 |---|---|---|
 | Linux | コアをサポート | オプション機能には Bash、Python、またはプロバイダー固有のツールが必要な場合があります。 |
-| macOS | コアをサポート | スタンドアロンの GAN シェルパスはシステムの Bash 3.2 と互換性がなく、現在スコア解析の不具合があります（[#2674](https://github.com/affaan-m/ECC/issues/2674)）。 |
+| macOS | コアをサポート | スタンドアロンの GAN シェルパスはシステムの Bash 3.2 と互換性がなく、現在スコア解析の不具合があります（[#2674](https://github.com/ApexForge-devz/PowerUser/issues/2674)）。 |
 | Windows + WSL | コアをサポート | WSL は Linux のパスに従います。Windows ホスト側の統合はハーネスによって異なります。 |
-| Windows ネイティブ | 制限付きでサポート | 継続的学習 v2 のオブザーバーデーモンと memory-vault の書き込みには、ネイティブ Windows での未解決の不具合があります（[#2489](https://github.com/affaan-m/ECC/issues/2489)、[#2626](https://github.com/affaan-m/ECC/issues/2626)）。シェルに依存するオプション機能には Git Bash/WSL が必要か、利用できません。 |
+| Windows ネイティブ | 制限付きでサポート | 継続的学習 v2 のオブザーバーデーモンと memory-vault の書き込みには、ネイティブ Windows での未解決の不具合があります（[#2489](https://github.com/ApexForge-devz/PowerUser/issues/2489)、[#2626](https://github.com/ApexForge-devz/PowerUser/issues/2626)）。シェルに依存するオプション機能には Git Bash/WSL が必要か、利用できません。 |
 
 以下の `stable`、`beta`、`experimental`、`instruction-only` は、マーケティング上の等級ではなく、機能の状態を示すものとして扱ってください。
 
@@ -1263,9 +1263,9 @@ ECC のコアとなる Node.js CLI とマネージドインストーラーは **
 |---|---|---|---|
 | Claude Code | Stable（主要） | Plugin または選択的インストーラー | plugin はインストール済みカタログをモデルに通知します。コンテキストの占有量が重要な場合は、選択的/manual profile を使用してください。シェルに依存するオプションの skills はすべての OS に移植可能ではありません。 |
 | Codex | ネイティブ plugin をサポート | Codex マーケットプレイス plugin またはリポジトリ設定 | ネイティブ hooks には明示的な信頼の決定が必要で、Claude の hook profile は使用しません。レガシーの sync は互換性維持のみです。 |
-| Cursor | Beta プロジェクトアダプター | `.cursor/` への選択的インストーラー | agent の検出は Cursor のビルドによって異なり、ECC のインストーラーパスはまだ同一の hook セットを公開していません（[#2419](https://github.com/affaan-m/ECC/issues/2419)）。 |
-| OpenCode | Beta ビルド済み plugin | plugin をビルドしてから選択的インストーラー | ECC はカタログのサブセットを同梱しています。OpenCode でプロバイダーを接続しモデルを選択してください（[#2617](https://github.com/affaan-m/ECC/issues/2617)）。 |
-| GitHub Copilot | Instruction-only | チェックインされた instructions とプロンプトファイル | ECC の hooks、ランタイム agents、委譲、ネイティブの skill 検出はありません。 |
+| Cursor | Beta プロジェクトアダプター | `.cursor/` への選択的インストーラー | agent の検出は Cursor のビルドによって異なり、PowerUser のインストーラーパスはまだ同一の hook セットを公開していません（[#2419](https://github.com/ApexForge-devz/PowerUser/issues/2419)）。 |
+| OpenCode | Beta ビルド済み plugin | plugin をビルドしてから選択的インストーラー | PowerUser はカタログのサブセットを同梱しています。OpenCode でプロバイダーを接続しモデルを選択してください（[#2617](https://github.com/ApexForge-devz/PowerUser/issues/2617)）。 |
+| GitHub Copilot | Instruction-only | チェックインされた instructions とプロンプトファイル | PowerUser の hooks、ランタイム agents、委譲、ネイティブの skill 検出はありません。 |
 | Gemini、Zed、Antigravity、Qwen、Hermes、OpenClaw、Kimi、CodeBuddy、JoyCode | Experimental/最小限のアダプター | ハーネス固有の選択的ターゲット | ファイル配置と instructions の移植性はテスト済みです。Claude との完全な機能同等性は主張していません。 |
 
 <details>
@@ -1349,11 +1349,11 @@ Windows PowerShell：
 <details>
 <summary><strong>Agent データホーム（マルチハーネスの分離）</strong></summary>
 
-メモリ永続化 hooks（セッション要約、学習済み skills、セッションエイリアス、メトリクス）は、単一の agent データルートの下にデータを保存します。デフォルトではそのルートは `~/.claude` です。同じマシンで Claude Code と Cursor の両方で ECC を使用する場合、2つの環境が互いのセッションファイルを上書きしないように、Cursor 用に別のルートを設定してください：
+メモリ永続化 hooks（セッション要約、学習済み skills、セッションエイリアス、メトリクス）は、単一の agent データルートの下にデータを保存します。デフォルトではそのルートは `~/.claude` です。同じマシンで Claude Code と Cursor の両方で PowerUser を使用する場合、2つの環境が互いのセッションファイルを上書きしないように、Cursor 用に別のルートを設定してください：
 
 ```bash
 # Cursor 専用の境界（Claude Code はデフォルトの ~/.claude を維持）
-export ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"
+export ECC_AGENT_DATA_HOME="$HOME/.cursor/poweruser"
 ```
 
 このルートの下で解決されるパスには以下が含まれます：
@@ -1363,7 +1363,7 @@ export ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"
 - `$ECC_AGENT_DATA_HOME/session-aliases.json`：セッションエイリアス
 - `$ECC_AGENT_DATA_HOME/metrics/`：コストとアクティビティのメトリクス
 
-[affaan-m/ECC#2065](https://github.com/affaan-m/ECC/issues/2065) を参照してください。
+[ApexForge-devz/PowerUser#2065](https://github.com/ApexForge-devz/PowerUser/issues/2065) を参照してください。
 </details>
 
 <details>
@@ -1376,8 +1376,8 @@ export ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"
 | Instructions | ネイティブ | ネイティブ `AGENTS.md` | プロジェクト rules | Plugin の instructions | ネイティブ instruction ファイル |
 | Skills | ネイティブのインストール済みセット | ネイティブ plugin セット | ビルド依存/プロジェクトセット | ビルド済みサブセット | プロンプト/instruction からの参照のみ |
 | Agents/委譲 | ネイティブ agents | Codex マルチエージェントロール。Claude の agent ファイルはロールとしてインストールされない | ビルド依存のプロジェクト agents | Plugin の agents | 非対応 |
-| ECC hooks | ネイティブ plugin hooks | 明示的な信頼を伴うネイティブのレビュー済みサブセット | Cursor hook アダプター。インストールパスの差異は残る | Plugin イベント | 非対応 |
-| MCP 設定 | 利用可能、明示的な有効化が必要 | ネイティブ plugin マニフェスト。レガシー sync は TOML をマージ可能 | 明示的なプロジェクト/ユーザー設定 | プロバイダー/plugin 設定 | ECC からは提供されない |
+| PowerUser hooks | ネイティブ plugin hooks | 明示的な信頼を伴うネイティブのレビュー済みサブセット | Cursor hook アダプター。インストールパスの差異は残る | Plugin イベント | 非対応 |
+| MCP 設定 | 利用可能、明示的な有効化が必要 | ネイティブ plugin マニフェスト。レガシー sync は TOML をマージ可能 | 明示的なプロジェクト/ユーザー設定 | プロバイダー/plugin 設定 | PowerUser からは提供されない |
 | Claude Code との同等性 | 主要リファレンス | 部分的 | 部分的 | 部分的 | 同等性の対象外 |
 
 **主要なアーキテクチャ上の決定：**
@@ -1389,7 +1389,7 @@ export ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"
 <details>
 <summary><strong>Cursor IDE サポートの詳細</strong></summary>
 
-ECC は、Cursor のプロジェクトレイアウトに合わせて調整された hooks、rules、agents、skills、コマンド、MCP 設定による Cursor IDE サポートを提供します。
+PowerUser は、Cursor のプロジェクトレイアウトに合わせて調整された hooks、rules、agents、skills、コマンド、MCP 設定による Cursor IDE サポートを提供します。
 
 ```bash
 # macOS/Linux
@@ -1410,35 +1410,35 @@ ECC は、Cursor のプロジェクトレイアウトに合わせて調整され
 | Hook イベント | 15 | sessionStart、beforeShellExecution、afterFileEdit、beforeMCPExecution、beforeSubmitPrompt、その他 10 個 |
 | Hook スクリプト | 16 | 共有アダプター経由で `scripts/hooks/` に委譲する薄い Node.js スクリプト |
 | Rules | 34 | 共通 9 個（alwaysApply）+ 言語固有 25 個（TypeScript、Python、Go、Swift、PHP） |
-| Agents | 48 | インストール時に `.cursor/agents/ecc-*.md` として配置。ユーザーやマーケットプレイスの agents との衝突を避けるためプレフィックス付き |
+| Agents | 48 | インストール時に `.cursor/agents/poweruser-*.md` として配置。ユーザーやマーケットプレイスの agents との衝突を避けるためプレフィックス付き |
 | Skills | 共有 + 同梱 | 翻訳された追加分は `.cursor/skills/` に配置 |
 | コマンド | 共有 | インストール時は `.cursor/commands/` |
 | MCP 設定 | 共有 | インストール時は `.cursor/mcp.json` |
 
 #### Cursor の読み込みに関する注記
 
-ECC はルートの `AGENTS.md` を `.cursor/` にインストールしません。Cursor はネストされた `AGENTS.md` ファイルをディレクトリのコンテキストとして扱うため、ECC のリポジトリのアイデンティティをホストプロジェクトにコピーすると、そのプロジェクトを汚染してしまいます。
+PowerUser はルートの `AGENTS.md` を `.cursor/` にインストールしません。Cursor はネストされた `AGENTS.md` ファイルをディレクトリのコンテキストとして扱うため、PowerUser のリポジトリのアイデンティティをホストプロジェクトにコピーすると、そのプロジェクトを汚染してしまいます。
 
-Cursor ネイティブの読み込み動作は Cursor のビルドによって異なる場合があります。ECC は agents を `.cursor/agents/ecc-*.md` としてインストールします。お使いの Cursor ビルドがプロジェクト agents を公開していない場合でも、これらのファイルは隠れたグローバルプロンプトコンテキストとしてではなく、明示的なリファレンス定義として機能します。
+Cursor ネイティブの読み込み動作は Cursor のビルドによって異なる場合があります。PowerUser は agents を `.cursor/agents/poweruser-*.md` としてインストールします。お使いの Cursor ビルドがプロジェクト agents を公開していない場合でも、これらのファイルは隠れたグローバルプロンプトコンテキストとしてではなく、明示的なリファレンス定義として機能します。
 
 #### メモリとデータの分離（Cursor + Claude Code）
 
-ECC のメモリ hooks は Claude Code と同じ `scripts/hooks/*.js` を再利用します。Cursor では、ECC はメモリを**自動的に `~/.claude` の外に**保つよう試みます：
+PowerUser のメモリ hooks は Claude Code と同じ `scripts/hooks/*.js` を再利用します。Cursor では、PowerUser はメモリを**自動的に `~/.claude` の外に**保つよう試みます：
 
 1. **Cursor の `sessionStart` hook**（`--target cursor` で `.cursor/hooks.json` にインストール）が、composer セッション全体に `ECC_AGENT_DATA_HOME` を注入します。
-2. **Hook ランタイムのデフォルト**：`CURSOR_VERSION` または `CURSOR_PROJECT_DIR` が存在する場合、環境変数が未設定なら hooks はデフォルトで `~/.cursor/ecc` を使用します。
-3. **プロジェクト設定**：`.cursor/ecc-agent-data.json` がパス（`agentDataHome`）を文書化し、上書きします。
-4. **常時有効な rule**：`.cursor/rules/ecc-agent-data-home.mdc` が、メモリの保存場所を agent に思い出させます。
+2. **Hook ランタイムのデフォルト**：`CURSOR_VERSION` または `CURSOR_PROJECT_DIR` が存在する場合、環境変数が未設定なら hooks はデフォルトで `~/.cursor/poweruser` を使用します。
+3. **プロジェクト設定**：`.cursor/poweruser-agent-data.json` がパス（`agentDataHome`）を文書化し、上書きします。
+4. **常時有効な rule**：`.cursor/rules/poweruser-agent-data-home.mdc` が、メモリの保存場所を agent に思い出させます。
 
 明示的に上書きすることも引き続き可能です：
 
 ```bash
-export ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"
+export ECC_AGENT_DATA_HOME="$HOME/.cursor/poweruser"
 ```
 
-意図的に Claude Code とメモリを**共有**するには、シェルまたは `.cursor/ecc-agent-data.json` で `ECC_AGENT_DATA_HOME=~/.claude` を設定してください。
+意図的に Claude Code とメモリを**共有**するには、シェルまたは `.cursor/poweruser-agent-data.json` で `ECC_AGENT_DATA_HOME=~/.claude` を設定してください。
 
-継続的学習 v2 の instincts は、引き続き `CLV2_HOMUNCULUS_DIR`（デフォルト `~/.local/share/ecc-homunculus`）の下に別途保存されます。
+継続的学習 v2 の instincts は、引き続き `CLV2_HOMUNCULUS_DIR`（デフォルト `~/.local/share/poweruser-homunculus`）の下に別途保存されます。
 
 #### Hook アーキテクチャ（DRY アダプターパターン）
 
@@ -1472,12 +1472,12 @@ alwaysApply: false
 <details>
 <summary><strong>Codex macOS アプリ + CLI サポートの詳細</strong></summary>
 
-ECC は、macOS アプリと CLI 向けに、サポート対象のネイティブ Codex マーケットプレイス plugin とリポジトリローカルの設定を提供します。ネイティブ plugin には共有 skills、MCP 設定、レビュー済みの hook サブセットが含まれ、Codex は hook の信頼をユーザーの明示的な管理下に置きます。従来の sync パスは互換性維持のみとして残っています。リポジトリのナビゲーション、各領域の所有権、PR diff パケットのガイダンスについては、[`docs/CODEX-NAVIGATION-GUIDE.md`](../CODEX-NAVIGATION-GUIDE.md) から始めてください。
+PowerUser は、macOS アプリと CLI 向けに、サポート対象のネイティブ Codex マーケットプレイス plugin とリポジトリローカルの設定を提供します。ネイティブ plugin には共有 skills、MCP 設定、レビュー済みの hook サブセットが含まれ、Codex は hook の信頼をユーザーの明示的な管理下に置きます。従来の sync パスは互換性維持のみとして残っています。リポジトリのナビゲーション、各領域の所有権、PR diff パケットのガイダンスについては、[`docs/CODEX-NAVIGATION-GUIDE.md`](../CODEX-NAVIGATION-GUIDE.md) から始めてください。
 
 ```bash
-# 現在推奨されるインストール：リポジトリのマーケットプレイスから ECC のネイティブ plugin を追加
-codex plugin marketplace add affaan-m/ECC
-codex plugin add ecc@ecc
+# 現在推奨されるインストール：リポジトリのマーケットプレイスから PowerUser のネイティブ plugin を追加
+codex plugin marketplace add ApexForge-devz/PowerUser
+codex plugin add poweruser@poweruser
 codex plugin list --json
 
 # またはリポジトリ内で Codex CLI を実行：AGENTS.md と .codex/ が自動検出される
@@ -1488,15 +1488,15 @@ codex
 
 ```bash
 # 互換性維持のみのマネージド sync を ~/.codex に実行
-npm install && bash scripts/sync-ecc-to-codex.sh
+npm install && bash scripts/sync-poweruser-to-codex.sh
 
 # またはリファレンス設定のみを手動でコピー
 cp .codex/config.toml ~/.codex/config.toml
 ```
 
-sync スクリプトは、**追加のみ**の戦略を使って ECC の MCP サーバーを既存の `~/.codex/config.toml` に安全にマージします。既存のサーバーを削除したり変更したりすることは決してありません。変更をプレビューするには `--dry-run` を、ECC サーバーを最新の推奨設定に強制的に更新するには `--update-mcp` を付けて実行してください。
+sync スクリプトは、**追加のみ**の戦略を使って PowerUser の MCP サーバーを既存の `~/.codex/config.toml` に安全にマージします。既存のサーバーを削除したり変更したりすることは決してありません。変更をプレビューするには `--dry-run` を、PowerUser サーバーを最新の推奨設定に強制的に更新するには `--update-mcp` を付けて実行してください。
 
-Context7 については、ECC は正規の Codex セクション名 `[mcp_servers.context7]` を使用しつつ、引き続き `@upstash/context7-mcp` パッケージを起動します。すでにレガシーの `[mcp_servers.context7-mcp]` エントリがある場合、`--update-mcp` がそれを正規のセクション名に移行します。
+Context7 については、PowerUser は正規の Codex セクション名 `[mcp_servers.context7]` を使用しつつ、引き続き `@upstash/context7-mcp` パッケージを起動します。すでにレガシーの `[mcp_servers.context7-mcp]` エントリがある場合、`--update-mcp` がそれを正規のセクション名に移行します。
 
 Codex macOS アプリ：
 - このリポジトリをワークスペースとして開きます。
@@ -1520,7 +1520,7 @@ Codex macOS アプリ：
 
 #### 主要な制限
 
-Codex は **Claude 形式の hook 実行との同等性を提供しません**。ネイティブの ECC plugin には `/hooks` での明示的な信頼を必要とするレビュー済み hook サブセットが含まれ、`AGENTS.md`、オプションの `model_instructions_file` オーバーライド、サンドボックス/承認設定が残りの instruction とポリシーのレイヤーを提供します。
+Codex は **Claude 形式の hook 実行との同等性を提供しません**。ネイティブの PowerUser plugin には `/hooks` での明示的な信頼を必要とするレビュー済み hook サブセットが含まれ、`AGENTS.md`、オプションの `model_instructions_file` オーバーライド、サンドボックス/承認設定が残りの instruction とポリシーのレイヤーを提供します。
 
 #### マルチエージェントサポート
 
@@ -1531,7 +1531,7 @@ Codex は **Claude 形式の hook 実行との同等性を提供しません**�
 - 各ロールを `.codex/agents/` 配下のファイルに向けます
 - CLI で `/agent` を使って子エージェントを確認・操作します
 
-ECC は 3 つのサンプルロール設定を同梱しています：
+PowerUser は 3 つのサンプルロール設定を同梱しています：
 
 | ロール | 目的 |
 |------|---------|
@@ -1544,7 +1544,7 @@ ECC は 3 つのサンプルロール設定を同梱しています：
 <details>
 <summary><strong>Zed サポート</strong></summary>
 
-ECC は、プロジェクトローカルの設定、フラット化された rules、agents、コマンド、skills のための保守的な `.zed` アダプターを通じて Zed プロジェクトをサポートします。
+PowerUser は、プロジェクトローカルの設定、フラット化された rules、agents、コマンド、skills のための保守的な `.zed` アダプターを通じて Zed プロジェクトをサポートします。
 
 ```bash
 ./install.sh --profile minimal --target zed
@@ -1554,20 +1554,20 @@ ECC は、プロジェクトローカルの設定、フラット化された rul
 .\install.ps1 --profile minimal --target zed
 ```
 
-このアダプターは ECC が管理するファイルを `.zed/` の下に書き込み、BYOK/OpenRouter の認証情報をリポジトリの外に保ちます。Zed のアカウントや API キーは、Zed 自身の設定 UI またはローカルのユーザー設定から設定してください。
+このアダプターは PowerUser が管理するファイルを `.zed/` の下に書き込み、BYOK/OpenRouter の認証情報をリポジトリの外に保ちます。Zed のアカウントや API キーは、Zed 自身の設定 UI またはローカルのユーザー設定から設定してください。
 </details>
 
 <details>
 <summary><strong>OpenCode サポートの詳細</strong></summary>
 
-ECC は、instructions、カタログのサブセット、コマンド、カスタムツール、hook イベントを備えた beta 版の OpenCode plugin 統合を提供します。Claude Code との機能同等性は提供しません。リファレンス設定は、プロバイダー固有のモデルを固定するのではなく、ユーザーの OpenCode でのモデル選択を継承します。
+PowerUser は、instructions、カタログのサブセット、コマンド、カスタムツール、hook イベントを備えた beta 版の OpenCode plugin 統合を提供します。Claude Code との機能同等性は提供しません。リファレンス設定は、プロバイダー固有のモデルを固定するのではなく、ユーザーの OpenCode でのモデル選択を継承します。
 
 ```bash
 # リポジトリのルートで、レビュー済みの OpenCode インストールを実行
 opencode
 ```
 
-インストールには[公式の OpenCode の手順](https://opencode.ai/docs/)を使用し、正確なリリースを選択して、実行前に検証してください。上流の npm パッケージは `opencode` ではなく `opencode-ai` です。ECC は監査済みの OpenCode ランタイムバージョンを保証するものではありません。
+インストールには[公式の OpenCode の手順](https://opencode.ai/docs/)を使用し、正確なリリースを選択して、実行前に検証してください。上流の npm パッケージは `opencode` ではなく `opencode-ai` です。PowerUser は監査済みの OpenCode ランタイムバージョンを保証するものではありません。
 
 設定は `.opencode/opencode.json` から自動的に検出されます。
 
@@ -1589,25 +1589,25 @@ OpenCode の plugin システムには 20 種類以上のイベントタイプ�
 
 **オプション 1：直接使用**
 ```bash
-cd ECC
+cd PowerUser
 opencode
 ```
 
 **オプション 2：npm パッケージとしてインストール**
 ```bash
-npm install ecc-universal@2.2.1
+npm install poweruser-universal@2.2.1
 ```
 
 次に `opencode.json` に追加します：
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["poweruser-universal"]
 }
 ```
 
-この npm plugin エントリは、ECC が公開している OpenCode plugin モジュール（hooks/イベントと plugin ツール）を有効化します。ECC の完全なコマンド/agent/instruction カタログをプロジェクト設定に自動的に追加することは**ありません**。
+この npm plugin エントリは、PowerUser が公開している OpenCode plugin モジュール（hooks/イベントと plugin ツール）を有効化します。PowerUser の完全なコマンド/agent/instruction カタログをプロジェクト設定に自動的に追加することは**ありません**。
 
-完全な ECC OpenCode セットアップには、次のいずれかを行ってください：
+完全な PowerUser OpenCode セットアップには、次のいずれかを行ってください：
 - このリポジトリ内で OpenCode を実行する
 - 同梱の `.opencode/` 設定アセットをプロジェクトにコピーし、`opencode.json` に `instructions`、`agent`、`command` のエントリを配線する
 
@@ -1622,7 +1622,7 @@ npm install ecc-universal@2.2.1
 <details>
 <summary><strong>GitHub Copilot サポートの詳細</strong></summary>
 
-ECC は、Copilot Chat のネイティブな instruction とプロンプトファイルのシステムを通じて、VS Code 向けの **GitHub Copilot サポート**を提供します。追加のツールは必要ありません。
+PowerUser は、Copilot Chat のネイティブな instruction とプロンプトファイルのシステムを通じて、VS Code 向けの **GitHub Copilot サポート**を提供します。追加のツールは必要ありません。
 
 #### GitHub Copilot 向けに含まれるもの
 
@@ -1645,7 +1645,7 @@ Copilot Chat でワークフロープロンプトを使用するには：
 
 #### 機能カバレッジ
 
-| ECC の機能 | Copilot での相当機能 |
+| PowerUser の機能 | Copilot での相当機能 |
 |-------------|-------------------|
 | コーディング標準 | `copilot-instructions.md` 経由で常時有効 |
 | セキュリティチェックリスト | 常時有効 + `security-review` プロンプト |
@@ -1660,16 +1660,16 @@ Copilot Chat でワークフロープロンプトを使用するには：
 
 #### 制限
 
-GitHub Copilot には hook システムもサブエージェント API もないため、ECC の hook 自動化（自動フォーマット、TypeScript チェック、セッション永続化、開発サーバーガード）と agent 委譲は利用できません。それでも instruction とプロンプトのレイヤーは、ECC のコーディング哲学（標準、セキュリティ、TDD、ワークフロー）をすべての Copilot Chat セッションにもたらします。
+GitHub Copilot には hook システムもサブエージェント API もないため、PowerUser の hook 自動化（自動フォーマット、TypeScript チェック、セッション永続化、開発サーバーガード）と agent 委譲は利用できません。それでも instruction とプロンプトのレイヤーは、PowerUser のコーディング哲学（標準、セキュリティ、TDD、ワークフロー）をすべての Copilot Chat セッションにもたらします。
 </details>
 
 <details>
 <summary><strong>v2.0.0 での変更点</strong></summary>
 
-ECC v2.0.0 は、公開された Hermes オペレーターストーリー、281 の skills、67 の agents、94 のコマンドシム、セッションアダプター、MCP インベントリ、worktree ライフサイクルサービス、オーケストレーターワークフロー、ECC Discord コミュニティによって 2.0 系を安定化させます。
+PowerUser v2.0.0 は、公開された Hermes オペレーターストーリー、281 の skills、67 の agents、94 のコマンドシム、セッションアダプター、MCP インベントリ、worktree ライフサイクルサービス、オーケストレーターワークフロー、PowerUser Discord コミュニティによって 2.0 系を安定化させます。
 
 - [v2.0.0 リリースノート](../releases/2.0.0/release-notes.md)
-- [ECC 2.0 リファレンスアーキテクチャ](../ECC-2.0-REFERENCE-ARCHITECTURE.md)
+- [PowerUser 2.0 リファレンスアーキテクチャ](../PowerUser-2.0-REFERENCE-ARCHITECTURE.md)
 - [Hermes セットアップガイド](../HERMES-SETUP.md)
 - [1.x からの移行ガイド](../MIGRATION-1X-TO-2.0.md)
 </details>
@@ -1745,7 +1745,7 @@ ECC v2.0.0 は、公開された Hermes オペレーターストーリー、281 
 - プロジェクトごとに有効化する MCP は 10 未満に抑える
 - アクティブなツールは 80 未満に抑える
 - 使っていない Claude Code の MCP サーバーは `/mcp` で無効化する。これらのランタイムでの選択は `~/.claude.json` に永続化される
-- `ECC_DISABLED_MCPS` は、インストール/sync フロー中に ECC が生成する MCP 設定をフィルタリングする場合にのみ使用する
+- `ECC_DISABLED_MCPS` は、インストール/sync フロー中に PowerUser が生成する MCP 設定をフィルタリングする場合にのみ使用する
 - コンテキストが重くなってきたら、`/context-budget` を実行して不要な rules を削除する
 
 **Agent teams のコスト警告：**Agent Teams は複数のコンテキストウィンドウを生成します。各チームメイトは独立してトークンを消費します。並列化が明確な価値をもたらすタスク（複数モジュールの作業、並列レビュー）にのみ使用してください。単純な逐次タスクでは、サブエージェントの方がトークン効率に優れています。
@@ -1775,18 +1775,18 @@ Claude Code v2.1 以降は、インストールされた任意の plugin の `ho
 Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded file
 ```
 
-**経緯：**この問題はこのリポジトリで修正/差し戻しのサイクルを繰り返し引き起こしてきました（[#29](https://github.com/affaan-m/ECC/issues/29)、[#52](https://github.com/affaan-m/ECC/issues/52)、[#103](https://github.com/affaan-m/ECC/issues/103)）。Claude Code のバージョン間で動作が変わり、混乱を招きました。現在は再発を防ぐためのリグレッションテストがあります。
+**経緯：**この問題はこのリポジトリで修正/差し戻しのサイクルを繰り返し引き起こしてきました（[#29](https://github.com/ApexForge-devz/PowerUser/issues/29)、[#52](https://github.com/ApexForge-devz/PowerUser/issues/52)、[#103](https://github.com/ApexForge-devz/PowerUser/issues/103)）。Claude Code のバージョン間で動作が変わり、混乱を招きました。現在は再発を防ぐためのリグレッションテストがあります。
 </details>
 
 ## セキュリティ
 
-ECC は公式ソースからのみインストールしてください：
+PowerUser は公式ソースからのみインストールしてください：
 
-- GitHub リポジトリ：<https://github.com/affaan-m/ECC>
-- Claude Code plugin：`ecc@ecc`
-- npm パッケージ：[`ecc-universal`](https://www.npmjs.com/package/ecc-universal) と [`ecc-agentshield`](https://www.npmjs.com/package/ecc-agentshield)
-- GitHub App：<https://github.com/apps/ecc-tools>
-- Web サイト：<https://ecc.tools>
+- GitHub リポジトリ：<https://github.com/ApexForge-devz/PowerUser>
+- Claude Code plugin：`poweruser@poweruser`
+- npm パッケージ：[`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) と [`poweruser-agentshield`](https://www.npmjs.com/package/poweruser-agentshield)
+- GitHub App：<https://github.com/apps/poweruser-tools>
+- Web サイト：<https://github.com/ApexForge-devz/PowerUser
 
 すでにインストール済みのレビュー済み AgentShield バイナリでプロジェクトをスキャンします（[ランナーの出所](#agentshield-runner-provenance)を参照）：
 
@@ -1806,7 +1806,7 @@ plugin インストール後に、生の `hooks/hooks.json` を `~/.claude/setti
 
 Claude Code のランタイムでの無効化には `/mcp` を使用してください。Claude Code はその選択を `~/.claude.json` に永続化します。
 
-`ECC_DISABLED_MCPS` は ECC のインストール/sync フィルターであり、Claude Code のライブなトグルではありません。
+`ECC_DISABLED_MCPS` は PowerUser のインストール/sync フィルターであり、Claude Code のライブなトグルではありません。
 
 コンテキストが重くなってきたら、`/context-budget` を実行し、不要な rules を削除し、使っていない MCP サーバーを無効化してください。[トークン最適化ガイド](../token-optimization.md)を参照してください。
 </details>
@@ -1840,11 +1840,11 @@ Claude Code のランタイムでの無効化には `/mcp` を使用してくだ
 
 高度な機能（10k 以上のコミット、自動 PR、チーム共有）には：
 
-[ECC Tools GitHub App をインストール](https://github.com/apps/ecc-tools) | [ecc.tools](https://ecc.tools)
+[PowerUser Tools GitHub App をインストール](https://github.com/apps/poweruser-tools) | [poweruser.tools](https://github.com/ApexForge-devz/PowerUser)
 
 ```bash
 # 任意の issue にコメント：
-/ecc-tools analyze
+/poweruser-tools analyze
 ```
 
 どちらのオプションでも以下が作成されます：
@@ -1861,7 +1861,7 @@ Claude Code のランタイムでの無効化には `/mcp` を使用してくだ
 エージェント設定の脆弱性、設定ミス、インジェクションリスクをスキャンします。
 
 <a id="agentshield-runner-provenance"></a>
-**ランナーの出所：**これらのコマンドには、`ecc-agentshield` からインストール済みのレビュー済み AgentShield バイナリが必要です。[公式パッケージ](https://www.npmjs.com/package/ecc-agentshield)が `agentshield` CLI を文書化しています。選択したリリース、レビューしたソース、検証済みのパッケージ整合性をインストール記録に残してください。レジストリへの公開だけでは監査済みとは言えません。ECC はここで監査済みの AgentShield のピン留めを提供しません。バージョン指定のないワンショットダウンロードで代用しないでください。`/security-scan` はワークフローのガイダンスであり、同じランナーの前提条件があります。
+**ランナーの出所：**これらのコマンドには、`poweruser-agentshield` からインストール済みのレビュー済み AgentShield バイナリが必要です。[公式パッケージ](https://www.npmjs.com/package/poweruser-agentshield)が `agentshield` CLI を文書化しています。選択したリリース、レビューしたソース、検証済みのパッケージ整合性をインストール記録に残してください。レジストリへの公開だけでは監査済みとは言えません。PowerUser はここで監査済みの AgentShield のピン留めを提供しません。バージョン指定のないワンショットダウンロードで代用しないでください。`/security-scan` はワークフローのガイダンスであり、同じランナーの前提条件があります。
 
 ```bash
 # 意図したプロジェクトディレクトリのみをスキャン
@@ -1885,7 +1885,7 @@ agentshield init
 
 Claude Code で実行するには `/security-scan` を使うか、[GitHub Action](https://github.com/affaan-m/agentshield) で CI に追加してください。
 
-[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/ecc-agentshield)
+[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/poweruser-agentshield)
 </details>
 
 <details>
@@ -1906,12 +1906,12 @@ instinct ベースの学習システムは、あなたのパターンを自動�
 ## トラブルシューティング
 
 <details>
-<summary><strong>ECC が二重に表示される、または hooks が二重に発火する</strong></summary>
+<summary><strong>PowerUser が二重に表示される、または hooks が二重に発火する</strong></summary>
 
 よくある原因は、Claude plugin をインストールした上に `./install.sh --profile full` を実行することです。
 
 1. Claude Code plugin のインストールを削除します。
-2. ECC のチェックアウトから `node scripts/ecc.js uninstall --dry-run` を実行します。
+2. PowerUser のチェックアウトから `node scripts/poweruser.js uninstall --dry-run` を実行します。
 3. 手動でコピーした不要な rule フォルダを削除します。
 4. 1 つの方法で一度だけ再インストールします。
 
@@ -1921,19 +1921,19 @@ hook 固有のチェックについては、[hooks README](../../hooks/README.md
 <details>
 <summary><strong>hooks が動作しない / "Duplicate hooks file" エラー</strong></summary>
 
-**`.claude-plugin/plugin.json` に `"hooks"` フィールドを追加しないでください。**Claude Code v2.1 以降は、インストールされた plugins の `hooks/hooks.json` を自動的に読み込みます。明示的に宣言すると重複検出エラーが発生します。[#29](https://github.com/affaan-m/ECC/issues/29)、[#52](https://github.com/affaan-m/ECC/issues/52)、[#103](https://github.com/affaan-m/ECC/issues/103) を参照してください。
+**`.claude-plugin/plugin.json` に `"hooks"` フィールドを追加しないでください。**Claude Code v2.1 以降は、インストールされた plugins の `hooks/hooks.json` を自動的に読み込みます。明示的に宣言すると重複検出エラーが発生します。[#29](https://github.com/ApexForge-devz/PowerUser/issues/29)、[#52](https://github.com/ApexForge-devz/PowerUser/issues/52)、[#103](https://github.com/ApexForge-devz/PowerUser/issues/103) を参照してください。
 </details>
 
 <details>
 <summary><strong>Codex マーケットプレイスからインストールできるが skills が読み込まれない</strong></summary>
 
-ECC のチェックアウトからキャッシュチェックを実行してください：
+PowerUser のチェックアウトからキャッシュチェックを実行してください：
 
 ```bash
 node scripts/codex/check-plugin-cache.js
 ```
 
-未解決の親参照が報告された場合は、`codex plugin marketplace upgrade ecc` でネイティブキャッシュを更新し、`codex plugin add ecc@ecc` を再度実行して、Codex を再起動してください。`codex plugin list` への登録はマーケットプレイスのエントリを確認するものであり、キャッシュチェックはインストール済みマニフェストがその skills、MCP 設定、アセットを解決できることを検証します。`bash scripts/sync-ecc-to-codex.sh` は、レガシーのコピー式設定による互換性パスが意図的に必要な場合にのみ使用してください。
+未解決の親参照が報告された場合は、`codex plugin marketplace upgrade poweruser` でネイティブキャッシュを更新し、`codex plugin add poweruser@poweruser` を再度実行して、Codex を再起動してください。`codex plugin list` への登録はマーケットプレイスのエントリを確認するものであり、キャッシュチェックはインストール済みマニフェストがその skills、MCP 設定、アセットを解決できることを検証します。`bash scripts/sync-poweruser-to-codex.sh` は、レガシーのコピー式設定による互換性パスが意図的に必要な場合にのみ使用してください。
 </details>
 
 さらなる回答：[TROUBLESHOOTING.md](../../TROUBLESHOOTING.md) はメモリ、hooks、インストール、パフォーマンス、よくあるエラーメッセージを扱っています。[docs/TROUBLESHOOTING.md](../TROUBLESHOOTING.md) は Claude Code の未解決バグに対する回避策を追跡しています。
@@ -1961,18 +1961,18 @@ node tests/hooks/hooks.test.js
 ## コミュニティとプロジェクト
 
 <details>
-<summary><strong>スポンサーと ECC Pro</strong></summary>
+<summary><strong>スポンサーと PowerUser Pro</strong></summary>
 
-ECC が無料であり続けられるのは、スポンサーと Pro ユーザーが活動を支えてくれているからです。スポンサーのロゴはこの README の冒頭にあり、完全な一覧とティアは [SPONSORS.md](../../SPONSORS.md) にあります。
+PowerUser が無料であり続けられるのは、スポンサーと Pro ユーザーが活動を支えてくれているからです。スポンサーのロゴはこの README の冒頭にあり、完全な一覧とティアは [SPONSORS.md](../../SPONSORS.md) にあります。
 
-ECC Pro は、ホスト型 GitHub App を通じて、プライベートリポジトリの分析、PR トリガーの監査、AgentShield ベースのスキャン、自動 push および PR チェック、チームでの共有利用枠、優先サポートを追加します。
+PowerUser Pro は、ホスト型 GitHub App を通じて、プライベートリポジトリの分析、PR トリガーの監査、AgentShield ベースのスキャン、自動 push および PR チェック、チームでの共有利用枠、優先サポートを追加します。
 
 <table>
 <tr>
-<td width="25%" align="center"><a href="https://ecc.tools/pricing"><strong>ECC Pro</strong><br /><sub>プライベートリポジトリ向けホスト型 GitHub App</sub></a></td>
-<td width="25%" align="center"><a href="https://github.com/sponsors/affaan-m"><strong>ECC をスポンサーする</strong><br /><sub>OSS 活動を支援する</sub></a></td>
-<td width="25%" align="center"><a href="https://github.com/affaan-m/ECC/discussions"><strong>コミュニティ</strong><br /><sub>Q&amp;A、アイデア、Show and Tell</sub></a></td>
-<td width="25%" align="center"><a href="https://github.com/apps/ecc-tools"><strong>GitHub App</strong><br /><sub>PR 監査とホスト型ワークフロー</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/ApexForge-devz/PowerUser"><strong>PowerUser Pro</strong><br /><sub>プライベートリポジトリ向けホスト型 GitHub App</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/sponsors/affaan-m"><strong>PowerUser をスポンサーする</strong><br /><sub>OSS 活動を支援する</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/ApexForge-devz/PowerUser/discussions"><strong>コミュニティ</strong><br /><sub>Q&amp;A、アイデア、Show and Tell</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/apps/poweruser-tools"><strong>GitHub App</strong><br /><sub>PR 監査とホスト型ワークフロー</sub></a></td>
 </tr>
 </table>
 
@@ -2006,8 +2006,8 @@ skills、agents、rules、hooks、ドキュメント、テスト、アダプタ�
 
 ## リンク
 
-- **簡潔ガイド（まずはここから）：**[ECC 簡潔ガイド](https://x.com/affaan/status/2012378465664745795)
-- **長文ガイド（上級者向け）：**[ECC 長文ガイド](https://x.com/affaan/status/2014040193557471352)
+- **簡潔ガイド（まずはここから）：**[PowerUser 簡潔ガイド](https://x.com/affaan/status/2012378465664745795)
+- **長文ガイド（上級者向け）：**[PowerUser 長文ガイド](https://x.com/affaan/status/2014040193557471352)
 - **セキュリティガイド：**[セキュリティガイド](../../the-security-guide.md) | [スレッド](https://x.com/affaan/status/2033263813387223421)
 - **フォロー：**[@affaan](https://x.com/affaan)
 
