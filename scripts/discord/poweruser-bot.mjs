@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// ECC community Discord bot — dependency-free (Node 22+ native WebSocket).
-// Slash commands: /ecc /help /skill /docs /release
+// PowerUser Discord bot — dependency-free (Node 22+ native WebSocket).
+// Slash commands: /poweruser /help /skill /docs /release
 //
 // Env: DISCORD_BOT_TOKEN (required), DISCORD_APP_ID (required),
-//      ECC_REPO (path to local clone, default ~/GitHub/ECC),
-//      DISCORD_INVITE (optional, shown in /ecc)
+//      POWERUSER_REPO (path to local clone, default ~/GitHub/PowerUser),
+//      DISCORD_INVITE (optional, shown in /poweruser)
 //
 // Crash-only design: any gateway close, error, or missed heartbeat ack exits
 // the process; the launchd/pm2 supervisor restarts it with a fresh identify.
@@ -21,13 +21,14 @@ if (!TOKEN || !APP_ID) {
   console.error('missing DISCORD_BOT_TOKEN / DISCORD_APP_ID');
   process.exit(1);
 }
-// Prefer ~/GitHub/ECC. The nested legacy checkout path is still accepted so
-// existing hosts keep working without setting ECC_REPO.
-const REPO = process.env.ECC_REPO || [
+// Prefer ~/GitHub/PowerUser. The nested legacy checkout path is still accepted so
+// existing hosts keep working without setting POWERUSER_REPO.
+const REPO = process.env.POWERUSER_REPO || process.env.ECC_REPO || [
+  join(homedir(), 'GitHub/PowerUser'),
   join(homedir(), 'GitHub/ECC'),
   join(homedir(), 'GitHub/ECC/everything-claude-code'),
-].find(dir => existsSync(join(dir, 'package.json'))) || join(homedir(), 'GitHub/ECC');
-const REPO_URL = 'https://github.com/affaan-m/ECC';
+].find(dir => existsSync(join(dir, 'package.json'))) || join(homedir(), 'GitHub/PowerUser');
+const REPO_URL = 'https://github.com/ApexForge-devz/PowerUser';
 const INVITE = process.env.DISCORD_INVITE || '';
 const API = 'https://discord.com/api/v10';
 
@@ -128,22 +129,22 @@ function searchDocs(query) {
 // ---------- command handlers ----------
 
 const HELP = [
-  '**ECC bot commands**',
-  '- `/ecc` — what ECC is + all the links',
-  '- `/skill name:<query>` — look up an ECC skill',
-  '- `/docs query:<terms>` — search the ECC docs',
-  '- `/release` — latest ECC release',
+  '**PowerUser bot commands**',
+  '- `/poweruser` — what PowerUser is + all the links',
+  '- `/skill name:<query>` — look up a PowerUser skill',
+  '- `/docs query:<terms>` — search the PowerUser docs',
+  '- `/release` — latest PowerUser release',
   '- `/help` — this message',
 ].join('\n');
 
 const handlers = {
-  ecc: () => [
-    '**ECC** — the agent harness performance system.',
+  poweruser: () => [
+    '**PowerUser** — the agent harness performance system.',
     'Skills, agents, rules, hooks, MCP conventions, and operator workflows that move across Claude Code, Codex, OpenCode, Cursor, Gemini, and Zed.',
     '',
     `- repo: ${REPO_URL}`,
-    '- site: https://ecc.tools',
-    `- install: \`/plugin marketplace add affaan-m/ECC\` then \`/plugin install ecc\``,
+    '- site: https://poweruser.tools',
+    `- install: \`/plugin marketplace add affaan-m/PowerUser\` then \`/plugin install poweruser\``,
     INVITE ? `- invite a friend: ${INVITE}` : '',
   ].filter(Boolean).join('\n'),
 
@@ -169,8 +170,8 @@ const handlers = {
   },
 
   release: async () => {
-    const res = await fetch('https://api.github.com/repos/affaan-m/ECC/releases/latest', {
-      headers: { 'User-Agent': 'ecc-discord-bot' },
+    const res = await fetch('https://api.github.com/repos/ApexForge-devz/PowerUser/releases/latest', {
+      headers: { 'User-Agent': 'poweruser-discord-bot' },
     });
     if (!res.ok) return `couldn't reach GitHub (${res.status}) — ${REPO_URL}/releases`;
     const r = await res.json();
@@ -240,7 +241,7 @@ async function main() {
             send({ op: 1, d: seq });
           }, interval);
         }, interval * Math.random());
-        send({ op: 2, d: { token: TOKEN, intents: 1, properties: { os: 'darwin', browser: 'ecc-bot', device: 'ecc-bot' } } });
+        send({ op: 2, d: { token: TOKEN, intents: 1, properties: { os: 'darwin', browser: 'poweruser-bot', device: 'poweruser-bot' } } });
         break;
       }
       case 11: acked = true; break; // HEARTBEAT_ACK
