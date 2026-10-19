@@ -7,23 +7,23 @@ const path = require('path');
 const repoRoot = path.resolve(__dirname, '..', '..');
 
 const configureEccDocs = [
-  'skills/configure-ecc/SKILL.md',
-  'docs/zh-CN/skills/configure-ecc/SKILL.md',
-  'docs/ja-JP/skills/configure-ecc/SKILL.md',
+  'skills/configure-poweruser/SKILL.md',
+  'docs/zh-CN/skills/configure-poweruser/SKILL.md',
+  'docs/ja-JP/skills/configure-poweruser/SKILL.md',
 ];
 
 const localizedWizardContract = {
-  'skills/configure-ecc/SKILL.md': [
+  'skills/configure-poweruser/SKILL.md': [
     'Ask exactly one scope question',
     'Ask exactly one hook-mode question',
     'Show exactly one confirmation summary',
   ],
-  'docs/zh-CN/skills/configure-ecc/SKILL.md': [
+  'docs/zh-CN/skills/configure-poweruser/SKILL.md': [
     '只询问一次安装范围',
     '只询问一次 Hook 模式',
     '只显示一次确认摘要',
   ],
-  'docs/ja-JP/skills/configure-ecc/SKILL.md': [
+  'docs/ja-JP/skills/configure-poweruser/SKILL.md': [
     'スコープについて 1 回だけ質問',
     'フックモードについて 1 回だけ質問',
     '確認サマリーは 1 回だけ表示',
@@ -55,20 +55,20 @@ function countEntries(relativePath, predicate) {
     .length;
 }
 
-console.log('\n=== Testing configure-ecc install path guidance ===\n');
+console.log('\n=== Testing configure-poweruser install path guidance ===\n');
 
 for (const relativePath of configureEccDocs) {
   test(`${relativePath} delegates to guided plugin setup`, () => {
     const content = readConfigureEccDoc(relativePath);
 
-    assert.ok(content.includes('ecc setup'));
-    assert.ok(content.includes('npx ecc-universal setup'));
+    assert.ok(content.includes('poweruser setup'));
+    assert.ok(content.includes('npx poweruser-universal setup'));
     assert.ok(content.includes('--mode claude-plugin'));
     assert.ok(content.includes('--scope <scope>'));
     assert.ok(content.includes('--hooks <hooks>'));
     assert.ok(content.includes('--move-scope'));
     assert.ok(!content.includes('rm -rf /tmp/everything-claude-code'));
-    assert.ok(!content.includes('cp -R "$ECC_ROOT'));
+    assert.ok(!content.includes('cp -R "$PowerUser_ROOT'));
   });
 
   test(`${relativePath} defines the Claude in-harness wizard contract`, () => {
@@ -84,7 +84,7 @@ for (const relativePath of configureEccDocs) {
     assert.ok(content.includes('scripts/setup.js'));
     assert.ok(content.includes('--yes --json'));
     assert.ok(content.includes('<installed-version>'));
-    assert.ok(content.includes('ECC_VERSION_PATTERN'));
+    assert.ok(content.includes('PowerUser_VERSION_PATTERN'));
     assert.ok(content.includes('argument array'));
   });
 
@@ -102,7 +102,7 @@ for (const relativePath of configureEccDocs) {
   test(`${relativePath} keeps provider capabilities truthful`, () => {
     const content = readConfigureEccDoc(relativePath);
 
-    assert.ok(content.includes('codex plugin add ecc@ecc --json'));
+    assert.ok(content.includes('codex plugin add poweruser@poweruser --json'));
     assert.ok(content.includes('Codex'));
     assert.ok(content.includes('.kimi-code'));
     assert.ok(content.includes('--target kimi'));
@@ -115,8 +115,8 @@ for (const relativePath of configureEccDocs) {
     const codexWelcomeIndex = content.indexOf(
       '["<installedPath>/scripts/welcome.js", "--action", "configured", "--version", "<installed-version>"]'
     );
-    const kimiVerifyIndex = content.indexOf('ecc doctor --target kimi');
-    const kimiWelcomeIndex = content.indexOf('ecc welcome --action configured');
+    const kimiVerifyIndex = content.indexOf('poweruser doctor --target kimi');
+    const kimiWelcomeIndex = content.indexOf('poweruser welcome --action configured');
 
     assert.ok(codexVerifyIndex > -1, 'missing Codex verification');
     assert.ok(codexWelcomeIndex > codexVerifyIndex, 'Codex welcome must follow verification');
@@ -136,8 +136,8 @@ for (const relativePath of configureEccDocs) {
 test('Codex legacy sync docs do not require an unrelated package install', () => {
   const content = readConfigureEccDoc('.codex-plugin/README.md');
 
-  assert.ok(content.includes('bash scripts/sync-ecc-to-codex.sh'));
-  assert.ok(!content.includes('npm install && bash scripts/sync-ecc-to-codex.sh'));
+  assert.ok(content.includes('bash scripts/sync-poweruser-to-codex.sh'));
+  assert.ok(!content.includes('npm install && bash scripts/sync-poweruser-to-codex.sh'));
 });
 
 test('Kimi docs scope hooks and compatibility to the verified adapter', () => {
