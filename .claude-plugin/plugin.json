@@ -3,8 +3,7 @@
   "version": "2.2.3",
   "description": "PowerUser plugin for engineering teams: specialized agents, skills, reusable hooks, rules, MCP conventions, and operator workflows across supported agent harnesses.",
   "author": {
-    "name": "Affaan Mustafa",
-    "url": "https://x.com/affaanmustafa"
+    "name": "ApexForge-devz"
   },
   "homepage": "https://github.com/ApexForge-devz/PowerUser",
   "repository": "https://github.com/ApexForge-devz/PowerUser",
