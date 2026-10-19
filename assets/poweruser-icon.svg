@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">PowerUser</title>
+  <rect width="128" height="128" rx="28" fill="#111827"/>
+  <path d="M26 29h39c23 0 35 13 35 30S88 89 65 89H44v10H26V29Zm18 17v26h20c11 0 18-5 18-13s-7-13-18-13H44Z" fill="#60A5FA"/>
+  <path d="M80 91h22v12H80V91Z" fill="#A78BFA"/>
+</svg>
