@@ -1,7 +1,7 @@
 {
   "name": "poweruser",
   "version": "2.2.3",
-  "description": "PowerUser plugin for engineering teams: specialized agents, skills, reusable hooks, rules, MCP conventions, and operator workflows across supported agent harnesses.",
+  "description": "PowerUser plugin for engineering teams: 71 agents, 311 skills, 97 legacy command shims, reusable hooks, rules, MCP conventions, and operator workflows.",
   "author": {
     "name": "ApexForge-devz"
   },

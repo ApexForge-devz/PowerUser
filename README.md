@@ -4,6 +4,20 @@ PowerUser is an open-source collection of agent workflows, skills, hooks, rules,
 
 This fork is maintained at **[ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)**. It builds on the upstream project and retains its MIT license and applicable attribution notices.
 
+## Catalog
+
+PowerUser currently provides access to 71 agents, 311 skills, and 97 legacy command shims.
+
+|-- agents/ # 71 specialized subagents for delegation
+|-- commands/ # 97 maintained slash-command shims
+|-- skills/ # 311 reusable workflows loaded on demand
+
+| Category | Count |
+| --- | ---: |
+| Agents | 71 agents |
+| Commands | 97 commands |
+| Skills | 311 skills |
+
 ## Codex desktop plugin
 
 PowerUser includes a native Codex plugin manifest and a local-marketplace entry.
@@ -54,7 +68,7 @@ The primary CLI entrypoint is `scripts/poweruser.js`. The project is a source ch
 - `skills/` — reusable task workflows
 - `agents/` — specialized agent prompts
 - `hooks/` — supported automation hooks
-- `docs/` — design, harness, and development documentation
+- `docs/` — English design, harness, and development documentation
 - `scripts/` — installer, tooling, validation, and compatibility utilities
 
 ## License and attribution

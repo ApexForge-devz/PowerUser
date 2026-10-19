@@ -10,7 +10,7 @@
     {
       "name": "poweruser",
       "source": "./",
-      "description": "PowerUser operator layer: specialized agents, skills, hooks, rules, selective install profiles, and production engineering workflows.",
+      "description": "PowerUser operator layer: 71 agents, 311 skills, 97 legacy command shims, selective install profiles, and production engineering workflows.",
       "version": "2.2.3",
       "author": {
         "name": "ApexForge-devz"

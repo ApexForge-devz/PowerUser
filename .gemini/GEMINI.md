@@ -1,10 +1,10 @@
-# ECC for Gemini CLI
+# PowerUser for Gemini CLI
 
-This file provides Gemini CLI with the baseline ECC workflow, review standards, and security checks for repositories that install the Gemini target.
+This file provides Gemini CLI with the baseline PowerUser workflow, review standards, and security checks for repositories that install the Gemini target.
 
 ## Overview
 
-ECC is a cross-harness coding system with 71 specialized agents, 311 skills, and 97 commands.
+PowerUser is a cross-harness coding system with 71 specialized agents, 311 skills, and 97 commands.
 
 Gemini support is currently focused on a strong project-local instruction layer via `.gemini/GEMINI.md`, plus the shared MCP catalog and package-manager setup assets shipped by the installer.
 
@@ -40,7 +40,7 @@ Before any commit:
 - Run targeted verification for touched areas before shipping
 - Prefer contained local implementations over adding new third-party runtime dependencies
 
-## ECC Areas To Reuse
+## PowerUser Areas To Reuse
 
 - `AGENTS.md` for repo-wide operating rules
 - `skills/` for deep workflow guidance
