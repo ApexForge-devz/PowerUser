@@ -57,7 +57,7 @@ use std::path::{Path, PathBuf};
 use tracing_subscriber::EnvFilter;
 
 #[derive(Parser, Debug)]
-#[command(name = "ecc", version, about = "ECC 2.0 — Agentic IDE control plane")]
+#[command(name = "poweruser", version, about = "PowerUser 2.0 — Agentic IDE control plane")]
 struct Cli {
     #[command(subcommand)]
     command: Option<Commands>,
@@ -121,10 +121,10 @@ enum Commands {
         /// Task description for the agent
         #[arg(short, long)]
         task: String,
-        /// Agent type (defaults to `default_agent` from ecc2.toml)
+        /// Agent type (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
-        /// Agent profile defined in ecc2.toml
+        /// Agent profile defined in poweruser2.toml
         #[arg(long)]
         profile: Option<String>,
         #[command(flatten)]
@@ -140,10 +140,10 @@ enum Commands {
         /// Task description for the delegated session
         #[arg(short, long)]
         task: Option<String>,
-        /// Agent type (defaults to `default_agent` from ecc2.toml)
+        /// Agent type (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
-        /// Agent profile defined in ecc2.toml
+        /// Agent profile defined in poweruser2.toml
         #[arg(long)]
         profile: Option<String>,
         #[command(flatten)]
@@ -151,7 +151,7 @@ enum Commands {
     },
     /// Launch a named orchestration template
     Template {
-        /// Template name defined in ecc2.toml
+        /// Template name defined in poweruser2.toml
         name: String,
         /// Optional task injected into the template context
         #[arg(short, long)]
@@ -170,10 +170,10 @@ enum Commands {
         /// Task description for the assignment
         #[arg(short, long)]
         task: String,
-        /// Agent type (defaults to `default_agent` from ecc2.toml)
+        /// Agent type (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
-        /// Agent profile defined in ecc2.toml
+        /// Agent profile defined in poweruser2.toml
         #[arg(long)]
         profile: Option<String>,
         #[command(flatten)]
@@ -183,7 +183,7 @@ enum Commands {
     DrainInbox {
         /// Lead session ID or alias
         session_id: String,
-        /// Agent type for routed delegates (defaults to `default_agent` from ecc2.toml)
+        /// Agent type for routed delegates (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
         #[command(flatten)]
@@ -194,7 +194,7 @@ enum Commands {
     },
     /// Sweep unread task handoffs across lead sessions and route them through the assignment policy
     AutoDispatch {
-        /// Agent type for routed delegates (defaults to `default_agent` from ecc2.toml)
+        /// Agent type for routed delegates (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
         #[command(flatten)]
@@ -205,7 +205,7 @@ enum Commands {
     },
     /// Dispatch unread handoffs, then rebalance delegate backlog across lead teams
     CoordinateBacklog {
-        /// Agent type for routed delegates (defaults to `default_agent` from ecc2.toml)
+        /// Agent type for routed delegates (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
         #[command(flatten)]
@@ -237,7 +237,7 @@ enum Commands {
     },
     /// Coordinate only when backlog pressure actually needs work
     MaintainCoordination {
-        /// Agent type for routed delegates (defaults to `default_agent` from ecc2.toml)
+        /// Agent type for routed delegates (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
         #[command(flatten)]
@@ -257,7 +257,7 @@ enum Commands {
     },
     /// Rebalance unread handoffs across lead teams with backed-up delegates
     RebalanceAll {
-        /// Agent type for routed delegates (defaults to `default_agent` from ecc2.toml)
+        /// Agent type for routed delegates (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
         #[command(flatten)]
@@ -270,7 +270,7 @@ enum Commands {
     RebalanceTeam {
         /// Lead session ID or alias
         session_id: String,
-        /// Agent type for routed delegates (defaults to `default_agent` from ecc2.toml)
+        /// Agent type for routed delegates (defaults to `default_agent` from poweruser2.toml)
         #[arg(short, long)]
         agent: Option<String>,
         #[command(flatten)]
@@ -390,7 +390,7 @@ enum Commands {
         #[command(subcommand)]
         command: GraphCommands,
     },
-    /// Audit Hermes/OpenClaw-style workspaces and map them onto ECC2
+    /// Audit Hermes/OpenClaw-style workspaces and map them onto PowerUser2
     Migrate {
         #[command(subcommand)]
         command: MigrationCommands,
@@ -523,7 +523,7 @@ enum ScheduleCommands {
         /// Agent type (claude, codex, gemini, opencode)
         #[arg(short, long)]
         agent: Option<String>,
-        /// Agent profile defined in ecc2.toml
+        /// Agent profile defined in poweruser2.toml
         #[arg(long)]
         profile: Option<String>,
         #[command(flatten)]
@@ -573,10 +573,10 @@ enum RemoteCommands {
         /// Task priority
         #[arg(long, value_enum, default_value_t = TaskPriorityArg::Normal)]
         priority: TaskPriorityArg,
-        /// Agent type (defaults to ECC default agent)
+        /// Agent type (defaults to PowerUser default agent)
         #[arg(short, long)]
         agent: Option<String>,
-        /// Agent profile defined in ecc2.toml
+        /// Agent profile defined in poweruser2.toml
         #[arg(long)]
         profile: Option<String>,
         #[command(flatten)]
@@ -608,10 +608,10 @@ enum RemoteCommands {
         /// Task priority
         #[arg(long, value_enum, default_value_t = TaskPriorityArg::Normal)]
         priority: TaskPriorityArg,
-        /// Agent type override (defaults to [computer_use_dispatch] or ECC default agent)
+        /// Agent type override (defaults to [computer_use_dispatch] or PowerUser default agent)
         #[arg(short, long)]
         agent: Option<String>,
-        /// Agent profile override (defaults to [computer_use_dispatch] or ECC default profile)
+        /// Agent profile override (defaults to [computer_use_dispatch] or PowerUser default profile)
         #[arg(long)]
         profile: Option<String>,
         #[command(flatten)]
@@ -660,7 +660,7 @@ enum RemoteCommands {
 
 #[derive(clap::Subcommand, Debug)]
 enum MigrationCommands {
-    /// Audit a Hermes/OpenClaw-style workspace and map it onto ECC2 features
+    /// Audit a Hermes/OpenClaw-style workspace and map it onto PowerUser2 features
     Audit {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
@@ -669,7 +669,7 @@ enum MigrationCommands {
         #[arg(long)]
         json: bool,
     },
-    /// Generate an actionable ECC2 migration plan from a legacy workspace audit
+    /// Generate an actionable PowerUser2 migration plan from a legacy workspace audit
     Plan {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
@@ -693,19 +693,19 @@ enum MigrationCommands {
         #[arg(long)]
         json: bool,
     },
-    /// Import recurring jobs from a legacy cron/jobs.json into ECC2 schedules
+    /// Import recurring jobs from a legacy cron/jobs.json into PowerUser2 schedules
     ImportSchedules {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
         source: PathBuf,
-        /// Preview detected jobs without creating ECC2 schedules
+        /// Preview detected jobs without creating PowerUser2 schedules
         #[arg(long)]
         dry_run: bool,
         /// Emit machine-readable JSON instead of the human summary
         #[arg(long)]
         json: bool,
     },
-    /// Import legacy workspace memory into the ECC2 context graph
+    /// Import legacy workspace memory into the PowerUser2 context graph
     ImportMemory {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
@@ -717,12 +717,12 @@ enum MigrationCommands {
         #[arg(long)]
         json: bool,
     },
-    /// Import safe legacy env/service config context into the ECC2 context graph
+    /// Import safe legacy env/service config context into the PowerUser2 context graph
     ImportEnv {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
         source: PathBuf,
-        /// Preview detected importable sources without writing to the ECC2 graph
+        /// Preview detected importable sources without writing to the PowerUser2 graph
         #[arg(long)]
         dry_run: bool,
         /// Maximum imported records across all synthesized connectors
@@ -732,48 +732,48 @@ enum MigrationCommands {
         #[arg(long)]
         json: bool,
     },
-    /// Scaffold ECC-native orchestration templates from legacy skill markdown
+    /// Scaffold PowerUser-native orchestration templates from legacy skill markdown
     ImportSkills {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
         source: PathBuf,
-        /// Directory where imported ECC2 skill artifacts should be written
+        /// Directory where imported PowerUser2 skill artifacts should be written
         #[arg(long)]
         output_dir: PathBuf,
         /// Emit machine-readable JSON instead of the human summary
         #[arg(long)]
         json: bool,
     },
-    /// Scaffold ECC-native templates from legacy tool scripts
+    /// Scaffold PowerUser-native templates from legacy tool scripts
     ImportTools {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
         source: PathBuf,
-        /// Directory where imported ECC2 tool artifacts should be written
+        /// Directory where imported PowerUser2 tool artifacts should be written
         #[arg(long)]
         output_dir: PathBuf,
         /// Emit machine-readable JSON instead of the human summary
         #[arg(long)]
         json: bool,
     },
-    /// Scaffold ECC-native templates from legacy bridge plugins
+    /// Scaffold PowerUser-native templates from legacy bridge plugins
     ImportPlugins {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
         source: PathBuf,
-        /// Directory where imported ECC2 plugin artifacts should be written
+        /// Directory where imported PowerUser2 plugin artifacts should be written
         #[arg(long)]
         output_dir: PathBuf,
         /// Emit machine-readable JSON instead of the human summary
         #[arg(long)]
         json: bool,
     },
-    /// Import legacy gateway/dispatch tasks into the ECC2 remote queue
+    /// Import legacy gateway/dispatch tasks into the PowerUser2 remote queue
     ImportRemote {
         /// Path to the legacy Hermes/OpenClaw workspace root
         #[arg(long)]
         source: PathBuf,
-        /// Preview detected requests without creating ECC2 remote queue entries
+        /// Preview detected requests without creating PowerUser2 remote queue entries
         #[arg(long)]
         dry_run: bool,
         /// Emit machine-readable JSON instead of the human summary
@@ -927,7 +927,7 @@ enum GraphCommands {
     },
     /// Import external memory from a configured connector
     ConnectorSync {
-        /// Connector name from ecc2.toml
+        /// Connector name from poweruser2.toml
         #[arg(required_unless_present = "all", conflicts_with = "all")]
         name: Option<String>,
         /// Sync every configured memory connector
@@ -2889,7 +2889,7 @@ async fn main() -> Result<()> {
             }
         },
         Some(Commands::Daemon) => {
-            println!("Starting ECC daemon...");
+            println!("Starting PowerUser daemon...");
             session::daemon::run(db, cfg).await?;
         }
         Some(Commands::RunSession {
@@ -4591,17 +4591,17 @@ fn build_worktree_resolution_report(
     let resolution_steps = if conflicted {
         vec![
             format!(
-                "Inspect current patch: ecc worktree-status {} --patch",
+                "Inspect current patch: poweruser worktree-status {} --patch",
                 session.id
             ),
             format!("Open worktree: cd {}", worktree.path.display()),
             "Resolve conflicts and stage files: git add <paths>".to_string(),
             format!("Commit the resolution on {}: git commit", worktree.branch),
             format!(
-                "Re-check readiness: ecc worktree-status {} --check",
+                "Re-check readiness: poweruser worktree-status {} --check",
                 session.id
             ),
-            format!("Merge when clear: ecc merge-worktree {}", session.id),
+            format!("Merge when clear: poweruser merge-worktree {}", session.id),
         ]
     } else {
         Vec::new()
@@ -5148,15 +5148,15 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
             detected_items: scheduler_paths.len(),
             source_paths: scheduler_paths,
             mapping: vec![
-                "ecc schedule add".to_string(),
-                "ecc schedule list".to_string(),
-                "ecc schedule run-due".to_string(),
-                "ecc daemon".to_string(),
+                "poweruser schedule add".to_string(),
+                "poweruser schedule list".to_string(),
+                "poweruser schedule run-due".to_string(),
+                "poweruser daemon".to_string(),
             ],
             notes: vec![
-                "Recurring jobs can be recreated directly in ECC2's persistent scheduler."
+                "Recurring jobs can be recreated directly in PowerUser2's persistent scheduler."
                     .to_string(),
-                "Translate each legacy cron prompt into an explicit ECC task body before enabling it."
+                "Translate each legacy cron prompt into an explicit PowerUser task body before enabling it."
                     .to_string(),
             ],
         });
@@ -5170,15 +5170,15 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
             detected_items: count_files_recursive(&gateway_dir)?,
             source_paths: vec!["gateway".to_string()],
             mapping: vec![
-                "ecc remote serve".to_string(),
-                "ecc remote add".to_string(),
-                "ecc remote computer-use".to_string(),
-                "ecc remote run".to_string(),
+                "poweruser remote serve".to_string(),
+                "poweruser remote add".to_string(),
+                "poweruser remote computer-use".to_string(),
+                "poweruser remote run".to_string(),
             ],
             notes: vec![
-                "ECC2 already ships a token-authenticated remote dispatch queue and HTTP intake."
+                "PowerUser2 already ships a token-authenticated remote dispatch queue and HTTP intake."
                     .to_string(),
-                "Remote handlers should be translated to ECC task bodies instead of copied verbatim."
+                "Remote handlers should be translated to PowerUser task bodies instead of copied verbatim."
                     .to_string(),
             ],
         });
@@ -5192,13 +5192,13 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
             detected_items: memory_paths.len(),
             source_paths: memory_paths,
             mapping: vec![
-                "ecc graph add-observation".to_string(),
-                "ecc graph connector-sync".to_string(),
-                "ecc graph recall".to_string(),
-                "ecc graph connectors".to_string(),
+                "poweruser graph add-observation".to_string(),
+                "poweruser graph connector-sync".to_string(),
+                "poweruser graph recall".to_string(),
+                "poweruser graph connectors".to_string(),
             ],
             notes: vec![
-                "ECC2 deep memory now supports persistent observations, recall, compaction, and external connectors."
+                "PowerUser2 deep memory now supports persistent observations, recall, compaction, and external connectors."
                     .to_string(),
             ],
         });
@@ -5212,8 +5212,8 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
             detected_items: count_files_recursive(&workspace_dir)?,
             source_paths: vec!["workspace".to_string()],
             mapping: vec![
-                "ecc graph connector-sync".to_string(),
-                "ecc graph recall".to_string(),
+                "poweruser graph connector-sync".to_string(),
+                "poweruser graph recall".to_string(),
             ],
             notes: vec![
                 "Import only sanitized operator memory into the shared context graph."
@@ -5224,7 +5224,7 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
         });
     }
 
-    let skills_paths = collect_existing_relative_paths(&source, &["skills", "skills/ecc-imports"]);
+    let skills_paths = collect_existing_relative_paths(&source, &["skills", "skills/poweruser-imports"]);
     if !skills_paths.is_empty() {
         artifacts.push(LegacyMigrationArtifact {
             category: "skills".to_string(),
@@ -5233,11 +5233,11 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
             source_paths: skills_paths,
             mapping: vec![
                 "skills/".to_string(),
-                "ecc template".to_string(),
-                "configure-ecc".to_string(),
+                "poweruser template".to_string(),
+                "configure-poweruser".to_string(),
             ],
             notes: vec![
-                "Reusable skills should be ported one by one into ECC-native skills or orchestration templates."
+                "Reusable skills should be ported one by one into PowerUser-native skills or orchestration templates."
                     .to_string(),
                 "Do not bulk-copy legacy private skills without auditing for secrets and operator-only assumptions."
                     .to_string(),
@@ -5259,7 +5259,7 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
                 "harness_runners.<name>".to_string(),
             ],
             notes: vec![
-                "Legacy tool wrappers should be rebuilt as ECC agents, commands, hooks, or configured harness runners."
+                "Legacy tool wrappers should be rebuilt as PowerUser agents, commands, hooks, or configured harness runners."
                     .to_string(),
                 "Only the reusable workflow surface should move across; opaque runtime glue should be reimplemented minimally."
                     .to_string(),
@@ -5280,7 +5280,7 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
                 "skills/".to_string(),
             ],
             notes: vec![
-                "Bridge plugins normally translate into ECC hooks, commands, or skills instead of one-for-one plugin copies."
+                "Bridge plugins normally translate into PowerUser hooks, commands, or skills instead of one-for-one plugin copies."
                     .to_string(),
             ],
         });
@@ -5299,7 +5299,7 @@ fn build_legacy_migration_audit_report(source: &Path) -> Result<LegacyMigrationA
                 "local API key setup".to_string(),
             ],
             notes: vec![
-                "Secret material should not be imported into ECC2."
+                "Secret material should not be imported into PowerUser2."
                     .to_string(),
                 "Re-enter credentials locally through connectors, OAuth, MCP servers, or local env configuration."
                     .to_string(),
@@ -5415,43 +5415,43 @@ fn build_legacy_migration_next_steps(artifacts: &[LegacyMigrationArtifact]) -> V
 
     if categories.contains("scheduler") {
         steps.push(
-            "Recreate recurring jobs with `ecc schedule add`, verify them with `ecc schedule list`, then enable processing through `ecc daemon`."
+            "Recreate recurring jobs with `poweruser schedule add`, verify them with `poweruser schedule list`, then enable processing through `poweruser daemon`."
                 .to_string(),
         );
     }
     if categories.contains("gateway_dispatch") {
         steps.push(
-            "Replace gateway/dispatch entrypoints with `ecc remote serve`, preview/import legacy requests with `ecc migrate import-remote`, then verify them with `ecc remote list` / `ecc remote run`."
+            "Replace gateway/dispatch entrypoints with `poweruser remote serve`, preview/import legacy requests with `poweruser migrate import-remote`, then verify them with `poweruser remote list` / `poweruser remote run`."
                 .to_string(),
         );
     }
     if categories.contains("memory_tool") || categories.contains("workspace_memory") {
         steps.push(
-            "Import sanitized operator memory through `ecc graph connector-sync`, then use `ecc graph recall` and pinned observations for durable context."
+            "Import sanitized operator memory through `poweruser graph connector-sync`, then use `poweruser graph recall` and pinned observations for durable context."
                 .to_string(),
         );
     }
     if categories.contains("skills") {
         steps.push(
-            "Scaffold translated legacy skills with `ecc migrate import-skills --source <legacy-workspace> --output-dir <dir>`, then promote the reusable ones into ECC skills or orchestration templates one lane at a time instead of bulk-copying them."
+            "Scaffold translated legacy skills with `poweruser migrate import-skills --source <legacy-workspace> --output-dir <dir>`, then promote the reusable ones into PowerUser skills or orchestration templates one lane at a time instead of bulk-copying them."
                 .to_string(),
         );
     }
     if categories.contains("tools") {
         steps.push(
-            "Scaffold translated legacy tools with `ecc migrate import-tools --source <legacy-workspace> --output-dir <dir>`, then rebuild the valuable ones as ECC-native commands, hooks, or harness runners instead of shelling back out to the old stack."
+            "Scaffold translated legacy tools with `poweruser migrate import-tools --source <legacy-workspace> --output-dir <dir>`, then rebuild the valuable ones as PowerUser-native commands, hooks, or harness runners instead of shelling back out to the old stack."
                 .to_string(),
         );
     }
     if categories.contains("plugins") {
         steps.push(
-            "Scaffold translated bridge plugins with `ecc migrate import-plugins --source <legacy-workspace> --output-dir <dir>`, then port the valuable ones into ECC-native hooks, commands, or skills."
+            "Scaffold translated bridge plugins with `poweruser migrate import-plugins --source <legacy-workspace> --output-dir <dir>`, then port the valuable ones into PowerUser-native hooks, commands, or skills."
                 .to_string(),
         );
     }
     if categories.contains("env_services") {
         steps.push(
-            "Preview safe env/service context with `ecc migrate import-env --source <legacy-workspace> --dry-run`, then reconfigure credentials locally through Claude connectors, MCP config, OAuth, or local API key setup without importing raw secret material."
+            "Preview safe env/service context with `poweruser migrate import-env --source <legacy-workspace> --dry-run`, then reconfigure credentials locally through Claude connectors, MCP config, OAuth, or local API key setup without importing raw secret material."
                 .to_string(),
         );
     }
@@ -5981,7 +5981,7 @@ fn build_legacy_schedule_add_command(draft: &LegacyScheduleDraft) -> Option<Stri
     let cron_expr = draft.cron_expr.as_deref()?;
     let task = draft.task.as_deref()?;
     let mut parts = vec![
-        "ecc schedule add".to_string(),
+        "poweruser schedule add".to_string(),
         format!("--cron {}", shell_quote_double(cron_expr)),
         format!("--task {}", shell_quote_double(task)),
     ];
@@ -6370,7 +6370,7 @@ fn import_legacy_skills(source: &Path, output_dir: &Path) -> Result<LegacySkillI
         );
     }
 
-    let templates_path = output_dir.join("ecc2.imported-skills.toml");
+    let templates_path = output_dir.join("poweruser2.imported-skills.toml");
     fs::write(
         &templates_path,
         toml::to_string_pretty(&LegacySkillTemplateFile {
@@ -6591,7 +6591,7 @@ fn import_legacy_tools(source: &Path, output_dir: &Path) -> Result<LegacyToolImp
                 steps: vec![config::OrchestrationTemplateStepConfig {
                     name: Some("operator".to_string()),
                     task: format!(
-                        "Use the migrated legacy tool context from {}.\nSuggested ECC target surface: {}\nLegacy tool title: {}\nLegacy summary: {}\nLegacy excerpt:\n{}\nRebuild or wrap that behavior as an ECC-native {} for {{{{task}}}}.",
+                        "Use the migrated legacy tool context from {}.\nSuggested PowerUser target surface: {}\nLegacy tool title: {}\nLegacy summary: {}\nLegacy excerpt:\n{}\nRebuild or wrap that behavior as an PowerUser-native {} for {{{{task}}}}.",
                         draft.source_path,
                         draft.suggested_surface,
                         draft.title,
@@ -6609,7 +6609,7 @@ fn import_legacy_tools(source: &Path, output_dir: &Path) -> Result<LegacyToolImp
         );
     }
 
-    let templates_path = output_dir.join("ecc2.imported-tools.toml");
+    let templates_path = output_dir.join("poweruser2.imported-tools.toml");
     fs::write(
         &templates_path,
         toml::to_string_pretty(&LegacyToolTemplateFile {
@@ -6877,7 +6877,7 @@ fn import_legacy_plugins(source: &Path, output_dir: &Path) -> Result<LegacyPlugi
                 steps: vec![config::OrchestrationTemplateStepConfig {
                     name: Some("operator".to_string()),
                     task: format!(
-                        "Use the migrated legacy plugin context from {}.\nSuggested ECC target surface: {}\nLegacy plugin title: {}\nLegacy summary: {}\nLegacy excerpt:\n{}\nPort that behavior into an ECC-native {} for {{{{task}}}}.",
+                        "Use the migrated legacy plugin context from {}.\nSuggested PowerUser target surface: {}\nLegacy plugin title: {}\nLegacy summary: {}\nLegacy excerpt:\n{}\nPort that behavior into an PowerUser-native {} for {{{{task}}}}.",
                         draft.source_path,
                         draft.suggested_surface,
                         draft.title,
@@ -6895,7 +6895,7 @@ fn import_legacy_plugins(source: &Path, output_dir: &Path) -> Result<LegacyPlugi
         );
     }
 
-    let templates_path = output_dir.join("ecc2.imported-plugins.toml");
+    let templates_path = output_dir.join("poweruser2.imported-plugins.toml");
     fs::write(
         &templates_path,
         toml::to_string_pretty(&LegacyPluginTemplateFile {
@@ -7027,7 +7027,7 @@ fn build_legacy_remote_add_command(draft: &LegacyRemoteDispatchDraft) -> Option<
         session::RemoteDispatchKind::Standard => {
             let task = draft.task.as_deref()?;
             let mut parts = vec![
-                "ecc remote add".to_string(),
+                "poweruser remote add".to_string(),
                 format!("--task {}", shell_quote_double(task)),
             ];
             if let Some(target_session) = draft.target_session.as_deref() {
@@ -7064,7 +7064,7 @@ fn build_legacy_remote_add_command(draft: &LegacyRemoteDispatchDraft) -> Option<
         session::RemoteDispatchKind::ComputerUse => {
             let goal = draft.goal.as_deref()?;
             let mut parts = vec![
-                "ecc remote computer-use".to_string(),
+                "poweruser remote computer-use".to_string(),
                 format!("--goal {}", shell_quote_double(goal)),
             ];
             if let Some(target_url) = draft.target_url.as_deref() {
@@ -7312,19 +7312,19 @@ fn build_legacy_migration_plan_report(
             "scheduler" => LegacyMigrationPlanStep {
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
-                title: "Recreate Hermes/OpenClaw recurring jobs in ECC2 scheduler".to_string(),
-                target_surface: "ECC2 scheduler".to_string(),
+                title: "Recreate Hermes/OpenClaw recurring jobs in PowerUser2 scheduler".to_string(),
+                target_surface: "PowerUser2 scheduler".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: if schedule_commands.is_empty() {
                     vec![
-                        "ecc schedule add --cron \"<legacy-cron>\" --task \"Translate legacy recurring job from cron/scheduler.py\"".to_string(),
-                        "ecc schedule list".to_string(),
-                        "ecc daemon".to_string(),
+                        "poweruser schedule add --cron \"<legacy-cron>\" --task \"Translate legacy recurring job from cron/scheduler.py\"".to_string(),
+                        "poweruser schedule list".to_string(),
+                        "poweruser daemon".to_string(),
                     ]
                 } else {
                     let mut commands = schedule_commands.clone();
-                    commands.push("ecc schedule list".to_string());
-                    commands.push("ecc daemon".to_string());
+                    commands.push("poweruser schedule list".to_string());
+                    commands.push("poweruser daemon".to_string());
                     commands
                 },
                 config_snippets: Vec::new(),
@@ -7338,7 +7338,7 @@ fn build_legacy_migration_plan_report(
                     }
                     if disabled_schedule_jobs > 0 {
                         notes.push(format!(
-                            "{disabled_schedule_jobs} legacy recurring job(s) are disabled and were left out of generated ECC2 commands."
+                            "{disabled_schedule_jobs} legacy recurring job(s) are disabled and were left out of generated PowerUser2 commands."
                         ));
                     }
                     if invalid_schedule_jobs > 0 {
@@ -7352,22 +7352,22 @@ fn build_legacy_migration_plan_report(
             "gateway_dispatch" => LegacyMigrationPlanStep {
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
-                title: "Replace legacy gateway intake with ECC2 remote dispatch".to_string(),
-                target_surface: "ECC2 remote dispatch".to_string(),
+                title: "Replace legacy gateway intake with PowerUser2 remote dispatch".to_string(),
+                target_surface: "PowerUser2 remote dispatch".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: if remote_commands.is_empty() {
                     vec![
-                        "ecc remote serve --bind 127.0.0.1:8787 --token <token>".to_string(),
-                        "ecc remote add --task \"Translate legacy dispatch workflow\"".to_string(),
-                        "ecc remote computer-use --goal \"Translate legacy browser/operator flow\"".to_string(),
+                        "poweruser remote serve --bind 127.0.0.1:8787 --token <token>".to_string(),
+                        "poweruser remote add --task \"Translate legacy dispatch workflow\"".to_string(),
+                        "poweruser remote computer-use --goal \"Translate legacy browser/operator flow\"".to_string(),
                     ]
                 } else {
                     let mut commands = vec![
-                        "ecc remote serve --bind 127.0.0.1:8787 --token <token>".to_string(),
+                        "poweruser remote serve --bind 127.0.0.1:8787 --token <token>".to_string(),
                     ];
                     commands.extend(remote_commands.clone());
-                    commands.push("ecc remote list".to_string());
-                    commands.push("ecc remote run".to_string());
+                    commands.push("poweruser remote list".to_string());
+                    commands.push("poweruser remote run".to_string());
                     commands
                 },
                 config_snippets: Vec::new(),
@@ -7381,7 +7381,7 @@ fn build_legacy_migration_plan_report(
                     }
                     if disabled_remote_requests > 0 {
                         notes.push(format!(
-                            "{disabled_remote_requests} legacy remote dispatch request(s) are disabled and were left out of generated ECC2 commands."
+                            "{disabled_remote_requests} legacy remote dispatch request(s) are disabled and were left out of generated PowerUser2 commands."
                         ));
                     }
                     if invalid_remote_requests > 0 {
@@ -7395,13 +7395,13 @@ fn build_legacy_migration_plan_report(
             "memory_tool" => LegacyMigrationPlanStep {
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
-                title: "Port legacy memory tool usage to ECC2 deep memory".to_string(),
-                target_surface: "ECC2 context graph".to_string(),
+                title: "Port legacy memory tool usage to PowerUser2 deep memory".to_string(),
+                target_surface: "PowerUser2 context graph".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: vec![
-                    "ecc graph add-observation --entity-id <id> --type migration_note --summary \"Imported legacy memory pattern\"".to_string(),
-                    "ecc graph recall \"<query>\"".to_string(),
-                    "ecc graph connectors".to_string(),
+                    "poweruser graph add-observation --entity-id <id> --type migration_note --summary \"Imported legacy memory pattern\"".to_string(),
+                    "poweruser graph recall \"<query>\"".to_string(),
+                    "poweruser graph connectors".to_string(),
                 ],
                 config_snippets: Vec::new(),
                 notes: artifact.notes.clone(),
@@ -7409,12 +7409,12 @@ fn build_legacy_migration_plan_report(
             "workspace_memory" => LegacyMigrationPlanStep {
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
-                title: "Import sanitized workspace memory through ECC2 connectors".to_string(),
-                target_surface: "ECC2 memory connectors".to_string(),
+                title: "Import sanitized workspace memory through PowerUser2 connectors".to_string(),
+                target_surface: "PowerUser2 memory connectors".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: vec![
-                    "ecc graph connector-sync hermes_workspace".to_string(),
-                    "ecc graph recall \"<query>\"".to_string(),
+                    "poweruser graph connector-sync hermes_workspace".to_string(),
+                    "poweruser graph recall \"<query>\"".to_string(),
                 ],
                 config_snippets: vec![format!(
                     "[memory_connectors.hermes_workspace]\nkind = \"markdown_directory\"\npath = \"{}\"\nrecurse = true\ndefault_entity_type = \"legacy_workspace_note\"\ndefault_observation_type = \"legacy_workspace_memory\"",
@@ -7425,15 +7425,15 @@ fn build_legacy_migration_plan_report(
             "skills" => LegacyMigrationPlanStep {
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
-                title: "Translate reusable legacy skills into ECC-native surfaces".to_string(),
-                target_surface: "ECC skills / orchestration templates".to_string(),
+                title: "Translate reusable legacy skills into PowerUser-native surfaces".to_string(),
+                target_surface: "PowerUser skills / orchestration templates".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: vec![
                     format!(
-                        "ecc migrate import-skills --source {} --output-dir migration-artifacts/skills",
+                        "poweruser migrate import-skills --source {} --output-dir migration-artifacts/skills",
                         shell_quote_double(&audit.source)
                     ),
-                    "ecc template <template-name> --task \"<translated workflow goal>\"".to_string(),
+                    "poweruser template <template-name> --task \"<translated workflow goal>\"".to_string(),
                 ],
                 config_snippets: vec![
                     "[orchestration_templates.legacy_workflow]\nproject = \"legacy-migration\"\ntask_group = \"legacy workflow\"\nagent = \"claude\"\nworktree = false\n\n[[orchestration_templates.legacy_workflow.steps]]\nname = \"operator\"\ntask = \"Translate and run the legacy workflow for {{task}}\"".to_string(),
@@ -7443,15 +7443,15 @@ fn build_legacy_migration_plan_report(
             "tools" => LegacyMigrationPlanStep {
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
-                title: "Rebuild valuable legacy tools as ECC agents, hooks, commands, or harness runners".to_string(),
-                target_surface: "ECC agents / hooks / commands / harness runners".to_string(),
+                title: "Rebuild valuable legacy tools as PowerUser agents, hooks, commands, or harness runners".to_string(),
+                target_surface: "PowerUser agents / hooks / commands / harness runners".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: vec![
                     format!(
-                        "ecc migrate import-tools --source {} --output-dir migration-artifacts/tools",
+                        "poweruser migrate import-tools --source {} --output-dir migration-artifacts/tools",
                         shell_quote_double(&audit.source)
                     ),
-                    "ecc template <template-name> --task \"Rebuild one legacy tool as an ECC-native command, hook, or harness runner\"".to_string(),
+                    "poweruser template <template-name> --task \"Rebuild one legacy tool as an PowerUser-native command, hook, or harness runner\"".to_string(),
                 ],
                 config_snippets: vec![
                     "[harness_runners.legacy-runner]\nprogram = \"<runner-binary>\"\nbase_args = []\nproject_markers = [\".legacy-runner\"]".to_string(),
@@ -7461,15 +7461,15 @@ fn build_legacy_migration_plan_report(
             "plugins" => LegacyMigrationPlanStep {
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
-                title: "Translate legacy bridge plugins into ECC-native automation".to_string(),
-                target_surface: "ECC hooks / commands / skills".to_string(),
+                title: "Translate legacy bridge plugins into PowerUser-native automation".to_string(),
+                target_surface: "PowerUser hooks / commands / skills".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: vec![
                     format!(
-                        "ecc migrate import-plugins --source {} --output-dir migration-artifacts/plugins",
+                        "poweruser migrate import-plugins --source {} --output-dir migration-artifacts/plugins",
                         shell_quote_double(&audit.source)
                     ),
-                    "ecc template <template-name> --task \"Port one bridge plugin behavior into an ECC hook, command, or skill\"".to_string(),
+                    "poweruser template <template-name> --task \"Port one bridge plugin behavior into an PowerUser hook, command, or skill\"".to_string(),
                 ],
                 config_snippets: Vec::new(),
                 notes: artifact.notes.clone(),
@@ -7482,17 +7482,17 @@ fn build_legacy_migration_plan_report(
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: vec![
                     format!(
-                        "ecc migrate import-env --source {} --dry-run",
+                        "poweruser migrate import-env --source {} --dry-run",
                         shell_quote_double(&audit.source)
                     ),
                     format!(
-                        "ecc migrate import-env --source {}",
+                        "poweruser migrate import-env --source {}",
                         shell_quote_double(&audit.source)
                     ),
-                    "ecc graph recall \"<service or env key>\"".to_string(),
+                    "poweruser graph recall \"<service or env key>\"".to_string(),
                 ],
                 config_snippets: vec![
-                    "# Re-enter connector auth locally; do not copy legacy secrets into ECC2.\n# Typical targets: Google Drive OAuth, GitHub, Stripe, Linear, browser creds.".to_string(),
+                    "# Re-enter connector auth locally; do not copy legacy secrets into PowerUser2.\n# Typical targets: Google Drive OAuth, GitHub, Stripe, Linear, browser creds.".to_string(),
                 ],
                 notes: artifact.notes.clone(),
             },
@@ -7500,7 +7500,7 @@ fn build_legacy_migration_plan_report(
                 category: artifact.category.clone(),
                 readiness: artifact.readiness,
                 title: format!("Review legacy {} surface", artifact.category),
-                target_surface: "Manual ECC2 translation".to_string(),
+                target_surface: "Manual PowerUser2 translation".to_string(),
                 source_paths: artifact.source_paths.clone(),
                 command_snippets: Vec::new(),
                 config_snippets: Vec::new(),
@@ -7530,7 +7530,7 @@ fn write_legacy_migration_scaffold(
     })?;
 
     let plan_path = output_dir.join("migration-plan.md");
-    let config_path = output_dir.join("ecc2.migration.toml");
+    let config_path = output_dir.join("poweruser2.migration.toml");
 
     fs::write(&plan_path, format_legacy_migration_plan_human(plan))
         .with_context(|| format!("write migration plan: {}", plan_path.display()))?;
@@ -7551,7 +7551,7 @@ fn write_legacy_migration_scaffold(
 fn render_legacy_migration_config_scaffold(plan: &LegacyMigrationPlanReport) -> String {
     let mut sections = vec![
         format!(
-            "# ECC2 migration scaffold generated from {}\n# Review every section before merging it into a real ecc2.toml.",
+            "# PowerUser2 migration scaffold generated from {}\n# Review every section before merging it into a real poweruser2.toml.",
             plan.source
         ),
     ];
@@ -8289,14 +8289,14 @@ fn build_otel_export(
         resource_spans: vec![OtlpResourceSpans {
             resource: OtlpResource {
                 attributes: vec![
-                    otlp_string_attr("service.name", "ecc2"),
+                    otlp_string_attr("service.name", "poweruser2"),
                     otlp_string_attr("service.version", env!("CARGO_PKG_VERSION")),
                     otlp_string_attr("telemetry.sdk.language", "rust"),
                 ],
             },
             scope_spans: vec![OtlpScopeSpans {
                 scope: OtlpInstrumentationScope {
-                    name: "ecc2".to_string(),
+                    name: "poweruser2".to_string(),
                     version: env!("CARGO_PKG_VERSION").to_string(),
                 },
                 spans,
@@ -8322,24 +8322,24 @@ fn build_session_otel_spans(
         start_time_unix_nano: otlp_timestamp_nanos(session.created_at),
         end_time_unix_nano: otlp_timestamp_nanos(session_end),
         attributes: vec![
-            otlp_string_attr("ecc.session.id", &session.id),
-            otlp_string_attr("ecc.session.state", &session.state.to_string()),
-            otlp_string_attr("ecc.agent.type", &session.agent_type),
-            otlp_string_attr("ecc.session.task", &session.task),
+            otlp_string_attr("poweruser.session.id", &session.id),
+            otlp_string_attr("poweruser.session.state", &session.state.to_string()),
+            otlp_string_attr("poweruser.agent.type", &session.agent_type),
+            otlp_string_attr("poweruser.session.task", &session.task),
             otlp_string_attr(
-                "ecc.working_dir",
+                "poweruser.working_dir",
                 session.working_dir.to_string_lossy().as_ref(),
             ),
-            otlp_int_attr("ecc.metrics.input_tokens", session.metrics.input_tokens),
-            otlp_int_attr("ecc.metrics.output_tokens", session.metrics.output_tokens),
-            otlp_int_attr("ecc.metrics.tokens_used", session.metrics.tokens_used),
-            otlp_int_attr("ecc.metrics.tool_calls", session.metrics.tool_calls),
+            otlp_int_attr("poweruser.metrics.input_tokens", session.metrics.input_tokens),
+            otlp_int_attr("poweruser.metrics.output_tokens", session.metrics.output_tokens),
+            otlp_int_attr("poweruser.metrics.tokens_used", session.metrics.tokens_used),
+            otlp_int_attr("poweruser.metrics.tool_calls", session.metrics.tool_calls),
             otlp_int_attr(
-                "ecc.metrics.files_changed",
+                "poweruser.metrics.files_changed",
                 u64::from(session.metrics.files_changed),
             ),
-            otlp_int_attr("ecc.metrics.duration_secs", session.metrics.duration_secs),
-            otlp_double_attr("ecc.metrics.cost_usd", session.metrics.cost_usd),
+            otlp_int_attr("poweruser.metrics.duration_secs", session.metrics.duration_secs),
+            otlp_double_attr("poweruser.metrics.cost_usd", session.metrics.cost_usd),
         ],
         links: parent_link
             .into_iter()
@@ -8347,7 +8347,7 @@ fn build_session_otel_spans(
                 trace_id: otlp_trace_id(&parent_session_id),
                 span_id: otlp_span_id(&format!("session:{parent_session_id}")),
                 attributes: vec![otlp_string_attr(
-                    "ecc.parent_session.id",
+                    "poweruser.parent_session.id",
                     &parent_session_id,
                 )],
             })
@@ -8370,7 +8370,7 @@ fn build_session_otel_spans(
             start_time_unix_nano: otlp_timestamp_nanos(span_start),
             end_time_unix_nano: otlp_timestamp_nanos(span_end),
             attributes: vec![
-                otlp_string_attr("ecc.session.id", &entry.session_id),
+                otlp_string_attr("poweruser.session.id", &entry.session_id),
                 otlp_string_attr("tool.name", &entry.tool_name),
                 otlp_string_attr("tool.input_summary", &entry.input_summary),
                 otlp_string_attr("tool.output_summary", &entry.output_summary),
@@ -8617,7 +8617,7 @@ mod tests {
     impl TestDir {
         fn new(label: &str) -> Result<Self> {
             let path =
-                std::env::temp_dir().join(format!("ecc2-main-{label}-{}", uuid::Uuid::new_v4()));
+                std::env::temp_dir().join(format!("poweruser2-main-{label}-{}", uuid::Uuid::new_v4()));
             fs::create_dir_all(&path)?;
             Ok(Self { path })
         }
@@ -8641,7 +8641,7 @@ mod tests {
             project: "workspace".to_string(),
             task_group: "general".to_string(),
             agent_type: "claude".to_string(),
-            working_dir: PathBuf::from("/tmp/ecc"),
+            working_dir: PathBuf::from("/tmp/poweruser"),
             state,
             pid: None,
             worktree: None,
@@ -8681,7 +8681,7 @@ mod tests {
     #[test]
     fn harness_eval_cli_requires_explicit_bounded_inputs() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "harness-eval",
             "run",
             "--candidate",
@@ -8717,7 +8717,7 @@ mod tests {
             other => panic!("unexpected command: {other:?}"),
         }
         assert!(Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "harness-eval",
             "run",
             "--candidate",
@@ -8789,7 +8789,7 @@ mod tests {
 
     #[test]
     fn cli_parses_resume_command() {
-        let cli = Cli::try_parse_from(["ecc", "resume", "deadbeef"])
+        let cli = Cli::try_parse_from(["poweruser", "resume", "deadbeef"])
             .expect("resume subcommand should parse");
 
         match cli.command {
@@ -8801,18 +8801,18 @@ mod tests {
     #[test]
     fn cli_parses_export_otel_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "export-otel",
             "worker-1234",
             "--output",
-            "/tmp/ecc-otel.json",
+            "/tmp/poweruser-otel.json",
         ])
         .expect("export-otel should parse");
 
         match cli.command {
             Some(Commands::ExportOtel { session_id, output }) => {
                 assert_eq!(session_id.as_deref(), Some("worker-1234"));
-                assert_eq!(output.as_deref(), Some(Path::new("/tmp/ecc-otel.json")));
+                assert_eq!(output.as_deref(), Some(Path::new("/tmp/poweruser-otel.json")));
             }
             _ => panic!("expected export-otel subcommand"),
         }
@@ -8821,7 +8821,7 @@ mod tests {
     #[test]
     fn cli_parses_messages_send_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "messages",
             "send",
             "--from",
@@ -8860,7 +8860,7 @@ mod tests {
     #[test]
     fn cli_parses_schedule_add_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "schedule",
             "add",
             "--cron",
@@ -8872,7 +8872,7 @@ mod tests {
             "--profile",
             "planner",
             "--project",
-            "ecc-core",
+            "poweruser-core",
             "--task-group",
             "scheduled maintenance",
         ])
@@ -8895,7 +8895,7 @@ mod tests {
                 assert_eq!(task, "Check backlog health");
                 assert_eq!(agent.as_deref(), Some("codex"));
                 assert_eq!(profile.as_deref(), Some("planner"));
-                assert_eq!(project.as_deref(), Some("ecc-core"));
+                assert_eq!(project.as_deref(), Some("poweruser-core"));
                 assert_eq!(task_group.as_deref(), Some("scheduled maintenance"));
             }
             _ => panic!("expected schedule add subcommand"),
@@ -8905,13 +8905,13 @@ mod tests {
     #[test]
     fn cli_parses_remote_computer_use_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "remote",
             "computer-use",
             "--goal",
             "Confirm the recovery banner",
             "--target-url",
-            "https://ecc.tools/account",
+            "https://poweruser.tools/account",
             "--context",
             "Use the production flow",
             "--priority",
@@ -8939,7 +8939,7 @@ mod tests {
                     },
             }) => {
                 assert_eq!(goal, "Confirm the recovery banner");
-                assert_eq!(target_url.as_deref(), Some("https://ecc.tools/account"));
+                assert_eq!(target_url.as_deref(), Some("https://poweruser.tools/account"));
                 assert_eq!(context.as_deref(), Some("Use the production flow"));
                 assert_eq!(priority, TaskPriorityArg::Critical);
                 assert_eq!(agent.as_deref(), Some("codex"));
@@ -8954,7 +8954,7 @@ mod tests {
     #[test]
     fn cli_parses_start_with_handoff_source() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "start",
             "--task",
             "Follow up",
@@ -8982,7 +8982,7 @@ mod tests {
 
     #[test]
     fn cli_parses_start_without_agent_override() {
-        let cli = Cli::try_parse_from(["ecc", "start", "--task", "Follow up"])
+        let cli = Cli::try_parse_from(["poweruser", "start", "--task", "Follow up"])
             .expect("start without --agent should parse");
 
         match cli.command {
@@ -8996,7 +8996,7 @@ mod tests {
 
     #[test]
     fn cli_parses_start_no_worktree_override() {
-        let cli = Cli::try_parse_from(["ecc", "start", "--task", "Follow up", "--no-worktree"])
+        let cli = Cli::try_parse_from(["poweruser", "start", "--task", "Follow up", "--no-worktree"])
             .expect("start --no-worktree should parse");
 
         match cli.command {
@@ -9011,7 +9011,7 @@ mod tests {
     #[test]
     fn cli_parses_delegate_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "delegate",
             "planner",
             "--task",
@@ -9038,7 +9038,7 @@ mod tests {
 
     #[test]
     fn cli_parses_delegate_worktree_override() {
-        let cli = Cli::try_parse_from(["ecc", "delegate", "planner", "--worktree"])
+        let cli = Cli::try_parse_from(["poweruser", "delegate", "planner", "--worktree"])
             .expect("delegate --worktree should parse");
 
         match cli.command {
@@ -9053,7 +9053,7 @@ mod tests {
     #[test]
     fn cli_parses_template_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "template",
             "feature_development",
             "--task",
@@ -9129,7 +9129,7 @@ mod tests {
 
     #[test]
     fn cli_parses_team_command() {
-        let cli = Cli::try_parse_from(["ecc", "team", "planner", "--depth", "3"])
+        let cli = Cli::try_parse_from(["poweruser", "team", "planner", "--depth", "3"])
             .expect("team should parse");
 
         match cli.command {
@@ -9143,7 +9143,7 @@ mod tests {
 
     #[test]
     fn cli_parses_worktree_status_command() {
-        let cli = Cli::try_parse_from(["ecc", "worktree-status", "planner"])
+        let cli = Cli::try_parse_from(["poweruser", "worktree-status", "planner"])
             .expect("worktree-status should parse");
 
         match cli.command {
@@ -9166,7 +9166,7 @@ mod tests {
 
     #[test]
     fn cli_parses_worktree_status_json_flag() {
-        let cli = Cli::try_parse_from(["ecc", "worktree-status", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "worktree-status", "--json"])
             .expect("worktree-status --json should parse");
 
         match cli.command {
@@ -9189,7 +9189,7 @@ mod tests {
 
     #[test]
     fn cli_parses_worktree_status_all_flag() {
-        let cli = Cli::try_parse_from(["ecc", "worktree-status", "--all"])
+        let cli = Cli::try_parse_from(["poweruser", "worktree-status", "--all"])
             .expect("worktree-status --all should parse");
 
         match cli.command {
@@ -9212,7 +9212,7 @@ mod tests {
 
     #[test]
     fn cli_parses_worktree_status_session_id_with_all_flag() {
-        let err = Cli::try_parse_from(["ecc", "worktree-status", "planner", "--all"])
+        let err = Cli::try_parse_from(["poweruser", "worktree-status", "planner", "--all"])
             .expect("worktree-status planner --all should parse");
 
         let command = err.command.expect("expected command");
@@ -9272,7 +9272,7 @@ mod tests {
 
     #[test]
     fn cli_parses_worktree_status_patch_flag() {
-        let cli = Cli::try_parse_from(["ecc", "worktree-status", "--patch"])
+        let cli = Cli::try_parse_from(["poweruser", "worktree-status", "--patch"])
             .expect("worktree-status --patch should parse");
 
         match cli.command {
@@ -9331,7 +9331,7 @@ mod tests {
         );
         assert_eq!(session_span.status.code, "STATUS_CODE_OK");
         assert_eq!(
-            attr_value(&session_span.attributes, "ecc.session.id")
+            attr_value(&session_span.attributes, "poweruser.session.id")
                 .and_then(|value| value.string_value.as_deref()),
             Some("session-1")
         );
@@ -9378,7 +9378,7 @@ mod tests {
             otlp_span_id("session:lead-1")
         );
         assert_eq!(
-            attr_value(&session_span.links[0].attributes, "ecc.parent_session.id")
+            attr_value(&session_span.links[0].attributes, "poweruser.parent_session.id")
                 .and_then(|value| value.string_value.as_deref()),
             Some("lead-1")
         );
@@ -9388,7 +9388,7 @@ mod tests {
 
     #[test]
     fn cli_parses_worktree_status_check_flag() {
-        let cli = Cli::try_parse_from(["ecc", "worktree-status", "--check"])
+        let cli = Cli::try_parse_from(["poweruser", "worktree-status", "--check"])
             .expect("worktree-status --check should parse");
 
         match cli.command {
@@ -9412,7 +9412,7 @@ mod tests {
     #[test]
     fn cli_parses_worktree_resolution_flags() {
         let cli =
-            Cli::try_parse_from(["ecc", "worktree-resolution", "planner", "--json", "--check"])
+            Cli::try_parse_from(["poweruser", "worktree-resolution", "planner", "--json", "--check"])
                 .expect("worktree-resolution flags should parse");
 
         match cli.command {
@@ -9433,7 +9433,7 @@ mod tests {
 
     #[test]
     fn cli_parses_worktree_resolution_all_flag() {
-        let cli = Cli::try_parse_from(["ecc", "worktree-resolution", "--all"])
+        let cli = Cli::try_parse_from(["poweruser", "worktree-resolution", "--all"])
             .expect("worktree-resolution --all should parse");
 
         match cli.command {
@@ -9454,7 +9454,7 @@ mod tests {
 
     #[test]
     fn cli_parses_prune_worktrees_json_flag() {
-        let cli = Cli::try_parse_from(["ecc", "prune-worktrees", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "prune-worktrees", "--json"])
             .expect("prune-worktrees --json should parse");
 
         match cli.command {
@@ -9468,7 +9468,7 @@ mod tests {
     #[test]
     fn cli_parses_merge_worktree_flags() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "merge-worktree",
             "deadbeef",
             "--json",
@@ -9494,7 +9494,7 @@ mod tests {
 
     #[test]
     fn cli_parses_merge_worktree_all_flags() {
-        let cli = Cli::try_parse_from(["ecc", "merge-worktree", "--all", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "merge-worktree", "--all", "--json"])
             .expect("merge-worktree --all --json should parse");
 
         match cli.command {
@@ -9515,7 +9515,7 @@ mod tests {
 
     #[test]
     fn cli_parses_merge_queue_json_flag() {
-        let cli = Cli::try_parse_from(["ecc", "merge-queue", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "merge-queue", "--json"])
             .expect("merge-queue --json should parse");
 
         match cli.command {
@@ -9529,7 +9529,7 @@ mod tests {
 
     #[test]
     fn cli_parses_merge_queue_apply_flag() {
-        let cli = Cli::try_parse_from(["ecc", "merge-queue", "--apply", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "merge-queue", "--apply", "--json"])
             .expect("merge-queue --apply --json should parse");
 
         match cli.command {
@@ -9551,8 +9551,8 @@ mod tests {
             check_exit_code: 2,
             patch_included: true,
             attached: true,
-            path: Some("/tmp/ecc/wt-1".to_string()),
-            branch: Some("ecc/deadbeefcafefeed".to_string()),
+            path: Some("/tmp/poweruser/wt-1".to_string()),
+            branch: Some("poweruser/deadbeefcafefeed".to_string()),
             base_branch: Some("main".to_string()),
             diff_summary: Some("Branch 1 file changed, 2 insertions(+)".to_string()),
             file_preview: vec!["Branch M README.md".to_string()],
@@ -9566,7 +9566,7 @@ mod tests {
 
         let text = format_worktree_status_human(&report);
         assert!(text.contains("Worktree status for deadbeef [running]"));
-        assert!(text.contains("Branch ecc/deadbeefcafefeed (base main)"));
+        assert!(text.contains("Branch poweruser/deadbeefcafefeed (base main)"));
         assert!(text.contains("Health conflicted"));
         assert!(text.contains("Branch M README.md"));
         assert!(text.contains("Merge blocked by 1 conflict(s): README.md"));
@@ -9584,14 +9584,14 @@ mod tests {
             attached: true,
             conflicted: true,
             check_exit_code: 2,
-            path: Some("/tmp/ecc/wt-1".to_string()),
-            branch: Some("ecc/deadbeefcafefeed".to_string()),
+            path: Some("/tmp/poweruser/wt-1".to_string()),
+            branch: Some("poweruser/deadbeefcafefeed".to_string()),
             base_branch: Some("main".to_string()),
             summary: "Merge blocked by 1 conflict(s): README.md".to_string(),
             conflicts: vec!["README.md".to_string()],
             resolution_steps: vec![
-                "Inspect current patch: ecc worktree-status deadbeefcafefeed --patch".to_string(),
-                "Open worktree: cd /tmp/ecc/wt-1".to_string(),
+                "Inspect current patch: poweruser worktree-status deadbeefcafefeed --patch".to_string(),
+                "Open worktree: cd /tmp/poweruser/wt-1".to_string(),
                 "Resolve conflicts and stage files: git add <paths>".to_string(),
             ],
         };
@@ -9628,8 +9628,8 @@ mod tests {
             attached: true,
             conflicted: true,
             check_exit_code: 2,
-            path: Some("/tmp/ecc/wt-2".to_string()),
-            branch: Some("ecc/conflicted".to_string()),
+            path: Some("/tmp/poweruser/wt-2".to_string()),
+            branch: Some("poweruser/conflicted".to_string()),
             base_branch: Some("main".to_string()),
             summary: "Merge blocked by 1 conflict(s): src/lib.rs".to_string(),
             conflicts: vec!["src/lib.rs".to_string()],
@@ -9660,14 +9660,14 @@ mod tests {
     fn format_worktree_merge_human_reports_merge_and_cleanup() {
         let text = format_worktree_merge_human(&session::manager::WorktreeMergeOutcome {
             session_id: "deadbeefcafefeed".to_string(),
-            branch: "ecc/deadbeef".to_string(),
+            branch: "poweruser/deadbeef".to_string(),
             base_branch: "main".to_string(),
             already_up_to_date: false,
             cleaned_worktree: true,
         });
 
         assert!(text.contains("Merged worktree for deadbeef"));
-        assert!(text.contains("Branch ecc/deadbeef -> main"));
+        assert!(text.contains("Branch poweruser/deadbeef -> main"));
         assert!(text.contains("Result merged into base"));
         assert!(text.contains("Cleanup removed worktree and branch"));
     }
@@ -9678,9 +9678,9 @@ mod tests {
             ready_entries: vec![session::manager::MergeQueueEntry {
                 session_id: "alpha1234".to_string(),
                 task: "merge alpha".to_string(),
-                project: "ecc".to_string(),
+                project: "poweruser".to_string(),
                 task_group: "checkout".to_string(),
-                branch: "ecc/alpha1234".to_string(),
+                branch: "poweruser/alpha1234".to_string(),
                 base_branch: "main".to_string(),
                 state: session::SessionState::Stopped,
                 worktree_health: worktree::WorktreeHealth::InProgress,
@@ -9693,9 +9693,9 @@ mod tests {
             blocked_entries: vec![session::manager::MergeQueueEntry {
                 session_id: "beta5678".to_string(),
                 task: "merge beta".to_string(),
-                project: "ecc".to_string(),
+                project: "poweruser".to_string(),
                 task_group: "checkout".to_string(),
-                branch: "ecc/beta5678".to_string(),
+                branch: "poweruser/beta5678".to_string(),
                 base_branch: "main".to_string(),
                 state: session::SessionState::Stopped,
                 worktree_health: worktree::WorktreeHealth::InProgress,
@@ -9704,7 +9704,7 @@ mod tests {
                 ready_to_merge: false,
                 blocked_by: vec![session::manager::MergeQueueBlocker {
                     session_id: "alpha1234".to_string(),
-                    branch: "ecc/alpha1234".to_string(),
+                    branch: "poweruser/alpha1234".to_string(),
                     state: session::SessionState::Stopped,
                     conflicts: vec!["README.md".to_string()],
                     summary: "merge after alpha1234 to avoid branch conflicts".to_string(),
@@ -9731,14 +9731,14 @@ mod tests {
         let text = format_bulk_worktree_merge_human(&session::manager::WorktreeBulkMergeOutcome {
             merged: vec![session::manager::WorktreeMergeOutcome {
                 session_id: "deadbeefcafefeed".to_string(),
-                branch: "ecc/deadbeefcafefeed".to_string(),
+                branch: "poweruser/deadbeefcafefeed".to_string(),
                 base_branch: "main".to_string(),
                 already_up_to_date: false,
                 cleaned_worktree: true,
             }],
             rebased: vec![session::manager::WorktreeRebaseOutcome {
                 session_id: "rebased12345678".to_string(),
-                branch: "ecc/rebased12345678".to_string(),
+                branch: "poweruser/rebased12345678".to_string(),
                 base_branch: "main".to_string(),
                 already_up_to_date: false,
             }],
@@ -9753,9 +9753,9 @@ mod tests {
         });
 
         assert!(text.contains("Merged 1 ready worktree(s)"));
-        assert!(text.contains("- merged ecc/deadbeefcafefeed -> main for deadbeef"));
+        assert!(text.contains("- merged poweruser/deadbeefcafefeed -> main for deadbeef"));
         assert!(text.contains("Rebased 1 blocked worktree(s) onto their base branch"));
-        assert!(text.contains("- rebased ecc/rebased12345678 onto main for rebased1"));
+        assert!(text.contains("- rebased poweruser/rebased12345678 onto main for rebased1"));
         assert!(text.contains("Skipped 1 active worktree session(s)"));
         assert!(text.contains("Skipped 1 conflicted worktree(s)"));
         assert!(text.contains("Skipped 1 dirty worktree(s)"));
@@ -9816,8 +9816,8 @@ mod tests {
             check_exit_code: 1,
             patch_included: false,
             attached: true,
-            path: Some("/tmp/ecc/wt-2".to_string()),
-            branch: Some("ecc/b".to_string()),
+            path: Some("/tmp/poweruser/wt-2".to_string()),
+            branch: Some("poweruser/b".to_string()),
             base_branch: Some("main".to_string()),
             diff_summary: Some("Branch 1 file changed".to_string()),
             file_preview: vec!["Branch M README.md".to_string()],
@@ -9836,8 +9836,8 @@ mod tests {
             check_exit_code: 2,
             patch_included: false,
             attached: true,
-            path: Some("/tmp/ecc/wt-3".to_string()),
-            branch: Some("ecc/c".to_string()),
+            path: Some("/tmp/poweruser/wt-3".to_string()),
+            branch: Some("poweruser/c".to_string()),
             base_branch: Some("main".to_string()),
             diff_summary: Some("Branch 1 file changed".to_string()),
             file_preview: vec!["Branch M README.md".to_string()],
@@ -9913,7 +9913,7 @@ mod tests {
     #[test]
     fn cli_parses_assign_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "assign",
             "lead",
             "--task",
@@ -9941,7 +9941,7 @@ mod tests {
     #[test]
     fn cli_parses_drain_inbox_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "drain-inbox",
             "lead",
             "--agent",
@@ -9969,7 +9969,7 @@ mod tests {
     #[test]
     fn cli_parses_auto_dispatch_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "auto-dispatch",
             "--agent",
             "claude",
@@ -9992,7 +9992,7 @@ mod tests {
     #[test]
     fn cli_parses_coordinate_backlog_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "coordinate-backlog",
             "--agent",
             "claude",
@@ -10023,7 +10023,7 @@ mod tests {
     #[test]
     fn cli_parses_coordinate_backlog_until_healthy_flags() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "coordinate-backlog",
             "--until-healthy",
             "--max-passes",
@@ -10048,7 +10048,7 @@ mod tests {
 
     #[test]
     fn cli_parses_coordinate_backlog_json_flag() {
-        let cli = Cli::try_parse_from(["ecc", "coordinate-backlog", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "coordinate-backlog", "--json"])
             .expect("coordinate-backlog --json should parse");
 
         match cli.command {
@@ -10070,7 +10070,7 @@ mod tests {
 
     #[test]
     fn cli_parses_coordinate_backlog_check_flag() {
-        let cli = Cli::try_parse_from(["ecc", "coordinate-backlog", "--check"])
+        let cli = Cli::try_parse_from(["poweruser", "coordinate-backlog", "--check"])
             .expect("coordinate-backlog --check should parse");
 
         match cli.command {
@@ -10093,7 +10093,7 @@ mod tests {
     #[test]
     fn cli_parses_rebalance_all_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "rebalance-all",
             "--agent",
             "claude",
@@ -10115,7 +10115,7 @@ mod tests {
 
     #[test]
     fn cli_parses_coordination_status_command() {
-        let cli = Cli::try_parse_from(["ecc", "coordination-status"])
+        let cli = Cli::try_parse_from(["poweruser", "coordination-status"])
             .expect("coordination-status should parse");
 
         match cli.command {
@@ -10130,7 +10130,7 @@ mod tests {
     #[test]
     fn cli_parses_log_decision_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "log-decision",
             "latest",
             "--decision",
@@ -10165,7 +10165,7 @@ mod tests {
 
     #[test]
     fn cli_parses_decisions_command() {
-        let cli = Cli::try_parse_from(["ecc", "decisions", "--all", "--limit", "5", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "decisions", "--all", "--limit", "5", "--json"])
             .expect("decisions should parse");
 
         match cli.command {
@@ -10187,7 +10187,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_add_entity_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "add-entity",
             "--session-id",
@@ -10197,7 +10197,7 @@ mod tests {
             "--name",
             "dashboard.rs",
             "--path",
-            "ecc2/src/tui/dashboard.rs",
+            "poweruser2/src/tui/dashboard.rs",
             "--summary",
             "Primary TUI surface",
             "--meta",
@@ -10222,7 +10222,7 @@ mod tests {
                 assert_eq!(session_id.as_deref(), Some("latest"));
                 assert_eq!(entity_type, "file");
                 assert_eq!(name, "dashboard.rs");
-                assert_eq!(path.as_deref(), Some("ecc2/src/tui/dashboard.rs"));
+                assert_eq!(path.as_deref(), Some("poweruser2/src/tui/dashboard.rs"));
                 assert_eq!(summary, "Primary TUI surface");
                 assert_eq!(metadata, vec!["language=rust"]);
                 assert!(json);
@@ -10233,7 +10233,7 @@ mod tests {
 
     #[test]
     fn cli_parses_graph_sync_command() {
-        let cli = Cli::try_parse_from(["ecc", "graph", "sync", "--all", "--limit", "12", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "graph", "sync", "--all", "--limit", "12", "--json"])
             .expect("graph sync should parse");
 
         match cli.command {
@@ -10258,7 +10258,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_recall_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "recall",
             "--session-id",
@@ -10292,7 +10292,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_add_observation_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "add-observation",
             "--session-id",
@@ -10340,7 +10340,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_pin_observation_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "pin-observation",
             "--observation-id",
@@ -10367,7 +10367,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_unpin_observation_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "unpin-observation",
             "--observation-id",
@@ -10394,7 +10394,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_compact_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "compact",
             "--session-id",
@@ -10425,7 +10425,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_connector_sync_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "connector-sync",
             "hermes_notes",
@@ -10457,7 +10457,7 @@ mod tests {
     #[test]
     fn cli_parses_graph_connector_sync_all_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "graph",
             "connector-sync",
             "--all",
@@ -10488,7 +10488,7 @@ mod tests {
 
     #[test]
     fn cli_parses_graph_connectors_command() {
-        let cli = Cli::try_parse_from(["ecc", "graph", "connectors", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "graph", "connectors", "--json"])
             .expect("graph connectors should parse");
 
         match cli.command {
@@ -10504,7 +10504,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_audit_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "audit",
             "--source",
@@ -10527,7 +10527,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_plan_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "plan",
             "--source",
@@ -10557,7 +10557,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_scaffold_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "scaffold",
             "--source",
@@ -10588,7 +10588,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_import_schedules_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "import-schedules",
             "--source",
@@ -10618,7 +10618,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_import_memory_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "import-memory",
             "--source",
@@ -10649,7 +10649,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_import_env_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "import-env",
             "--source",
@@ -10683,7 +10683,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_import_skills_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "import-skills",
             "--source",
@@ -10714,7 +10714,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_import_tools_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "import-tools",
             "--source",
@@ -10745,7 +10745,7 @@ mod tests {
     #[test]
     fn cli_parses_migrate_import_plugins_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "migrate",
             "import-plugins",
             "--source",
@@ -10780,7 +10780,7 @@ mod tests {
         fs::create_dir_all(root.join("cron"))?;
         fs::create_dir_all(root.join("gateway"))?;
         fs::create_dir_all(root.join("workspace/notes"))?;
-        fs::create_dir_all(root.join("skills/ecc-imports"))?;
+        fs::create_dir_all(root.join("skills/poweruser-imports"))?;
         fs::create_dir_all(root.join("tools"))?;
         fs::create_dir_all(root.join("plugins"))?;
         fs::write(root.join("config.yaml"), "model: claude\n")?;
@@ -10789,7 +10789,7 @@ mod tests {
         fs::write(root.join("gateway/router.py"), "route = True\n")?;
         fs::write(root.join("memory_tool.py"), "class MemoryTool: pass\n")?;
         fs::write(root.join("workspace/notes/recovery.md"), "# recovery\n")?;
-        fs::write(root.join("skills/ecc-imports/research.md"), "# skill\n")?;
+        fs::write(root.join("skills/poweruser-imports/research.md"), "# skill\n")?;
         fs::write(root.join("tools/browser.py"), "print('browser')\n")?;
         fs::write(root.join("plugins/reminders.py"), "print('reminders')\n")?;
         fs::write(
@@ -10807,11 +10807,11 @@ mod tests {
         assert!(report
             .recommended_next_steps
             .iter()
-            .any(|step| step.contains("ecc schedule add")));
+            .any(|step| step.contains("poweruser schedule add")));
         assert!(report
             .recommended_next_steps
             .iter()
-            .any(|step| step.contains("ecc remote serve")));
+            .any(|step| step.contains("poweruser remote serve")));
 
         let scheduler = report
             .artifacts
@@ -10847,7 +10847,7 @@ mod tests {
         fs::create_dir_all(root.join("cron"))?;
         fs::create_dir_all(root.join("gateway"))?;
         fs::create_dir_all(root.join("workspace/notes"))?;
-        fs::create_dir_all(root.join("skills/ecc-imports"))?;
+        fs::create_dir_all(root.join("skills/poweruser-imports"))?;
         fs::create_dir_all(root.join("tools"))?;
         fs::create_dir_all(root.join("plugins"))?;
         fs::write(root.join("config.yaml"), "model: claude\n")?;
@@ -10882,7 +10882,7 @@ mod tests {
                     "task": "Handle account recovery triage",
                     "priority": "high",
                     "agent": "codex",
-                    "project": "ecc-tools",
+                    "project": "poweruser-tools",
                     "task_group": "recovery"
                 })
                 .to_string(),
@@ -10890,7 +10890,7 @@ mod tests {
                     "name": "browser-billing-check",
                     "kind": "computer_use",
                     "goal": "Verify the billing portal warning banner",
-                    "target_url": "https://ecc.tools/account",
+                    "target_url": "https://poweruser.tools/account",
                     "context": "Use the production account flow",
                     "priority": "critical",
                     "use_worktree": false
@@ -10906,7 +10906,7 @@ mod tests {
             .join("\n"),
         )?;
         fs::write(root.join("workspace/notes/recovery.md"), "# recovery\n")?;
-        fs::write(root.join("skills/ecc-imports/research.md"), "# research\n")?;
+        fs::write(root.join("skills/poweruser-imports/research.md"), "# research\n")?;
         fs::create_dir_all(root.join("tools"))?;
         fs::write(
             root.join("tools/browser.py"),
@@ -10932,7 +10932,7 @@ mod tests {
             .any(|snippet| snippet.contains("[memory_connectors.hermes_workspace]")));
         assert!(workspace_step
             .command_snippets
-            .contains(&"ecc graph connector-sync hermes_workspace".to_string()));
+            .contains(&"poweruser graph connector-sync hermes_workspace".to_string()));
 
         let scheduler_step = plan
             .steps
@@ -10942,7 +10942,7 @@ mod tests {
         assert!(scheduler_step
             .command_snippets
             .iter()
-            .any(|command| command.contains("ecc schedule add --cron \"*/15 * * * *\"")));
+            .any(|command| command.contains("poweruser schedule add --cron \"*/15 * * * *\"")));
         assert!(!scheduler_step
             .command_snippets
             .iter()
@@ -10961,12 +10961,12 @@ mod tests {
             .command_snippets
             .iter()
             .any(|command| command
-                .contains("ecc remote add --task \"Handle account recovery triage\"")));
+                .contains("poweruser remote add --task \"Handle account recovery triage\"")));
         assert!(gateway_step
             .command_snippets
             .iter()
             .any(|command| command.contains(
-                "ecc remote computer-use --goal \"Verify the billing portal warning banner\""
+                "poweruser remote computer-use --goal \"Verify the billing portal warning banner\""
             )));
         assert!(!gateway_step
             .command_snippets
@@ -10979,7 +10979,7 @@ mod tests {
 
         let rendered = format_legacy_migration_plan_human(&plan);
         assert!(rendered.contains("Legacy migration plan"));
-        assert!(rendered.contains("Import sanitized workspace memory through ECC2 connectors"));
+        assert!(rendered.contains("Import sanitized workspace memory through PowerUser2 connectors"));
         let env_step = plan
             .steps
             .iter()
@@ -10988,7 +10988,7 @@ mod tests {
         assert!(env_step
             .command_snippets
             .iter()
-            .any(|command| command.contains("ecc migrate import-env --source")));
+            .any(|command| command.contains("poweruser migrate import-env --source")));
         let skills_step = plan
             .steps
             .iter()
@@ -10997,7 +10997,7 @@ mod tests {
         assert!(skills_step
             .command_snippets
             .iter()
-            .any(|command| command.contains("ecc migrate import-skills --source")));
+            .any(|command| command.contains("poweruser migrate import-skills --source")));
         let tools_step = plan
             .steps
             .iter()
@@ -11006,7 +11006,7 @@ mod tests {
         assert!(tools_step
             .command_snippets
             .iter()
-            .any(|command| command.contains("ecc migrate import-tools --source")));
+            .any(|command| command.contains("poweruser migrate import-tools --source")));
         let plugins_step = plan
             .steps
             .iter()
@@ -11015,7 +11015,7 @@ mod tests {
         assert!(plugins_step
             .command_snippets
             .iter()
-            .any(|command| command.contains("ecc migrate import-plugins --source")));
+            .any(|command| command.contains("poweruser migrate import-plugins --source")));
 
         Ok(())
     }
@@ -11068,13 +11068,13 @@ mod tests {
         assert!(report
             .jobs
             .iter()
-            .any(|job| job.command_snippet.as_deref() == Some("ecc schedule add --cron \"*/15 * * * *\" --task \"Check portal-first recovery flow\" --agent \"codex\" --no-worktree --project \"billing-web\" --task-group \"recovery\"")));
+            .any(|job| job.command_snippet.as_deref() == Some("poweruser schedule add --cron \"*/15 * * * *\" --task \"Check portal-first recovery flow\" --agent \"codex\" --no-worktree --project \"billing-web\" --task-group \"recovery\"")));
 
         Ok(())
     }
 
     #[test]
-    fn import_legacy_schedules_creates_real_ecc2_schedules() -> Result<()> {
+    fn import_legacy_schedules_creates_real_poweruser2_schedules() -> Result<()> {
         let tempdir = TestDir::new("legacy-schedule-import-live")?;
         let root = tempdir.path();
         fs::create_dir_all(root.join("cron"))?;
@@ -11154,7 +11154,7 @@ Route existing installs to portal first before checkout.
                 .to_string(),
                 serde_json::json!({
                     "entity_name": "Repair before reinstall",
-                    "summary": "Recommend ecc repair before purchase flows"
+                    "summary": "Recommend poweruser repair before purchase flows"
                 })
                 .to_string(),
             ]
@@ -11219,7 +11219,7 @@ Route existing installs to portal first before checkout.
                         "task": "Handle account recovery triage",
                         "priority": "high",
                         "agent": "codex",
-                        "project": "ecc-tools",
+                        "project": "poweruser-tools",
                         "task_group": "recovery",
                         "use_worktree": false
                     },
@@ -11227,7 +11227,7 @@ Route existing installs to portal first before checkout.
                         "name": "browser-billing-check",
                         "kind": "computer_use",
                         "goal": "Verify the billing portal warning banner",
-                        "target_url": "https://ecc.tools/account",
+                        "target_url": "https://poweruser.tools/account",
                         "context": "Use the production account flow",
                         "priority": "critical"
                     },
@@ -11259,9 +11259,9 @@ Route existing installs to portal first before checkout.
         assert_eq!(report.skipped_requests, 0);
         assert_eq!(report.requests.len(), 4);
         assert!(report.requests.iter().any(|request| request.command_snippet.as_deref()
-            == Some("ecc remote add --task \"Handle account recovery triage\" --priority high --agent \"codex\" --no-worktree --project \"ecc-tools\" --task-group \"recovery\"")));
+            == Some("poweruser remote add --task \"Handle account recovery triage\" --priority high --agent \"codex\" --no-worktree --project \"poweruser-tools\" --task-group \"recovery\"")));
         assert!(report.requests.iter().any(|request| request.command_snippet.as_deref()
-            == Some("ecc remote computer-use --goal \"Verify the billing portal warning banner\" --target-url \"https://ecc.tools/account\" --context \"Use the production account flow\" --priority critical")));
+            == Some("poweruser remote computer-use --goal \"Verify the billing portal warning banner\" --target-url \"https://poweruser.tools/account\" --context \"Use the production account flow\" --priority critical")));
 
         Ok(())
     }
@@ -11279,7 +11279,7 @@ Route existing installs to portal first before checkout.
                     "task": "Handle account recovery triage",
                     "priority": "high",
                     "agent": "codex",
-                    "project": "ecc-tools",
+                    "project": "poweruser-tools",
                     "task_group": "recovery",
                     "use_worktree": false
                 })
@@ -11288,7 +11288,7 @@ Route existing installs to portal first before checkout.
                     "name": "browser-billing-check",
                     "kind": "computer_use",
                     "goal": "Verify the billing portal warning banner",
-                    "target_url": "https://ecc.tools/account",
+                    "target_url": "https://poweruser.tools/account",
                     "context": "Use the production account flow",
                     "priority": "critical",
                     "project": "remote-ops",
@@ -11332,7 +11332,7 @@ Route existing installs to portal first before checkout.
         assert_eq!(requests[0].task_group, "browser");
         assert_eq!(
             requests[0].target_url.as_deref(),
-            Some("https://ecc.tools/account")
+            Some("https://poweruser.tools/account")
         );
         assert!(requests[0].task.contains("Computer-use task."));
         assert_eq!(
@@ -11341,7 +11341,7 @@ Route existing installs to portal first before checkout.
         );
         assert_eq!(requests[1].priority, comms::TaskPriority::High);
         assert_eq!(requests[1].agent_type, "codex");
-        assert_eq!(requests[1].project, "ecc-tools");
+        assert_eq!(requests[1].project, "poweruser-tools");
         assert_eq!(requests[1].task_group, "recovery");
         assert!(!requests[1].use_worktree);
         assert_eq!(requests[1].task, "Handle account recovery triage");
@@ -11360,11 +11360,11 @@ Route existing installs to portal first before checkout.
         fs::create_dir_all(root.join("services"))?;
         fs::write(
             root.join(".env.local"),
-            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://ecc.tools\n",
+            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://poweruser.tools\n",
         )?;
         fs::write(
             root.join(".envrc"),
-            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://docs.ecc.tools\n",
+            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://docs.poweruser.tools\n",
         )?;
         fs::write(root.join("config.yaml"), "model: claude\n")?;
         fs::write(
@@ -11407,11 +11407,11 @@ Route existing installs to portal first before checkout.
         let root = tempdir.path();
         fs::write(
             root.join(".env.local"),
-            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://ecc.tools\n",
+            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://poweruser.tools\n",
         )?;
         fs::write(
             root.join(".env.production"),
-            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://docs.ecc.tools\n",
+            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://docs.poweruser.tools\n",
         )?;
 
         let tempdb = TestDir::new("legacy-env-import-live-db")?;
@@ -11429,7 +11429,7 @@ Route existing installs to portal first before checkout.
                 || item.status == LegacyEnvImportSourceStatus::Ready
         }));
 
-        let recalled = db.recall_context_entities(None, "stripe docs ecc.tools", 10)?;
+        let recalled = db.recall_context_entities(None, "stripe docs poweruser.tools", 10)?;
         assert!(recalled
             .iter()
             .any(|entry| entry.entity.name == "STRIPE_SECRET_KEY"));
@@ -11461,10 +11461,10 @@ Route existing installs to portal first before checkout.
     fn import_legacy_skills_writes_template_artifacts() -> Result<()> {
         let tempdir = TestDir::new("legacy-skill-import")?;
         let root = tempdir.path();
-        fs::create_dir_all(root.join("skills/ecc-imports"))?;
+        fs::create_dir_all(root.join("skills/poweruser-imports"))?;
         fs::create_dir_all(root.join("skills/ops"))?;
         fs::write(
-            root.join("skills/ecc-imports/research.md"),
+            root.join("skills/poweruser-imports/research.md"),
             "# Recovery research\nGather billing/account context before touching checkout logic.\n",
         )?;
         fs::write(
@@ -11481,19 +11481,19 @@ Route existing installs to portal first before checkout.
         assert!(report
             .skills
             .iter()
-            .any(|skill| skill.template_name == "ecc_imports_research_md"));
+            .any(|skill| skill.template_name == "poweruser_imports_research_md"));
         assert!(report
             .skills
             .iter()
             .any(|skill| skill.template_name == "ops_recovery_markdown"));
 
-        let config_text = fs::read_to_string(output_dir.join("ecc2.imported-skills.toml"))?;
-        assert!(config_text.contains("[orchestration_templates.ecc_imports_research_md]"));
+        let config_text = fs::read_to_string(output_dir.join("poweruser2.imported-skills.toml"))?;
+        assert!(config_text.contains("[orchestration_templates.poweruser_imports_research_md]"));
         assert!(config_text.contains("[orchestration_templates.ops_recovery_markdown]"));
         assert!(config_text.contains("Translate and run that workflow for {{task}}."));
 
         let summary_text = fs::read_to_string(output_dir.join("imported-skills.md"))?;
-        assert!(summary_text.contains("skills/ecc-imports/research.md"));
+        assert!(summary_text.contains("skills/poweruser-imports/research.md"));
         assert!(summary_text.contains("skills/ops/recovery.markdown"));
 
         Ok(())
@@ -11537,10 +11537,10 @@ Route existing installs to portal first before checkout.
             .iter()
             .any(|tool| tool.suggested_surface == "hook"));
 
-        let config_text = fs::read_to_string(output_dir.join("ecc2.imported-tools.toml"))?;
+        let config_text = fs::read_to_string(output_dir.join("poweruser2.imported-tools.toml"))?;
         assert!(config_text.contains("[orchestration_templates.tool_browser_check_portal_py]"));
         assert!(config_text.contains("[orchestration_templates.tool_hooks_preflight_sh]"));
-        assert!(config_text.contains("Rebuild or wrap that behavior as an ECC-native"));
+        assert!(config_text.contains("Rebuild or wrap that behavior as an PowerUser-native"));
 
         let summary_text = fs::read_to_string(output_dir.join("imported-tools.md"))?;
         assert!(summary_text.contains("tools/browser/check_portal.py"));
@@ -11588,10 +11588,10 @@ Route existing installs to portal first before checkout.
             .iter()
             .any(|plugin| plugin.suggested_surface == "skill"));
 
-        let config_text = fs::read_to_string(output_dir.join("ecc2.imported-plugins.toml"))?;
+        let config_text = fs::read_to_string(output_dir.join("poweruser2.imported-plugins.toml"))?;
         assert!(config_text.contains("[orchestration_templates.plugin_hooks_review_py]"));
         assert!(config_text.contains("[orchestration_templates.plugin_skills_recovery_py]"));
-        assert!(config_text.contains("Port that behavior into an ECC-native"));
+        assert!(config_text.contains("Port that behavior into an PowerUser-native"));
 
         let summary_text = fs::read_to_string(output_dir.join("imported-plugins.md"))?;
         assert!(summary_text.contains("plugins/hooks/review.py"));
@@ -11606,10 +11606,10 @@ Route existing installs to portal first before checkout.
         let tempdir = TestDir::new("legacy-migration-scaffold")?;
         let root = tempdir.path();
         fs::create_dir_all(root.join("workspace/notes"))?;
-        fs::create_dir_all(root.join("skills/ecc-imports"))?;
+        fs::create_dir_all(root.join("skills/poweruser-imports"))?;
         fs::write(root.join("config.yaml"), "model: claude\n")?;
         fs::write(root.join("workspace/notes/recovery.md"), "# recovery\n")?;
-        fs::write(root.join("skills/ecc-imports/triage.md"), "# triage\n")?;
+        fs::write(root.join("skills/poweruser-imports/triage.md"), "# triage\n")?;
 
         let audit = build_legacy_migration_audit_report(root)?;
         let plan = build_legacy_migration_plan_report(&audit);
@@ -11620,7 +11620,7 @@ Route existing installs to portal first before checkout.
         assert_eq!(report.files_written.len(), 2);
 
         let plan_text = fs::read_to_string(output_dir.join("migration-plan.md"))?;
-        let config_text = fs::read_to_string(output_dir.join("ecc2.migration.toml"))?;
+        let config_text = fs::read_to_string(output_dir.join("poweruser2.migration.toml"))?;
         assert!(plan_text.contains("Legacy migration plan"));
         assert!(config_text.contains("[memory_connectors.hermes_workspace]"));
         assert!(config_text.contains("[orchestration_templates.legacy_workflow]"));
@@ -11660,7 +11660,7 @@ Route existing installs to portal first before checkout.
                 session_id: Some("sess-12345678".to_string()),
                 entity_type: "function".to_string(),
                 name: "render_metrics".to_string(),
-                path: Some("ecc2/src/tui/dashboard.rs".to_string()),
+                path: Some("poweruser2/src/tui/dashboard.rs".to_string()),
                 summary: "Renders the metrics pane".to_string(),
                 metadata: BTreeMap::from([("language".to_string(), "rust".to_string())]),
                 created_at: chrono::DateTime::parse_from_rfc3339("2026-04-10T01:02:03Z")
@@ -11998,7 +11998,7 @@ Customer wiped setup and got charged twice after reinstalling.
         db.insert_session(&session::Session {
             id: "session-1".to_string(),
             task: "recovery incident".to_string(),
-            project: "ecc-tools".to_string(),
+            project: "poweruser-tools".to_string(),
             task_group: "incident".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -12071,7 +12071,7 @@ Customer wiped setup and got charged twice after reinstalling.
         db.insert_session(&session::Session {
             id: "session-1".to_string(),
             task: "recovery incident".to_string(),
-            project: "ecc-tools".to_string(),
+            project: "poweruser-tools".to_string(),
             task_group: "incident".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -12126,7 +12126,7 @@ Customer wiped setup and got charged twice after reinstalling.
         db.insert_session(&session::Session {
             id: "session-1".to_string(),
             task: "recovery incident".to_string(),
-            project: "ecc-tools".to_string(),
+            project: "poweruser-tools".to_string(),
             task_group: "incident".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -12214,7 +12214,7 @@ Customer wiped setup and got charged twice after reinstalling.
         db.insert_session(&session::Session {
             id: "session-1".to_string(),
             task: "knowledge import".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "memory".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -12301,7 +12301,7 @@ Guide users to repair before reinstall so wiped setups do not buy twice.
         db.insert_session(&session::Session {
             id: "session-1".to_string(),
             task: "knowledge import".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "memory".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -12386,7 +12386,7 @@ Guide users to repair before reinstall so wiped setups do not buy twice.
         db.insert_session(&session::Session {
             id: "session-1".to_string(),
             task: "service config import".to_string(),
-            project: "ecc-tools".to_string(),
+            project: "poweruser-tools".to_string(),
             task_group: "memory".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -12405,7 +12405,7 @@ Guide users to repair before reinstall so wiped setups do not buy twice.
             r#"# Hermes service config
 STRIPE_SECRET_KEY=sk_test_secret
 STRIPE_PRO_PRICE_ID=price_pro_monthly
-PUBLIC_BASE_URL="https://ecc.tools"
+PUBLIC_BASE_URL="https://poweruser.tools"
 STRIPE_WEBHOOK_SECRET=whsec_secret
 GITHUB_TOKEN=ghp_should_not_import
 INVALID LINE
@@ -12433,7 +12433,7 @@ INVALID LINE
         assert_eq!(stats.observations_added, 3);
         assert_eq!(stats.skipped_records, 0);
 
-        let recalled = db.recall_context_entities(None, "stripe ecc.tools", 10)?;
+        let recalled = db.recall_context_entities(None, "stripe poweruser.tools", 10)?;
         assert!(recalled
             .iter()
             .any(|entry| entry.entity.name == "STRIPE_SECRET_KEY"));
@@ -12476,7 +12476,7 @@ INVALID LINE
                 .details
                 .get("value")
                 .map(String::as_str),
-            Some("https://ecc.tools")
+            Some("https://poweruser.tools")
         );
 
         Ok(())
@@ -12490,7 +12490,7 @@ INVALID LINE
         db.insert_session(&session::Session {
             id: "session-1".to_string(),
             task: "memory import".to_string(),
-            project: "ecc".to_string(),
+            project: "poweruser".to_string(),
             task_group: "memory".to_string(),
             agent_type: "claude".to_string(),
             working_dir: PathBuf::from("/tmp"),
@@ -12588,7 +12588,7 @@ Guide users to repair before reinstall.
 
     #[test]
     fn cli_parses_coordination_status_json_flag() {
-        let cli = Cli::try_parse_from(["ecc", "coordination-status", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "coordination-status", "--json"])
             .expect("coordination-status --json should parse");
 
         match cli.command {
@@ -12602,7 +12602,7 @@ Guide users to repair before reinstall.
 
     #[test]
     fn cli_parses_coordination_status_check_flag() {
-        let cli = Cli::try_parse_from(["ecc", "coordination-status", "--check"])
+        let cli = Cli::try_parse_from(["poweruser", "coordination-status", "--check"])
             .expect("coordination-status --check should parse");
 
         match cli.command {
@@ -12616,7 +12616,7 @@ Guide users to repair before reinstall.
 
     #[test]
     fn cli_parses_maintain_coordination_command() {
-        let cli = Cli::try_parse_from(["ecc", "maintain-coordination"])
+        let cli = Cli::try_parse_from(["poweruser", "maintain-coordination"])
             .expect("maintain-coordination should parse");
 
         match cli.command {
@@ -12638,7 +12638,7 @@ Guide users to repair before reinstall.
 
     #[test]
     fn cli_parses_maintain_coordination_json_flag() {
-        let cli = Cli::try_parse_from(["ecc", "maintain-coordination", "--json"])
+        let cli = Cli::try_parse_from(["poweruser", "maintain-coordination", "--json"])
             .expect("maintain-coordination --json should parse");
 
         match cli.command {
@@ -12658,7 +12658,7 @@ Guide users to repair before reinstall.
 
     #[test]
     fn cli_parses_maintain_coordination_check_flag() {
-        let cli = Cli::try_parse_from(["ecc", "maintain-coordination", "--check"])
+        let cli = Cli::try_parse_from(["poweruser", "maintain-coordination", "--check"])
             .expect("maintain-coordination --check should parse");
 
         match cli.command {
@@ -12803,7 +12803,7 @@ Guide users to repair before reinstall.
     #[test]
     fn cli_parses_rebalance_team_command() {
         let cli = Cli::try_parse_from([
-            "ecc",
+            "poweruser",
             "rebalance-team",
             "lead",
             "--agent",

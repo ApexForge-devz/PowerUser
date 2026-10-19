@@ -285,9 +285,9 @@ impl Default for Config {
     fn default() -> Self {
         let home = dirs::home_dir().unwrap_or_else(|| PathBuf::from("."));
         Self {
-            db_path: home.join(".claude").join("ecc2.db"),
-            worktree_root: PathBuf::from("/tmp/ecc-worktrees"),
-            worktree_branch_prefix: "ecc".to_string(),
+            db_path: home.join(".claude").join("poweruser2.db"),
+            worktree_root: PathBuf::from("/tmp/poweruser-worktrees"),
+            worktree_branch_prefix: "poweruser".to_string(),
             max_parallel_sessions: 8,
             max_parallel_worktrees: 6,
             worktree_retention_secs: 0,
@@ -336,7 +336,7 @@ impl Config {
     };
 
     pub fn config_path() -> PathBuf {
-        Self::config_root().join("ecc2").join("config.toml")
+        Self::config_root().join("poweruser2").join("config.toml")
     }
 
     pub fn cost_metrics_path(&self) -> PathBuf {
@@ -504,7 +504,7 @@ impl Config {
         project_override_paths: &[PathBuf],
     ) -> Result<Self> {
         let mut merged = toml::Value::try_from(Self::default())
-            .context("serialize default ECC 2.0 config for layered merge")?;
+            .context("serialize default PowerUser 2.0 config for layered merge")?;
 
         for path in global_paths.iter().chain(project_override_paths.iter()) {
             if path.exists() {
@@ -514,7 +514,7 @@ impl Config {
 
         merged
             .try_into()
-            .context("deserialize merged ECC 2.0 config")
+            .context("deserialize merged PowerUser 2.0 config")
     }
 
     #[cfg(test)]
@@ -526,13 +526,13 @@ impl Config {
         impl TestConfigRoot {
             fn new() -> Self {
                 let path = std::env::temp_dir()
-                    .join(format!("ecc2-test-config-{}", uuid::Uuid::new_v4()));
-                std::fs::create_dir(&path).expect("create private ECC 2 test config root");
+                    .join(format!("poweruser2-test-config-{}", uuid::Uuid::new_v4()));
+                std::fs::create_dir(&path).expect("create private PowerUser 2 test config root");
                 #[cfg(unix)]
                 {
                     use std::os::unix::fs::PermissionsExt;
                     std::fs::set_permissions(&path, std::fs::Permissions::from_mode(0o700))
-                        .expect("restrict ECC 2 test config root permissions");
+                        .expect("restrict PowerUser 2 test config root permissions");
                 }
                 Self(path)
             }
@@ -543,7 +543,7 @@ impl Config {
                 if let Err(error) = std::fs::remove_dir_all(&self.0) {
                     if error.kind() != std::io::ErrorKind::NotFound {
                         eprintln!(
-                            "failed to remove ECC 2 test config root {}: {error}",
+                            "failed to remove PowerUser 2 test config root {}: {error}",
                             self.0.display()
                         );
                     }
@@ -569,7 +569,7 @@ impl Config {
 
     #[cfg(test)]
     fn legacy_global_config_path() -> PathBuf {
-        Self::config_root().join(".claude").join("ecc2.toml")
+        Self::config_root().join(".claude").join("poweruser2.toml")
     }
 
     #[cfg(not(test))]
@@ -577,7 +577,7 @@ impl Config {
         dirs::home_dir()
             .unwrap_or_else(|| PathBuf::from("."))
             .join(".claude")
-            .join("ecc2.toml")
+            .join("poweruser2.toml")
     }
 
     fn global_config_paths() -> Vec<PathBuf> {
@@ -596,8 +596,8 @@ impl Config {
         let mut current = Some(start);
 
         while let Some(path) = current {
-            let legacy = path.join(".claude").join("ecc2.toml");
-            let primary = path.join("ecc2.toml");
+            let legacy = path.join(".claude").join("poweruser2.toml");
+            let primary = path.join("poweruser2.toml");
             let mut matches = Vec::new();
 
             if legacy.exists() && !global_paths.iter().any(|global| global == &legacy) {
@@ -618,9 +618,9 @@ impl Config {
 
     fn merge_config_file(base: &mut toml::Value, path: &std::path::Path) -> Result<()> {
         let content = std::fs::read_to_string(path)
-            .with_context(|| format!("read ECC 2.0 config from {}", path.display()))?;
+            .with_context(|| format!("read PowerUser 2.0 config from {}", path.display()))?;
         let overlay: toml::Value = toml::from_str(&content)
-            .with_context(|| format!("parse ECC 2.0 config from {}", path.display()))?;
+            .with_context(|| format!("parse PowerUser 2.0 config from {}", path.display()))?;
         Self::merge_toml_values(base, overlay);
         Ok(())
     }
@@ -971,8 +971,8 @@ mod tests {
     #[test]
     fn missing_budget_fields_fall_back_to_defaults() {
         let legacy_config = r#"
-db_path = "/tmp/ecc2.db"
-worktree_root = "/tmp/ecc-worktrees"
+db_path = "/tmp/poweruser2.db"
+worktree_root = "/tmp/poweruser-worktrees"
 max_parallel_sessions = 8
 max_parallel_worktrees = 6
 worktree_retention_secs = 0
@@ -1055,17 +1055,17 @@ theme = "Dark"
 
     #[test]
     fn worktree_branch_prefix_deserializes_from_toml() {
-        let config: Config = toml::from_str(r#"worktree_branch_prefix = "bots/ecc""#).unwrap();
+        let config: Config = toml::from_str(r#"worktree_branch_prefix = "bots/poweruser""#).unwrap();
 
-        assert_eq!(config.worktree_branch_prefix, "bots/ecc");
+        assert_eq!(config.worktree_branch_prefix, "bots/poweruser");
     }
 
     #[test]
     fn layered_config_merges_global_and_project_overrides() {
-        let tempdir = std::env::temp_dir().join(format!("ecc2-config-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-config-{}", Uuid::new_v4()));
         let legacy_global_path = tempdir.join("legacy-global.toml");
         let global_path = tempdir.join("config.toml");
-        let project_path = tempdir.join("ecc2.toml");
+        let project_path = tempdir.join("poweruser2.toml");
         std::fs::create_dir_all(&tempdir).unwrap();
         std::fs::write(
             &legacy_global_path,
@@ -1123,20 +1123,20 @@ focus_metrics = "e"
 
     #[test]
     fn project_config_discovery_prefers_nearest_directory_and_new_path() {
-        let tempdir = std::env::temp_dir().join(format!("ecc2-config-{}", Uuid::new_v4()));
+        let tempdir = std::env::temp_dir().join(format!("poweruser2-config-{}", Uuid::new_v4()));
         let project_root = tempdir.join("project");
         let nested_dir = project_root.join("src").join("module");
         std::fs::create_dir_all(project_root.join(".claude")).unwrap();
         std::fs::create_dir_all(&nested_dir).unwrap();
-        std::fs::write(project_root.join(".claude").join("ecc2.toml"), "").unwrap();
-        std::fs::write(project_root.join("ecc2.toml"), "").unwrap();
+        std::fs::write(project_root.join(".claude").join("poweruser2.toml"), "").unwrap();
+        std::fs::write(project_root.join("poweruser2.toml"), "").unwrap();
 
         let paths = Config::project_config_paths_from(&nested_dir);
         assert_eq!(
             paths,
             vec![
-                project_root.join(".claude").join("ecc2.toml"),
-                project_root.join("ecc2.toml")
+                project_root.join(".claude").join("poweruser2.toml"),
+                project_root.join("poweruser2.toml")
             ]
         );
 
@@ -1161,7 +1161,7 @@ focus_metrics = "e"
             "tests must never read the real legacy user config, got {}",
             path.display()
         );
-        assert!(path.ends_with(".claude/ecc2.toml"));
+        assert!(path.ends_with(".claude/poweruser2.toml"));
     }
 
     #[test]
@@ -1191,7 +1191,7 @@ focus_metrics = "e"
     #[test]
     fn primary_config_path_uses_xdg_style_location() {
         let path = Config::config_path();
-        assert!(path.ends_with("ecc2/config.toml"));
+        assert!(path.ends_with("poweruser2/config.toml"));
     }
 
     #[test]
@@ -1459,7 +1459,7 @@ permission_mode_flag = "--permission-mode"
 inline_system_prompt_for_task = true
 
 [harness_runners.cursor.env]
-ECC_HARNESS = "cursor"
+POWERUSER_HARNESS = "cursor"
 "#,
         )
         .unwrap();
@@ -1481,7 +1481,7 @@ ECC_HARNESS = "cursor"
         );
         assert!(runner.inline_system_prompt_for_task);
         assert_eq!(
-            runner.env.get("ECC_HARNESS").map(String::as_str),
+            runner.env.get("POWERUSER_HARNESS").map(String::as_str),
             Some("cursor")
         );
     }
@@ -1519,7 +1519,7 @@ worktree = false
 
         let vars = BTreeMap::from([
             ("task".to_string(), "stabilize auth callback".to_string()),
-            ("project".to_string(), "ecc-core".to_string()),
+            ("project".to_string(), "poweruser-core".to_string()),
             ("task_group".to_string(), "auth callback".to_string()),
             ("component".to_string(), "billing".to_string()),
         ]);
@@ -1532,7 +1532,7 @@ worktree = false
             template.description.as_deref(),
             Some("Ship stabilize auth callback")
         );
-        assert_eq!(template.project.as_deref(), Some("ecc-core"));
+        assert_eq!(template.project.as_deref(), Some("poweruser-core"));
         assert_eq!(template.task_group.as_deref(), Some("auth callback"));
         assert_eq!(template.steps.len(), 2);
         assert_eq!(template.steps[0].name, "planner");
@@ -1823,7 +1823,7 @@ critical = 1.10
 
     #[test]
     fn save_round_trips_automation_settings() {
-        let path = std::env::temp_dir().join(format!("ecc2-config-{}.toml", Uuid::new_v4()));
+        let path = std::env::temp_dir().join(format!("poweruser2-config-{}.toml", Uuid::new_v4()));
         let mut config = Config::default();
         config.auto_dispatch_unread_handoffs = true;
         config.auto_dispatch_limit_per_session = 9;
@@ -1840,7 +1840,7 @@ critical = 1.10
         config.desktop_notifications.quiet_hours.enabled = true;
         config.desktop_notifications.quiet_hours.start_hour = 21;
         config.desktop_notifications.quiet_hours.end_hour = 7;
-        config.worktree_branch_prefix = "bots/ecc".to_string();
+        config.worktree_branch_prefix = "bots/poweruser".to_string();
         config.budget_alert_thresholds = BudgetAlertThresholds {
             advisory: 0.45,
             warning: 0.70,
@@ -1875,7 +1875,7 @@ critical = 1.10
         assert!(loaded.desktop_notifications.quiet_hours.enabled);
         assert_eq!(loaded.desktop_notifications.quiet_hours.start_hour, 21);
         assert_eq!(loaded.desktop_notifications.quiet_hours.end_hour, 7);
-        assert_eq!(loaded.worktree_branch_prefix, "bots/ecc");
+        assert_eq!(loaded.worktree_branch_prefix, "bots/poweruser");
         assert_eq!(
             loaded.budget_alert_thresholds,
             BudgetAlertThresholds {
