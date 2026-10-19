@@ -128,7 +128,7 @@
     "scripts/codex/merge-mcp-config.js",
     "scripts/discussion-audit.js",
     "scripts/doctor.js",
-    "scripts/ecc.js",
+    "scripts/poweruser.js",
     "scripts/feedback.js",
     "scripts/memory.js",
     "scripts/memory-mcp.mjs",
@@ -494,12 +494,12 @@
     "skills/agent-runtime-gateway-smoke-test/"
   ],
   "bin": {
-    "poweruser": "scripts/ecc.js",
+    "poweruser": "scripts/poweruser.js",
     "poweruser-control-pane": "scripts/control-pane.js",
     "poweruser-install": "scripts/install-apply.js",
     "poweruser-memory-mcp": "scripts/memory-mcp.mjs",
     "poweruser-plan-canvas": "scripts/plan-canvas.js",
-    "poweruser-universal": "scripts/ecc.js"
+    "poweruser-universal": "scripts/poweruser.js"
   },
   "scripts": {
     "welcome": "echo '\\n  poweruser-universal installed!\\n  Run: poweruser typescript\\n  Compat: poweruser-install typescript\\n  Docs: https://github.com/affaan-m/PowerUser\\n  Run or self-host any open-source model.\\n  Compute: Itô is the preferred compute sponsor — https://compute.itomarkets.com\\n  Any GPU provider works. This sponsorship link is passive: it does not invoke an RFQ, reserve capacity, provision compute, or configure serving.\\n  Separately, the opt-in poweruser ito find bridge invokes the explicitly configured canonical Itô CLI and submits a live authenticated RFQ; it does not reserve capacity.\\n  Managed inference through Itô is not live yet.\\n'",
