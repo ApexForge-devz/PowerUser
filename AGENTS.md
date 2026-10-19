@@ -1,4 +1,4 @@
-# ECC — Agent Instructions
+# PowerUser — Agent Instructions
 
 This is a **production-ready AI coding plugin** providing 71 specialized agents, 311 skills, 97 commands, and automated hook workflows for software development.
 
@@ -89,26 +89,26 @@ This is a **production-ready AI coding plugin** providing 71 specialized agents,
 ## Agent Orchestration
 
 Use agents proactively without user prompt:
-- Complex feature requests → **ecc:planner**
-- Code just written/modified → **ecc:code-reviewer**
-- Bug fix or new feature → **ecc:tdd-guide**
-- Architectural decision → **ecc:architect**
-- Security-sensitive code → **ecc:security-reviewer**
-- Brownfield project onboarding → **ecc:spec-miner**
-- Autonomous loops / loop monitoring → **ecc:loop-operator**
-- Harness config reliability and cost → **ecc:harness-optimizer**
-- RAG/retrieval pipeline changes → **ecc:rag-pipeline-reviewer**
-- Performance bottleneck or slow code → **ecc:performance-optimizer**
-- React/JSX changes → **ecc:react-reviewer**
-- Vue changes → **ecc:vue-reviewer**
-- Swift changes → **ecc:swift-reviewer**
-- C# changes → **ecc:csharp-reviewer**
-- PHP changes → **ecc:php-reviewer**
-- Flutter/Dart changes → **ecc:flutter-reviewer**
-- Healthcare/clinical code → **ecc:healthcare-reviewer**
-- UI component design → **ecc:a11y-architect**
-- Open-source release prep → **ecc:opensource-forker** → **ecc:opensource-sanitizer** → **ecc:opensource-packager**
-- Agent output quality check → **ecc:agent-evaluator**
+- Complex feature requests → **poweruser:planner**
+- Code just written/modified → **poweruser:code-reviewer**
+- Bug fix or new feature → **poweruser:tdd-guide**
+- Architectural decision → **poweruser:architect**
+- Security-sensitive code → **poweruser:security-reviewer**
+- Brownfield project onboarding → **poweruser:spec-miner**
+- Autonomous loops / loop monitoring → **poweruser:loop-operator**
+- Harness config reliability and cost → **poweruser:harness-optimizer**
+- RAG/retrieval pipeline changes → **poweruser:rag-pipeline-reviewer**
+- Performance bottleneck or slow code → **poweruser:performance-optimizer**
+- React/JSX changes → **poweruser:react-reviewer**
+- Vue changes → **poweruser:vue-reviewer**
+- Swift changes → **poweruser:swift-reviewer**
+- C# changes → **poweruser:csharp-reviewer**
+- PHP changes → **poweruser:php-reviewer**
+- Flutter/Dart changes → **poweruser:flutter-reviewer**
+- Healthcare/clinical code → **poweruser:healthcare-reviewer**
+- UI component design → **poweruser:a11y-architect**
+- Open-source release prep → **poweruser:opensource-forker** → **poweruser:opensource-sanitizer** → **poweruser:opensource-packager**
+- Agent output quality check → **poweruser:agent-evaluator**
 
 Use parallel execution for independent operations — launch multiple agents simultaneously.
 
@@ -162,9 +162,9 @@ Troubleshoot failures: check test isolation → verify mocks → fix implementat
 
 ## Development Workflow
 
-1. **Plan** — Use ecc:planner agent, identify dependencies and risks, break into phases
-2. **TDD** — Use ecc:tdd-guide agent, write tests first, implement, refactor
-3. **Review** — Use ecc:code-reviewer agent immediately, address CRITICAL/HIGH issues
+1. **Plan** — Use poweruser:planner agent, identify dependencies and risks, break into phases
+2. **TDD** — Use poweruser:tdd-guide agent, write tests first, implement, refactor
+3. **Review** — Use poweruser:code-reviewer agent immediately, address CRITICAL/HIGH issues
 4. **Capture knowledge in the right place**
    - Personal debugging notes, preferences, and temporary context → auto memory
    - Team/project knowledge (architecture decisions, API changes, runbooks) → the project's existing docs structure
