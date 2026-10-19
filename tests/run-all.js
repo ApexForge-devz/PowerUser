@@ -8,7 +8,7 @@ const testsDir = __dirname;
 const repoRoot = path.resolve(testsDir, '..');
 const TEST_GLOB = 'tests/**/*.test.js';
 const filter = (((process.argv || [])[2]) || '').split(path.sep).join('/');
-const skipPatterns = (process.env.ECC_TEST_SKIP || '')
+const skipPatterns = (process.env.POWERUSER_TEST_SKIP || process.env.ECC_TEST_SKIP || '')
   .split(',')
   .map(s => s.trim())
   .filter(Boolean);
@@ -106,7 +106,7 @@ const BOX_W = 58;
 const boxLine = s => `║${s.padEnd(BOX_W)}║`;
 
 console.log('╔' + '═'.repeat(BOX_W) + '╗');
-console.log(boxLine('           ECC - Test Suite'));
+console.log(boxLine('           PowerUser - Test Suite'));
 console.log('╚' + '═'.repeat(BOX_W) + '╝');
 console.log();
 
