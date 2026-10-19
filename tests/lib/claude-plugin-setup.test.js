@@ -32,7 +32,7 @@ function test(name, fn) {
 }
 
 function createFixture(initialState = {}) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc plugin setup '));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser plugin setup '));
   const homeDir = path.join(root, 'home with spaces');
   const configDir = path.join(root, 'claude config with spaces');
   const projectRoot = path.join(root, 'project with spaces');
@@ -81,8 +81,8 @@ function withFixture(initialState, fn) {
     USERPROFILE: process.env.USERPROFILE,
     PATH: process.env.PATH,
     CLAUDE_CONFIG_DIR: process.env.CLAUDE_CONFIG_DIR,
-    ECC_TEST_CLAUDE_STATE: process.env.ECC_TEST_CLAUDE_STATE,
-    ECC_TEST_CLAUDE_CALLS: process.env.ECC_TEST_CLAUDE_CALLS,
+    PowerUser_TEST_CLAUDE_STATE: process.env.PowerUser_TEST_CLAUDE_STATE,
+    PowerUser_TEST_CLAUDE_CALLS: process.env.PowerUser_TEST_CLAUDE_CALLS,
   };
   try {
     process.chdir(fixture.projectRoot);
@@ -90,8 +90,8 @@ function withFixture(initialState, fn) {
     process.env.USERPROFILE = fixture.homeDir;
     process.env.PATH = `${fixture.binDir}${path.delimiter}${withoutShadowingClaude(previous.PATH)}`;
     process.env.CLAUDE_CONFIG_DIR = fixture.configDir;
-    process.env.ECC_TEST_CLAUDE_STATE = fixture.statePath;
-    process.env.ECC_TEST_CLAUDE_CALLS = fixture.callsPath;
+    process.env.PowerUser_TEST_CLAUDE_STATE = fixture.statePath;
+    process.env.PowerUser_TEST_CLAUDE_CALLS = fixture.callsPath;
     return fn(fixture);
   } finally {
     process.chdir(previous.cwd);
@@ -159,7 +159,7 @@ function writeManagedState(fixture, selectedModules, operations = []) {
   const statePath = path.join(fixture.configDir, 'poweruser', 'install-state.json');
   fs.mkdirSync(path.dirname(statePath), { recursive: true });
   fs.writeFileSync(statePath, `${JSON.stringify({
-    schemaVersion: 'ecc.install.v1',
+    schemaVersion: 'poweruser.install.v1',
     target: { target: 'claude' },
     resolution: { selectedModules, skippedModules: [] },
     operations,
@@ -325,7 +325,7 @@ test('fresh installs support all Claude scopes while hook preferences stay user-
   }
 });
 
-test('same-scope repeat setup updates ECC and changes durable user hook preferences', () => {
+test('same-scope repeat setup updates PowerUser and changes durable user hook preferences', () => {
   withFixture({
     plugins: [installedPlugin('local')],
     marketplaces: [officialMarketplace('local')],
@@ -409,7 +409,7 @@ test('setup preserves an explicit attribution opt-in', () => {
     plugins: [installedPlugin('user')],
     marketplaces: [officialMarketplace('user')],
   }, fixture => {
-    // `attribution` wins over `includeCoAuthoredBy` in Claude Code, so ECC must not
+    // `attribution` wins over `includeCoAuthoredBy` in Claude Code, so PowerUser must not
     // add a deprecated key that would silently lose to the user's own setting.
     fs.writeFileSync(fixture.settingsPath, `${JSON.stringify({
       attribution: { commit: 'Signed-off-by: Someone <someone@example.com>' },
@@ -460,17 +460,17 @@ test('legacy plugin inventory fails closed before marketplace or plugin mutation
   });
 });
 
-test('skills-directory ECC plugins fail closed before marketplace or plugin mutation', () => {
+test('skills-directory PowerUser plugins fail closed before marketplace or plugin mutation', () => {
   withFixture({
     plugins: [{
-      id: 'ecc@skills-dir',
+      id: 'poweruser@skills-dir',
       scope: 'user',
       enabled: true,
     }],
   }, fixture => {
     assertThrowsContaining(
       () => setupClaudePlugin(setupOptions(fixture, { scope: 'user' })),
-      ['ecc@skills-dir', 'duplicate', 'uninstall']
+      ['poweruser@skills-dir', 'duplicate', 'uninstall']
     );
     assert.deepStrictEqual(mutationCalls(readCalls(fixture)), []);
   });
@@ -495,7 +495,7 @@ test('manual plugin layouts fail closed before provider mutation', () => {
   });
 });
 
-test('duplicate ECC plugin scopes fail closed before mutation', () => {
+test('duplicate PowerUser plugin scopes fail closed before mutation', () => {
   withFixture({
     plugins: [installedPlugin('user'), installedPlugin('project')],
   }, fixture => {
@@ -530,7 +530,7 @@ test('malformed marketplace JSON and marketplace name collisions fail closed', (
         marketplaces: [{
           name: 'poweruser',
           source: 'git',
-          url: 'https://github.com/example/not-ecc.git',
+          url: 'https://github.com/example/not-poweruser.git',
           scope: 'user',
         }],
       },
