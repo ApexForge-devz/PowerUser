@@ -71,7 +71,7 @@
 
 ## Install with Claude Code
 
-Use the [guided setup](#install-PowerUser) or [native plugin commands](#claude-code-details). Both install the same `poweruser@poweruser` plugin. Choose one and do not stack a full manual Claude install on top.
+Use the [guided setup](#install-poweruser) or [native plugin commands](#claude-code-details). Both install the same `poweruser@poweruser` plugin. Choose one and do not stack a full manual Claude install on top.
 
 <div align="center">
 
@@ -125,7 +125,7 @@ Use the [guided setup](#install-PowerUser) or [native plugin commands](#claude-c
 
 </div>
 
-<p align="center"><a href="#install-PowerUser">Jump to install ↓</a></p>
+<p align="center"><a href="#install-poweruser">Jump to install ↓</a></p>
 
 # PowerUser
 
@@ -278,7 +278,7 @@ You can use PowerUser with Claude Code, Codex, and other harnesses at the same t
 
 **Do not stack install methods.** Installing PowerUser twice into the same harness can duplicate skills, commands, hooks, or configuration; installing it once into multiple harnesses does not.
 
-If you already layered multiple installs and things look duplicated, skip straight to [Reset / Uninstall PowerUser](#reset--uninstall-PowerUser).
+If you already layered multiple installs and things look duplicated, skip straight to [Reset / Uninstall PowerUser](#reset--uninstall-poweruser).
 
 **Install trouble?** Open the short [install or runtime problem form](https://github.com/ApexForge-devz/PowerUser/issues/new?template=install-problem.yml), or run `PowerUser feedback`. PowerUser never uploads diagnostics automatically.
 
@@ -295,7 +295,7 @@ The native path installs PowerUser's skills, agents, commands, and plugin-manage
 
 Claude Code owns these built-in commands, including their errors when a marketplace, plugin, or conflicting scope already exists. PowerUser cannot intercept that parser. If either native command reports an existing install or scope conflict, use the 2.2 guided setup or resolve the conflicting Claude plugin scope before retrying; do not layer a manual install on top.
 
-After PowerUser is installed, `/PowerUser:configure-PowerUser` is the namespaced in-Claude reconfiguration skill. It delegates to the same safe setup flow, but it is available only after the plugin is installed and cannot replace Claude Code's built-in `/plugin` command during a first install.
+After PowerUser is installed, `/poweruser:configure-poweruser` is the namespaced in-Claude reconfiguration skill. It delegates to the same safe setup flow, but it is available only after the plugin is installed and cannot replace Claude Code's built-in `/plugin` command during a first install.
 
 Claude Code plugins cannot distribute `rules`, so add only the rule packs you actually want:
 
@@ -690,7 +690,7 @@ Start with the workflow you need, not the full catalog.
 
 | What you are doing | Start here |
 |---|---|
-| Building a feature | `/PowerUser:plan "describe the feature"`, then `tdd-workflow` |
+| Building a feature | `/poweruser:plan "describe the feature"`, then `tdd-workflow` |
 | Fixing a bug | Reproduce it with a failing test, then use `tdd-workflow` |
 | Reviewing new code | `/code-review` for a fresh-context review |
 | Repairing a build | `/build-fix` |
@@ -706,7 +706,7 @@ Start with the workflow you need, not the full catalog.
 Claude Code plugin commands use the namespaced form:
 
 ```text
-/PowerUser:plan "Add authentication"
+/poweruser:plan "Add authentication"
 ```
 
 Manual installs may expose the shorter compatibility form:
@@ -729,8 +729,8 @@ Skills are the canonical workflow surface; maintained slash entries stay availab
 
 | I want to... | Use this surface | Agent used |
 |--------------|-----------------|------------|
-| Plan a new feature | `/PowerUser:plan "Add auth"` | planner |
-| Design system architecture | `/PowerUser:plan` + architect agent | architect |
+| Plan a new feature | `/poweruser:plan "Add auth"` | planner |
+| Design system architecture | `/poweruser:plan` + architect agent | architect |
 | Write code with tests first | `tdd-workflow` skill | tdd-guide |
 | Review code I just wrote | `/code-review` | code-reviewer |
 | Fix a failing build | `/build-fix` | build-error-resolver |
@@ -755,7 +755,7 @@ Slash forms below are shown where they remain part of the maintained command sur
 
 **Starting a new feature:**
 ```
-/PowerUser:plan "Add user authentication with OAuth"
+/poweruser:plan "Add user authentication with OAuth"
                                               -> planner creates implementation blueprint
 tdd-workflow skill                            -> tdd-guide enforces write-tests-first
 /code-review                                  -> code-reviewer checks your work
@@ -1230,7 +1230,7 @@ This repo is the raw code. The guides explain everything.
 ### TDD: Test-Driven Development
 
 ```text
-/PowerUser:plan "Add usage-based billing alerts"
+/poweruser:plan "Add usage-based billing alerts"
   -> confirm or edit the plan
   -> activate tdd-workflow
   -> capture RED evidence before implementation
@@ -2020,7 +2020,7 @@ This analyzes your git history locally and generates SKILL.md files.
 
 For advanced features (10k+ commits, auto-PRs, team sharing):
 
-[Install PowerUser Tools GitHub App](https://github.com/ApexForge-devz/PowerUser) | [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)
+[Visit PowerUser repository](https://github.com/ApexForge-devz/PowerUser) | [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)
 
 ```bash
 # Comment on any issue:
