@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="assets/hero.png" alt="ECC - the agent harness operating system" width="100%" />
+  <img src="assets/hero.png" alt="PowerUser - the agent harness operating system" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.star-history.com/affaan-m/ecc">
+  <a href="https://www.star-history.com/affaan-m/PowerUser">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=affaan-m/ECC&type=trending&theme=dark" />
-      <img src="https://api.star-history.com/badge?repo=affaan-m/ECC&type=trending" alt="GitHub Trending Repository of the Day" height="46" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=trending&theme=dark" />
+      <img src="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=trending" alt="GitHub Trending Repository of the Day" height="46" />
     </picture>
   </a>
-  <a href="https://www.star-history.com/affaan-m/ecc">
+  <a href="https://www.star-history.com/affaan-m/PowerUser">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=affaan-m/ECC&type=rank&theme=dark" />
-      <img src="https://api.star-history.com/badge?repo=affaan-m/ECC&type=rank" alt="Star History Global Rank" height="46" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=rank&theme=dark" />
+      <img src="https://api.star-history.com/badge?repo=ApexForge-devz/PowerUser&type=rank" alt="Star History Global Rank" height="46" />
     </picture>
   </a>
 </p>
@@ -39,21 +39,21 @@
 
 <p align="center">
   <a href="https://discord.gg/36yGMHGFbR"><img src="https://img.shields.io/discord/1496644400590094540?logo=discord&logoColor=white&label=Discord&color=5865F2" alt="Discord" /></a>
-  <a href="https://ecc.tools"><img src="https://img.shields.io/badge/Website-ecc.tools-E07856?logo=googlechrome&logoColor=white" alt="Website" /></a>
-  <a href="https://github.com/apps/ecc-tools"><img src="https://img.shields.io/badge/GitHub%20App-ECC%20Tools-181717?logo=github&logoColor=white" alt="GitHub App" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/badge/Website-github.com/ApexForge-devz/PowerUser-E07856?logo=googlechrome&logoColor=white" alt="Website" /></a>
+  <a href="https://github.com/apps/PowerUser-tools"><img src="https://img.shields.io/badge/GitHub%20App-PowerUser%20Tools-181717?logo=github&logoColor=white" alt="GitHub App" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license" /></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/affaan-m/ECC"><img src="https://img.shields.io/github/stars/affaan-m/ECC?style=flat" alt="GitHub stars" /></a>
-  <a href="https://github.com/affaan-m/ECC/forks"><img src="https://img.shields.io/github/forks/affaan-m/ECC?style=flat" alt="GitHub forks" /></a>
-  <a href="https://github.com/affaan-m/ECC/graphs/contributors"><img src="https://img.shields.io/github/contributors/affaan-m/ECC?style=flat" alt="Contributors" /></a>
-  <a href="https://github.com/marketplace/ecc-tools"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.ecc.tools%2Fbadge%2Finstalls&logo=github" alt="GitHub App installs" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser"><img src="https://img.shields.io/github/stars/ApexForge-devz/PowerUser?style=flat" alt="GitHub stars" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser/forks"><img src="https://img.shields.io/github/forks/ApexForge-devz/PowerUser?style=flat" alt="GitHub forks" /></a>
+  <a href="https://github.com/ApexForge-devz/PowerUser/graphs/contributors"><img src="https://img.shields.io/github/contributors/ApexForge-devz/PowerUser?style=flat" alt="Contributors" /></a>
+  <a href="https://github.com/marketplace/PowerUser-tools"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.github.com/ApexForge-devz/PowerUser%2Fbadge%2Finstalls&logo=github" alt="GitHub App installs" /></a>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/ecc-universal"><img src="https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal&logo=npm" alt="ecc-universal npm downloads" /></a>
-  <a href="https://www.npmjs.com/package/ecc-agentshield"><img src="https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield&logo=npm" alt="ecc-agentshield npm downloads" /></a>
+  <a href="https://www.npmjs.com/package/poweruser-universal"><img src="https://img.shields.io/npm/dw/poweruser-universal?label=poweruser-universal&logo=npm" alt="poweruser-universal npm downloads" /></a>
+  <a href="https://www.npmjs.com/package/PowerUser-agentshield"><img src="https://img.shields.io/npm/dw/PowerUser-agentshield?label=PowerUser-agentshield&logo=npm" alt="PowerUser-agentshield npm downloads" /></a>
 </p>
 
 <p align="center">
@@ -67,27 +67,27 @@
 </p>
 
 > [!WARNING]
-> **Official sources only.** Install ECC only from verified channels: the GitHub repository [github.com/affaan-m/ECC](https://github.com/affaan-m/ECC), the npm packages [`ecc-universal`](https://www.npmjs.com/package/ecc-universal) and [`ecc-agentshield`](https://www.npmjs.com/package/ecc-agentshield), the [GitHub App](https://github.com/apps/ecc-tools), the plugin slug `ecc@ecc`, and the project website [ecc.tools](https://ecc.tools). Third-party re-uploads and unofficial mirrors are not maintained or reviewed by the project and may contain malware.
+> **Official sources only.** Install PowerUser only from verified channels: the GitHub repository [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser), the npm packages [`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) and [`PowerUser-agentshield`](https://www.npmjs.com/package/PowerUser-agentshield), the [GitHub App](https://github.com/apps/PowerUser-tools), the plugin slug `poweruser@poweruser`, and the project website [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser). Third-party re-uploads and unofficial mirrors are not maintained or reviewed by the project and may contain malware.
 
 ## Install with Claude Code
 
-Use the [guided setup](#install-ecc) or [native plugin commands](#claude-code-details). Both install the same `ecc@ecc` plugin. Choose one and do not stack a full manual Claude install on top.
+Use the [guided setup](#install-PowerUser) or [native plugin commands](#claude-code-details). Both install the same `poweruser@poweruser` plugin. Choose one and do not stack a full manual Claude install on top.
 
 <div align="center">
 
-<table aria-label="ECC primary links">
+<table aria-label="PowerUser primary links">
 <tr>
 <td width="33%" align="center">
-  <a href="https://ecc.tools/pricing">
-    <img src="assets/images/community/ecc-tools-mark.svg" height="42" alt="ECC Tools" /><br />
-    <strong>ECC Pro + GitHub App</strong>
+  <a href="https://github.com/ApexForge-devz/PowerUser/pricing">
+    <img src="assets/images/community/PowerUser-tools-mark.svg" height="42" alt="PowerUser Tools" /><br />
+    <strong>PowerUser Pro + GitHub App</strong>
   </a><br />
-  <sub><a href="https://github.com/apps/ecc-tools">Install free</a> · <a href="https://ecc.tools/pricing">Private repos from $19/seat/mo</a></sub>
+  <sub><a href="https://github.com/apps/PowerUser-tools">Install free</a> · <a href="https://github.com/ApexForge-devz/PowerUser/pricing">Private repos from $19/seat/mo</a></sub>
 </td>
 <td width="33%" align="center">
   <a href="https://github.com/sponsors/affaan-m">
     <img src="assets/images/community/heart.svg" height="42" alt="" /><br />
-    <strong>Sponsor ECC</strong>
+    <strong>Sponsor PowerUser</strong>
   </a><br />
   <sub>Fund the open-source project</sub>
 </td>
@@ -103,7 +103,7 @@ Use the [guided setup](#install-ecc) or [native plugin commands](#claude-code-de
 
 </div>
 
-<sub>**OSS stays free.** This repo is MIT-licensed forever. ECC Pro is the hosted GitHub App for private repos. <a href="https://github.com/sponsors/affaan-m">Sponsors</a> and <a href="https://ecc.tools/pricing">Pro subscribers</a> fund the work. That's why a single maintainer ships weekly across 7 harnesses.</sub>
+<sub>**OSS stays free.** This repo is MIT-licensed forever. PowerUser Pro is the hosted GitHub App for private repos. <a href="https://github.com/sponsors/affaan-m">Sponsors</a> and <a href="https://github.com/ApexForge-devz/PowerUser/pricing">Pro subscribers</a> fund the work. That's why a single maintainer ships weekly across 7 harnesses.</sub>
 
 <div align="center">
 
@@ -111,13 +111,13 @@ Use the [guided setup](#install-ecc) or [native plugin commands](#claude-code-de
 
 <p align="center" aria-label="Partners and sponsors">
   <a href="https://www.coderabbit.ai" title="CodeRabbit"><img src="assets/images/sponsors/coderabbit.png" height="54" alt="CodeRabbit" /></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://www.greptile.com/go/ecc" title="Greptile"><img src="assets/images/sponsors/greptile.png" height="54" alt="Greptile" /></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://platform.kimi.ai?aff=ecc" title="Moonshot AI - Kimi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/images/sponsors/moonshot-dark.png" /><img src="assets/images/sponsors/moonshot.png" width="132" alt="Moonshot AI - Kimi" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://www.greptile.com/go/PowerUser" title="Greptile"><img src="assets/images/sponsors/greptile.png" height="54" alt="Greptile" /></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://platform.kimi.ai?aff=PowerUser" title="Moonshot AI - Kimi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/images/sponsors/moonshot-dark.png" /><img src="assets/images/sponsors/moonshot.png" width="132" alt="Moonshot AI - Kimi" /></picture></a>&nbsp;&nbsp;&nbsp;
   <a href="https://compute.itomarkets.com" title="Itô Markets"><picture><source media="(prefers-color-scheme: light)" srcset="assets/images/sponsors/ito-transparent-light.png" /><img src="assets/images/sponsors/ito-transparent.png" width="96" alt="Itô Markets" /></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://serpapi.com/github-ecc" title="SerpApi: Web Search API"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/images/sponsors/serpapi-logo-dark-mode.svg" /><img src="assets/images/sponsors/serpapi-logo-light-mode.svg" width="200" alt="SerpApi: Web Search API" /></picture></a>
+  <a href="https://serpapi.com/github-PowerUser" title="SerpApi: Web Search API"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/images/sponsors/serpapi-logo-dark-mode.svg" /><img src="assets/images/sponsors/serpapi-logo-light-mode.svg" width="200" alt="SerpApi: Web Search API" /></picture></a>
 </p>
 
-<sub><strong>Past sponsors:</strong> <a href="https://www.atlascloud.ai/?utm_source=github&amp;utm_medium=link&amp;utm_campaign=ECC">Atlas Cloud</a> · <a href="https://github.com/mikejmorgan-ai">Mike Morgan (inactive)</a></sub>
+<sub><strong>Past sponsors:</strong> <a href="https://www.atlascloud.ai/?utm_source=github&amp;utm_medium=link&amp;utm_campaign=PowerUser">Atlas Cloud</a> · <a href="https://github.com/mikejmorgan-ai">Mike Morgan (inactive)</a></sub>
 
 <sub><strong>Community sponsors:</strong> <a href="https://github.com/jasonwu513">@jasonwu513</a> · <a href="https://github.com/1anter">@1anter</a> · <a href="https://github.com/massimotodaro">@massimotodaro</a> · <a href="https://github.com/meadmccabe">@meadmccabe</a></sub>
 
@@ -125,11 +125,11 @@ Use the [guided setup](#install-ecc) or [native plugin commands](#claude-code-de
 
 </div>
 
-<p align="center"><a href="#install-ecc">Jump to install ↓</a></p>
+<p align="center"><a href="#install-PowerUser">Jump to install ↓</a></p>
 
-# ECC
+# PowerUser
 
-Your agent can write code, but ECC gives it a coordinated engineering system and toolbox: it plans before it builds, verifies changes with tests, reviews its own work from a fresh context, remembers what matters, and turns repeated wins into reusable skills and workflows.
+Your agent can write code, but PowerUser gives it a coordinated engineering system and toolbox: it plans before it builds, verifies changes with tests, reviews its own work from a fresh context, remembers what matters, and turns repeated wins into reusable skills and workflows.
 
 ```text
 plan -> test -> implement -> review -> verify -> remember -> improve
@@ -139,7 +139,7 @@ Instead of rebuilding that process in every prompt, you install it once and make
 
 > Optimize the context window. Persist everything else.
 
-ECC is MIT-licensed open source. It works best with Claude Code today, has native Codex and Qoder plugin paths, and provides capability-limited adapters for Cursor, OpenCode, Gemini, Zed, GitHub Copilot, Antigravity, Qwen, and other harnesses. See the [support status matrix](#platform-support) before assuming feature parity.
+PowerUser is MIT-licensed open source. It works best with Claude Code today, has native Codex and Qoder plugin paths, and provides capability-limited adapters for Cursor, OpenCode, Gemini, Zed, GitHub Copilot, Antigravity, Qwen, and other harnesses. See the [support status matrix](#platform-support) before assuming feature parity.
 
 Access to 71 agents, 311 skills, and 97 legacy command shims, plus hooks, rules, memory, continuous learning, and AgentShield security scanning. The agents are specialized for planning, review, build repair, security, architecture, and domain work.
 
@@ -147,24 +147,24 @@ Access to 71 agents, 311 skills, and 97 legacy command shims, plus hooks, rules,
 | ---------------- | ----------: | ------------------------------------------------------------------------------------ |
 | Agents           |   71 agents | Planning, review, build repair, security, architecture, and domain work              |
 | Skills           |  311 skills | TDD, research, security, docs, frontend, data, ML, operations, and more              |
-| Commands         | 97 commands | Convenient entry points while ECC moves to a skills-first surface                    |
+| Commands         | 97 commands | Convenient entry points while PowerUser moves to a skills-first surface                    |
 | Hooks and memory |     Runtime | Enforcement, session summaries, continuous learning, instincts, and context controls |
 | Rules            |   Selective | Always-loaded standards you choose by language or project                            |
 | AgentShield      |    Included | Scanning for prompts, hooks, MCP config, permissions, secrets, and agent files       |
 
 <p align="center">
-  <a href="https://www.star-history.com/affaan-m/ecc">
+  <a href="https://www.star-history.com/affaan-m/PowerUser">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=affaan-m/ECC&type=Date&theme=dark" />
-      <img src="https://api.star-history.com/svg?repos=affaan-m/ECC&type=Date" alt="Live star history chart for affaan-m/ECC" width="100%" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date&theme=dark" />
+      <img src="https://api.star-history.com/svg?repos=ApexForge-devz/PowerUser&type=Date" alt="Live star history chart for ApexForge-devz/PowerUser" width="100%" />
     </picture>
   </a>
 </p>
 
-## Install ECC
+## Install PowerUser
 
 > [!IMPORTANT]
-> ECC 2.2 includes guided package setup for Claude Code, Codex, and Kimi Code.
+> PowerUser 2.2 includes guided package setup for Claude Code, Codex, and Kimi Code.
 > The universal package requires Node.js 18 or newer. Claude plugin setup also
 > requires Git and Claude Code 2.1 or newer on `PATH`.
 
@@ -173,7 +173,7 @@ Access to 71 agents, 311 skills, and 97 legacy command shims, plus hooks, rules,
 For Claude Code plugin setup, updates, scope changes, and hook-profile changes:
 
 ```bash
-npx ecc-universal@2.2.3 setup
+npx poweruser-universal@2.2.3 setup
 ```
 
 #### Windows first-time walkthrough
@@ -193,53 +193,53 @@ If you are new to command-line tools, use this copy-and-paste path:
 4. Run the guided installer:
 
    ```powershell
-   npx ecc-universal@2.2.3 setup
+   npx poweruser-universal@2.2.3 setup
    ```
 
 5. For a typical personal setup, choose **Global user**, choose **Standard** hooks, and confirm.
-6. Start a new Claude Code session and run `/plugin list` to verify that `ecc@ecc` is enabled.
+6. Start a new Claude Code session and run `/plugin list` to verify that `poweruser@poweruser` is enabled.
 
-This path does not require cloning the repository. If any prerequisite command is not found, install or repair that prerequisite before rerunning ECC setup.
+This path does not require cloning the repository. If any prerequisite command is not found, install or repair that prerequisite before rerunning PowerUser setup.
 
 If npm reports a version or cache error, confirm the registry version before retrying:
 
 ```bash
-npm view ecc-universal version
+npm view poweruser-universal version
 ```
 
-ECC 2.2 supports the same guided setup through modern package runners:
+PowerUser 2.2 supports the same guided setup through modern package runners:
 
 | Package runner | Guided setup command |
 |---|---|
-| npm / npx | `npx ecc-universal@2.2.3 setup` |
-| pnpm | `pnpm dlx ecc-universal@2.2.3 setup` |
-| Yarn 2+ | `yarn dlx ecc-universal@2.2.3 setup` |
-| Bun | `bunx ecc-universal@2.2.3 setup` |
+| npm / npx | `npx poweruser-universal@2.2.3 setup` |
+| pnpm | `pnpm dlx poweruser-universal@2.2.3 setup` |
+| Yarn 2+ | `yarn dlx poweruser-universal@2.2.3 setup` |
+| Bun | `bunx poweruser-universal@2.2.3 setup` |
 
-The examples select [the published ECC 2.2.3 release](https://www.npmjs.com/package/ecc-universal/v/2.2.3), matching this repository's release version. A version pin is not a security audit or an integrity check. Review the release source and registry integrity before running package code; use a reviewed checkout for unreleased changes.
+The examples select [the published PowerUser 2.2.3 release](https://www.npmjs.com/package/poweruser-universal/v/2.2.3), matching this repository's release version. A version pin is not a security audit or an integrity check. Review the release source and registry integrity before running package code; use a reviewed checkout for unreleased changes.
 
 Yarn Classic 1 does not provide `yarn dlx`; use `npx`, install the package globally, or upgrade Yarn for a temporary one-shot run.
 
-The wizard inventories the official marketplace and every native Claude install scope before making changes, then installs, updates, or safely moves `ecc@ecc` to the scope you choose. Rerun the same command whenever you want to update ECC, change scope, or change its hook profile. This setup wizard currently configures the Claude Code plugin; use the multi-harness wizard below for Codex or Kimi Code.
+The wizard inventories the official marketplace and every native Claude install scope before making changes, then installs, updates, or safely moves `poweruser@poweruser` to the scope you choose. Rerun the same command whenever you want to update PowerUser, change scope, or change its hook profile. This setup wizard currently configures the Claude Code plugin; use the multi-harness wizard below for Codex or Kimi Code.
 
 To configure more than one coding agent in one reviewed flow, use the multi-harness wizard:
 
 ```bash
-npx ecc-universal@2.2.3 install --guided
+npx poweruser-universal@2.2.3 install --guided
 ```
 
 It lets you select any combination of Claude Code, Codex, and Kimi Code, shows each install channel and destination, preflights every selection before the first write, and asks for one final confirmation.
 
 | Harness | Guided install behavior |
 |---|---|
-| Claude Code | Native `ecc@ecc` plugin with one `user`, `project`, or `local` scope and an ECC hook profile |
+| Claude Code | Native `poweruser@poweruser` plugin with one `user`, `project`, or `local` scope and an PowerUser hook profile |
 | Codex | Native Codex marketplace/plugin lifecycle; hook review and trust remain Codex-owned |
-| Kimi Code | Managed project files under `./.kimi-code`; ECC hooks, model/provider settings, and authentication are not configured |
+| Kimi Code | Managed project files under `./.kimi-code`; PowerUser hooks, model/provider settings, and authentication are not configured |
 
 For automation, make every provider-specific choice explicit:
 
 ```bash
-npx ecc-universal@2.2.3 install --guided \
+npx poweruser-universal@2.2.3 install --guided \
   --harness claude --harness codex --harness kimi \
   --claude-scope local --claude-hooks standard \
   --profile core --yes
@@ -248,25 +248,25 @@ npx ecc-universal@2.2.3 install --guided \
 Verify the native guided Codex path and managed Kimi path without writing first:
 
 ```bash
-npx ecc-universal@2.2.3 install --guided --harness codex --dry-run
-npx ecc-universal@2.2.3 install --profile core --target kimi --dry-run
+npx poweruser-universal@2.2.3 install --guided --harness codex --dry-run
+npx poweruser-universal@2.2.3 install --profile core --target kimi --dry-run
 ```
 
 Additional package-name commands are also available through the 2.2 alias:
 
 ```bash
-npx ecc-universal@2.2.3 consult "security reviews" --target claude
-npx ecc-universal@2.2.3 install --profile minimal --target claude --with capability:machine-learning
-npx ecc-universal@2.2.3 doctor --target kimi
+npx poweruser-universal@2.2.3 consult "security reviews" --target claude
+npx poweruser-universal@2.2.3 install --profile minimal --target claude --with capability:machine-learning
+npx poweruser-universal@2.2.3 doctor --target kimi
 ```
 
-Do not use `npx ecc-install --profile minimal --target claude`: `ecc-install` is a binary name inside `ecc-universal`, not a separately published npm package.
+Do not use `npx PowerUser-install --profile minimal --target claude`: `PowerUser-install` is a binary name inside `poweruser-universal`, not a separately published npm package.
 
-ECC also ships advanced managed adapters for `cursor`, `antigravity`, `gemini`, `opencode`, `codebuddy`, `joycode`, `qwen`, `zed`, `hermes`, and `openclaw`. Those targets still use their documented `ecc install --target ...` paths until each adapter has passed the guided collision, update, repair, and uninstall lifecycle matrix. Neither wizard silently installs into every detected harness.
+PowerUser also ships advanced managed adapters for `cursor`, `antigravity`, `gemini`, `opencode`, `codebuddy`, `joycode`, `qwen`, `zed`, `hermes`, and `openclaw`. Those targets still use their documented `PowerUser install --target ...` paths until each adapter has passed the guided collision, update, repair, and uninstall lifecycle matrix. Neither wizard silently installs into every detected harness.
 
 ### Pick one path only (per harness)
 
-You can use ECC with Claude Code, Codex, and other harnesses at the same time. Choose one install method for each harness:
+You can use PowerUser with Claude Code, Codex, and other harnesses at the same time. Choose one install method for each harness:
 
 - **Recommended default:** run the guided Claude plugin setup above
 - **Also supported for Claude Code:** use the [native plugin commands](#claude-code-details)
@@ -276,35 +276,35 @@ You can use ECC with Claude Code, Codex, and other harnesses at the same time. C
 - **Avoid:** Claude Code plugin + full Claude manual install
 - **Avoid:** Codex sync + Codex marketplace plugin
 
-**Do not stack install methods.** Installing ECC twice into the same harness can duplicate skills, commands, hooks, or configuration; installing it once into multiple harnesses does not.
+**Do not stack install methods.** Installing PowerUser twice into the same harness can duplicate skills, commands, hooks, or configuration; installing it once into multiple harnesses does not.
 
-If you already layered multiple installs and things look duplicated, skip straight to [Reset / Uninstall ECC](#reset--uninstall-ecc).
+If you already layered multiple installs and things look duplicated, skip straight to [Reset / Uninstall PowerUser](#reset--uninstall-PowerUser).
 
-**Install trouble?** Open the short [install or runtime problem form](https://github.com/affaan-m/ECC/issues/new?template=install-problem.yml), or run `ecc feedback`. ECC never uploads diagnostics automatically.
+**Install trouble?** Open the short [install or runtime problem form](https://github.com/ApexForge-devz/PowerUser/issues/new?template=install-problem.yml), or run `PowerUser feedback`. PowerUser never uploads diagnostics automatically.
 
 ### Claude Code details
 
 Alternatively, run Claude Code's native plugin commands inside Claude Code:
 
 ```text
-/plugin marketplace add https://github.com/affaan-m/ECC
-/plugin install ecc@ecc
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
+/plugin install poweruser@poweruser
 ```
 
-The native path installs ECC's skills, agents, commands, and plugin-managed hooks. If you choose it, stop there. Do not also run a full manual install into Claude Code.
+The native path installs PowerUser's skills, agents, commands, and plugin-managed hooks. If you choose it, stop there. Do not also run a full manual install into Claude Code.
 
-Claude Code owns these built-in commands, including their errors when a marketplace, plugin, or conflicting scope already exists. ECC cannot intercept that parser. If either native command reports an existing install or scope conflict, use the 2.2 guided setup or resolve the conflicting Claude plugin scope before retrying; do not layer a manual install on top.
+Claude Code owns these built-in commands, including their errors when a marketplace, plugin, or conflicting scope already exists. PowerUser cannot intercept that parser. If either native command reports an existing install or scope conflict, use the 2.2 guided setup or resolve the conflicting Claude plugin scope before retrying; do not layer a manual install on top.
 
-After ECC is installed, `/ecc:configure-ecc` is the namespaced in-Claude reconfiguration skill. It delegates to the same safe setup flow, but it is available only after the plugin is installed and cannot replace Claude Code's built-in `/plugin` command during a first install.
+After PowerUser is installed, `/PowerUser:configure-PowerUser` is the namespaced in-Claude reconfiguration skill. It delegates to the same safe setup flow, but it is available only after the plugin is installed and cannot replace Claude Code's built-in `/plugin` command during a first install.
 
 Claude Code plugins cannot distribute `rules`, so add only the rule packs you actually want:
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
-mkdir -p ~/.claude/rules/ecc
-cp -R rules/common ~/.claude/rules/ecc/
-cp -R rules/typescript ~/.claude/rules/ecc/  # replace with your stack
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
+mkdir -p ~/.claude/rules/PowerUser
+cp -R rules/common ~/.claude/rules/PowerUser/
+cp -R rules/typescript ~/.claude/rules/PowerUser/  # replace with your stack
 ```
 
 Start with `rules/common` plus one language or framework pack you actually use. If you install the plugin, do not run `./install.sh --profile full` afterward.
@@ -317,15 +317,15 @@ Add directly to your `~/.claude/settings.json`:
 ```json
 {
   "extraKnownMarketplaces": {
-    "ecc": {
+    "PowerUser": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/ECC"
+        "repo": "ApexForge-devz/PowerUser"
       }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "poweruser@poweruser": true
   }
 }
 ```
@@ -334,59 +334,59 @@ This gives you the same result as the two `/plugin` commands above.
 </details>
 
 <details>
-<summary><strong>Naming + migration note (ecc@ecc, affaan-m/ECC, ecc-universal)</strong></summary>
+<summary><strong>Naming + migration note (poweruser@poweruser, ApexForge-devz/PowerUser, poweruser-universal)</strong></summary>
 
-ECC has three public identifiers, and they are not interchangeable:
+PowerUser has three public identifiers, and they are not interchangeable:
 
-- GitHub source repo: `affaan-m/ECC`
-- Claude marketplace/plugin identifier: `ecc@ecc`
-- npm package: `ecc-universal`
+- GitHub source repo: `ApexForge-devz/PowerUser`
+- Claude marketplace/plugin identifier: `poweruser@poweruser`
+- npm package: `poweruser-universal`
 
-This is intentional. Anthropic marketplace/plugin installs are keyed by a canonical plugin identifier, so ECC uses `ecc@ecc` to keep tool names and slash-command namespaces short enough for strict Desktop/API validators. Older posts may still show the former long marketplace identifier; treat that as a legacy alias only. Separately, the npm package stayed on `ecc-universal`, so npm installs and marketplace installs intentionally use different names.
+This is intentional. Anthropic marketplace/plugin installs are keyed by a canonical plugin identifier, so PowerUser uses `poweruser@poweruser` to keep tool names and slash-command namespaces short enough for strict Desktop/API validators. Older posts may still show the former long marketplace identifier; treat that as a legacy alias only. Separately, the npm package stayed on `poweruser-universal`, so npm installs and marketplace installs intentionally use different names.
 
-npm releases are cut per version tag, not per commit, so `ecc-universal` tracks releases (2.1, 2.2, ...) rather than every push to `main`. Install from git if you want the bleeding edge.
+npm releases are cut per version tag, not per commit, so `poweruser-universal` tracks releases (2.1, 2.2, ...) rather than every push to `main`. Install from git if you want the bleeding edge.
 
-If your local Claude setup was wiped or reset, that does not mean you need to repurchase anything. Start with `node scripts/ecc.js list-installed`, then run `node scripts/ecc.js doctor` and `node scripts/ecc.js repair` before reinstalling. That usually restores ECC-managed files without rebuilding your setup.
+If your local Claude setup was wiped or reset, that does not mean you need to repurchase anything. Start with `node scripts/PowerUser.js list-installed`, then run `node scripts/PowerUser.js doctor` and `node scripts/PowerUser.js repair` before reinstalling. That usually restores PowerUser-managed files without rebuilding your setup.
 </details>
 
 ### Codex App and CLI
 
-Current Codex releases can install ECC as a native repo-marketplace plugin. The marketplace entry uses the repository root so Codex's cache receives the manifest together with all referenced skills, MCP configuration, hook runtime, scripts, and assets:
+Current Codex releases can install PowerUser as a native repo-marketplace plugin. The marketplace entry uses the repository root so Codex's cache receives the manifest together with all referenced skills, MCP configuration, hook runtime, scripts, and assets:
 
 ```bash
-codex plugin marketplace add affaan-m/ECC
-codex plugin add ecc@ecc
+codex plugin marketplace add ApexForge-devz/PowerUser
+codex plugin add poweruser@poweruser
 codex plugin list --json
 node scripts/codex/check-plugin-cache.js
 ```
 
-Both add commands are idempotent. To refresh later, run `codex plugin marketplace upgrade ecc` followed by `codex plugin add ecc@ecc`. Codex stores one enabled plugin state in the active `CODEX_HOME`; it does not offer Claude's `user`, `project`, and `local` scopes. Its native hooks require an explicit trust decision and do not use Claude's four ECC hook profiles. Inside Codex, invoke `$configure-ecc` for the guided provider-aware flow.
+Both add commands are idempotent. To refresh later, run `codex plugin marketplace upgrade PowerUser` followed by `codex plugin add poweruser@poweruser`. Codex stores one enabled plugin state in the active `CODEX_HOME`; it does not offer Claude's `user`, `project`, and `local` scopes. Its native hooks require an explicit trust decision and do not use Claude's four PowerUser hook profiles. Inside Codex, invoke `$configure-PowerUser` for the guided provider-aware flow.
 
-The older `scripts/sync-ecc-to-codex.sh` path is a deprecated compatibility option for users who intentionally need copied and merged configuration in `~/.codex`; it is not required for the native plugin. New sync runs write an ownership manifest so cleanup can preserve modified user files. Run Codex once first so `~/.codex/config.toml` exists, then:
+The older `scripts/sync-PowerUser-to-codex.sh` path is a deprecated compatibility option for users who intentionally need copied and merged configuration in `~/.codex`; it is not required for the native plugin. New sync runs write an ownership manifest so cleanup can preserve modified user files. Run Codex once first so `~/.codex/config.toml` exists, then:
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 npm install
-bash scripts/sync-ecc-to-codex.sh
+bash scripts/sync-PowerUser-to-codex.sh
 ```
 
 To inspect or remove that legacy layer without touching Codex conversations or native plugin caches:
 
 ```bash
-node scripts/ecc.js uninstall --legacy-codex-sync --dry-run
-node scripts/ecc.js uninstall --legacy-codex-sync
+node scripts/PowerUser.js uninstall --legacy-codex-sync --dry-run
+node scripts/PowerUser.js uninstall --legacy-codex-sync
 ```
 
-Pre-manifest installations are handled conservatively: ECC removes its marked `AGENTS.md` block but preserves copied files it cannot prove it owns and reports them for review.
+Pre-manifest installations are handled conservatively: PowerUser removes its marked `AGENTS.md` block but preserves copied files it cannot prove it owns and reports them for review.
 
-You can also open the ECC repository directly in Codex for a project-local setup. Codex reads the root `AGENTS.md` and the trusted project configuration in `.codex/` without a global sync. Do not add the native marketplace plugin on top of the sync flow.
+You can also open the PowerUser repository directly in Codex for a project-local setup. Codex reads the root `AGENTS.md` and the trusted project configuration in `.codex/` without a global sync. Do not add the native marketplace plugin on top of the sync flow.
 
-For repo navigation, surface ownership, and PR diff packet guidance, read the [Codex ECC Navigation Map](docs/CODEX-NAVIGATION-GUIDE.md). See the [.codex plugin notes](.codex-plugin/README.md) for native lifecycle details.
+For repo navigation, surface ownership, and PR diff packet guidance, read the [Codex PowerUser Navigation Map](docs/CODEX-NAVIGATION-GUIDE.md). See the [.codex plugin notes](.codex-plugin/README.md) for native lifecycle details.
 
 ### Qoder CLI and IDE
 
-ECC ships a native Qoder plugin that reuses the canonical skills, agents,
+PowerUser ships a native Qoder plugin that reuses the canonical skills, agents,
 95 legacy command shims, and the pinned `chrome-devtools` MCP definition. From a
 reviewed checkout, validate and install it with Qoder CLI:
 
@@ -404,7 +404,7 @@ For Qoder IDE, upload a ZIP of the repository root. The ZIP root must contain
 The universal Node.js 18+ requirement applies to Qoder's non-interactive hook
 environment. The MCP server also requires `npx` and network access on first use.
 Qoder receives one reviewed, cross-platform `SessionStart` bootstrap using
-`QODER_PLUGIN_ROOT` and exec-form arguments. ECC does not copy the full Claude
+`QODER_PLUGIN_ROOT` and exec-form arguments. PowerUser does not copy the full Claude
 hook profile into Qoder: blocking tool hooks, async stop jobs, and
 Claude-specific matchers remain outside this initial native integration. See
 the [.qoder-plugin notes](.qoder-plugin/README.md) for the exact boundary.
@@ -414,11 +414,11 @@ the [.qoder-plugin notes](.qoder-plugin/README.md) for the exact boundary.
 <details>
 <summary><strong>Cursor, OpenCode, Gemini, Zed, Antigravity, Qwen, Hermes, OpenClaw, Kimi, CodeBuddy, JoyCode, Copilot</strong></summary>
 
-Clone ECC once, then choose the target that matches your harness:
+Clone PowerUser once, then choose the target that matches your harness:
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 ```
 
 | Harness | Install or setup | Notes |
@@ -431,16 +431,16 @@ cd ECC
 | Qwen CLI | `./install.sh --profile minimal --target qwen` | See the [Qwen guide](docs/QWEN-GUIDE.md) |
 | Hermes | `./install.sh --profile minimal --target hermes` | See the [Hermes setup guide](docs/HERMES-SETUP.md) |
 | OpenClaw | `./install.sh --profile minimal --target openclaw` | Managed home-directory install |
-| Kimi Code CLI | `./install.sh --profile minimal --target kimi` | Project-local `.kimi-code/` install · [Get Kimi Code](https://www.kimi.ai/code?aff=ecc) |
+| Kimi Code CLI | `./install.sh --profile minimal --target kimi` | Project-local `.kimi-code/` install · [Get Kimi Code](https://www.kimi.ai/code?aff=PowerUser) |
 | CodeBuddy | `./install.sh --profile minimal --target codebuddy` | Project-local `.codebuddy/` install |
 | JoyCode | `./install.sh --profile minimal --target joycode` | Project-local `.joycode/` install |
 | GitHub Copilot | `./install.sh --profile full --target copilot` | Installs skills to `.github/skills/` and agents to `.github/agents/` for Copilot CLI |
 
 GitHub Copilot support is already included in this repository. `.github/copilot-instructions.md` provides the instruction layer, `.github/prompts/` contains the reusable `/plan`, `/tdd`, `/security-review`, `/build-fix`, and `/refactor` prompts, and `.vscode/settings.json` enables `chat.promptFiles`. GitHub Copilot CLI additionally discovers the `.agents/skills/` subset from a plain clone with no setup; see [Platform Support](#platform-support) for the full catalog and agents.
 
-For a harness without a native ECC target, use the [manual adaptation guide](docs/MANUAL-ADAPTATION-GUIDE.md). It explains how to carry a small set of ECC skills and workflow instructions into chat-style tools without pretending hooks or native skill discovery are available.
+For a harness without a native PowerUser target, use the [manual adaptation guide](docs/MANUAL-ADAPTATION-GUIDE.md). It explains how to carry a small set of PowerUser skills and workflow instructions into chat-style tools without pretending hooks or native skill discovery are available.
 
-Cursor installs agent definitions under `.cursor/agents/ecc-*.md`. Cursor-native loading behavior can vary by Cursor build. ECC does not install root `AGENTS.md` into `.cursor/`. The adapter keeps Cursor's context scoped to its native rules and agent surfaces.
+Cursor installs agent definitions under `.cursor/agents/PowerUser-*.md`. Cursor-native loading behavior can vary by Cursor build. PowerUser does not install root `AGENTS.md` into `.cursor/`. The adapter keeps Cursor's context scoped to its native rules and agent surfaces.
 
 Deep per-harness notes (feature parity, hook adapters, limitations) live in [Platform Support](#platform-support) below.
 </details>
@@ -452,10 +452,10 @@ Deep per-harness notes (feature parity, hook adapters, limitations) live in [Pla
 
 ### Low-context / no-hooks path
 
-Use this when you want ECC's rules, agents, commands, platform config, and core workflows without runtime hooks:
+Use this when you want PowerUser's rules, agents, commands, platform config, and core workflows without runtime hooks:
 
 ```bash
-npx ecc-universal@2.2.3 install --profile minimal --target claude
+npx poweruser-universal@2.2.3 install --profile minimal --target claude
 ```
 
 From a source checkout, the equivalent command is:
@@ -472,7 +472,7 @@ Windows:
 
 This profile intentionally excludes `hooks-runtime`.
 
-Claude manual installs place each skill directly under `~/.claude/skills/<skill-name>/` (or `.claude/skills/<skill-name>/` for `claude-project`) so Claude Code can discover it. When upgrading an older ECC manual install, the installer migrates only nested `skills/ecc/` files recorded in ECC install-state. If a flat skill directory is user-owned, ECC preserves it, prints a conflict warning, and keeps any older managed copy tracked for a safe uninstall instead of overwriting user files.
+Claude manual installs place each skill directly under `~/.claude/skills/<skill-name>/` (or `.claude/skills/<skill-name>/` for `claude-project`) so Claude Code can discover it. When upgrading an older PowerUser manual install, the installer migrates only nested `skills/PowerUser/` files recorded in PowerUser install-state. If a flat skill directory is user-owned, PowerUser preserves it, prints a conflict warning, and keeps any older managed copy tracked for a safe uninstall instead of overwriting user files.
 
 For the normal core profile with hooks disabled:
 
@@ -490,7 +490,7 @@ Add the hook runtime later only if you want it:
 Any install whose profile or modules would materialize the hook runtime requires
 an explicit decision. Without `--enable-hooks` or `--no-hooks`, the installer
 prints what the hooks can do and stops before writing anything. The guided
-installer (`ecc install --guided`) asks for this choice interactively.
+installer (`PowerUser install --guided`) asks for this choice interactively.
 </details>
 
 <details>
@@ -501,7 +501,7 @@ installer (`ecc install --guided`) asks for this choice interactively.
 Ask the packaged advisor which components match your work:
 
 ```bash
-node scripts/ecc.js consult "security reviews" --target claude
+node scripts/PowerUser.js consult "security reviews" --target claude
 ```
 
 It returns matching components, related profiles, and preview/install commands. Use the preview command before installing if you want to inspect the exact file plan.
@@ -510,7 +510,7 @@ You can also install explicit skills or capabilities:
 
 ```bash
 ./install.sh --target claude --skills tdd-workflow,security-review
-node scripts/ecc.js install --profile minimal --target claude --with capability:machine-learning
+node scripts/PowerUser.js install --profile minimal --target claude --with capability:machine-learning
 ```
 
 Manual component-by-component copying also works. Each component is fully independent:
@@ -521,12 +521,12 @@ mkdir -p ~/.claude/agents
 cp agents/*.md ~/.claude/agents/
 
 # Rules directories (common + language-specific)
-mkdir -p ~/.claude/rules/ecc
-cp -r rules/common ~/.claude/rules/ecc/
-cp -r rules/typescript ~/.claude/rules/ecc/   # pick your stack
+mkdir -p ~/.claude/rules/PowerUser
+cp -r rules/common ~/.claude/rules/PowerUser/
+cp -r rules/typescript ~/.claude/rules/PowerUser/   # pick your stack
 
 # Core/general skills only (Claude Code loads skills from direct children
-# of ~/.claude/skills; do not nest manual installs under ~/.claude/skills/ecc/)
+# of ~/.claude/skills; do not nest manual installs under ~/.claude/skills/PowerUser/)
 mkdir -p ~/.claude/skills
 cp -r .agents/skills/* ~/.claude/skills/
 cp -r skills/search-first ~/.claude/skills/
@@ -542,13 +542,13 @@ Retired shims live in `legacy-command-shims/`. Copy individual files from there 
 <details>
 <summary><strong>Project-local rules instead of global rules</strong></summary>
 
-Use project-local rules when ECC's standards should apply to one repository rather than every Claude Code session:
+Use project-local rules when PowerUser's standards should apply to one repository rather than every Claude Code session:
 
 ```bash
 cd your-project
-mkdir -p .claude/rules/ecc
-cp -R /path/to/ECC/rules/common .claude/rules/ecc/
-cp -R /path/to/ECC/rules/typescript .claude/rules/ecc/
+mkdir -p .claude/rules/PowerUser
+cp -R /path/to/PowerUser/rules/common .claude/rules/PowerUser/
+cp -R /path/to/PowerUser/rules/typescript .claude/rules/PowerUser/
 ```
 
 Rules are always-loaded context, so begin with `common` and one pack for the stack you actually use. When copying rules manually, copy the whole language directory (for example `rules/common` or `rules/golang`), not the files inside it, so relative references keep working and filenames do not collide.
@@ -560,16 +560,16 @@ Rules are always-loaded context, so begin with `common` and one pack for the sta
 Use this only when you are intentionally skipping the plugin path:
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 ./install.sh --profile full --enable-hooks
 ```
 
 Windows:
 
 ```powershell
-git clone https://github.com/affaan-m/ECC.git
-cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git
+cd PowerUser
 .\install.ps1 --profile full --enable-hooks
 ```
 
@@ -577,7 +577,7 @@ These examples enable the automatic hook runtime. To install without hooks, repl
 
 If you choose this path, stop there. Do not also run `/plugin install`.
 
-For hand-picked manual installs, Claude discovers skills as direct children of `~/.claude/skills/`; do not nest them under `~/.claude/skills/ecc/`.
+For hand-picked manual installs, Claude discovers skills as direct children of `~/.claude/skills/`; do not nest them under `~/.claude/skills/PowerUser/`.
 
 #### Install hooks
 
@@ -589,10 +589,10 @@ bash ./install.sh --target claude --modules hooks-runtime --enable-hooks
 
 That installs the hook scripts under `~/.claude/` and registers the resolved
 hook entries in `~/.claude/settings.json`. Existing user settings and hooks are
-preserved; ECC-owned entries are tracked by stable ID for idempotent updates
+preserved; PowerUser-owned entries are tracked by stable ID for idempotent updates
 and safe uninstall.
 
-If you installed ECC via `/plugin install`, do not copy those hooks into `settings.json`. Claude Code v2.1+ already auto-loads plugin `hooks/hooks.json`, and duplicating them in `settings.json` causes duplicate execution and cross-platform hook conflicts.
+If you installed PowerUser via `/plugin install`, do not copy those hooks into `settings.json`. Claude Code v2.1+ already auto-loads plugin `hooks/hooks.json`, and duplicating them in `settings.json` causes duplicate execution and cross-platform hook conflicts.
 
 On Windows, Claude's config root is `%USERPROFILE%\.claude`; install the hook runtime with:
 
@@ -602,19 +602,19 @@ pwsh -File .\install.ps1 --target claude --modules hooks-runtime --enable-hooks
 
 #### Configure MCPs
 
-Claude plugin installs intentionally do not auto-enable ECC's bundled MCP server definitions. This avoids overlong plugin MCP tool names on strict third-party gateways while keeping manual MCP setup available.
+Claude plugin installs intentionally do not auto-enable PowerUser's bundled MCP server definitions. This avoids overlong plugin MCP tool names on strict third-party gateways while keeping manual MCP setup available.
 
 Use Claude Code's `/mcp` command or CLI-managed MCP setup for live Claude Code server changes; Claude Code persists those choices in `~/.claude.json`. For repo-local MCP access, copy desired MCP server definitions from `mcp-configs/mcp-servers.json` into a project-scoped `.mcp.json`.
 
-ECC ships exactly one default connector (`chrome-devtools`); everything else is a skill wrapping a CLI/REST API or an opt-in catalog entry. The rule and the June 2026 audit that retired the previous six defaults live in [docs/MCP-CONNECTOR-POLICY.md](docs/MCP-CONNECTOR-POLICY.md).
+PowerUser ships exactly one default connector (`chrome-devtools`); everything else is a skill wrapping a CLI/REST API or an opt-in catalog entry. The rule and the June 2026 audit that retired the previous six defaults live in [docs/MCP-CONNECTOR-POLICY.md](docs/MCP-CONNECTOR-POLICY.md).
 
-If you already run your own copies of ECC-bundled MCPs, set:
+If you already run your own copies of PowerUser-bundled MCPs, set:
 
 ```bash
-export ECC_DISABLED_MCPS="chrome-devtools"
+export PowerUser_DISABLED_MCPS="chrome-devtools"
 ```
 
-ECC-managed install and Codex sync flows will skip or remove those bundled servers instead of re-adding duplicates. `ECC_DISABLED_MCPS` is an ECC install/sync filter, not a live Claude Code toggle.
+PowerUser-managed install and Codex sync flows will skip or remove those bundled servers instead of re-adding duplicates. `PowerUser_DISABLED_MCPS` is an PowerUser install/sync filter, not a live Claude Code toggle.
 
 **Important:** Replace `YOUR_*_HERE` placeholders with your actual API keys.
 </details>
@@ -624,7 +624,7 @@ ECC-managed install and Codex sync flows will skip or remove those bundled serve
 
 `multi-*` commands are **not** covered by the base plugin/rules install.
 
-To use `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, and `/multi-workflow`, you must also install the `ccg-workflow` runtime. Choose and review an exact release using the [upstream CCG installation guide](https://github.com/fengshao1227/ccg-workflow#readme), then initialize that installed runtime. ECC does not bundle CCG or attest to a compatible, audited CCG release; this guide does not bootstrap an unspecified registry version.
+To use `/multi-plan`, `/multi-execute`, `/multi-backend`, `/multi-frontend`, and `/multi-workflow`, you must also install the `ccg-workflow` runtime. Choose and review an exact release using the [upstream CCG installation guide](https://github.com/fengshao1227/ccg-workflow#readme), then initialize that installed runtime. PowerUser does not bundle CCG or attest to a compatible, audited CCG release; this guide does not bootstrap an unspecified registry version.
 
 That runtime provides the external dependencies these commands expect, including:
 
@@ -643,26 +643,26 @@ Without `ccg-workflow`, these `multi-*` commands will not run correctly.
 <details>
 <summary><strong>Reset, repair, or uninstall</strong></summary>
 
-### Reset / Uninstall ECC
+### Reset / Uninstall PowerUser
 
 If you installed from the universal package, run these commands from the same
 project directory used for installation:
 
 ```bash
-npx ecc-universal@2.2.3 list-installed
-npx ecc-universal@2.2.3 doctor
-npx ecc-universal@2.2.3 repair
-npx ecc-universal@2.2.3 uninstall --dry-run
-npx ecc-universal@2.2.3 uninstall
+npx poweruser-universal@2.2.3 list-installed
+npx poweruser-universal@2.2.3 doctor
+npx poweruser-universal@2.2.3 repair
+npx poweruser-universal@2.2.3 uninstall --dry-run
+npx poweruser-universal@2.2.3 uninstall
 ```
 
 From a source checkout, inspect the managed state before reinstalling:
 
 ```bash
-node scripts/ecc.js list-installed
-node scripts/ecc.js doctor
-node scripts/ecc.js repair
-node scripts/ecc.js uninstall --dry-run
+node scripts/PowerUser.js list-installed
+node scripts/PowerUser.js doctor
+node scripts/PowerUser.js repair
+node scripts/PowerUser.js uninstall --dry-run
 ```
 
 For a direct source-checkout uninstall:
@@ -672,25 +672,25 @@ node scripts/uninstall.js --dry-run
 node scripts/uninstall.js
 ```
 
-If you are leaving, the uninstall command prints an optional [20-second feedback form](https://github.com/affaan-m/ECC/issues/new?template=quick-feedback.yml). It is a public GitHub issue, never blocks uninstall, and ECC does not upload diagnostics. You can also run `ecc feedback` at any time to see the problem, feedback, and feature routes.
+If you are leaving, the uninstall command prints an optional [20-second feedback form](https://github.com/ApexForge-devz/PowerUser/issues/new?template=quick-feedback.yml). It is a public GitHub issue, never blocks uninstall, and PowerUser does not upload diagnostics. You can also run `PowerUser feedback` at any time to see the problem, feedback, and feature routes.
 
-Plugin users should remove the plugin from Claude Code, then delete only the rule folders they manually copied and no longer want. ECC only removes files recorded in its install-state. It does not claim unrelated files in your harness directories.
+Plugin users should remove the plugin from Claude Code, then delete only the rule folders they manually copied and no longer want. PowerUser only removes files recorded in its install-state. It does not claim unrelated files in your harness directories.
 
 If you stacked methods, clean up in this order:
 
 1. Remove the Claude Code plugin install.
-2. Run the ECC uninstall command from the project directory that contains the managed install-state.
+2. Run the PowerUser uninstall command from the project directory that contains the managed install-state.
 3. Delete any extra rule folders you copied manually and no longer want.
 4. Reinstall once, using a single path.
 </details>
 
-## Start Using ECC
+## Start Using PowerUser
 
 Start with the workflow you need, not the full catalog.
 
 | What you are doing | Start here |
 |---|---|
-| Building a feature | `/ecc:plan "describe the feature"`, then `tdd-workflow` |
+| Building a feature | `/PowerUser:plan "describe the feature"`, then `tdd-workflow` |
 | Fixing a bug | Reproduce it with a failing test, then use `tdd-workflow` |
 | Reviewing new code | `/code-review` for a fresh-context review |
 | Repairing a build | `/build-fix` |
@@ -706,7 +706,7 @@ Start with the workflow you need, not the full catalog.
 Claude Code plugin commands use the namespaced form:
 
 ```text
-/ecc:plan "Add authentication"
+/PowerUser:plan "Add authentication"
 ```
 
 Manual installs may expose the shorter compatibility form:
@@ -718,7 +718,7 @@ Manual installs may expose the shorter compatibility form:
 Skills are the primary workflow surface. Commands remain convenient entry points and compatibility shims. Check what is installed with:
 
 ```bash
-/plugin list ecc@ecc
+/plugin list poweruser@poweruser
 ```
 </details>
 
@@ -729,8 +729,8 @@ Skills are the canonical workflow surface; maintained slash entries stay availab
 
 | I want to... | Use this surface | Agent used |
 |--------------|-----------------|------------|
-| Plan a new feature | `/ecc:plan "Add auth"` | planner |
-| Design system architecture | `/ecc:plan` + architect agent | architect |
+| Plan a new feature | `/PowerUser:plan "Add auth"` | planner |
+| Design system architecture | `/PowerUser:plan` + architect agent | architect |
 | Write code with tests first | `tdd-workflow` skill | tdd-guide |
 | Review code I just wrote | `/code-review` | code-reviewer |
 | Fix a failing build | `/build-fix` | build-error-resolver |
@@ -755,7 +755,7 @@ Slash forms below are shown where they remain part of the maintained command sur
 
 **Starting a new feature:**
 ```
-/ecc:plan "Add user authentication with OAuth"
+/PowerUser:plan "Add user authentication with OAuth"
                                               -> planner creates implementation blueprint
 tdd-workflow skill                            -> tdd-guide enforces write-tests-first
 /code-review                                  -> code-reviewer checks your work
@@ -778,9 +778,9 @@ e2e-testing skill                             -> e2e-runner: critical user flow 
 
 ## Self-Hosted Models and Custom Endpoints
 
-ECC works through each harness's normal configuration, so you can use an official provider, a compatible custom API endpoint or model gateway, or a self-hosted model without changing ECC's workflows.
+PowerUser works through each harness's normal configuration, so you can use an official provider, a compatible custom API endpoint or model gateway, or a self-hosted model without changing PowerUser's workflows.
 
-For Claude Code, ECC does not hardcode Anthropic-hosted transport settings. Minimal gateway example:
+For Claude Code, PowerUser does not hardcode Anthropic-hosted transport settings. Minimal gateway example:
 
 ```bash
 export ANTHROPIC_BASE_URL=https://your-gateway.example.com
@@ -788,13 +788,13 @@ export ANTHROPIC_AUTH_TOKEN=your-token
 claude
 ```
 
-If your gateway remaps model names, configure that in Claude Code rather than in ECC. ECC's hooks, skills, commands, and rules are model-provider agnostic once the `claude` CLI is already working. See Anthropic's [LLM gateway documentation](https://docs.anthropic.com/en/docs/claude-code/llm-gateway) and [model configuration documentation](https://docs.anthropic.com/en/docs/claude-code/model-config).
+If your gateway remaps model names, configure that in Claude Code rather than in PowerUser. PowerUser's hooks, skills, commands, and rules are model-provider agnostic once the `claude` CLI is already working. See Anthropic's [LLM gateway documentation](https://docs.anthropic.com/en/docs/claude-code/llm-gateway) and [model configuration documentation](https://docs.anthropic.com/en/docs/claude-code/model-config).
 
-Run or self-host any open-source model behind that gateway using separate compute and serving setup. If you need GPU capacity, [Itô](https://compute.itomarkets.com) is ECC's preferred compute sponsor; any GPU provider works. The sponsorship link is passive: it does not invoke an RFQ, reserve capacity, provision compute, or configure serving. Separately, `ecc ito find` invokes the explicitly configured canonical Itô CLI and submits a live authenticated RFQ; it does not reserve capacity. Managed inference through Itô is not live yet.
+Run or self-host any open-source model behind that gateway using separate compute and serving setup. If you need GPU capacity, [Itô](https://compute.itomarkets.com) is PowerUser's preferred compute sponsor; any GPU provider works. The sponsorship link is passive: it does not invoke an RFQ, reserve capacity, provision compute, or configure serving. Separately, `PowerUser ito find` invokes the explicitly configured canonical Itô CLI and submits a live authenticated RFQ; it does not reserve capacity. Managed inference through Itô is not live yet.
 
-### Self-host Kimi with ECC + Itô compute
+### Self-host Kimi with PowerUser + Itô compute
 
-The Kimi Code harness and the model-serving layer are separate. ECC configures the agent harness; you bring an API endpoint ([get a Kimi API key](https://platform.kimi.ai?aff=ecc)) or self-host an open-weight Kimi model on your own GPU capacity. This adapter is verified against Kimi Code 0.31.x (`@moonshot-ai/kimi-code`):
+The Kimi Code harness and the model-serving layer are separate. PowerUser configures the agent harness; you bring an API endpoint ([get a Kimi API key](https://platform.kimi.ai?aff=PowerUser)) or self-host an open-weight Kimi model on your own GPU capacity. This adapter is verified against Kimi Code 0.31.x (`@moonshot-ai/kimi-code`):
 
 <table aria-label="Local Kimi model path" width="100%">
 <tr>
@@ -814,31 +814,31 @@ The Kimi Code harness and the model-serving layer are separate. ECC configures t
 </td>
 <td width="33%" align="center">
   <a href=".kimi/README.md">
-    <img src="assets/images/community/ecc-tools-mark.svg" height="52" alt="ECC Tools" /><br />
-    <strong>3. Run Kimi Code with ECC</strong>
+    <img src="assets/images/community/PowerUser-tools-mark.svg" height="52" alt="PowerUser Tools" /><br />
+    <strong>3. Run Kimi Code with PowerUser</strong>
   </a><br />
   <sub>Install project instructions and skills, then start Kimi Code.</sub>
 </td>
 </tr>
 </table>
 
-Configure the endpoint with Kimi Code's <a href="https://moonshotai.github.io/kimi-cli/en/configuration/providers.html">official provider guide</a>, then install ECC:
+Configure the endpoint with Kimi Code's <a href="https://moonshotai.github.io/kimi-cli/en/configuration/providers.html">official provider guide</a>, then install PowerUser:
 
 ```bash
 bash ./install.sh --target kimi --profile minimal
-node scripts/ecc.js doctor --target kimi
+node scripts/PowerUser.js doctor --target kimi
 kimi
 ```
 
-Kimi Code discovers the installed `.kimi-code/AGENTS.md` instructions and `.kimi-code/skills/` workflows natively; project-level `.agents/skills/` is also an official discovery location. ECC safely merges project MCP entries into `.kimi-code/mcp.json` and does not change the user-level `~/.kimi-code/config.toml`. Kimi Code supports native hooks, but ECC's current managed-project adapter does not configure them, so this installer does not offer Kimi hook profiles. The installer dry-run and regression suite verify that every managed Kimi write stays inside the project-local `.kimi-code/` root.
+Kimi Code discovers the installed `.kimi-code/AGENTS.md` instructions and `.kimi-code/skills/` workflows natively; project-level `.agents/skills/` is also an official discovery location. PowerUser safely merges project MCP entries into `.kimi-code/mcp.json` and does not change the user-level `~/.kimi-code/config.toml`. Kimi Code supports native hooks, but PowerUser's current managed-project adapter does not configure them, so this installer does not offer Kimi hook profiles. The installer dry-run and regression suite verify that every managed Kimi write stays inside the project-local `.kimi-code/` root.
 
 ### Itô compute CLI bridge
 
-`ecc ito` delegates to the separately installed canonical Itô client; ECC does not maintain a second API client. `ecc ito login [--no-browser]` performs device authorization, opens the Itô verification page by default, and persists a device token in macOS Keychain; `--no-browser` suppresses the page handoff. ECC itself does no browser automation. `ecc ito auth` is validation-only and rejects `--no-browser`. The available operations are `ecc ito login`, `ecc ito auth`, `ecc ito find`, `ecc ito status`, and the separately gated `ecc ito evals`. The matching MCP tools remain `ito_auth`, `ito_find`, and `ito_status`; `ito_auth` validates existing credentials and node qualification is CLI-only.
+`PowerUser ito` delegates to the separately installed canonical Itô client; PowerUser does not maintain a second API client. `PowerUser ito login [--no-browser]` performs device authorization, opens the Itô verification page by default, and persists a device token in macOS Keychain; `--no-browser` suppresses the page handoff. PowerUser itself does no browser automation. `PowerUser ito auth` is validation-only and rejects `--no-browser`. The available operations are `PowerUser ito login`, `PowerUser ito auth`, `PowerUser ito find`, `PowerUser ito status`, and the separately gated `PowerUser ito evals`. The matching MCP tools remain `ito_auth`, `ito_find`, and `ito_status`; `ito_auth` validates existing credentials and node qualification is CLI-only.
 
-The `ito-compute-cli` package is currently unpublished. Build it locally from the Itô runtime repo (private while the desk hardens; design partners get access) under `cli/ito-compute-cli`, run `npm ci` and `npm run check`, then set `ECC_ITO_CLI_EXECUTABLE` to that build's absolute `dist/bin/ito.js` path. Login never inherits `ITO_API_KEY`; auth, find, and status forward `ITO_API_KEY` directly when configured, and `ITO_AUTH_MODE=legacy` is not required. `ecc ito logout` revokes the current device credential and retains its local copy if remote revocation cannot be confirmed. Device tokens use macOS Keychain by default; explicit file fallback must retain owner-only directory/file permissions. ECC does not discover this credential-bearing client through `PATH`. See the [`ito-compute` skill](skills/ito-compute/SKILL.md) for the full RFQ authority and MCP setup contract.
+The `ito-compute-cli` package is currently unpublished. Build it locally from the Itô runtime repo (private while the desk hardens; design partners get access) under `cli/ito-compute-cli`, run `npm ci` and `npm run check`, then set `PowerUser_ITO_CLI_EXECUTABLE` to that build's absolute `dist/bin/ito.js` path. Login never inherits `ITO_API_KEY`; auth, find, and status forward `ITO_API_KEY` directly when configured, and `ITO_AUTH_MODE=legacy` is not required. `PowerUser ito logout` revokes the current device credential and retains its local copy if remote revocation cannot be confirmed. Device tokens use macOS Keychain by default; explicit file fallback must retain owner-only directory/file permissions. PowerUser does not discover this credential-bearing client through `PATH`. See the [`ito-compute` skill](skills/ito-compute/SKILL.md) for the full RFQ authority and MCP setup contract.
 
-`find` submits a live authenticated RFQ. It does not reserve capacity. `evals` requires both `ITO_ENABLE_SIXTYTWO_LIVE=1` and `--live-sixtytwo`, a separately installed `sixtytwo-cli==0.3.33`, an explicit node list, and an existing absolute configuration directory. It cannot rent, launch, recover, repair, or purchase. ECC exposes no quote lock, purchase, workload, or inference path, and it never replaces a missing client or failed live call with a local result.
+`find` submits a live authenticated RFQ. It does not reserve capacity. `evals` requires both `ITO_ENABLE_SIXTYTWO_LIVE=1` and `--live-sixtytwo`, a separately installed `sixtytwo-cli==0.3.33`, an explicit node list, and an existing absolute configuration directory. It cannot rent, launch, recover, repair, or purchase. PowerUser exposes no quote lock, purchase, workload, or inference path, and it never replaces a missing client or failed live call with a local result.
 
 ## What's New
 
@@ -846,7 +846,7 @@ Current release: **2.2.3** (2026-10-01). Highlights of the 2.2 line:
 
 - Guided, manifest-driven setup across Claude Code, Codex, and Kimi Code, with install-state ownership, doctor, repair, and uninstall.
 - Native Antigravity install, a thin Pi adapter, and the packed-artifact release gate tested on Linux, macOS, and Windows.
-- Plan Canvas browser review, the unified memory vault (`ecc memory`), and the Itô compute skill family.
+- Plan Canvas browser review, the unified memory vault (`PowerUser memory`), and the Itô compute skill family.
 
 Full history: [CHANGELOG.md](CHANGELOG.md). Per-release notes and evidence live under [docs/releases/](docs/releases/).
 
@@ -857,7 +857,7 @@ Stable graduation of the 2.0 line: control-pane substrate, worktree lifecycle se
 ## What's Inside
 
 ```text
-ECC/
+PowerUser/
 |-- agents/           # 71 specialized subagents for delegation
 |-- skills/           # 311 reusable workflows loaded on demand
 |-- commands/         # 97 maintained slash-command shims
@@ -877,7 +877,7 @@ The root is the source of truth. Platform adapters package or map these same wor
 <summary><strong>Annotated component catalog</strong></summary>
 
 ```
-ECC/
+PowerUser/
 |-- .claude-plugin/   # Plugin and marketplace manifests
 |   |-- plugin.json         # Plugin metadata and component paths
 |   |-- marketplace.json    # Marketplace catalog for /plugin marketplace add
@@ -959,7 +959,7 @@ ECC/
 |   |-- springboot-security/        # Spring Boot security
 |   |-- springboot-tdd/             # Spring Boot TDD
 |   |-- springboot-verification/    # Spring Boot verification
-|   |-- configure-ecc/              # Interactive installation wizard
+|   |-- configure-PowerUser/              # Interactive installation wizard
 |   |-- security-scan/              # AgentShield security auditor integration
 |   |-- java-coding-standards/      # Java coding standards
 |   |-- jpa-patterns/               # JPA/Hibernate patterns
@@ -1026,7 +1026,7 @@ ECC/
 |   |-- verify.md           # /verify - Prefer the verification-loop skill
 |   |-- orchestrate.md      # /orchestrate - Prefer dmux-workflows or multi-workflow
 |
-|-- rules/            # Always-follow guidelines (copy to ~/.claude/rules/ecc/)
+|-- rules/            # Always-follow guidelines (copy to ~/.claude/rules/PowerUser/)
 |   |-- README.md            # Structure overview and installation guide
 |   |-- common/              # Language-agnostic principles
 |   |   |-- coding-style.md    # Immutability, file organization
@@ -1093,7 +1093,7 @@ ECC/
 <details>
 <summary><strong>Dashboard GUI</strong></summary>
 
-Launch the desktop dashboard to visually explore ECC components:
+Launch the desktop dashboard to visually explore PowerUser components:
 
 ```bash
 npm run dashboard
@@ -1131,7 +1131,7 @@ You are a senior code reviewer...
 
 ### Skills
 
-Skills are the primary workflow surface. They can be invoked directly, suggested automatically, and reused by agents. ECC still ships maintained `commands/` during migration, while retired short-name shims live under `legacy-command-shims/` for explicit opt-in only. New workflow development should land in `skills/` first.
+Skills are the primary workflow surface. They can be invoked directly, suggested automatically, and reused by agents. PowerUser still ships maintained `commands/` during migration, while retired short-name shims live under `legacy-command-shims/` for explicit opt-in only. New workflow development should land in `skills/` first.
 
 ```markdown
 # TDD Workflow
@@ -1179,25 +1179,25 @@ See [`rules/README.md`](rules/README.md) for installation and structure details.
 
 This repo is the raw code. The guides explain everything.
 
-<table aria-label="ECC guides" width="100%">
+<table aria-label="PowerUser guides" width="100%">
 <tr>
 <td width="33%" align="center">
 <a href="./the-shortform-guide.md">
-<img src="assets/images/guides/shorthand-guide.png" width="213" height="120" alt="The Shorthand Guide to ECC" /><br />
+<img src="assets/images/guides/shorthand-guide.png" width="213" height="120" alt="The Shorthand Guide to PowerUser" /><br />
 <strong>The Shorthand Guide</strong>
 </a>
 <br /><sub>Setup, foundations, and day-one use. <b>Read this first.</b> (<a href="https://x.com/affaan/status/2012378465664745795">thread</a>)</sub>
 </td>
 <td width="33%" align="center">
 <a href="./the-longform-guide.md">
-<img src="assets/images/guides/longform-guide.png" width="213" height="120" alt="The Longform Guide to ECC" /><br />
+<img src="assets/images/guides/longform-guide.png" width="213" height="120" alt="The Longform Guide to PowerUser" /><br />
 <strong>The Longform Guide</strong>
 </a>
 <br /><sub>Context economics, memory, evals, and parallel agents. (<a href="https://x.com/affaan/status/2014040193557471352">thread</a>)</sub>
 </td>
 <td width="33%" align="center">
 <a href="./the-security-guide.md">
-<img src="assets/images/guides/security-guide.png" width="213" height="120" alt="The Security Guide to ECC" /><br />
+<img src="assets/images/guides/security-guide.png" width="213" height="120" alt="The Security Guide to PowerUser" /><br />
 <strong>The Security Guide</strong>
 </a>
 <br /><sub>Prompt injection, hooks, MCP, and AgentShield. (<a href="https://x.com/affaan/status/2033263813387223421">thread</a>)</sub>
@@ -1216,9 +1216,9 @@ This repo is the raw code. The guides explain everything.
 
 [Commands Quick Reference](./COMMANDS-QUICK-REF.md) | [Manual Adaptation Guide](docs/MANUAL-ADAPTATION-GUIDE.md) | [Astra Review Guide](docs/ASTRA-REVIEW-GUIDE.md) | [Troubleshooting FAQ](./TROUBLESHOOTING.md) | [Roadmap](docs/ROADMAP.md)
 
-## Why Choose ECC?
+## Why Choose PowerUser?
 
-| Without a system                                        | With ECC                                                              |
+| Without a system                                        | With PowerUser                                                              |
 | ------------------------------------------------------- | --------------------------------------------------------------------- |
 | Plans disappear into chat history                       | Plans become editable artifacts before implementation starts          |
 | "Please use TDD" is an instruction the model may forget | TDD becomes a gated RED -> GREEN -> REFACTOR workflow with evidence   |
@@ -1230,7 +1230,7 @@ This repo is the raw code. The guides explain everything.
 ### TDD: Test-Driven Development
 
 ```text
-/ecc:plan "Add usage-based billing alerts"
+/PowerUser:plan "Add usage-based billing alerts"
   -> confirm or edit the plan
   -> activate tdd-workflow
   -> capture RED evidence before implementation
@@ -1244,7 +1244,7 @@ A result is not just code. It's a trail of evidence: the plan, the failing test,
 
 ### Skills keep the context focused
 
-Rules, skills, agents, and hooks solve different problems. Keeping those jobs separate is how ECC adds capability without dumping the entire repository into every session.
+Rules, skills, agents, and hooks solve different problems. Keeping those jobs separate is how PowerUser adds capability without dumping the entire repository into every session.
 
 | Concept | What it does | Context behavior |
 |---|---|---|
@@ -1256,67 +1256,67 @@ Rules, skills, agents, and hooks solve different problems. Keeping those jobs se
 
 ### Share context between harnesses
 
-ECC's Memory Vault gives Claude, Codex, Hermes, OpenClaw, Kimi, and other harnesses one local, inspectable Markdown format for durable context and handoffs. Project and team memories live under `.ecc/memory/`; user memories live under `~/.ecc/memory/`.
+PowerUser's Memory Vault gives Claude, Codex, Hermes, OpenClaw, Kimi, and other harnesses one local, inspectable Markdown format for durable context and handoffs. Project and team memories live under `.PowerUser/memory/`; user memories live under `~/.PowerUser/memory/`.
 
 Skill-only, minimal, manual, and Claude plugin installs do not put the Memory Vault runtime on `PATH`. Install the npm runtime separately before using the CLI or optional MCP server:
 
 ```bash
-npm install -g ecc-universal@2.2.3
-ecc memory init --scope project
-ecc memory search "authentication migration" --target-harness codex
-ecc memory doctor
+npm install -g poweruser-universal@2.2.3
+PowerUser memory init --scope project
+PowerUser memory search "authentication migration" --target-harness codex
+PowerUser memory doctor
 ```
 
-Memory is unreviewed context, not executable policy. Verify important claims against authoritative sources and promote accepted knowledge into governed project documentation. The optional `ecc-memory-mcp` server exposes the same bounded save, search, read, and doctor surface without enabling itself by default.
+Memory is unreviewed context, not executable policy. Verify important claims against authoritative sources and promote accepted knowledge into governed project documentation. The optional `PowerUser-memory-mcp` server exposes the same bounded save, search, read, and doctor surface without enabling itself by default.
 
 [Open the Unified Memory workflow →](skills/unified-memory/SKILL.md)
 
 <details>
 <summary><strong>Memory Vault in depth: scopes, handoffs, and trust boundaries</strong></summary>
 
-The Memory Vault stores portable `ecc.memory.v1` Markdown documents instead of copying vendor transcripts or emailing context between agents. Project memories are protected by a fail-closed `.gitignore`; use the team scope only for human-inspected, version-controlled sharing. Team memories remain unreviewed context even after they are committed.
+The Memory Vault stores portable `PowerUser.memory.v1` Markdown documents instead of copying vendor transcripts or emailing context between agents. Project memories are protected by a fail-closed `.gitignore`; use the team scope only for human-inspected, version-controlled sharing. Team memories remain unreviewed context even after they are committed.
 
 After installing the runtime above, check that the CLI and optional MCP entry point are available:
 
 ```bash
-ecc memory --help
-command -v ecc-memory-mcp
+PowerUser memory --help
+command -v PowerUser-memory-mcp
 ```
 
 ```bash
 # Initialize the project vault.
-ecc memory init --scope project
+PowerUser memory init --scope project
 
 # Write a handoff body to a regular file, then target the next harness.
-ecc memory handoff \
+PowerUser memory handoff \
   --from hermes \
   --target codex \
   --title "Continue authentication migration" \
   --body-file ./handoff.md
 
 # Recall it from another harness.
-ecc memory search "authentication migration" --target-harness codex
-ecc memory read <memory-id>
+PowerUser memory search "authentication migration" --target-harness codex
+PowerUser memory read <memory-id>
 
 # Validate the vault before sharing team memories.
-ecc memory doctor
+PowerUser memory doctor
 ```
 
 Memory bodies are accepted only through `--stdin` or `--body-file`, not as command-line values. The first release keeps every vault entry unreviewed and create-only; human review promotes accepted knowledge into governed project documentation rather than changing memory trust. Normal search recall returns active project and team memories. A direct ID read may inspect a non-active entry. User-scope recall must be requested explicitly. Agents must verify important claims against authoritative sources and must never treat recalled bodies as executable instructions or policy.
 
-For opt-in MCP access, add the `ecc-memory-vault` entry from [`mcp-configs/mcp-servers.json`](mcp-configs/mcp-servers.json) to each harness that needs it, then run `ecc-memory-mcp`. The server exposes only `memory_save`, `memory_search`, `memory_read`, and `memory_doctor`. Each server must launch with a lowercase `ECC_MEMORY_HARNESS` identity; the identity is server-bound and cannot be supplied by a tool caller. User scope additionally requires the operator-controlled `ECC_MEMORY_ALLOW_USER_SCOPE=1` opt-in. See [`skills/unified-memory/SKILL.md`](skills/unified-memory/SKILL.md) for the workflow and trust boundaries, and [`docs/design/ecc-memory-vault.md`](docs/design/ecc-memory-vault.md) for the capability contract.
+For opt-in MCP access, add the `PowerUser-memory-vault` entry from [`mcp-configs/mcp-servers.json`](mcp-configs/mcp-servers.json) to each harness that needs it, then run `PowerUser-memory-mcp`. The server exposes only `memory_save`, `memory_search`, `memory_read`, and `memory_doctor`. Each server must launch with a lowercase `PowerUser_MEMORY_HARNESS` identity; the identity is server-bound and cannot be supplied by a tool caller. User scope additionally requires the operator-controlled `PowerUser_MEMORY_ALLOW_USER_SCOPE=1` opt-in. See [`skills/unified-memory/SKILL.md`](skills/unified-memory/SKILL.md) for the workflow and trust boundaries, and [`docs/design/PowerUser-memory-vault.md`](docs/design/PowerUser-memory-vault.md) for the capability contract.
 </details>
 
 ## Platform Support
 
-ECC's core Node.js CLI and managed installers run on **Windows, macOS, and Linux**, but optional capabilities are not at full parity. Some continuous-learning, GAN, and orchestration paths still require Bash or Python; harnesses also expose different hook, agent, and skill APIs.
+PowerUser's core Node.js CLI and managed installers run on **Windows, macOS, and Linux**, but optional capabilities are not at full parity. Some continuous-learning, GAN, and orchestration paths still require Bash or Python; harnesses also expose different hook, agent, and skill APIs.
 
 | Platform | Status | Current limitation |
 |---|---|---|
 | Linux | Supported core | Optional features may require Bash, Python, or provider-specific tools. |
-| macOS | Supported core | The standalone GAN shell path is not compatible with the system Bash 3.2 and currently has a score-parsing defect ([#2674](https://github.com/affaan-m/ECC/issues/2674)). |
+| macOS | Supported core | The standalone GAN shell path is not compatible with the system Bash 3.2 and currently has a score-parsing defect ([#2674](https://github.com/ApexForge-devz/PowerUser/issues/2674)). |
 | Windows + WSL | Supported core | WSL follows the Linux paths; Windows host integrations still vary by harness. |
-| Windows native | Supported with limitations | Continuous-learning v2's observer daemon and memory-vault writes have open native-Windows defects ([#2489](https://github.com/affaan-m/ECC/issues/2489), [#2626](https://github.com/affaan-m/ECC/issues/2626)). Shell-backed optional features require Git Bash/WSL or are unavailable. |
+| Windows native | Supported with limitations | Continuous-learning v2's observer daemon and memory-vault writes have open native-Windows defects ([#2489](https://github.com/ApexForge-devz/PowerUser/issues/2489), [#2626](https://github.com/ApexForge-devz/PowerUser/issues/2626)). Shell-backed optional features require Git Bash/WSL or are unavailable. |
 
 Treat `stable`, `beta`, `experimental`, and `instruction-only` below as capability statements, not marketing tiers.
 
@@ -1326,9 +1326,9 @@ Treat `stable`, `beta`, `experimental`, and `instruction-only` below as capabili
 | Codex | Supported native plugin | Codex marketplace plugin or repo config | Native hooks require an explicit trust decision and do not use Claude's hook profiles. The legacy sync is compatibility-only. |
 | Qoder | Supported native plugin | Local plugin directory in Qoder CLI or ZIP upload in Qoder IDE | Loads the canonical skills, agents, commands, and MCP config; only the reviewed SessionStart hook is enabled, and Node.js 18+ must be on the non-interactive PATH. |
 | Cursor | Beta project adapter | Selective installer into `.cursor/` | Agent discovery varies by Cursor build; hook events use profile-gated dispatchers, but full Claude feature parity is not claimed. |
-| OpenCode | Beta built plugin | Build plugin, then selective installer | ECC ships a subset of the catalog; connect a provider and select a model in OpenCode ([#2617](https://github.com/affaan-m/ECC/issues/2617)). |
-| GitHub Copilot Chat | Instruction-only | Checked-in instructions and prompt files | ECC hooks are not adapted. |
-| GitHub Copilot CLI | Beta project adapter | `--target copilot` places skills and adapted agents in `.github/` | ECC hooks, rules, and command shims are not installed by this target. |
+| OpenCode | Beta built plugin | Build plugin, then selective installer | PowerUser ships a subset of the catalog; connect a provider and select a model in OpenCode ([#2617](https://github.com/ApexForge-devz/PowerUser/issues/2617)). |
+| GitHub Copilot Chat | Instruction-only | Checked-in instructions and prompt files | PowerUser hooks are not adapted. |
+| GitHub Copilot CLI | Beta project adapter | `--target copilot` places skills and adapted agents in `.github/` | PowerUser hooks, rules, and command shims are not installed by this target. |
 | Gemini, Zed, Antigravity, Qwen, Hermes, OpenClaw, Kimi, CodeBuddy, JoyCode | Experimental/minimal adapters | Harness-specific selective target | File placement and instruction portability are tested; full Claude feature parity is not claimed. |
 
 <details>
@@ -1369,64 +1369,64 @@ Use runtime flags to tune strictness or disable specific hooks temporarily:
 
 ```bash
 # Hook strictness profile (default: standard)
-export ECC_HOOK_PROFILE=standard
+export PowerUser_HOOK_PROFILE=standard
 
 # Comma-separated hook IDs to disable
-export ECC_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
+export PowerUser_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 
 # Cap SessionStart additional context (default: 8000 chars)
-export ECC_SESSION_START_MAX_CHARS=4000
+export PowerUser_SESSION_START_MAX_CHARS=4000
 
 # Disable SessionStart additional context entirely for low-context/local-model setups
-export ECC_SESSION_START_CONTEXT=off
+export PowerUser_SESSION_START_CONTEXT=off
 
 # Session-tmp retention window in days (default: 30).
 # Set to 0, off, false, disabled, never, or none to keep all sessions (disable pruning).
-export ECC_SESSION_RETENTION_DAYS=14
+export PowerUser_SESSION_RETENTION_DAYS=14
 
 # Cap how many learned instincts SessionStart injects into context (default: 6)
-export ECC_MAX_INJECTED_INSTINCTS=6
+export PowerUser_MAX_INJECTED_INSTINCTS=6
 
 # Minimum confidence an instinct needs to be injected, 0-1 (default: 0.7)
-export ECC_INSTINCT_CONFIDENCE_THRESHOLD=0.7
+export PowerUser_INSTINCT_CONFIDENCE_THRESHOLD=0.7
 
 # SessionStart ranks injected instincts by confidence + project/stack relevance
 # (default: on). Project-scoped instincts, and instincts whose domain/trigger
 # matches the detected stack (languages, frameworks, plus terraform/dbt markers),
 # get a small ranking boost so they surface above unrelated higher-confidence
 # ones. Set to off/false/0/no to rank by confidence alone.
-export ECC_INSTINCT_RELEVANCE_RANKING=on
+export PowerUser_INSTINCT_RELEVANCE_RANKING=on
 
 # Keep context/scope/loop warnings but suppress API-rate cost estimates
-export ECC_CONTEXT_MONITOR_COST_WARNINGS=off
+export PowerUser_CONTEXT_MONITOR_COST_WARNINGS=off
 ```
 
 Windows PowerShell:
 
 ```powershell
-[Environment]::SetEnvironmentVariable('ECC_CONTEXT_MONITOR_COST_WARNINGS', 'off', 'User')
-[Environment]::SetEnvironmentVariable('ECC_SESSION_RETENTION_DAYS', '14', 'User')
+[Environment]::SetEnvironmentVariable('PowerUser_CONTEXT_MONITOR_COST_WARNINGS', 'off', 'User')
+[Environment]::SetEnvironmentVariable('PowerUser_SESSION_RETENTION_DAYS', '14', 'User')
 ```
 </details>
 
 <details>
 <summary><strong>Agent data home (multi-harness isolation)</strong></summary>
 
-Memory persistence hooks (session summaries, learned skills, session aliases, metrics) store data under a single agent data root. By default that root is `~/.claude`. When you use ECC in both Claude Code and Cursor on the same machine, set a separate root for Cursor so the two environments do not overwrite each other's session files:
+Memory persistence hooks (session summaries, learned skills, session aliases, metrics) store data under a single agent data root. By default that root is `~/.claude`. When you use PowerUser in both Claude Code and Cursor on the same machine, set a separate root for Cursor so the two environments do not overwrite each other's session files:
 
 ```bash
 # Cursor-only boundary (Claude Code keeps the default ~/.claude)
-export ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"
+export PowerUser_AGENT_DATA_HOME="$HOME/.cursor/PowerUser"
 ```
 
 Paths resolved under that root include:
 
-- `$ECC_AGENT_DATA_HOME/session-data/`: session summaries
-- `$ECC_AGENT_DATA_HOME/skills/learned/`: learned skills from evaluate-session
-- `$ECC_AGENT_DATA_HOME/session-aliases.json`: session aliases
-- `$ECC_AGENT_DATA_HOME/metrics/`: cost and activity metrics
+- `$PowerUser_AGENT_DATA_HOME/session-data/`: session summaries
+- `$PowerUser_AGENT_DATA_HOME/skills/learned/`: learned skills from evaluate-session
+- `$PowerUser_AGENT_DATA_HOME/session-aliases.json`: session aliases
+- `$PowerUser_AGENT_DATA_HOME/metrics/`: cost and activity metrics
 
-See [affaan-m/ECC#2065](https://github.com/affaan-m/ECC/issues/2065).
+See [ApexForge-devz/PowerUser#2065](https://github.com/ApexForge-devz/PowerUser/issues/2065).
 </details>
 
 <details>
@@ -1439,8 +1439,8 @@ See [affaan-m/ECC#2065](https://github.com/affaan-m/ECC/issues/2065).
 | Instructions | Native | Native `AGENTS.md` | Project rules | Plugin instructions | Native instruction file |
 | Skills | Native installed set | Native plugin set | Build-dependent/project set | Built subset | Native discovery (Copilot CLI) from `.github/skills/`, `.agents/skills/`, `.claude/skills/` |
 | Agents/delegation | Native agents | Codex multi-agent roles; Claude agent files are not installed as roles | Build-dependent project agents | Plugin agents | Copilot CLI custom agents via `.github/agents/` and `--agent` |
-| ECC hooks | Native plugin hooks | Native reviewed subset with explicit trust | Cursor hook adapter; install-path differences remain | Plugin events | Not ported; Copilot CLI has its own plugin hook system |
-| MCP configuration | Available, explicit activation | Native plugin manifest; legacy sync can merge TOML | Explicit project/user config | Provider/plugin config | Not supplied by ECC |
+| PowerUser hooks | Native plugin hooks | Native reviewed subset with explicit trust | Cursor hook adapter; install-path differences remain | Plugin events | Not ported; Copilot CLI has its own plugin hook system |
+| MCP configuration | Available, explicit activation | Native plugin manifest; legacy sync can merge TOML | Explicit project/user config | Provider/plugin config | Not supplied by PowerUser |
 | Parity with Claude Code | Primary reference | Partial | Partial | Partial | Partial |
 
 **Key architectural decisions:**
@@ -1452,7 +1452,7 @@ See [affaan-m/ECC#2065](https://github.com/affaan-m/ECC/issues/2065).
 <details>
 <summary><strong>Cursor IDE support in depth</strong></summary>
 
-ECC provides Cursor IDE support with hooks, rules, agents, skills, commands, and MCP configs adapted for Cursor's project layout.
+PowerUser provides Cursor IDE support with hooks, rules, agents, skills, commands, and MCP configs adapted for Cursor's project layout.
 
 ```bash
 # macOS/Linux
@@ -1473,39 +1473,39 @@ ECC provides Cursor IDE support with hooks, rules, agents, skills, commands, and
 | Hook Events | 15 | sessionStart, beforeShellExecution, afterFileEdit, beforeMCPExecution, beforeSubmitPrompt, and 10 more |
 | Hook Entrypoints | 15 | Thin Node.js event dispatchers delegating to `scripts/hooks/` via shared adapter |
 | Rules | 34 | 9 common (alwaysApply) + 25 language-specific (TypeScript, Python, Go, Swift, PHP) |
-| Agents | 48 | `.cursor/agents/ecc-*.md` when installed; prefixed to avoid collisions with user or marketplace agents |
+| Agents | 48 | `.cursor/agents/PowerUser-*.md` when installed; prefixed to avoid collisions with user or marketplace agents |
 | Skills | Shared + Bundled | `.cursor/skills/` for translated additions |
 | Commands | Shared | `.cursor/commands/` if installed |
 | MCP Config | Shared | `.cursor/mcp.json` if installed |
 
 #### Cursor loading notes
 
-ECC does not install root `AGENTS.md` into `.cursor/`. Cursor treats nested `AGENTS.md` files as directory context, so copying ECC's repo identity into a host project would pollute that project.
+PowerUser does not install root `AGENTS.md` into `.cursor/`. Cursor treats nested `AGENTS.md` files as directory context, so copying PowerUser's repo identity into a host project would pollute that project.
 
-Cursor-native loading behavior can vary by Cursor build. ECC installs agents as `.cursor/agents/ecc-*.md`; if your Cursor build does not expose project agents, those files still work as explicit reference definitions instead of hidden global prompt context.
+Cursor-native loading behavior can vary by Cursor build. PowerUser installs agents as `.cursor/agents/PowerUser-*.md`; if your Cursor build does not expose project agents, those files still work as explicit reference definitions instead of hidden global prompt context.
 
 #### Memory and data isolation (Cursor + Claude Code)
 
-ECC memory hooks reuse the same `scripts/hooks/*.js` as Claude Code. For Cursor, ECC tries to keep memory **out of `~/.claude` automatically**:
+PowerUser memory hooks reuse the same `scripts/hooks/*.js` as Claude Code. For Cursor, PowerUser tries to keep memory **out of `~/.claude` automatically**:
 
-1. **Cursor `sessionStart` hook** (installed to `.cursor/hooks.json` on `--target cursor`) injects `ECC_AGENT_DATA_HOME` for the whole composer session.
-2. **Hook runtime default**: when `CURSOR_VERSION` or `CURSOR_PROJECT_DIR` is present, hooks default to `~/.cursor/ecc` if the env var is unset.
-3. **Project config**: `.cursor/ecc-agent-data.json` documents and overrides the path (`agentDataHome`).
-4. **Always-on rule**: `.cursor/rules/ecc-agent-data-home.mdc` reminds the agent where memory lives.
+1. **Cursor `sessionStart` hook** (installed to `.cursor/hooks.json` on `--target cursor`) injects `PowerUser_AGENT_DATA_HOME` for the whole composer session.
+2. **Hook runtime default**: when `CURSOR_VERSION` or `CURSOR_PROJECT_DIR` is present, hooks default to `~/.cursor/PowerUser` if the env var is unset.
+3. **Project config**: `.cursor/PowerUser-agent-data.json` documents and overrides the path (`agentDataHome`).
+4. **Always-on rule**: `.cursor/rules/PowerUser-agent-data-home.mdc` reminds the agent where memory lives.
 
 You can still override explicitly:
 
 ```bash
-export ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"
+export PowerUser_AGENT_DATA_HOME="$HOME/.cursor/PowerUser"
 ```
 
-To **share** memory with Claude Code on purpose, set `ECC_AGENT_DATA_HOME=~/.claude` in the shell or in `.cursor/ecc-agent-data.json`.
+To **share** memory with Claude Code on purpose, set `PowerUser_AGENT_DATA_HOME=~/.claude` in the shell or in `.cursor/PowerUser-agent-data.json`.
 
-Continuous learning v2 instincts remain separate under `CLV2_HOMUNCULUS_DIR` (default `~/.local/share/ecc-homunculus`).
+Continuous learning v2 instincts remain separate under `CLV2_HOMUNCULUS_DIR` (default `~/.local/share/PowerUser-homunculus`).
 
 #### Hook architecture (DRY adapter pattern)
 
-Cursor has **more hook events than Claude Code** (20 vs 8). The `.cursor/hooks/adapter.js` module transforms Cursor's stdin JSON to Claude Code's format, allowing existing `scripts/hooks/*.js` to be reused without duplication. Each Cursor event is registered with one event-level dispatcher so enabled checks run in a deterministic order and remain compatible with Cursor versions that execute only the first matching entry. The adapter resolves the shared runtime from both the ECC checkout and an installed project's `.cursor/scripts/` tree.
+Cursor has **more hook events than Claude Code** (20 vs 8). The `.cursor/hooks/adapter.js` module transforms Cursor's stdin JSON to Claude Code's format, allowing existing `scripts/hooks/*.js` to be reused without duplication. Each Cursor event is registered with one event-level dispatcher so enabled checks run in a deterministic order and remain compatible with Cursor versions that execute only the first matching entry. The adapter resolves the shared runtime from both the PowerUser checkout and an installed project's `.cursor/scripts/` tree.
 
 ```
 Cursor stdin JSON -> adapter.js -> transforms -> scripts/hooks/*.js
@@ -1535,12 +1535,12 @@ alwaysApply: false
 <details>
 <summary><strong>Codex macOS app + CLI support in depth</strong></summary>
 
-ECC provides a supported native Codex marketplace plugin and repo-local configuration for the macOS app and CLI. The native plugin carries shared skills, MCP configuration, and a reviewed hook subset; Codex keeps hook trust under explicit user control. The older sync path remains compatibility-only. For repo navigation, surface ownership, and PR diff packet guidance, start with [`docs/CODEX-NAVIGATION-GUIDE.md`](docs/CODEX-NAVIGATION-GUIDE.md).
+PowerUser provides a supported native Codex marketplace plugin and repo-local configuration for the macOS app and CLI. The native plugin carries shared skills, MCP configuration, and a reviewed hook subset; Codex keeps hook trust under explicit user control. The older sync path remains compatibility-only. For repo navigation, surface ownership, and PR diff packet guidance, start with [`docs/CODEX-NAVIGATION-GUIDE.md`](docs/CODEX-NAVIGATION-GUIDE.md).
 
 ```bash
-# Recommended current install: add ECC's native plugin from the repo marketplace
-codex plugin marketplace add affaan-m/ECC
-codex plugin add ecc@ecc
+# Recommended current install: add PowerUser's native plugin from the repo marketplace
+codex plugin marketplace add ApexForge-devz/PowerUser
+codex plugin add poweruser@poweruser
 codex plugin list --json
 
 # Or run Codex CLI in the repo: AGENTS.md and .codex/ are auto-detected
@@ -1551,17 +1551,17 @@ Legacy copied-configuration compatibility is still available when you intentiona
 
 ```bash
 # Compatibility-only managed sync into ~/.codex
-npm install && bash scripts/sync-ecc-to-codex.sh
+npm install && bash scripts/sync-PowerUser-to-codex.sh
 
 # Or copy only the reference config manually
 cp .codex/config.toml ~/.codex/config.toml
 ```
 
-Normal MCP sync preserves existing server settings and warns when they differ from ECC's recommendation. An existing `chrome-devtools-mcp@latest` entry therefore stays unchanged; updating the repository alone does not adopt the recommended `chrome-devtools-mcp@1.10.1` pin. Existing legacy-sync users can preview and explicitly apply the refresh from the updated ECC checkout:
+Normal MCP sync preserves existing server settings and warns when they differ from PowerUser's recommendation. An existing `chrome-devtools-mcp@latest` entry therefore stays unchanged; updating the repository alone does not adopt the recommended `chrome-devtools-mcp@1.10.1` pin. Existing legacy-sync users can preview and explicitly apply the refresh from the updated PowerUser checkout:
 
 ```bash
-bash scripts/sync-ecc-to-codex.sh --dry-run --update-mcp
-bash scripts/sync-ecc-to-codex.sh --update-mcp
+bash scripts/sync-PowerUser-to-codex.sh --dry-run --update-mcp
+bash scripts/sync-PowerUser-to-codex.sh --update-mcp
 ```
 
 Review the preview before applying: `--update-mcp` replaces the entire recommended `chrome-devtools` server section, including custom command arguments and nested settings. Unrelated user-managed servers remain in place. Retired defaults such as Context7 are not refreshed or migrated by this flag.
@@ -1588,7 +1588,7 @@ Skills at `.agents/skills/` are auto-loaded by Codex. Canonical Anthropic skills
 
 #### Key limitation
 
-Codex does **not provide Claude-style hook execution parity**. The native ECC plugin includes a reviewed hook subset that requires explicit trust in `/hooks`; `AGENTS.md`, optional `model_instructions_file` overrides, and sandbox/approval settings provide the remaining instruction and policy layers.
+Codex does **not provide Claude-style hook execution parity**. The native PowerUser plugin includes a reviewed hook subset that requires explicit trust in `/hooks`; `AGENTS.md`, optional `model_instructions_file` overrides, and sandbox/approval settings provide the remaining instruction and policy layers.
 
 #### Multi-agent support
 
@@ -1599,7 +1599,7 @@ Current Codex builds support stable multi-agent workflows.
 - Point each role at a file under `.codex/agents/`
 - Use `/agent` in the CLI to inspect or steer child agents
 
-ECC ships three sample role configs:
+PowerUser ships three sample role configs:
 
 | Role | Purpose |
 |------|---------|
@@ -1612,7 +1612,7 @@ ECC ships three sample role configs:
 <details>
 <summary><strong>Zed support</strong></summary>
 
-ECC provides Zed project support through a conservative `.zed` adapter for project-local settings, flattened rules, agents, commands, and skills.
+PowerUser provides Zed project support through a conservative `.zed` adapter for project-local settings, flattened rules, agents, commands, and skills.
 
 ```bash
 ./install.sh --profile minimal --target zed
@@ -1622,20 +1622,20 @@ ECC provides Zed project support through a conservative `.zed` adapter for proje
 .\install.ps1 --profile minimal --target zed
 ```
 
-The adapter writes ECC-managed files under `.zed/` and keeps BYOK/OpenRouter credentials out of the repo. Configure Zed account or API keys through Zed's own settings UI or your local user settings.
+The adapter writes PowerUser-managed files under `.zed/` and keeps BYOK/OpenRouter credentials out of the repo. Configure Zed account or API keys through Zed's own settings UI or your local user settings.
 </details>
 
 <details>
 <summary><strong>OpenCode support in depth</strong></summary>
 
-ECC provides a beta OpenCode plugin integration with instructions, a catalog subset, commands, custom tools, and hook events. It does not provide feature parity with Claude Code. The reference config inherits the user's OpenCode model selection instead of pinning a provider-specific model.
+PowerUser provides a beta OpenCode plugin integration with instructions, a catalog subset, commands, custom tools, and hook events. It does not provide feature parity with Claude Code. The reference config inherits the user's OpenCode model selection instead of pinning a provider-specific model.
 
 ```bash
 # Run your reviewed OpenCode installation in the repository root
 opencode
 ```
 
-For installation, use the [official OpenCode instructions](https://opencode.ai/docs/), select an exact release, and verify it before execution. The upstream npm package is `opencode-ai`, not `opencode`. ECC does not attest to an audited OpenCode runtime version.
+For installation, use the [official OpenCode instructions](https://opencode.ai/docs/), select an exact release, and verify it before execution. The upstream npm package is `opencode-ai`, not `opencode`. PowerUser does not attest to an audited OpenCode runtime version.
 
 The configuration is automatically detected from `.opencode/opencode.json`.
 
@@ -1657,25 +1657,25 @@ OpenCode's plugin system has 20+ event types:
 
 **Option 1: Use directly**
 ```bash
-cd ECC
+cd PowerUser
 opencode
 ```
 
 **Option 2: Install as npm package**
 ```bash
-npm install ecc-universal@2.2.3
+npm install poweruser-universal@2.2.3
 ```
 
 Then add to your `opencode.json`:
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["poweruser-universal"]
 }
 ```
 
-That npm plugin entry enables ECC's published OpenCode plugin module (hooks/events and plugin tools). It does **not** automatically add ECC's full command/agent/instruction catalog to your project config.
+That npm plugin entry enables PowerUser's published OpenCode plugin module (hooks/events and plugin tools). It does **not** automatically add PowerUser's full command/agent/instruction catalog to your project config.
 
-For the full ECC OpenCode setup, either:
+For the full PowerUser OpenCode setup, either:
 - run OpenCode inside this repository, or
 - copy the bundled `.opencode/` config assets into your project and wire the `instructions`, `agent`, and `command` entries in `opencode.json`
 
@@ -1690,7 +1690,7 @@ For the full ECC OpenCode setup, either:
 <details>
 <summary><strong>GitHub Copilot support in depth</strong></summary>
 
-ECC supports **GitHub Copilot** on two surfaces: Copilot Chat in VS Code, via its native instruction and prompt file system, and **GitHub Copilot CLI**, which discovers the shared skills already present in this repository. The optional `copilot` install target places canonical skills and adapted agents in the CLI's native project directories.
+PowerUser supports **GitHub Copilot** on two surfaces: Copilot Chat in VS Code, via its native instruction and prompt file system, and **GitHub Copilot CLI**, which discovers the shared skills already present in this repository. The optional `copilot` install target places canonical skills and adapted agents in the CLI's native project directories.
 
 #### What's included for GitHub Copilot
 
@@ -1715,16 +1715,16 @@ To use the workflow prompts in Copilot Chat:
 
 GitHub Copilot CLI discovers `SKILL.md` skills from `.github/skills/`,
 `.agents/skills/`, `.claude/skills/`, `~/.copilot/skills/`, and
-`~/.agents/skills/`, and custom agents from `.github/agents/`. ECC's skill and
+`~/.agents/skills/`, and custom agents from `.github/agents/`. PowerUser's skill and
 skill frontmatter is compatible. The managed `copilot` target adapts agent
 frontmatter to `name` and `description`, removing Claude-specific model and
 tool keys. Raw manual agent copies can retain unsupported metadata.
 
-Because ECC ships a skill subset in `.agents/skills/`, a plain clone of this
+Because PowerUser ships a skill subset in `.agents/skills/`, a plain clone of this
 repository is picked up by Copilot CLI with no configuration at all:
 
 ```bash
-git clone https://github.com/affaan-m/ECC.git && cd ECC
+git clone https://github.com/ApexForge-devz/PowerUser.git && cd PowerUser
 copilot skill list
 # The inventory depends on the checkout and CLI version.
 ```
@@ -1738,7 +1738,7 @@ To check this with a temporary npm-distributed CLI, run the pinned build
 against a throwaway clone:
 
 ```bash
-git clone --depth 1 https://github.com/affaan-m/ECC.git && cd ECC
+git clone --depth 1 https://github.com/ApexForge-devz/PowerUser.git && cd PowerUser
 npx -y @github/copilot@1.0.82 skill list --json | jq '[.[] | select(.source=="project")] | length'
 # Count the current inventory rather than assuming a fixed total.
 ```
@@ -1790,7 +1790,7 @@ placement and additionally rewrites agent frontmatter so no warning is emitted:
 ```
 
 That writes skills to `.github/skills/`, agents to `.github/agents/`, and an
-install-state file to `.github/ecc-install-state.json`. Nothing is written
+install-state file to `.github/PowerUser-install-state.json`. Nothing is written
 outside `.github/`.
 
 The `full` profile selects the modules declared for Copilot. It can place fewer
@@ -1801,12 +1801,12 @@ inventory to see what this checkout installs; a count is not a capability grant.
 Claude-only agent frontmatter (`model`, `tools`, `color`) is dropped during the
 copy: Copilot resolves the model from your own configuration, and it governs
 tool access per session through `--allow-tool`/`--deny-tool` rather than through
-agent frontmatter. ECC's rules, commands, and hooks are not installed by this
+agent frontmatter. PowerUser's rules, commands, and hooks are not installed by this
 target.
 
 #### Feature coverage
 
-| ECC Feature | Copilot equivalent |
+| PowerUser Feature | Copilot equivalent |
 |-------------|-------------------|
 | Coding standards | Always-on via `copilot-instructions.md` |
 | Security checklist | Always-on + `security-review` prompt |
@@ -1818,31 +1818,31 @@ target.
 | Commit message format | Per-task instruction in `settings.json` |
 | Skills | Native discovery in Copilot CLI (`.github/skills/`, `.agents/skills/`) |
 | Agents / delegation | Copilot CLI custom agents (`.github/agents/`, `--agent`) |
-| Hooks / automation | ECC's hooks are not ported (Copilot CLI has its own plugin hook system) |
+| Hooks / automation | PowerUser's hooks are not ported (Copilot CLI has its own plugin hook system) |
 
 #### Limitations
 
-ECC's hook automations (auto-format, TypeScript check, session persistence,
+PowerUser's hook automations (auto-format, TypeScript check, session persistence,
 dev-server guard) are written against Claude Code's hook event model and are
 not ported to Copilot. Copilot CLI does expose a hook system through its plugin
-format, but ECC does not currently ship a Copilot plugin, so none of ECC's hooks
+format, but PowerUser does not currently ship a Copilot plugin, so none of PowerUser's hooks
 run there.
 
-ECC also does not install rules, commands, or hooks for Copilot. The `copilot`
+PowerUser also does not install rules, commands, or hooks for Copilot. The `copilot`
 target installs skills and agents only. Skills that shell out to bundled
 scripts assume the same interpreters as on Claude Code. Copilot Chat in VS Code
 does not read `.github/skills/` or `.github/agents/`; those paths are Copilot
-CLI surfaces. The instruction and prompt layer is what carries ECC's coding
+CLI surfaces. The instruction and prompt layer is what carries PowerUser's coding
 philosophy into Copilot Chat sessions.
 </details>
 
 <details>
 <summary><strong>What changed in v2.0.0</strong></summary>
 
-ECC v2.0.0 stabilizes the 2.0 line with the public Hermes operator story, 281 skills, 67 agents, 94 command shims, session adapters, MCP inventory, worktree lifecycle services, orchestrator workflows, and the ECC Discord community.
+PowerUser v2.0.0 stabilizes the 2.0 line with the public Hermes operator story, 281 skills, 67 agents, 94 command shims, session adapters, MCP inventory, worktree lifecycle services, orchestrator workflows, and the PowerUser Discord community.
 
 - [v2.0.0 release notes](docs/releases/2.0.0/release-notes.md)
-- [ECC 2.0 reference architecture](docs/ECC-2.0-REFERENCE-ARCHITECTURE.md)
+- [PowerUser 2.0 reference architecture](docs/PowerUser-2.0-REFERENCE-ARCHITECTURE.md)
 - [Hermes setup guide](docs/HERMES-SETUP.md)
 - [Migration guide from 1.x](docs/MIGRATION-1X-TO-2.0.md)
 </details>
@@ -1878,7 +1878,7 @@ model available from your provider, or omit `CLAUDE_CODE_EFFORT_LEVEL`.
 | `model` | opus | **sonnet** | ~60% cost reduction; handles 80%+ of coding tasks |
 | `CLAUDE_CODE_EFFORT_LEVEL` | Model-dependent | **medium**, if supported | Controls adaptive reasoning depth on models that support effort controls; lower effort trades reasoning depth for latency and cost |
 | `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | Compacts earlier, better quality in long sessions |
-| `ECC_CONTEXT_MONITOR_COST_WARNINGS` | on | **off for subscription users** | Suppresses agent-facing API-rate estimate warnings while keeping context/scope/loop warnings |
+| `PowerUser_CONTEXT_MONITOR_COST_WARNINGS` | on | **off for subscription users** | Suppresses agent-facing API-rate estimate warnings while keeping context/scope/loop warnings |
 
 For fixed-budget models, `MAX_THINKING_TOKENS` controls the thinking budget. On Opus 4.6 or Sonnet 4.6, also set `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING=1` to use that mode. A positive token value does not cap adaptive reasoning; see the [performance rule](rules/common/performance.md#extended-thinking--plan-mode).
 
@@ -1899,7 +1899,7 @@ Switch to Opus only when you need deep architectural reasoning:
 | `/compact` | At logical task breakpoints (research done, milestone complete) |
 | `/cost` | Monitor token spending during session |
 
-If you use a subscription and the context monitor's API-rate estimates are not useful, set `ECC_CONTEXT_MONITOR_COST_WARNINGS=off`. This only suppresses the agent-facing cost warnings; it does not disable context exhaustion, scope, or loop warnings.
+If you use a subscription and the context monitor's API-rate estimates are not useful, set `PowerUser_CONTEXT_MONITOR_COST_WARNINGS=off`. This only suppresses the agent-facing cost warnings; it does not disable context exhaustion, scope, or loop warnings.
 </details>
 
 <details>
@@ -1925,7 +1925,7 @@ The `strategic-compact` skill suggests `/compact` at logical breakpoints instead
 - Keep under 10 MCPs enabled per project
 - Keep under 80 tools active
 - Use `/mcp` to disable unused Claude Code MCP servers; those runtime choices persist in `~/.claude.json`
-- Use `ECC_DISABLED_MCPS` only to filter ECC-generated MCP configs during install/sync flows
+- Use `PowerUser_DISABLED_MCPS` only to filter PowerUser-generated MCP configs during install/sync flows
 - If context is getting heavy, run `/context-budget` and remove rules you do not need
 
 **Agent teams cost warning:** Agent Teams spawns multiple context windows. Each teammate consumes tokens independently. Only use for tasks where parallelism provides clear value (multi-module work, parallel reviews). For simple sequential tasks, subagents are more token-efficient.
@@ -1955,18 +1955,18 @@ Claude Code v2.1+ **automatically loads** `hooks/hooks.json` from any installed 
 Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded file
 ```
 
-**History:** This has caused repeated fix/revert cycles in this repo ([#29](https://github.com/affaan-m/ECC/issues/29), [#52](https://github.com/affaan-m/ECC/issues/52), [#103](https://github.com/affaan-m/ECC/issues/103)). The behavior changed between Claude Code versions, leading to confusion. There is now a regression test to prevent this from being reintroduced.
+**History:** This has caused repeated fix/revert cycles in this repo ([#29](https://github.com/ApexForge-devz/PowerUser/issues/29), [#52](https://github.com/ApexForge-devz/PowerUser/issues/52), [#103](https://github.com/ApexForge-devz/PowerUser/issues/103)). The behavior changed between Claude Code versions, leading to confusion. There is now a regression test to prevent this from being reintroduced.
 </details>
 
 ## Security
 
-Install ECC only from official sources:
+Install PowerUser only from official sources:
 
-- GitHub repository: <https://github.com/affaan-m/ECC>
-- Claude Code plugin: `ecc@ecc`
-- npm packages: [`ecc-universal`](https://www.npmjs.com/package/ecc-universal) and [`ecc-agentshield`](https://www.npmjs.com/package/ecc-agentshield)
-- GitHub App: <https://github.com/apps/ecc-tools>
-- Website: <https://ecc.tools>
+- GitHub repository: <https://github.com/ApexForge-devz/PowerUser>
+- Claude Code plugin: `poweruser@poweruser`
+- npm packages: [`poweruser-universal`](https://www.npmjs.com/package/poweruser-universal) and [`PowerUser-agentshield`](https://www.npmjs.com/package/PowerUser-agentshield)
+- GitHub App: <https://github.com/apps/PowerUser-tools>
+- Website: <https://github.com/ApexForge-devz/PowerUser>
 
 Scan a project with an already installed, reviewed AgentShield binary (see [runner provenance](#agentshield-runner-provenance)):
 
@@ -1986,7 +1986,7 @@ Do not copy raw `hooks/hooks.json` into `~/.claude/settings.json` after a plugin
 
 Use `/mcp` for Claude Code runtime disables; Claude Code persists those choices in `~/.claude.json`.
 
-`ECC_DISABLED_MCPS` is an ECC install/sync filter, not a live Claude Code toggle.
+`PowerUser_DISABLED_MCPS` is an PowerUser install/sync filter, not a live Claude Code toggle.
 
 If context is getting heavy, run `/context-budget`, remove rules you do not need, and disable unused MCP servers. See the [token optimization guide](docs/token-optimization.md).
 </details>
@@ -2020,11 +2020,11 @@ This analyzes your git history locally and generates SKILL.md files.
 
 For advanced features (10k+ commits, auto-PRs, team sharing):
 
-[Install ECC Tools GitHub App](https://github.com/apps/ecc-tools) | [ecc.tools](https://ecc.tools)
+[Install PowerUser Tools GitHub App](https://github.com/apps/PowerUser-tools) | [github.com/ApexForge-devz/PowerUser](https://github.com/ApexForge-devz/PowerUser)
 
 ```bash
 # Comment on any issue:
-/ecc-tools analyze
+/PowerUser-tools analyze
 ```
 
 Both options create:
@@ -2041,7 +2041,7 @@ Both options create:
 Scan your agent configuration for vulnerabilities, misconfigurations, and injection risks.
 
 <a id="agentshield-runner-provenance"></a>
-**Runner provenance:** these commands require an already installed, reviewed AgentShield binary from `ecc-agentshield`. The [official package](https://www.npmjs.com/package/ecc-agentshield) documents the `agentshield` CLI. Record the selected release, reviewed source and verified package integrity in your installation record. Registry publication alone does not establish an audit; ECC does not supply an audited AgentShield pin here. Do not substitute an unversioned one-shot download. `/security-scan` is workflow guidance and has the same runner prerequisite.
+**Runner provenance:** these commands require an already installed, reviewed AgentShield binary from `PowerUser-agentshield`. The [official package](https://www.npmjs.com/package/PowerUser-agentshield) documents the `agentshield` CLI. Record the selected release, reviewed source and verified package integrity in your installation record. Registry publication alone does not establish an audit; PowerUser does not supply an audited AgentShield pin here. Do not substitute an unversioned one-shot download. `/security-scan` is workflow guidance and has the same runner prerequisite.
 
 ```bash
 # Scan only the intended project directory
@@ -2065,7 +2065,7 @@ agentshield init
 
 Use `/security-scan` in Claude Code to run it, or add to CI with the [GitHub Action](https://github.com/affaan-m/agentshield).
 
-[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/ecc-agentshield)
+[GitHub](https://github.com/affaan-m/agentshield) | [npm](https://www.npmjs.com/package/PowerUser-agentshield)
 </details>
 
 <details>
@@ -2086,12 +2086,12 @@ See `skills/continuous-learning-v2/` for full documentation. Keep `continuous-le
 ## Troubleshooting
 
 <details>
-<summary><strong>ECC appears twice or hooks fire twice</strong></summary>
+<summary><strong>PowerUser appears twice or hooks fire twice</strong></summary>
 
 The usual cause is installing the Claude plugin and then running `./install.sh --profile full` on top of it.
 
 1. Remove the Claude Code plugin install.
-2. Run `node scripts/ecc.js uninstall --dry-run` from the ECC checkout.
+2. Run `node scripts/PowerUser.js uninstall --dry-run` from the PowerUser checkout.
 3. Remove extra rule folders you manually copied and no longer want.
 4. Reinstall once, using one path.
 
@@ -2101,19 +2101,19 @@ For hook-specific checks, see the [hooks README](hooks/README.md).
 <details>
 <summary><strong>My hooks aren't working / "Duplicate hooks file" errors</strong></summary>
 
-**Do NOT add a `"hooks"` field to `.claude-plugin/plugin.json`.** Claude Code v2.1+ automatically loads `hooks/hooks.json` from installed plugins. Explicitly declaring it causes duplicate detection errors. See [#29](https://github.com/affaan-m/ECC/issues/29), [#52](https://github.com/affaan-m/ECC/issues/52), [#103](https://github.com/affaan-m/ECC/issues/103).
+**Do NOT add a `"hooks"` field to `.claude-plugin/plugin.json`.** Claude Code v2.1+ automatically loads `hooks/hooks.json` from installed plugins. Explicitly declaring it causes duplicate detection errors. See [#29](https://github.com/ApexForge-devz/PowerUser/issues/29), [#52](https://github.com/ApexForge-devz/PowerUser/issues/52), [#103](https://github.com/ApexForge-devz/PowerUser/issues/103).
 </details>
 
 <details>
 <summary><strong>Codex marketplace installs but skills do not load</strong></summary>
 
-Run the cache check from an ECC checkout:
+Run the cache check from an PowerUser checkout:
 
 ```bash
 node scripts/codex/check-plugin-cache.js
 ```
 
-If it reports unresolved parent references, refresh the native cache with `codex plugin marketplace upgrade ecc`, run `codex plugin add ecc@ecc` again, and restart Codex. Registration in `codex plugin list` confirms the marketplace entry, while the cache check verifies that the installed manifest can resolve its skills, MCP configuration, and assets. Use `bash scripts/sync-ecc-to-codex.sh` only when you intentionally need the legacy copied-configuration compatibility path.
+If it reports unresolved parent references, refresh the native cache with `codex plugin marketplace upgrade PowerUser`, run `codex plugin add poweruser@poweruser` again, and restart Codex. Registration in `codex plugin list` confirms the marketplace entry, while the cache check verifies that the installed manifest can resolve its skills, MCP configuration, and assets. Use `bash scripts/sync-PowerUser-to-codex.sh` only when you intentionally need the legacy copied-configuration compatibility path.
 </details>
 
 More answers: [TROUBLESHOOTING.md](TROUBLESHOOTING.md) covers memory, hooks, installation, performance, and common error messages. [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) tracks workarounds for open Claude Code bugs.
@@ -2141,18 +2141,18 @@ These configs are battle-tested across multiple production applications.
 ## Community and Project
 
 <details>
-<summary><strong>Sponsors and ECC Pro</strong></summary>
+<summary><strong>Sponsors and PowerUser Pro</strong></summary>
 
-ECC stays free because sponsors and Pro users fund the work. Sponsor logos are at the top of this README; the full roster and tiers are in [SPONSORS.md](SPONSORS.md).
+PowerUser stays free because sponsors and Pro users fund the work. Sponsor logos are at the top of this README; the full roster and tiers are in [SPONSORS.md](SPONSORS.md).
 
-ECC Pro adds private-repo analysis, PR-triggered audits, AgentShield-backed scanning, automatic push and PR checks, pooled team usage, and priority support through the hosted GitHub App.
+PowerUser Pro adds private-repo analysis, PR-triggered audits, AgentShield-backed scanning, automatic push and PR checks, pooled team usage, and priority support through the hosted GitHub App.
 
 <table>
 <tr>
-<td width="25%" align="center"><a href="https://ecc.tools/pricing"><strong>ECC Pro</strong><br /><sub>Hosted GitHub App for private repos</sub></a></td>
-<td width="25%" align="center"><a href="https://github.com/sponsors/affaan-m"><strong>Sponsor ECC</strong><br /><sub>Fund the OSS work</sub></a></td>
-<td width="25%" align="center"><a href="https://github.com/affaan-m/ECC/discussions"><strong>Community</strong><br /><sub>Q&amp;A, ideas, and Show and Tell</sub></a></td>
-<td width="25%" align="center"><a href="https://github.com/apps/ecc-tools"><strong>GitHub App</strong><br /><sub>PR audits and hosted workflows</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/ApexForge-devz/PowerUser/pricing"><strong>PowerUser Pro</strong><br /><sub>Hosted GitHub App for private repos</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/sponsors/affaan-m"><strong>Sponsor PowerUser</strong><br /><sub>Fund the OSS work</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/ApexForge-devz/PowerUser/discussions"><strong>Community</strong><br /><sub>Q&amp;A, ideas, and Show and Tell</sub></a></td>
+<td width="25%" align="center"><a href="https://github.com/apps/PowerUser-tools"><strong>GitHub App</strong><br /><sub>PR audits and hosted workflows</sub></a></td>
 </tr>
 </table>
 
@@ -2186,8 +2186,8 @@ The short version:
 
 ## Links
 
-- **Shorthand Guide (Start Here):** [The Shorthand Guide to ECC](https://x.com/affaan/status/2012378465664745795)
-- **Longform Guide (Advanced):** [The Longform Guide to ECC](https://x.com/affaan/status/2014040193557471352)
+- **Shorthand Guide (Start Here):** [The Shorthand Guide to PowerUser](https://x.com/affaan/status/2012378465664745795)
+- **Longform Guide (Advanced):** [The Longform Guide to PowerUser](https://x.com/affaan/status/2014040193557471352)
 - **Security Guide:** [Security Guide](./the-security-guide.md) | [Thread](https://x.com/affaan/status/2033263813387223421)
 - **Follow:** [@affaan](https://x.com/affaan)
 
