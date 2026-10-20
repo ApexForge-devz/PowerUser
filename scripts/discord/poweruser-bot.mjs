@@ -23,10 +23,10 @@ if (!TOKEN || !APP_ID) {
 }
 // Prefer ~/GitHub/PowerUser. The nested legacy checkout path is still accepted so
 // existing hosts keep working without setting POWERUSER_REPO.
-const REPO = process.env.POWERUSER_REPO || process.env.ECC_REPO || [
+const REPO = process.env.POWERUSER_REPO || process.env.POWERUSER_REPO || [
   join(homedir(), 'GitHub/PowerUser'),
-  join(homedir(), 'GitHub/ECC'),
-  join(homedir(), 'GitHub/ECC/everything-claude-code'),
+  join(homedir(), 'GitHub/POWERUSER'),
+  join(homedir(), 'GitHub/POWERUSER/poweruser'),
 ].find(dir => existsSync(join(dir, 'package.json'))) || join(homedir(), 'GitHub/PowerUser');
 const REPO_URL = 'https://github.com/ApexForge-devz/PowerUser';
 const INVITE = process.env.DISCORD_INVITE || '';

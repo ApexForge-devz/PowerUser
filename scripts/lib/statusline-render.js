@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Shared rendering helpers for the ECC usage bar statusline.
+ * Shared rendering helpers for the POWERUSER usage bar statusline.
  *
- * Inspired by leeguooooo/claude-code-usage-bar (MIT). ECC re-implementation
+ * Inspired by leeguooooo/claude-code-usage-bar (MIT). POWERUSER re-implementation
  * with brand colors, hooks/plugin awareness, and no external dependencies.
  *
  * Colors use 256-color ANSI so macOS Terminal.app renders them correctly.
- * Brand palette (from assets/ecc-icon.svg): amber #F59E0B ~ 214,
+ * Brand palette (from assets/poweruser-icon.svg): amber #F59E0B ~ 214,
  * terracotta #E07856 ~ 173.
  */
 
@@ -39,10 +39,10 @@ const ASCII_GLYPHS = {
  * Glyphs degrade to ASCII when the environment cannot be trusted to render
  * block/box characters: tmux mangles them to underscores without a UTF-8
  * locale, and fonts such as Terminal.app's default lack \u2b22/\u2733.
- * Force either set with ECC_BAR_GLYPHS=ascii|unicode.
+ * Force either set with POWERUSER_BAR_GLYPHS=ascii|unicode.
  */
 function glyphSet(env = process.env) {
-  const forced = String(env.ECC_BAR_GLYPHS || '').trim().toLowerCase();
+  const forced = String(env.POWERUSER_BAR_GLYPHS || '').trim().toLowerCase();
   if (forced === 'ascii') return ASCII_GLYPHS;
   if (forced === 'unicode') return UNICODE_GLYPHS;
   const locale = `${env.LC_ALL || ''} ${env.LC_CTYPE || ''} ${env.LANG || ''}`.toLowerCase();
@@ -188,12 +188,12 @@ function buildSessionLine(info) {
 }
 
 /**
- * Line 3: ECC version, hooks status, enabled plugins with versions, directory.
+ * Line 3: POWERUSER version, hooks status, enabled plugins with versions, directory.
  */
-function buildEccLine(info) {
+function buildPowerUserLine(info) {
   const parts = [];
-  const version = info.eccVersion ? ` ${info.eccVersion}` : '';
-  parts.push(`${C.terracotta}${G.hex} ECC${version}${C.reset}`);
+  const version = info.poweruserVersion ? ` ${info.poweruserVersion}` : '';
+  parts.push(`${C.terracotta}${G.hex} POWERUSER${version}${C.reset}`);
 
   if (info.hooks) {
     const h = info.hooks;
@@ -268,7 +268,7 @@ function readInstalledPlugins(claudeDir, workspace) {
       if (!entry) continue;
       plugins.push({ name: id.split('@')[0], version: entry?.version || '' });
     }
-    plugins.sort((a, b) => (a.name === 'ecc' ? -1 : b.name === 'ecc' ? 1 : a.name.localeCompare(b.name)));
+    plugins.sort((a, b) => (a.name === 'poweruser' ? -1 : b.name === 'poweruser' ? 1 : a.name.localeCompare(b.name)));
     return plugins;
   } catch {
     return [];
@@ -276,7 +276,7 @@ function readInstalledPlugins(claudeDir, workspace) {
 }
 
 /**
- * Hooks status summary from ECC hook flags (env + managed config).
+ * Hooks status summary from POWERUSER hook flags (env + managed config).
  */
 function getHooksSummary(env = process.env) {
   return {
@@ -300,7 +300,7 @@ module.exports = {
   computeCacheStats,
   buildUsageLine,
   buildSessionLine,
-  buildEccLine,
+  buildPowerUserLine,
   readInstalledPlugins,
   getHooksSummary,
 };

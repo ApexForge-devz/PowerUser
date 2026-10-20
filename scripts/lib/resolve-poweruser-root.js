@@ -6,18 +6,12 @@ const os = require('os');
 
 const CURRENT_PLUGIN_SLUG = 'poweruser';
 // Legacy identifiers are retained so existing installations continue to resolve.
-const LEGACY_PLUGIN_SLUGS = ['ecc', 'everything-claude-code'];
 const CURRENT_PLUGIN_HANDLE = `${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`;
-const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, ...LEGACY_PLUGIN_SLUGS];
+const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG];
 const PLUGIN_ROOT_SEGMENTS = [
   [CURRENT_PLUGIN_SLUG],
   [CURRENT_PLUGIN_HANDLE],
   ['marketplaces', CURRENT_PLUGIN_SLUG],
-  ...LEGACY_PLUGIN_SLUGS.flatMap((slug) => [
-    [slug],
-    [`${slug}@${slug}`],
-    ['marketplaces', slug],
-  ]),
 ];
 
 // Artifacts that identify a COMPLETE PowerUser root when the caller gives no explicit
@@ -74,13 +68,12 @@ function resolvePowerUserRoot(options = {}) {
     return claudeDir;
   }
 
-  // Exact legacy plugin install locations. These preserve backwards
-  // compatibility without scanning arbitrary plugin trees.
-  const legacyPluginRoots = PLUGIN_ROOT_SEGMENTS.map((segments) =>
+  // Exact PowerUser plugin install locations; do not scan arbitrary plugin trees.
+  const pluginRoots = PLUGIN_ROOT_SEGMENTS.map((segments) =>
     path.join(claudeDir, 'plugins', ...segments)
   );
 
-  for (const candidate of legacyPluginRoots) {
+  for (const candidate of pluginRoots) {
     if (isRoot(candidate)) {
       return candidate;
     }
@@ -138,7 +131,7 @@ function normalizePluginRootForPlatform(rootDir, platform = process.platform) {
  *   const _r = <paste INLINE_RESOLVE>;
  *   const sm = require(_r + '/scripts/lib/session-manager');
  */
-const INLINE_RESOLVE = `(function(){var p=require('path'),f=require('fs'),o=require('os');var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var d=(process.env.CLAUDE_CONFIG_DIR||'').trim()||p.join(o.homedir(),'.claude');if(d==='~')d=o.homedir();else if(d.charAt(0)==='~'&&(d.charAt(1)==='/'||d.charCodeAt(1)===92))d=p.join(o.homedir(),d.slice(2));d=p.resolve(d);function L(x){try{return require(p.join(x,'scripts','lib','resolve-poweruser-root')).resolvePowerUserRoot()}catch(_){return null}}var r=L(d);if(r)return r;var s=['poweruser','poweruser@poweruser','marketplaces/poweruser','ecc','ecc@ecc','marketplaces/ecc','everything-claude-code','everything-claude-code@everything-claude-code','marketplaces/everything-claude-code'];for(var i=0;i<s.length;i++){r=L(p.join(d,'plugins',s[i]));if(r)return r}function D(x){try{return f.readdirSync(x,{withFileTypes:true}).filter(function(z){return z.isDirectory()}).map(function(z){return z.name})}catch(e){if(e.code==='ENOENT')return [];throw e}}var g=['poweruser','ecc','everything-claude-code'];for(var j=0;j<g.length;j++){var c=p.join(d,'plugins','cache',g[j]);var O=D(c);for(var k=0;k<O.length;k++){var q=p.join(c,O[k]);var V=D(q);for(var m=0;m<V.length;m++){r=L(p.join(q,V[m]));if(r)return r}}}return d})()`;
+const INLINE_RESOLVE = `(function(){var p=require('path'),f=require('fs'),o=require('os');var e=process.env.CLAUDE_PLUGIN_ROOT;if(e&&e.trim())return e.trim();var d=(process.env.CLAUDE_CONFIG_DIR||'').trim()||p.join(o.homedir(),'.claude');if(d==='~')d=o.homedir();else if(d.charAt(0)==='~'&&(d.charAt(1)==='/'||d.charCodeAt(1)===92))d=p.join(o.homedir(),d.slice(2));d=p.resolve(d);function L(x){try{return require(p.join(x,'scripts','lib','resolve-poweruser-root')).resolvePowerUserRoot()}catch(_){return null}}var r=L(d);if(r)return r;var s=['poweruser','poweruser@poweruser','marketplaces/poweruser'];for(var i=0;i<s.length;i++){r=L(p.join(d,'plugins',s[i]));if(r)return r}function D(x){try{return f.readdirSync(x,{withFileTypes:true}).filter(function(z){return z.isDirectory()}).map(function(z){return z.name})}catch(e){if(e.code==='ENOENT')return [];throw e}}var g=['poweruser'];for(var j=0;j<g.length;j++){var c=p.join(d,'plugins','cache',g[j]);var O=D(c);for(var k=0;k<O.length;k++){var q=p.join(c,O[k]);var V=D(q);for(var m=0;m<V.length;m++){r=L(p.join(q,V[m]));if(r)return r}}}return d})()`;
 
 module.exports = {
   resolvePowerUserRoot,
