@@ -63,12 +63,12 @@ function resolveVaultRoots(options = {}) {
     options.homeDir || env.HOME || env.USERPROFILE || os.homedir()
   );
   const projectRoot = findNearestProjectRoot(cwd);
-  const projectVault = env.ECC_MEMORY_PROJECT_ROOT
-    ? resolveOverride(env.ECC_MEMORY_PROJECT_ROOT, cwd)
-    : path.join(projectRoot, '.ecc', 'memory');
-  const userVault = env.ECC_MEMORY_USER_ROOT
-    ? resolveOverride(env.ECC_MEMORY_USER_ROOT, cwd)
-    : path.join(homeDir, '.ecc', 'memory');
+  const projectVault = env.POWERUSER_MEMORY_PROJECT_ROOT
+    ? resolveOverride(env.POWERUSER_MEMORY_PROJECT_ROOT, cwd)
+    : path.join(projectRoot, '.poweruser', 'memory');
+  const userVault = env.POWERUSER_MEMORY_USER_ROOT
+    ? resolveOverride(env.POWERUSER_MEMORY_USER_ROOT, cwd)
+    : path.join(homeDir, '.poweruser', 'memory');
 
   const roots = {
     project: path.join(projectVault, 'project'),
@@ -77,13 +77,13 @@ function resolveVaultRoots(options = {}) {
   };
   Object.defineProperty(roots, VAULT_ROOT_BOUNDARIES, {
     value: Object.freeze({
-      project: env.ECC_MEMORY_PROJECT_ROOT
+      project: env.POWERUSER_MEMORY_PROJECT_ROOT
         ? realpathNearestExisting(projectVault)
         : projectRoot,
-      team: env.ECC_MEMORY_PROJECT_ROOT
+      team: env.POWERUSER_MEMORY_PROJECT_ROOT
         ? realpathNearestExisting(projectVault)
         : projectRoot,
-      user: env.ECC_MEMORY_USER_ROOT
+      user: env.POWERUSER_MEMORY_USER_ROOT
         ? realpathNearestExisting(userVault)
         : homeDir,
     }),
@@ -192,7 +192,7 @@ function writeCreateOnlyTextFile(filePath, content, trustedRoot) {
   assertWithinTrustedRoot(filePath, trustedRoot, 'write memory');
   const temporaryPath = path.join(
     path.dirname(filePath),
-    `.ecc-memory-${process.pid}-${crypto.randomUUID()}.tmp`
+    `.poweruser-memory-${process.pid}-${crypto.randomUUID()}.tmp`
   );
   const flags = fs.constants.O_WRONLY
     | fs.constants.O_CREAT
@@ -422,16 +422,16 @@ function assertMemoryMatchesLocation(memory, scope, root, filePath) {
   const [kindDirectory] = path.relative(root, filePath).split(path.sep);
   if (memory.scope !== scope || kindDirectory !== `${memory.kind}s`) {
     const error = new Error('Memory metadata does not match its vault location.');
-    error.code = 'ECC_MEMORY_LOCATION_MISMATCH';
+    error.code = 'POWERUSER_MEMORY_LOCATION_MISMATCH';
     throw error;
   }
 }
 
 function publicMemoryFileError(error) {
-  if (error?.code === 'ECC_MEMORY_SECRET') {
+  if (error?.code === 'POWERUSER_MEMORY_SECRET') {
     return { code: 'suspected-secret', message: 'Memory document was quarantined.' };
   }
-  if (error?.code === 'ECC_MEMORY_LOCATION_MISMATCH') {
+  if (error?.code === 'POWERUSER_MEMORY_LOCATION_MISMATCH') {
     return {
       code: 'location-mismatch',
       message: 'Memory metadata does not match its vault location.',
@@ -445,7 +445,7 @@ function publicMemoryFileError(error) {
 
 function incompleteMemoryLookupError() {
   const error = new Error('Memory lookup is incomplete. Inspect the authorized vault before retrying.');
-  error.code = 'ECC_MEMORY_INCOMPLETE';
+  error.code = 'POWERUSER_MEMORY_INCOMPLETE';
   return error;
 }
 
@@ -503,7 +503,7 @@ function readMemoryFiles(options = {}) {
         assertMemoryMatchesLocation(memory, scope, root, filePath);
         if (findPotentialSecrets(JSON.stringify(memory)).length > 0) {
           const error = new Error('Memory contains a suspected secret.');
-          error.code = 'ECC_MEMORY_SECRET';
+          error.code = 'POWERUSER_MEMORY_SECRET';
           throw error;
         }
         entries.push({
@@ -754,7 +754,7 @@ function doctorMemoryVault(options = {}) {
     && !loaded.truncated;
 
   return {
-    schemaVersion: 'ecc.memory.doctor.v1',
+    schemaVersion: 'poweruser.memory.doctor.v1',
     ok,
     memoryCount: visibleEntries.length,
     invalidFiles: loaded.invalidFiles,
