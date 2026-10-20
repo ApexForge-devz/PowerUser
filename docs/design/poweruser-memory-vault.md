@@ -80,7 +80,7 @@ OS accounts, containers, or equivalent filesystem isolation.
 - **PowerUser CLI:** deterministic local create/read/search/doctor interface.
 - **PowerUser Memory MCP:** stdio adapter exposing the same create/read/search/doctor
   operations. It has no review or promotion tool.
-- **ECC2 context graph:** optional projection populated from the Markdown
+- **PowerUser 2 context graph:** optional projection populated from the Markdown
   directory connector for richer relationship and session views.
 
 ### Surfaces
@@ -211,7 +211,7 @@ documents. Structured errors omit stack traces and secret values.
 
 The first release reports operation results only. Write acknowledgements omit
 the raw body and use a scope-relative vault path; only an explicit read returns
-the full body. A later event-sourced ECC2 projection may record content hashes
+the full body. A later event-sourced PowerUser 2 projection may record content hashes
 and operation metadata, but it must not log raw memory bodies or credentials.
 
 ## Non-goals
@@ -221,14 +221,14 @@ and operation metadata, but it must not log raw memory bodies or credentials.
 - Importing raw Claude/Codex/Hermes transcripts automatically.
 - Treating recalled memory as trusted system instructions.
 - Auto-promoting memory into skills, rules, instincts, or policy.
-- Replacing ECC2 sessions, the context graph, GitHub/Linear work items, or
+- Replacing PowerUser 2 sessions, the context graph, GitHub/Linear work items, or
   governed project documentation.
 - Solving cross-machine conflict-free replication in the first release.
 
 ## Open Questions
 
 - Whether the team scope should gain a signed promotion manifest that points
-  to governed artifacts after the ECC2 append-only event substrate lands.
+  to governed artifacts after the PowerUser 2 append-only event substrate lands.
 - Which semantic adapter should be the first optional reranker, and what offline
   evaluation must beat lexical search before it becomes recommended.
 - Whether SessionStart should inject links to governed project references or
@@ -241,6 +241,6 @@ and operation metadata, but it must not log raw memory bodies or credentials.
 
 The local file/CLI/MCP slice is implemented behind explicit CLI or MCP
 activation and covered by core, schema, CLI, protocol, packaging, and
-cross-harness tests. ECC2 graph sync, automatic session capture, semantic
+cross-harness tests. PowerUser 2 graph sync, automatic session capture, semantic
 adapters, governed-reference recall, and event-log promotion belong in
 follow-up lanes after real-world retrieval evaluation.

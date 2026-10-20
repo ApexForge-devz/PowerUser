@@ -1,6 +1,6 @@
 'use strict';
 
-// Runs existing ECC code against disposable synthetic vaults. No service or SDK installs.
+// Runs existing PowerUser code against disposable synthetic vaults. No service or SDK installs.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
@@ -17,7 +17,7 @@ let dependencyRoot;
 try {
   dependencyRoot = path.dirname(path.dirname(require.resolve('ajv/package.json')));
 } catch {
-  process.stderr.write('ECC memory example requires the existing Ajv runtime dependency.\n');
+  process.stderr.write('PowerUser memory example requires the existing Ajv runtime dependency.\n');
   process.exit(1);
 }
 const sourcePaths = [
@@ -37,7 +37,7 @@ function sourceHead() {
 }
 const before = snapshot();
 const headBefore = sourceHead();
-const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-memory-conformance-'));
+const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-memory-conformance-'));
 const checks = [];
 const startedAt = new Date().toISOString();
 function envFor(partition = 'alpha', harness = 'codex', allowUser = false) {
@@ -45,10 +45,10 @@ function envFor(partition = 'alpha', harness = 'codex', allowUser = false) {
   fs.mkdirSync(cwd, { recursive: true });
   return { cwd, env: { ...cleanEnv,
     NODE_PATH: dependencyRoot,
-    ECC_MEMORY_PROJECT_ROOT: path.join(cwd, 'vault'),
-    ECC_MEMORY_USER_ROOT: path.join(root, 'synthetic-user'),
-    ...(harness ? { ECC_MEMORY_HARNESS: harness } : {}),
-    ECC_MEMORY_ALLOW_USER_SCOPE: allowUser ? '1' : '0',
+    POWERUSER_MEMORY_PROJECT_ROOT: path.join(cwd, 'vault'),
+    POWERUSER_MEMORY_USER_ROOT: path.join(root, 'synthetic-user'),
+    ...(harness ? { POWERUSER_MEMORY_HARNESS: harness } : {}),
+    POWERUSER_MEMORY_ALLOW_USER_SCOPE: allowUser ? '1' : '0',
   } };
 }
 function run(script, args, input, options) {
@@ -65,7 +65,7 @@ function mcp(harness, calls, partition = 'alpha', allowUser = false) {
   const frames = [
     { jsonrpc: '2.0', id: 1, method: 'initialize', params: {
       protocolVersion: '2025-11-25', capabilities: {},
-      clientInfo: { name: 'ecc-lane-conformance', version: '1.0.0' },
+      clientInfo: { name: 'poweruser-lane-conformance', version: '1.0.0' },
     } },
     { jsonrpc: '2.0', method: 'notifications/initialized', params: {} },
     ...calls.map(([name, args], index) => ({ jsonrpc: '2.0', id: index + 2,
@@ -183,7 +183,7 @@ try {
   check('missing configured identity prevents MCP startup', () => {
     const result = run('scripts/memory-mcp.mjs', [], '', envFor('alpha', null));
     assert.equal(result.status, 1);
-    assert.match(result.stderr, /ECC_MEMORY_HARNESS/);
+    assert.match(result.stderr, /POWERUSER_MEMORY_HARNESS/);
   });
   check('recalled evidence rejects tamper, unavailable source and foreign context', () => {
     const read = payload(mcp('codex', [['memory_read', { id: shared.id }]])[0]).memory;
@@ -228,7 +228,7 @@ try {
     assert.deepEqual(snapshot(), before);
     assert.equal(sourceHead(), headBefore);
   });
-  process.stdout.write(JSON.stringify({ schemaVersion: 'ecc.memory.conformance.receipt.v1',
+  process.stdout.write(JSON.stringify({ schemaVersion: 'poweruser.memory.conformance.receipt.v1',
     status: 'passed', startedAt, completedAt: new Date().toISOString(), nodeVersion: process.version,
     source: { head: headBefore, files: before,
       executionMode: 'local source files with existing dependencies; no fetch performed',
