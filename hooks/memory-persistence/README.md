@@ -1,6 +1,6 @@
 # Memory Persistence Hooks
 
-These lifecycle hook definitions document ECC's memory persistence contract for Claude Code plugin and manual installs.
+These lifecycle hook definitions document PowerUser's memory persistence contract for Claude Code plugin and manual installs.
 
 The executable implementations live in `scripts/hooks/`:
 
@@ -28,9 +28,9 @@ The installed hook graph is still `hooks/hooks.json`. This directory is the stab
 
 - Keep persistence local by default.
 - Avoid sending transcripts or tool traces to hosted services unless a user explicitly enables an integration.
-- Bound context loaded at session start with `ECC_SESSION_START_MAX_CHARS`.
-- Allow opt-out with `ECC_SESSION_START_CONTEXT=off`.
-- Keep lifecycle hooks profile-gated through `ECC_HOOK_PROFILE` and `ECC_DISABLED_HOOKS`.
+- Bound context loaded at session start with `POWERUSER_SESSION_START_MAX_CHARS`.
+- Allow opt-out with `POWERUSER_SESSION_START_CONTEXT=off`.
+- Keep lifecycle hooks profile-gated through `POWERUSER_HOOK_PROFILE` and `POWERUSER_DISABLED_HOOKS`.
 
 ## Related Files
 
