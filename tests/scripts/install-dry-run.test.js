@@ -7,13 +7,13 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const repoRoot = path.join(__dirname, '..', '..');
-const eccCli = path.join(repoRoot, 'scripts', 'ecc.js');
+const poweruserCli = path.join(repoRoot, 'scripts', 'poweruser.js');
 
 let passed = 0;
 let failed = 0;
 
 function test(name, fn) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-install-dry-run-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-install-dry-run-'));
   try {
     const projectRoot = path.join(root, 'project');
     const homeDir = path.join(root, 'home');
@@ -38,15 +38,15 @@ function makeEnv(homeDir) {
     CODEX_HOME: path.join(homeDir, '.codex'),
     XDG_CONFIG_HOME: path.join(homeDir, '.config'),
   };
-  delete env.ECC_DRY_RUN;
+  delete env.POWERUSER_DRY_RUN;
   delete env.CLAUDE_CONFIG_DIR;
-  delete env.ECC_AGENT_DATA_HOME;
+  delete env.POWERUSER_AGENT_DATA_HOME;
   delete env.OPENCODE_CONFIG_DIR;
   return env;
 }
 
 function runEcc(args, context) {
-  return spawnSync(process.execPath, [eccCli, ...args], {
+  return spawnSync(process.execPath, [poweruserCli, ...args], {
     cwd: context.projectRoot,
     encoding: 'utf8',
     timeout: 120000,
@@ -68,7 +68,7 @@ function walkFiles(dirPath) {
 }
 
 function findStateFiles(homeDir) {
-  return walkFiles(homeDir).filter(file => file.endsWith('ecc-install-state.json'));
+  return walkFiles(homeDir).filter(file => file.endsWith('poweruser-install-state.json'));
 }
 
 function testInstallForms() {
@@ -98,7 +98,7 @@ function testRepairForms() {
       const stateFiles = roots.flatMap(findStateFiles);
       assert.ok(stateFiles.length > 0, 'expected a real install to write state first');
       const managedFile = roots.flatMap(walkFiles).find(
-        file => !file.endsWith('ecc-install-state.json') && !file.endsWith('.db')
+        file => !file.endsWith('poweruser-install-state.json') && !file.endsWith('.db')
       );
       assert.ok(managedFile, 'expected a real install to write managed files first');
       fs.appendFileSync(managedFile, '\n# local drift marker\n');
@@ -118,25 +118,25 @@ function testRepairForms() {
 
 function testDryRunEnvironment() {
   for (const value of ['1', 'true', '']) {
-    test(`direct install honors or rejects ECC_DRY_RUN=${JSON.stringify(value)}`, context => {
-      const result = spawnSync(process.execPath, [eccCli, 'install', '--target', 'cursor', '--modules', 'rules-core'], {
+    test(`direct install honors or rejects POWERUSER_DRY_RUN=${JSON.stringify(value)}`, context => {
+      const result = spawnSync(process.execPath, [poweruserCli, 'install', '--target', 'cursor', '--modules', 'rules-core'], {
         cwd: context.projectRoot,
         encoding: 'utf8',
         timeout: 120000,
-        env: { ...makeEnv(context.homeDir), ECC_DRY_RUN: value },
+        env: { ...makeEnv(context.homeDir), POWERUSER_DRY_RUN: value },
       });
       assert.strictEqual(result.status, value === '1' ? 0 : 1, result.stderr);
-      if (value !== '1') assert.ok(result.stderr.includes('ECC_DRY_RUN'));
+      if (value !== '1') assert.ok(result.stderr.includes('POWERUSER_DRY_RUN'));
       assert.deepStrictEqual(walkFiles(context.homeDir), []);
       assert.deepStrictEqual(walkFiles(context.projectRoot), []);
     });
   }
-  test('explicit dry-run remains active with ECC_DRY_RUN=0', context => {
-    const result = spawnSync(process.execPath, [eccCli, 'install', '--target', 'cursor', '--modules', 'rules-core', '--dry-run'], {
+  test('explicit dry-run remains active with POWERUSER_DRY_RUN=0', context => {
+    const result = spawnSync(process.execPath, [poweruserCli, 'install', '--target', 'cursor', '--modules', 'rules-core', '--dry-run'], {
       cwd: context.projectRoot,
       encoding: 'utf8',
       timeout: 120000,
-      env: { ...makeEnv(context.homeDir), ECC_DRY_RUN: '0' },
+      env: { ...makeEnv(context.homeDir), POWERUSER_DRY_RUN: '0' },
     });
     assert.strictEqual(result.status, 0, result.stderr);
     assert.deepStrictEqual(walkFiles(context.homeDir), []);
