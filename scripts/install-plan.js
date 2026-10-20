@@ -18,7 +18,7 @@ const { describeMissingDependencyError } = require('./lib/missing-dependency');
 
 function showHelp() {
   console.log(`
-Inspect ECC selective-install manifests
+Inspect PowerUser selective-install manifests
 
 Usage:
   node scripts/install-plan.js --list-profiles
@@ -40,7 +40,7 @@ Options:
   --skills <ids>      Include one or more skill components by directory ID
   --without <component>
                       Exclude a user-facing install component
-  --config <path>     Load install intent from ecc-install.json
+  --config <path>     Load install intent from poweruser-install.json
   --target <target>   Filter plan for a specific target
   --json              Emit machine-readable JSON
   --help              Show this help text

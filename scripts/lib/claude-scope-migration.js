@@ -41,7 +41,7 @@ function recoveryCommands(sourceScope, destinationScope) {
     );
   }
   commands.push(
-    `ecc setup --mode claude-plugin --scope ${destinationScope} --move-scope --yes`
+    `poweruser setup --mode claude-plugin --scope ${destinationScope} --move-scope --yes`
   );
   return commands;
 }
@@ -104,7 +104,7 @@ function destinationExplicitlyDisabledError(paths, plugins, destinationScope) {
     'DESTINATION_EXPLICITLY_DISABLED',
     `${CURRENT_PLUGIN_ID} is installed at ${destinationScope} scope but explicitly `
     + `disabled by enabledPlugins["${CURRENT_PLUGIN_ID}"]: false in `
-    + `${disabledSettingsPaths.join(', ')}. ECC keeps that choice and will not `
+    + `${disabledSettingsPaths.join(', ')}. PowerUser keeps that choice and will not `
     + `rewrite the setting; enable the plugin to continue the migration.`,
     {
       phase: 'destination-verification',
@@ -137,7 +137,7 @@ function assertMigrationInventory(plugins, destinationScope) {
       {
         observedScopes,
         recovery: [
-          `ecc setup --mode claude-plugin --scope ${destinationScope} --yes`,
+          `poweruser setup --mode claude-plugin --scope ${destinationScope} --yes`,
         ],
       }
     );
@@ -305,7 +305,7 @@ function uninstallSource(run, paths, migration, destinationScope) {
         recovery: [
           'claude plugin list --json',
           ...(observedScopes.length === 0
-            ? [`ecc setup --mode claude-plugin --scope ${destinationScope} --yes`]
+            ? [`poweruser setup --mode claude-plugin --scope ${destinationScope} --yes`]
             : recoveryCommands(sourcePresent ? migration.sourceScope : null, destinationScope)),
         ],
       }
@@ -371,11 +371,11 @@ function migrateClaudePluginScope(options = {}, dependencies = {}) {
       { cwd: paths.projectRoot, phase: 'marketplace-inventory' }
     ).stdout
   );
-  const namedMarketplace = marketplaces.find(entry => entry?.name === 'ecc');
+  const namedMarketplace = marketplaces.find(entry => entry?.name === 'poweruser');
   if (namedMarketplace && !isOfficialMarketplace(namedMarketplace)) {
     throw migrationError(
       'MARKETPLACE_COLLISION',
-      'Refusing the `ecc` marketplace collision because it is not the official affaan-m/ECC source.',
+      'Refusing the `poweruser` marketplace collision because it is not the official affaan-m/PowerUser source.',
       {
         phase: 'marketplace-inventory',
         observedScopes: migration.observedScopes,
@@ -421,7 +421,7 @@ function migrateClaudePluginScope(options = {}, dependencies = {}) {
   let marketplaceAction = null;
   if (migration.mode === 'migrate') {
     marketplaceAction = namedMarketplace
-      ? ['plugin', 'marketplace', 'update', 'ecc']
+      ? ['plugin', 'marketplace', 'update', 'poweruser']
       : [
         'plugin', 'marketplace', 'add',
         OFFICIAL_MARKETPLACE_URL,
