@@ -8,7 +8,7 @@ The executable implementations live in `scripts/hooks/`:
 - `pre-compact.js` captures state before context compaction.
 - `session-end.js` persists session-end summaries when transcript metadata is available.
 - `observe-runner.js` records tool-use observations for continuous learning.
-- `session-activity-tracker.js` records tool usage and file activity for ECC2 status and observability.
+- `session-activity-tracker.js` records tool usage and file activity for PowerUser 2 status and observability.
 
 The installed hook graph is still `hooks/hooks.json`. This directory is the stable, human-readable lifecycle definition surface referenced by the harness audit and longform docs.
 
@@ -20,7 +20,7 @@ The installed hook graph is still `hooks/hooks.json`. This directory is the stab
 | `PreCompact` | `pre:compact` | Save state before compaction | no |
 | `PreToolUse` | `pre:observe:continuous-learning` | Capture tool intent for learning signals | no |
 | `PostToolUse` | `post:observe:continuous-learning` | Capture tool result for learning signals | no |
-| `PostToolUse` | `post:session-activity-tracker` | Record tool and file activity for ECC2 metrics | no |
+| `PostToolUse` | `post:session-activity-tracker` | Record tool and file activity for PowerUser 2 metrics | no |
 | `Stop` | `stop:format-typecheck` | Batch quality gate after edits | yes on hook failure |
 | `Stop` | `stop:check-console-log` | Audit modified files for debug logging | warn/error by hook output |
 
