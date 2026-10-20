@@ -1,18 +1,18 @@
-# OpenCode ECC Plugin
+# OpenCode PowerUser Plugin
 
 > WARNING: This README is specific to OpenCode usage.
-> If you installed ECC via npm (e.g. `npm install opencode-ecc`), refer to the root README instead.
+> If you installed PowerUser via npm (e.g. `npm install PowerUser for OpenCode`), refer to the root README instead.
 
-ECC plugin for OpenCode - agents, commands, hooks, and skills.
+PowerUser plugin for OpenCode - agents, commands, hooks, and skills.
 
 ## Installation
 
 ## Installation Overview
 
-There are two ways to use ECC:
+There are two ways to use PowerUser:
 
 1. **npm package (recommended for most users)**
-   Install via npm/bun/yarn and use the `ecc-install` CLI to set up rules and agents.
+   Install via npm/bun/yarn and use the `PowerUser-install` CLI to set up rules and agents.
 
 2. **Direct clone / plugin mode**
    Clone the repository and run OpenCode directly inside it.
@@ -22,29 +22,29 @@ Choose the method that matches your workflow below.
 ### Option 1: npm Package
 
 ```bash
-npm install ecc-universal
+npm install PowerUser-universal
 ```
 
 Add to your `opencode.json`:
 
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["PowerUser-universal"]
 }
 ```
 
-This loads the ECC OpenCode plugin module from npm:
+This loads the PowerUser OpenCode plugin module from npm:
 - hook/event integrations
 - bundled custom tools exported by the plugin
 
-It does **not** auto-register the full ECC command/agent/instruction catalog in your project config. For the full OpenCode setup, either:
+It does **not** auto-register the full PowerUser command/agent/instruction catalog in your project config. For the full OpenCode setup, either:
 - run OpenCode inside this repository, or
 - copy the relevant `.opencode/commands/`, `.opencode/prompts/`, `.opencode/instructions/`, and the `instructions`, `agent`, and `command` config entries into your own project
 
-After installation, the `ecc-install` CLI is also available:
+After installation, the `PowerUser-install` CLI is also available:
 
 ```bash
-npx ecc-universal install typescript
+npx PowerUser-universal install typescript
 ```
 
 ### Option 2: Direct Use
@@ -52,12 +52,12 @@ npx ecc-universal install typescript
 Clone and run OpenCode in the repository:
 
 ```bash
-git clone https://github.com/affaan-m/ECC
-cd ECC
+git clone https://github.com/affaan-m/PowerUser
+cd PowerUser
 opencode
 ```
 
-If you also want to apply the ECC home install
+If you also want to apply the PowerUser home install
 (`node scripts/install-apply.js --target opencode --profile full`), build the
 plugin first so the compiled payload at `.opencode/dist/` exists:
 
@@ -186,16 +186,16 @@ OpenCode has 20+ additional events not available in Claude Code.
 OpenCode plugin hooks honor the same runtime controls used by Claude Code/Cursor:
 
 ```bash
-export ECC_HOOK_PROFILE=standard
-export ECC_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
+export PowerUser_HOOK_PROFILE=standard
+export PowerUser_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 ```
 
-- `ECC_HOOK_PROFILE`: `minimal`, `standard` (default), `strict`
-- `ECC_DISABLED_HOOKS`: comma-separated hook IDs to disable
+- `PowerUser_HOOK_PROFILE`: `minimal`, `standard` (default), `strict`
+- `PowerUser_DISABLED_HOOKS`: comma-separated hook IDs to disable
 
 ## Skills
 
-The default OpenCode config loads 11 curated ECC skills via the `instructions` array:
+The default OpenCode config loads 11 curated PowerUser skills via the `instructions` array:
 
 - coding-standards
 - backend-patterns
@@ -235,7 +235,7 @@ Full configuration in `opencode.json`:
 ```
 
 The reference config intentionally leaves model selection to OpenCode. Connect a
-provider and select a model in OpenCode; ECC's primary agent uses that global
+provider and select a model in OpenCode; PowerUser's primary agent uses that global
 selection, and its subagents inherit the invoking primary agent's model.
 
 ## License
@@ -243,6 +243,6 @@ selection, and its subagents inherit the invoking primary agent's model.
 MIT
 
 Home-target installations keep `plugins/index.ts` inert even with hooks enabled.
-OpenCode automatically loads `plugins/ecc-hooks.ts`; loading the barrel as well
-would initialize every ECC hook twice. The source and published package barrel
+OpenCode automatically loads `plugins/PowerUser-hooks.ts`; loading the barrel as well
+would initialize every PowerUser hook twice. The source and published package barrel
 remain available for module imports.
