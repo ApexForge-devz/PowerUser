@@ -7,12 +7,6 @@ const { isWithinRoot, realpathNearestExisting } = require('../path-safety');
 
 const CURRENT_PLUGIN_ID = 'poweruser@poweruser';
 // Legacy plugin ids, kept so existing installations are still recognized.
-const LEGACY_PLUGIN_IDS = new Set([
-  'poweruser@poweruser',
-  'everything-claude-code@everything-claude-code',
-  'everything-claude-code@ecc',
-]);
-
 function resolveClaudePaths(options = {}) {
   const homeDir = options.homeDir
     || process.env.HOME
@@ -46,10 +40,7 @@ function readJsonObject(filePath, label) {
 function findManualClaudePlugin(options = {}) {
   const { configDir } = resolveClaudePaths(options);
   const pluginsDir = path.join(configDir, 'plugins');
-  const candidates = [
-    ['poweruser', '.claude-plugin', 'plugin.json'],
-    ['poweruser', 'plugin.json'],
-    ['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
+  const candidates = [['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
     ['poweruser@poweruser', 'plugin.json'],
     // Legacy install paths, kept for existing installations of the former plugin.
     ['poweruser', '.claude-plugin', 'plugin.json'],
@@ -57,8 +48,8 @@ function findManualClaudePlugin(options = {}) {
     ['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
     ['poweruser@poweruser', 'plugin.json'],
     // Legacy install dir, kept for existing installs.
-    ['everything-claude-code', '.claude-plugin', 'plugin.json'],
-    ['everything-claude-code', 'plugin.json'],
+    ['poweruser', '.claude-plugin', 'plugin.json'],
+    ['poweruser', 'plugin.json'],
   ];
 
   for (const segments of candidates) {
@@ -149,8 +140,7 @@ function findManagedClaudeInstalls(options = {}) {
 
 module.exports = {
   CURRENT_PLUGIN_ID,
-  LEGACY_PLUGIN_IDS,
-  findManagedClaudeInstalls,
+findManagedClaudeInstalls,
   findManualClaudePlugin,
   resolveClaudePaths,
 };

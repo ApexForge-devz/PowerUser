@@ -13,7 +13,6 @@ const { createDryRunClaudeRunner } = require('./claude-dry-run-sandbox');
 const { normalizeGitHubGitOrigin } = require('./github-origin');
 const {
   CURRENT_PLUGIN_ID,
-  LEGACY_PLUGIN_IDS,
   findManagedClaudeInstalls,
   findManualClaudePlugin,
   resolveClaudePaths,
@@ -93,13 +92,7 @@ function parseJsonArray(stdout, label) {
 function parsePluginList(stdout) {
   const plugins = parseJsonArray(stdout, 'plugin');
   for (const plugin of plugins) {
-    const isRelevant = plugin && (
-      plugin.id === CURRENT_PLUGIN_ID
-      || String(plugin.id || '').startsWith('ecc@')
-      || LEGACY_PLUGIN_IDS.has(plugin.id)
-      // Legacy install id prefix, kept for existing installs.
-      || String(plugin.id || '').startsWith('everything-claude-code@')
-    );
+    const isRelevant = plugin && plugin.id === CURRENT_PLUGIN_ID;
     if (!isRelevant) continue;
     if (
       typeof plugin.id !== 'string'
@@ -399,25 +392,9 @@ function currentPowerUserPlugins(plugins) {
 }
 
 function assertNoConflictingPowerUserPlugins(plugins) {
-  const legacy = plugins.find(plugin => (
-    LEGACY_PLUGIN_IDS.has(plugin?.id)
-    // Legacy install id prefix, kept for existing installs.
-    || String(plugin?.id || '').startsWith('everything-claude-code@')
-  ));
-  if (legacy) {
-    fail(
-      'LEGACY_PLUGIN_INSTALLED',
-      `Legacy plugin ${legacy.id} is installed. Uninstall it before setting up ${CURRENT_PLUGIN_ID}.`,
-      {
-        observedScopes: [legacy.scope],
-        recovery: [`claude plugin uninstall ${legacy.id} --scope ${legacy.scope} --keep-data`],
-      }
-    );
-  }
-
   const conflictingPowerUser = plugins.find(plugin => (
     typeof plugin?.id === 'string'
-    && plugin.id.startsWith('ecc@')
+    && plugin.id.startsWith('poweruser@')
     && plugin.id !== CURRENT_PLUGIN_ID
   ));
   if (conflictingPowerUser) {
