@@ -2,36 +2,36 @@
 
 ## Available Agents
 
-ECC agents come either from the `ecc@ecc` plugin (plugin-scoped names, `ecc:<name>`) or from a manual install into `~/.claude/agents/` (bare names, `<name>`). Use the name that matches the install you have; the manual installer strips the `ecc:` prefix from copied files.
+PowerUser agents come either from the `poweruser@ecc` plugin (plugin-scoped names, `poweruser:<name>`) or from a manual install into `~/.claude/agents/` (bare names, `<name>`). Use the name that matches the install you have; the manual installer strips the `poweruser:` prefix from copied files.
 They are invoked through the Agent tool with that `subagent_type`:
 
 ```text
-Agent(subagent_type: "ecc:planner", prompt: "...")
+Agent(subagent_type: "poweruser:planner", prompt: "...")
 ```
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
-| ecc:planner | Implementation planning | Complex features, refactoring |
-| ecc:architect | System design | Architectural decisions |
-| ecc:tdd-guide | Test-driven development | New features, bug fixes |
-| ecc:code-reviewer | Code review | After writing code |
-| ecc:security-reviewer | Security analysis | Before commits |
-| ecc:build-error-resolver | Fix build errors | When build fails |
-| ecc:e2e-runner | E2E testing | Critical user flows |
-| ecc:refactor-cleaner | Dead code cleanup | Code maintenance |
-| ecc:doc-updater | Documentation | Updating docs |
-| ecc:rust-reviewer | Rust code review | Rust projects |
-| ecc:harmonyos-app-resolver | HarmonyOS app development | HarmonyOS/ArkTS projects |
+| poweruser:planner | Implementation planning | Complex features, refactoring |
+| poweruser:architect | System design | Architectural decisions |
+| poweruser:tdd-guide | Test-driven development | New features, bug fixes |
+| poweruser:code-reviewer | Code review | After writing code |
+| poweruser:security-reviewer | Security analysis | Before commits |
+| poweruser:build-error-resolver | Fix build errors | When build fails |
+| poweruser:e2e-runner | E2E testing | Critical user flows |
+| poweruser:refactor-cleaner | Dead code cleanup | Code maintenance |
+| poweruser:doc-updater | Documentation | Updating docs |
+| poweruser:rust-reviewer | Rust code review | Rust projects |
+| poweruser:harmonyos-app-resolver | HarmonyOS app development | HarmonyOS/ArkTS projects |
 
-For the full roster of 69 agents, see `/ecc:ecc-guide`.
+For the full roster of 69 agents, see `/poweruser:poweruser-guide`.
 
 ## Immediate Agent Usage
 
 No user prompt needed:
-1. Complex feature requests - Use **ecc:planner** agent
-2. Code just written/modified - Use **ecc:code-reviewer** agent
-3. Bug fix or new feature - Use **ecc:tdd-guide** agent
-4. Architectural decision - Use **ecc:architect** agent
+1. Complex feature requests - Use **poweruser:planner** agent
+2. Code just written/modified - Use **poweruser:code-reviewer** agent
+3. Bug fix or new feature - Use **poweruser:tdd-guide** agent
+4. Architectural decision - Use **poweruser:architect** agent
 
 ## Parallel Task Execution
 
