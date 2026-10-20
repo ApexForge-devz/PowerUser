@@ -1,19 +1,19 @@
 ---
 name: brownfield-retrospective
-description: Run the ECC engineering process retroactively against an existing project slice. Audit current state, reconstruct past decisions, produce a four-axis gap register (thinking, coding practice, missing features, technology selection), then execute fixes forward through the plan-TDD-review pipeline. Use when adopting ECC mid-project, taking over an inherited codebase, or asking what was missed and what would have been built differently from day one.
+description: Run the PowerUser engineering process retroactively against an existing project slice. Audit current state, reconstruct past decisions, produce a four-axis gap register (thinking, coding practice, missing features, technology selection), then execute fixes forward through the plan-TDD-review pipeline. Use when adopting PowerUser mid-project, taking over an inherited codebase, or asking what was missed and what would have been built differently from day one.
 metadata:
-  origin: ECC
+  origin: PowerUser
 ---
 
 # Brownfield Retrospective
 
-Run ECC's engineering process retroactively against a project that was built without it. Pick any slice of an existing codebase, audit what exists, reconstruct how it got there, extract a four-axis gap register, then execute the fixes forward through the standard ECC pipeline.
+Run PowerUser's engineering process retroactively against a project that was built without it. Pick any slice of an existing codebase, audit what exists, reconstruct how it got there, extract a four-axis gap register, then execute the fixes forward through the standard PowerUser pipeline.
 
 The workflow is slice-first: no whole-repo onboarding is required before it is useful, and every phase is re-enterable from a durable artifact on disk. Start in the middle, work backwards, then move forward.
 
 ## When to Activate
 
-- Adopting ECC in a repository that already exists and is already shaped
+- Adopting PowerUser in a repository that already exists and is already shaped
 - User asks to "audit my existing project", "retro this codebase", or "what did we miss?"
 - Taking over, inheriting, or returning to a codebase after a long gap
 - User asks "why is it like this?" followed by "should it stay like this?"
@@ -94,7 +94,7 @@ Convert the audit and reconstruction into register rows. One axis per class of g
 | Axis | Question | Sources |
 |------|-----------|---------|
 | Thinking | What was decided but never recorded? Which invariants live only in code? | Decision inventory, reconstructed spec |
-| Coding practice | Where does the code diverge from how ECC would have written it? | Phase 1 findings, the `rules/` pack for the language, spec items with no test anchor |
+| Coding practice | Where does the code diverge from how PowerUser would have written it? | Phase 1 findings, the `rules/` pack for the language, spec items with no test anchor |
 | Missing features | What would a day-one build have included that this slice never got? | Boundary input validation, observability, rate limiting, idempotency, migrations plus rollback, a11y, i18n, user docs, CI gates |
 | Technology selection | Is the chosen tech fighting the codebase? Outdated, duplicated, risky, or missing? | Dependency inventory, git archaeology, recon |
 
@@ -122,7 +122,7 @@ Turn the register into a sequenced plan. Follow the project's existing task and 
 
 ### Phase 5 — Forward Execution
 
-Work the register through the standard ECC pipeline, one row per session as a baseline pace:
+Work the register through the standard PowerUser pipeline, one row per session as a baseline pace:
 
 ```text
 planner (scope the row)
