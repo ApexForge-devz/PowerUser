@@ -31,7 +31,7 @@ function marketplaceInventory(installed = false) {
 }
 
 function pluginInventory(installed = false, overrides = {}) {
-  const ecc = {
+  const poweruser = {
     pluginId: 'poweruser@poweruser',
     name: 'poweruser',
     marketplaceName: 'poweruser',
@@ -41,7 +41,7 @@ function pluginInventory(installed = false, overrides = {}) {
     ...overrides,
   };
   return JSON.stringify({
-    installed: installed ? [ecc] : [],
+    installed: installed ? [poweruser] : [],
     available: [],
   });
 }
@@ -303,7 +303,7 @@ async function runTests() {
         marketplaceUpgradeResult({
           upgradedRoots: ['c:/users/hira/.codex/marketplaces/poweruser'],
         }),
-        { name: 'poweruser', root: 'C:\\Users\\Hira\\.codex\\marketplaces\\ecc' }
+        { name: 'poweruser', root: 'C:\\Users\\Hira\\.codex\\marketplaces\\poweruser' }
       );
 
       assert.deepStrictEqual(result.selectedMarketplaces, ['poweruser']);
@@ -475,7 +475,7 @@ async function runTests() {
           },
         })),
         'MARKETPLACE_COLLISION',
-        /refusing.*ecc.*marketplace/i
+        /refusing.*poweruser.*marketplace/i
       );
       assert.deepStrictEqual(fake.calls.map(call => call.args), [
         MARKETPLACE_LIST,
@@ -534,7 +534,7 @@ async function runTests() {
         error => error.code === 'INVALID_MARKETPLACE_INVENTORY'
       );
       assert.throws(
-        () => parseMarketplaceInventory('{"marketplaces":[{"name":"ecc","root":""}]}'),
+        () => parseMarketplaceInventory('{"marketplaces":[{"name":"poweruser","root":""}]}'),
         error => error.code === 'INVALID_MARKETPLACE_INVENTORY'
       );
       assert.throws(
@@ -581,7 +581,7 @@ async function runTests() {
         }
       );
     }],
-    ['fails when post-install verification does not find enabled ECC', async () => {
+    ['fails when post-install verification does not find enabled PowerUser', async () => {
       const fake = createExecFile([
         { args: MARKETPLACE_LIST, stdout: marketplaceInventory(false) },
         { args: PLUGIN_LIST, stdout: pluginInventory(false) },
@@ -597,7 +597,7 @@ async function runTests() {
         /verify.*poweruser@poweruser/i
       );
     }],
-    ['fails when marketplace verification cannot observe ECC', async () => {
+    ['fails when marketplace verification cannot observe PowerUser', async () => {
       const fake = createExecFile([
         { args: MARKETPLACE_LIST, stdout: marketplaceInventory(false) },
         { args: PLUGIN_LIST, stdout: pluginInventory(false) },
@@ -608,7 +608,7 @@ async function runTests() {
       await expectSetupError(
         reconcileCodexPlugin({}, dependenciesFor(fake)),
         'MARKETPLACE_VERIFICATION_FAILED',
-        /verify.*ecc marketplace/i
+        /verify.*poweruser marketplace/i
       );
       assert.strictEqual(fake.calls.length, 4);
     }],

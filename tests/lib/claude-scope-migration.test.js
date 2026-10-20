@@ -32,7 +32,7 @@ function test(name, fn) {
 
 function plugin(scope, overrides = {}) {
   return {
-    id: 'ecc@ecc',
+    id: 'poweruser@poweruser',
     scope,
     enabled: true,
     version: '1.9.0',
@@ -42,15 +42,15 @@ function plugin(scope, overrides = {}) {
 
 function marketplace(scope = 'user') {
   return {
-    name: 'ecc',
+    name: 'poweruser',
     source: 'github',
-    repo: 'affaan-m/ECC',
+    repo: 'affaan-m/PowerUser',
     scope,
   };
 }
 
 function createFixture(initialState = {}) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc scope migration '));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser scope migration '));
   const homeDir = path.join(root, 'home with spaces');
   const configDir = path.join(root, 'config with spaces');
   const projectRoot = path.join(root, 'project with spaces');
@@ -94,8 +94,8 @@ function withFixture(initialState, fn) {
     USERPROFILE: process.env.USERPROFILE,
     PATH: process.env.PATH,
     CLAUDE_CONFIG_DIR: process.env.CLAUDE_CONFIG_DIR,
-    ECC_TEST_CLAUDE_STATE: process.env.ECC_TEST_CLAUDE_STATE,
-    ECC_TEST_CLAUDE_CALLS: process.env.ECC_TEST_CLAUDE_CALLS,
+    POWERUSER_TEST_CLAUDE_STATE: process.env.POWERUSER_TEST_CLAUDE_STATE,
+    POWERUSER_TEST_CLAUDE_CALLS: process.env.POWERUSER_TEST_CLAUDE_CALLS,
   };
   try {
     process.chdir(fixture.projectRoot);
@@ -103,8 +103,8 @@ function withFixture(initialState, fn) {
     process.env.USERPROFILE = fixture.homeDir;
     process.env.PATH = `${fixture.binDir}${path.delimiter}${withoutShadowingClaude(previous.PATH)}`;
     process.env.CLAUDE_CONFIG_DIR = fixture.configDir;
-    process.env.ECC_TEST_CLAUDE_STATE = fixture.statePath;
-    process.env.ECC_TEST_CLAUDE_CALLS = fixture.callsPath;
+    process.env.POWERUSER_TEST_CLAUDE_STATE = fixture.statePath;
+    process.env.POWERUSER_TEST_CLAUDE_CALLS = fixture.callsPath;
     return fn(fixture);
   } finally {
     process.chdir(previous.cwd);
@@ -157,18 +157,18 @@ function captureError(fn) {
 }
 
 function installArgv(scope) {
-  return ['plugin', 'install', 'ecc@ecc', '--scope', scope];
+  return ['plugin', 'install', 'poweruser@poweruser', '--scope', scope];
 }
 
 function uninstallArgv(scope) {
-  return ['plugin', 'uninstall', 'ecc@ecc', '--scope', scope, '--keep-data'];
+  return ['plugin', 'uninstall', 'poweruser@poweruser', '--scope', scope, '--keep-data'];
 }
 
 function expectedMigrationCalls(sourceScope, destinationScope, hooks = 'standard') {
   return [
     ['plugin', 'list', '--json'],
     ['plugin', 'marketplace', 'list', '--json'],
-    ['plugin', 'marketplace', 'update', 'ecc'],
+    ['plugin', 'marketplace', 'update', 'poweruser'],
     ['plugin', 'marketplace', 'list', '--json'],
     installArgv(destinationScope, hooks),
     ['plugin', 'list', '--json'],
@@ -194,7 +194,7 @@ test('all six directed scope pairs migrate destination-first with exact verifica
         assert.deepStrictEqual(result, {
           action: 'migrated',
           hooks: 'standard',
-          pluginId: 'ecc@ecc',
+          pluginId: 'poweruser@poweruser',
           sourceScope,
           scope: destinationScope,
         });
@@ -292,7 +292,7 @@ test('destination-only migration honors explicit hook preferences and reports dr
   withFixture({ plugins: [plugin('local')] }, fixture => {
     fs.writeFileSync(fixture.settingsPath, JSON.stringify({
       pluginConfigs: {
-        'ecc@ecc': {
+        'poweruser@poweruser': {
           options: { hooks_enabled: false, hook_profile: 'minimal' },
         },
       },
@@ -303,8 +303,8 @@ test('destination-only migration honors explicit hook preferences and reports dr
     assert.strictEqual(result.action, 'already-migrated');
     assert.strictEqual(result.preferencesUpdated, true);
     const settings = JSON.parse(fs.readFileSync(fixture.settingsPath, 'utf8'));
-    assert.strictEqual(settings.pluginConfigs['ecc@ecc'].options.hooks_enabled, true);
-    assert.strictEqual(settings.pluginConfigs['ecc@ecc'].options.hook_profile, 'strict');
+    assert.strictEqual(settings.pluginConfigs['poweruser@poweruser'].options.hooks_enabled, true);
+    assert.strictEqual(settings.pluginConfigs['poweruser@poweruser'].options.hook_profile, 'strict');
   });
 
   withFixture({ plugins: [plugin('local')] }, fixture => {
@@ -361,7 +361,7 @@ test('zero installs, ambiguous non-destination scopes, and invalid inventories f
       code: 'INVALID_PLUGIN_INVENTORY',
     },
     {
-      state: { pluginListResponses: [[{ id: 'ecc@ecc', enabled: true }]] },
+      state: { pluginListResponses: [[{ id: 'poweruser@poweruser', enabled: true }]] },
       scope: 'project',
       code: 'INVALID_PLUGIN_INVENTORY',
     },
@@ -387,9 +387,9 @@ test('zero installs, ambiguous non-destination scopes, and invalid inventories f
 
 test('marketplace collisions fail closed in migration dry-run and resume cleanup', () => {
   const collision = {
-    name: 'ecc',
+    name: 'poweruser',
     source: 'github',
-    repo: 'attacker/ecc',
+    repo: 'attacker/poweruser',
     scope: 'user',
   };
   const cases = [
@@ -440,7 +440,7 @@ test('destination marketplace, install, and verification failures never uninstal
         plugins: [plugin('user')],
         marketplaces: [marketplace('user')],
         failures: [{
-          argv: ['plugin', 'marketplace', 'update', 'ecc'],
+          argv: ['plugin', 'marketplace', 'update', 'poweruser'],
           status: 7,
           stderr: 'marketplace failed',
           times: 1,
@@ -515,8 +515,8 @@ test('source uninstall failure reports both scopes and exact forward recovery', 
     assert.deepStrictEqual([...error.observedScopes].sort(), ['project', 'user']);
     assert.deepStrictEqual(error.recovery, [
       'claude plugin list --json',
-      'claude plugin uninstall ecc@ecc --scope user --keep-data',
-      'ecc setup --mode claude-plugin --scope project --move-scope --yes',
+      'claude plugin uninstall poweruser@poweruser --scope user --keep-data',
+      'poweruser setup --mode claude-plugin --scope project --move-scope --yes',
     ]);
     assert.ok(!readCalls(fixture).flat().includes('--prune'));
     assert.deepStrictEqual(
@@ -543,7 +543,7 @@ test('final verification failure is structured and leaves a resumable destinatio
     assert.strictEqual(error.phase, 'final-verification');
     assert.deepStrictEqual(error.observedScopes, []);
     assert.deepStrictEqual(error.recovery, [
-      'ecc setup --mode claude-plugin --scope project --move-scope --yes',
+      'poweruser setup --mode claude-plugin --scope project --move-scope --yes',
     ]);
     assert.deepStrictEqual(readState(fixture).plugins.map(entry => entry.scope), ['project']);
   });
@@ -561,7 +561,7 @@ test('dry-run returns exact ordered actions and performs no mutation', () => {
     assert.strictEqual(result.action, 'would-migrate');
     assert.strictEqual(result.dryRun, true);
     assert.deepStrictEqual(result.plannedActions, [
-      ['plugin', 'marketplace', 'update', 'ecc'],
+      ['plugin', 'marketplace', 'update', 'poweruser'],
       installArgv('project'),
       ['plugin', 'list', '--json'],
       ['plugin', 'list', '--json'],
@@ -600,7 +600,7 @@ test('migration preserves hook preferences unless --hooks is explicit', () => {
       theme: 'dark',
       pluginConfigs: {
         'another@market': { enabled: false },
-        'ecc@ecc': {
+        'poweruser@poweruser': {
           futureKey: { keep: true },
           options: {
             hooks_enabled: false,
@@ -633,7 +633,7 @@ test('migration preserves hook preferences unless --hooks is explicit', () => {
     fs.writeFileSync(fixture.settingsPath, JSON.stringify({
       theme: 'dark',
       pluginConfigs: {
-        'ecc@ecc': {
+        'poweruser@poweruser': {
           futureKey: true,
           options: { hooks_enabled: false, hook_profile: 'minimal', unknown: 'keep' },
         },
@@ -643,10 +643,10 @@ test('migration preserves hook preferences unless --hooks is explicit', () => {
     const settings = JSON.parse(fs.readFileSync(fixture.settingsPath, 'utf8'));
     assert.strictEqual(settings.theme, 'dark');
     assert.strictEqual(settings.includeCoAuthoredBy, false);
-    assert.strictEqual(settings.pluginConfigs['ecc@ecc'].futureKey, true);
-    assert.strictEqual(settings.pluginConfigs['ecc@ecc'].options.unknown, 'keep');
-    assert.strictEqual(settings.pluginConfigs['ecc@ecc'].options.hooks_enabled, true);
-    assert.strictEqual(settings.pluginConfigs['ecc@ecc'].options.hook_profile, 'strict');
+    assert.strictEqual(settings.pluginConfigs['poweruser@poweruser'].futureKey, true);
+    assert.strictEqual(settings.pluginConfigs['poweruser@poweruser'].options.unknown, 'keep');
+    assert.strictEqual(settings.pluginConfigs['poweruser@poweruser'].options.hooks_enabled, true);
+    assert.strictEqual(settings.pluginConfigs['poweruser@poweruser'].options.hook_profile, 'strict');
   });
 });
 
@@ -658,7 +658,7 @@ test('migration preserves an explicit includeCoAuthoredBy opt-in', () => {
     fs.writeFileSync(fixture.settingsPath, `${JSON.stringify({
       includeCoAuthoredBy: true,
       pluginConfigs: {
-        'ecc@ecc': {
+        'poweruser@poweruser': {
           options: { hooks_enabled: true, hook_profile: 'minimal' },
         },
       },
@@ -667,11 +667,11 @@ test('migration preserves an explicit includeCoAuthoredBy opt-in', () => {
     migrateClaudePluginScope(migrationOptions(fixture, 'project', { hooks: 'strict' }));
     const settings = JSON.parse(fs.readFileSync(fixture.settingsPath, 'utf8'));
     assert.strictEqual(settings.includeCoAuthoredBy, true);
-    assert.strictEqual(settings.pluginConfigs['ecc@ecc'].options.hook_profile, 'strict');
+    assert.strictEqual(settings.pluginConfigs['poweruser@poweruser'].options.hook_profile, 'strict');
   });
 });
 
-function writeExplicitDisable(filePath, pluginId = 'ecc@ecc') {
+function writeExplicitDisable(filePath, pluginId = 'poweruser@poweruser') {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify({
     enabledPlugins: { [pluginId]: false },
@@ -698,8 +698,8 @@ test('an explicitly disabled resume destination names the setting and the enable
     assert.ok(error.message.includes(localSettings));
     assert.deepStrictEqual(error.observedScopes, ['user', 'local']);
     assert.deepStrictEqual(error.recovery, [
-      'claude plugin enable ecc@ecc --scope local',
-      'ecc setup --mode claude-plugin --scope local --move-scope --yes',
+      'claude plugin enable poweruser@poweruser --scope local',
+      'poweruser setup --mode claude-plugin --scope local --move-scope --yes',
     ]);
     assert.deepStrictEqual(readCalls(fixture), [
       ['plugin', 'list', '--json'],
@@ -711,7 +711,7 @@ test('an explicitly disabled resume destination names the setting and the enable
     );
     assert.strictEqual(JSON.parse(
       fs.readFileSync(localSettings, 'utf8')
-    ).enabledPlugins['ecc@ecc'], false);
+    ).enabledPlugins['poweruser@poweruser'], false);
   });
 });
 
@@ -740,8 +740,8 @@ test('a single-scope explicitly disabled destination is not a generic verificati
       assert.strictEqual(error.code, 'DESTINATION_EXPLICITLY_DISABLED');
       assert.ok(error.message.includes(disabledPath));
       assert.deepStrictEqual(error.recovery, [
-        `claude plugin enable ecc@ecc --scope ${scope}`,
-        `ecc setup --mode claude-plugin --scope ${scope} --move-scope --yes`,
+        `claude plugin enable poweruser@poweruser --scope ${scope}`,
+        `poweruser setup --mode claude-plugin --scope ${scope} --move-scope --yes`,
       ]);
     });
   }
@@ -755,8 +755,8 @@ test('a disabled destination without an explicit setting stays generic and gains
     assert.strictEqual(error.code, 'DESTINATION_VERIFICATION_FAILED');
     assert.match(error.message, /exists at local scope but is not enabled/);
     assert.deepStrictEqual(error.recovery, [
-      'claude plugin enable ecc@ecc --scope local',
-      'ecc setup --mode claude-plugin --scope local --move-scope --yes',
+      'claude plugin enable poweruser@poweruser --scope local',
+      'poweruser setup --mode claude-plugin --scope local --move-scope --yes',
     ]);
   });
 });
@@ -816,7 +816,7 @@ test('source uninstall failure recovery stops suggesting an already-absent sourc
     assert.deepStrictEqual(error.observedScopes, []);
     assert.deepStrictEqual(error.recovery, [
       'claude plugin list --json',
-      'ecc setup --mode claude-plugin --scope project --yes',
+      'poweruser setup --mode claude-plugin --scope project --yes',
     ]);
   });
 });
@@ -829,8 +829,8 @@ test('a two-scope disabled destination offers enable recovery without removing t
     const error = captureError(() => migrateClaudePluginScope(migrationOptions(fixture, 'project')));
     assert.strictEqual(error.code, 'DESTINATION_VERIFICATION_FAILED');
     assert.deepStrictEqual(error.recovery, [
-      'claude plugin enable ecc@ecc --scope project',
-      'ecc setup --mode claude-plugin --scope project --move-scope --yes',
+      'claude plugin enable poweruser@poweruser --scope project',
+      'poweruser setup --mode claude-plugin --scope project --move-scope --yes',
     ]);
     assert.ok(!readCalls(fixture).some(argv => argv[1] === 'uninstall'));
   });
@@ -846,8 +846,8 @@ for (const destinationScope of ['project', 'user']) {
       const error = captureError(() => migrateClaudePluginScope(migrationOptions(fixture, destinationScope)));
       assert.strictEqual(error.code, 'DESTINATION_EXPLICITLY_DISABLED');
       assert.ok(error.message.includes(localSettings));
-      assert.strictEqual(error.recovery[0], 'claude plugin enable ecc@ecc --scope local');
-      assert.strictEqual(error.recovery[1], `ecc setup --mode claude-plugin --scope ${destinationScope} --move-scope --yes`);
+      assert.strictEqual(error.recovery[0], 'claude plugin enable poweruser@poweruser --scope local');
+      assert.strictEqual(error.recovery[1], `poweruser setup --mode claude-plugin --scope ${destinationScope} --move-scope --yes`);
       assert.deepStrictEqual(mutationCalls(fixture), []);
       assert.strictEqual(fs.readFileSync(localSettings, 'utf8'), before);
       assert.strictEqual(readState(fixture).plugins.length, 2);
@@ -869,7 +869,7 @@ test('a newly installed disabled destination points recovery at the local overri
     const before = fs.readFileSync(localSettings, 'utf8');
     const error = captureError(() => migrateClaudePluginScope(migrationOptions(fixture, 'project')));
     assert.strictEqual(error.code, 'DESTINATION_VERIFICATION_FAILED');
-    assert.strictEqual(error.recovery[0], 'claude plugin enable ecc@ecc --scope local');
+    assert.strictEqual(error.recovery[0], 'claude plugin enable poweruser@poweruser --scope local');
     assert.ok(!readCalls(fixture).some(argv => argv[1] === 'uninstall'));
     assert.strictEqual(fs.readFileSync(localSettings, 'utf8'), before);
     assert.ok(readState(fixture).plugins.some(entry => entry.scope === 'user'));
@@ -881,7 +881,7 @@ test('a higher-precedence true does not blame an overridden false', () => {
     const projectSettings = path.join(fixture.projectRoot, '.claude', 'settings.json');
     const localSettings = path.join(fixture.projectRoot, '.claude', 'settings.local.json');
     writeExplicitDisable(projectSettings);
-    fs.writeFileSync(localSettings, JSON.stringify({ enabledPlugins: { 'ecc@ecc': true } }));
+    fs.writeFileSync(localSettings, JSON.stringify({ enabledPlugins: { 'poweruser@poweruser': true } }));
     const error = captureError(() => migrateClaudePluginScope(migrationOptions(fixture, 'project')));
     assert.strictEqual(error.code, 'DESTINATION_VERIFICATION_FAILED');
     assert.deepStrictEqual(mutationCalls(fixture), []);
@@ -899,7 +899,7 @@ test('an unrelated local plugin entry leaves the project choice effective', () =
     assert.strictEqual(error.code, 'DESTINATION_EXPLICITLY_DISABLED');
     assert.ok(error.message.includes(projectSettings));
     assert.ok(!error.message.includes(fixture.settingsPath));
-    assert.strictEqual(error.recovery[0], 'claude plugin enable ecc@ecc --scope project');
+    assert.strictEqual(error.recovery[0], 'claude plugin enable poweruser@poweruser --scope project');
     assert.deepStrictEqual(mutationCalls(fixture), []);
   });
 });
@@ -910,14 +910,14 @@ test('the public setup CLI preserves locally disabled project migration and name
     writeExplicitDisable(localSettings);
     const before = fs.readFileSync(localSettings, 'utf8');
     const result = require('child_process').spawnSync(process.execPath, [
-      path.join(repoRoot, 'scripts/ecc.js'), 'setup', '--mode', 'claude-plugin',
+      path.join(repoRoot, 'scripts/poweruser.js'), 'setup', '--mode', 'claude-plugin',
       '--scope', 'project', '--move-scope', '--yes', '--json',
     ], { cwd: fixture.projectRoot, env: process.env, encoding: 'utf8', timeout: 15000 });
     assert.strictEqual(result.error, undefined);
     assert.strictEqual(result.status, 1, result.stderr);
     const error = JSON.parse(result.stderr).error;
     assert.strictEqual(error.code, 'DESTINATION_EXPLICITLY_DISABLED');
-    assert.strictEqual(error.recovery[0], 'claude plugin enable ecc@ecc --scope local');
+    assert.strictEqual(error.recovery[0], 'claude plugin enable poweruser@poweruser --scope local');
     assert.deepStrictEqual(mutationCalls(fixture), []);
     assert.strictEqual(fs.readFileSync(localSettings, 'utf8'), before);
     assert.strictEqual(readState(fixture).plugins.length, 2);
