@@ -13,7 +13,7 @@ const {
   materializeManagedHooks,
 } = require('./claude-settings');
 
-const EXCLUDED_GENERATED_SOURCE_SUFFIXES = ['/ecc-install-state.json', '/ecc/install-state.json'];
+const EXCLUDED_GENERATED_SOURCE_SUFFIXES = ['/poweruser-install-state.json', '/poweruser/install-state.json'];
 const IGNORED_DIRECTORY_NAMES = new Set([
   'node_modules',
   '.git',
