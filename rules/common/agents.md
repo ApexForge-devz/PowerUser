@@ -2,7 +2,7 @@
 
 ## Available Agents
 
-PowerUser agents come either from the `poweruser@ecc` plugin (plugin-scoped names, `poweruser:<name>`) or from a manual install into `~/.claude/agents/` (bare names, `<name>`). Use the name that matches the install you have; the manual installer strips the `poweruser:` prefix from copied files.
+PowerUser agents come either from the `poweruser@poweruser` plugin (plugin-scoped names, `poweruser:<name>`) or from a manual install into `~/.claude/agents/` (bare names, `<name>`). Use the name that matches the install you have; the manual installer strips the `poweruser:` prefix from copied files.
 They are invoked through the Agent tool with that `subagent_type`:
 
 ```text
