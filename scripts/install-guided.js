@@ -21,20 +21,20 @@ const { startTerminalSpinner } = require('./lib/terminal-spinner');
 const { showTerminalWelcome } = require('./lib/terminal-welcome');
 const { stripAnsi } = require('./lib/utils');
 
-const ADVANCED_HARNESSES = 'Cursor, Antigravity, Gemini CLI, OpenCode, CodeBuddy, JoyCode, Qwen Code, Zed, Hermes, and OpenClaw';
+const ADVANCED_HARNESSES = 'Hermes and OpenCode';
 
 function showHelp(output = process.stdout) {
   output.write(`
-ECC guided multi-harness install
+POWERUSER guided multi-harness install
 
 Usage:
-  ecc install --guided
-  ecc install --guided --harness claude --harness codex --harness kimi [options]
+  poweruser install --guided
+  poweruser install --guided --harness claude --harness codex --harness kimi [options]
 
 Guided harnesses:
-  claude  Native Claude Code plugin; choose user, project, or local scope and an ECC hook profile.
+  claude  Native Claude Code plugin; choose user, project, or local scope and an POWERUSER hook profile.
   codex   Native Codex plugin and Codex-owned hook review/trust.
-  kimi    Managed project install under ./.kimi-code; ECC hooks are not configured.
+  kimi    Managed project install under ./.kimi-code; POWERUSER hooks are not configured.
 
 Options:
   --harness <id[,id...]>  Repeatable; accepts Claude, Codex, Kimi, or all
@@ -48,10 +48,10 @@ Options:
   --json                  Emit machine-readable output
   --help, -h              Show this help
 
-Advanced managed adapters remain available through explicit ecc install --target commands:
+Advanced managed adapters remain available through explicit poweruser install --target commands:
   ${ADVANCED_HARNESSES}
 
-This command configures ECC. It does not install or authenticate provider CLIs.
+This command configures POWERUSER. It does not install or authenticate provider CLIs.
 `);
 }
 
@@ -106,9 +106,9 @@ function parseArgs(argv) {
   if (options.allHarnesses && options.harnesses.length > 0) {
     throw new Error('--all-harnesses and --harness are mutually exclusive.');
   }
-  const dryRunEnv = process.env.ECC_DRY_RUN;
+  const dryRunEnv = process.env.POWERUSER_DRY_RUN;
   if (dryRunEnv !== undefined && dryRunEnv !== '0' && dryRunEnv !== '1') {
-    throw new Error('ECC_DRY_RUN must be "1" or "0" when set');
+    throw new Error('POWERUSER_DRY_RUN must be "1" or "0" when set');
   }
   return { ...options, dryRun: options.dryRun || dryRunEnv === '1' };
 }
@@ -135,12 +135,12 @@ async function askChoice(terminal, output, prompt, values, defaultValue) {
 
 async function askHarnesses(terminal, output) {
   const guided = listGuidedHarnesses();
-  output.write('\nWhich coding agents should ECC configure?\n');
+  output.write('\nWhich coding agents should POWERUSER configure?\n');
   guided.forEach((harness, index) => {
     output.write(`  ${index + 1}. ${harness.label} — ${harness.destination}\n`);
   });
   output.write('  all. All three guided harnesses\n');
-  output.write(`\nAdvanced adapters (use ecc install --target): ${ADVANCED_HARNESSES}.\n\n`);
+  output.write(`\nAdvanced adapters (use poweruser install --target): ${ADVANCED_HARNESSES}.\n\n`);
   while (true) {
     const answer = await terminal.question('Choose one or more (for example 1,3 or all): ');
     if (answer.length > 1024) {
@@ -164,13 +164,13 @@ async function collectInteractiveOptions(options, dependencies = {}) {
   const includesClaude = normalizedHarnesses.includes('claude');
   const includesKimi = normalizedHarnesses.includes('kimi');
   const claudeScope = includesClaude && !options.claudeScope
-    ? await askChoice(terminal, output, 'Where should Claude enable ecc@ecc?', [...VALID_CLAUDE_SCOPES], 'user')
+    ? await askChoice(terminal, output, 'Where should Claude enable poweruser@poweruser?', [...VALID_CLAUDE_SCOPES], 'user')
     : options.claudeScope;
   const claudeHooks = includesClaude && !options.claudeHooks
-    ? await askChoice(terminal, output, 'How should ECC hooks run in Claude?', [...VALID_CLAUDE_HOOKS], 'standard')
+    ? await askChoice(terminal, output, 'How should POWERUSER hooks run in Claude?', [...VALID_CLAUDE_HOOKS], 'standard')
     : options.claudeHooks;
   const profile = includesKimi && !options.profile
-    ? await askChoice(terminal, output, 'Which ECC content profile should Kimi receive?', [...VALID_PROFILES], 'core')
+    ? await askChoice(terminal, output, 'Which POWERUSER content profile should Kimi receive?', [...VALID_PROFILES], 'core')
     : options.profile;
   return {
     ...options,
@@ -205,14 +205,14 @@ function validateExecutionMode(options, interactive) {
 }
 
 function printPlan(plan, output) {
-  output.write('\nECC guided install preview\n\n');
+  output.write('\nPOWERUSER guided install preview\n\n');
   output.write('Harness       Channel           Destination\n');
   for (const entry of plan.harnesses) {
     const harness = getHarnessCapability(entry.id);
     output.write(`${harness.label.padEnd(13)} ${entry.channel.padEnd(17)} ${harness.destination}\n`);
   }
   if (plan.request.harnesses.includes('kimi')) {
-    output.write('\nKimi note: ECC hooks are not configured; model, provider, and authentication settings are unchanged.\n');
+    output.write('\nKimi note: POWERUSER hooks are not configured; model, provider, and authentication settings are unchanged.\n');
   }
   if (plan.request.harnesses.includes('claude') && plan.request.claudeHooks && plan.request.claudeHooks !== 'off') {
     output.write(
@@ -225,7 +225,7 @@ function printPlan(plan, output) {
 
 async function confirmPlan(terminal, output) {
   output.write('\n');
-  const answer = await terminal.question('Apply ECC to these harnesses? [y/N]: ');
+  const answer = await terminal.question('Apply POWERUSER to these harnesses? [y/N]: ');
   return /^y(es)?$/i.test(answer.trim());
 }
 
@@ -296,13 +296,13 @@ async function main(argv = process.argv.slice(2), injected = {}) {
         ownsTerminal = true;
       }
       if (!await confirmPlan(terminal, output)) {
-        output.write('\nECC install cancelled. No changes were made.\n');
+        output.write('\nPOWERUSER install cancelled. No changes were made.\n');
         return 0;
       }
     }
 
     const spinner = interactive && !options.json
-      ? makeSpinner('Applying ECC to selected harnesses...')
+      ? makeSpinner('Applying POWERUSER to selected harnesses...')
       : undefined;
     let result;
     try {
@@ -313,14 +313,14 @@ async function main(argv = process.argv.slice(2), injected = {}) {
     if (options.json) {
       output.write(`${JSON.stringify({ dryRun: false, result }, null, 2)}\n`);
     } else if (result.status === 'complete') {
-      output.write(`\nECC configured for ${result.completed.map(item => getHarnessCapability(item.id).label).join(', ')}.\n`);
+      output.write(`\nPOWERUSER configured for ${result.completed.map(item => getHarnessCapability(item.id).label).join(', ')}.\n`);
       renderWelcome({ action: 'installed', interactive, json: false, output });
     } else {
       const retry = buildRetryArguments(plan, result.retryHarnesses);
       errorOutput.write(
-        `ECC stopped at ${sanitizeTerminalText(result.failure.id)}: `
+        `POWERUSER stopped at ${sanitizeTerminalText(result.failure.id)}: `
         + `${sanitizeTerminalText(result.failure.message)}\n`
-        + `Retry with: ecc-universal install --guided ${retry}\n`
+        + `Retry with: poweruser-universal install --guided ${retry}\n`
       );
     }
     return result.status === 'complete' ? 0 : 1;

@@ -20,8 +20,8 @@ function usage() {
     'Options:',
     '  --codex-home <dir>   Override CODEX_HOME (default: $CODEX_HOME or ~/.codex)',
     '  --plugin-dir <dir>   Check a specific installed plugin cache directory',
-    '  --marketplace <name> Marketplace cache name (default: ecc)',
-    '  --plugin <name>      Plugin cache name (default: ecc)',
+    '  --marketplace <name> Marketplace cache name (default: poweruser)',
+    '  --plugin <name>      Plugin cache name (default: poweruser)',
     '  --version <version>  Plugin version (default: package.json version)',
     '  --help              Show this help text',
   ].join('\n'));
@@ -45,8 +45,8 @@ function validateCacheSegment(flag, value) {
 
 function parseArgs(argv) {
   const defaults = {
-    marketplace: 'ecc',
-    plugin: 'ecc',
+    marketplace: 'poweruser',
+    plugin: 'poweruser',
     version: PACKAGE_JSON.version,
     codexHome: process.env.CODEX_HOME || path.join(os.homedir(), '.codex'),
     pluginDir: null,
@@ -93,7 +93,7 @@ function parseArgs(argv) {
 }
 
 function log(message) {
-  console.log(`[ecc-codex] ${message}`);
+  console.log(`[poweruser-codex] ${message}`);
 }
 
 function readJson(filePath) {
@@ -186,8 +186,8 @@ function checkCache(options) {
       log(`Re-run with --version <version> if you want to inspect a different cache entry.`);
     } else {
       log(`No installed cache entries found for ${options.marketplace}/${options.plugin}.`);
-      if (options.marketplace === 'ecc' && options.plugin === 'ecc') {
-        log('Run: codex plugin marketplace add affaan-m/ECC');
+      if (options.marketplace === 'poweruser' && options.plugin === 'poweruser') {
+        log('Run: codex plugin marketplace add affaan-m/POWERUSER');
       } else {
         log('Install the requested plugin into the Codex plugin cache.');
       }
@@ -224,12 +224,12 @@ function checkCache(options) {
   if (failures > 0) {
     log(`${failures} cached manifest reference(s) do not resolve.`);
     log('codex plugin list only confirms marketplace registration; it is not proof of runtime skill loading.');
-    const syncScript = path.join(REPO_ROOT, 'scripts', 'sync-ecc-to-codex.sh');
+    const syncScript = path.join(REPO_ROOT, 'scripts', 'sync-poweruser-to-codex.sh');
     if (fs.existsSync(syncScript)) {
       log('Use the supported sync path until the cache contains the referenced files:');
-      log('npm install && bash scripts/sync-ecc-to-codex.sh');
+      log('npm install && bash scripts/sync-poweruser-to-codex.sh');
     } else {
-      log('Use the supported manual sync workflow from your ECC installation.');
+      log('Use the supported manual sync workflow from your POWERUSER installation.');
     }
     return 1;
   }
@@ -243,7 +243,7 @@ function main() {
   try {
     options = parseArgs(process.argv.slice(2));
   } catch (error) {
-    console.error(`[ecc-codex] ${error.message}`);
+    console.error(`[poweruser-codex] ${error.message}`);
     usage();
     process.exit(1);
   }
@@ -256,7 +256,7 @@ function main() {
   try {
     process.exit(checkCache(options));
   } catch (error) {
-    console.error(`[ecc-codex] ${error.message}`);
+    console.error(`[poweruser-codex] ${error.message}`);
     process.exit(1);
   }
 }
