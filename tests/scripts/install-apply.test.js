@@ -165,8 +165,8 @@ function runTests() {
       assert.strictEqual(result.code, 0, result.stderr);
 
       const claudeRoot = path.join(homeDir, '.claude');
-      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'ecc', 'common', 'coding-style.md')));
-      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'ecc', 'typescript', 'testing.md')));
+      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'poweruser', 'common', 'coding-style.md')));
+      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'poweruser', 'typescript', 'testing.md')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'commands', 'plan.md')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'scripts', 'hooks', 'session-end.js')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'scripts', 'hooks', 'hookify-runtime.js')));
@@ -175,7 +175,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(claudeRoot, 'skills', 'coding-standards', 'SKILL.md')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'plugin.json')));
 
-      const statePath = path.join(homeDir, '.claude', 'ecc', 'install-state.json');
+      const statePath = path.join(homeDir, '.claude', 'poweruser', 'install-state.json');
       const state = readJson(statePath);
       assert.strictEqual(state.target.id, 'claude-home');
       assert.deepStrictEqual(state.request.legacyLanguages, ['typescript']);
@@ -185,7 +185,7 @@ function runTests() {
       assert.ok(state.resolution.selectedModules.includes('framework-language'));
       assert.ok(
         state.operations.some(operation => (
-          operation.destinationPath === path.join(claudeRoot, 'rules', 'ecc', 'common', 'coding-style.md')
+          operation.destinationPath === path.join(claudeRoot, 'rules', 'poweruser', 'common', 'coding-style.md')
         )),
         'Should record common rule file operation'
       );
@@ -195,7 +195,7 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('rewrites namespaced skill links to the ecc/ rules path (#2340)', () => {
+  if (test('rewrites namespaced skill links to the poweruser/ rules path (#2340)', () => {
     const homeDir = createTempDir('install-apply-home-');
     const projectDir = createTempDir('install-apply-project-');
 
@@ -209,8 +209,8 @@ function runTests() {
 
       const content = fs.readFileSync(skillPath, 'utf8');
       assert.ok(
-        content.includes('../../rules/ecc/react/'),
-        'source-relative rules link should be rewritten for the ecc/ namespace'
+        content.includes('../../rules/poweruser/react/'),
+        'source-relative rules link should be rewritten for the poweruser/ namespace'
       );
       assert.ok(
         !content.includes('](../../rules/react/'),
@@ -220,7 +220,7 @@ function runTests() {
       // The rewritten link must resolve to a file that actually exists on disk.
       const linkTarget = path.join(
         path.dirname(skillPath),
-        '../../rules/ecc/react/hooks.md'
+        '../../rules/poweruser/react/hooks.md'
       );
       assert.ok(fs.existsSync(linkTarget), 'rewritten link target should exist');
     } finally {
@@ -242,7 +242,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(projectDir, '.cursor', 'rules', 'common-agents.mdc')));
       assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'rules', 'common-agents.md')));
       assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'rules', 'README.mdc')));
-      assert.ok(fs.existsSync(path.join(projectDir, '.cursor', 'agents', 'ecc-architect.md')));
+      assert.ok(fs.existsSync(path.join(projectDir, '.cursor', 'agents', 'poweruser-architect.md')));
       assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'agents', 'architect.md')));
       assert.ok(fs.existsSync(path.join(projectDir, '.cursor', 'commands', 'plan.md')));
       assert.ok(fs.existsSync(path.join(projectDir, '.cursor', 'hooks.json')));
@@ -290,7 +290,7 @@ function runTests() {
       assert.match(blocked.stderr, /BLOCKED/);
       assert.ok(mcpConfig.mcpServers['chrome-devtools'], 'Should install shared MCP servers into Cursor');
 
-      const statePath = path.join(projectDir, '.cursor', 'ecc-install-state.json');
+      const statePath = path.join(projectDir, '.cursor', 'poweruser-install-state.json');
       const state = readJson(statePath);
       const normalizedProjectDir = fs.realpathSync(projectDir);
       assert.strictEqual(state.target.id, 'cursor-project');
@@ -369,7 +369,7 @@ function runTests() {
       );
       assert.ok(!Object.hasOwn(harnessOptimizer, 'color'), 'Should omit Claude-only color metadata');
 
-      const statePath = path.join(projectDir, '.agents', 'ecc-install-state.json');
+      const statePath = path.join(projectDir, '.agents', 'poweruser-install-state.json');
       const state = readJson(statePath);
       assert.strictEqual(state.target.id, 'antigravity-project');
       assert.deepStrictEqual(state.request.legacyLanguages, ['typescript']);
@@ -443,7 +443,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(projectDir, '.joycode', 'mcp-configs', 'mcp-servers.json')));
       assert.ok(!fs.existsSync(path.join(projectDir, '.joycode', 'hooks')));
 
-      const statePath = path.join(projectDir, '.joycode', 'ecc-install-state.json');
+      const statePath = path.join(projectDir, '.joycode', 'poweruser-install-state.json');
       const state = readJson(statePath);
       assert.strictEqual(state.target.id, 'joycode-project');
       assert.deepStrictEqual(state.request.modules, []);
@@ -477,7 +477,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(homeDir, '.qwen', 'mcp-configs', 'mcp-servers.json')));
       assert.ok(!fs.existsSync(path.join(homeDir, '.qwen', 'hooks')));
 
-      const statePath = path.join(homeDir, '.qwen', 'ecc-install-state.json');
+      const statePath = path.join(homeDir, '.qwen', 'poweruser-install-state.json');
       const state = readJson(statePath);
       assert.strictEqual(state.target.id, 'qwen-home');
       assert.deepStrictEqual(state.request.modules, []);
@@ -509,7 +509,7 @@ function runTests() {
       assert.ok(result.stdout.includes('Mode: legacy-compat'));
       assert.ok(result.stdout.includes('Legacy languages: typescript'));
       assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'hooks.json')));
-      assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'ecc-install-state.json')));
+      assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'poweruser-install-state.json')));
     } finally {
       cleanup(homeDir);
       cleanup(projectDir);
@@ -530,7 +530,7 @@ function runTests() {
         'Selected modules: rules-core, agents-core, commands-core, hooks-runtime, '
         + 'platform-configs, skill-unified-memory, workflow-quality'
       ));
-      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'ecc', 'install-state.json')));
+      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'poweruser', 'install-state.json')));
     } finally {
       cleanup(homeDir);
       cleanup(projectDir);
@@ -586,7 +586,7 @@ function runTests() {
         + 'skill-unified-memory, workflow-quality'
       ));
       assert.ok(!result.stdout.includes('hooks-runtime'));
-      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'ecc', 'install-state.json')));
+      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'poweruser', 'install-state.json')));
     } finally {
       cleanup(homeDir);
       cleanup(projectDir);
@@ -602,7 +602,7 @@ function runTests() {
       assert.strictEqual(result.code, 0, result.stderr);
 
       const claudeRoot = path.join(homeDir, '.claude');
-      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'ecc', 'common', 'coding-style.md')));
+      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'poweruser', 'common', 'coding-style.md')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'agents', 'architect.md')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'commands', 'plan.md')));
       assert.ok(!fs.existsSync(path.join(claudeRoot, 'hooks', 'hooks.json')));
@@ -611,7 +611,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(claudeRoot, 'scripts', 'lib', 'session-manager.js')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'plugin.json')));
 
-      const state = readJson(path.join(claudeRoot, 'ecc', 'install-state.json'));
+      const state = readJson(path.join(claudeRoot, 'poweruser', 'install-state.json'));
       assert.strictEqual(state.request.profile, 'core');
       assert.strictEqual(state.request.legacyMode, false);
       assert.deepStrictEqual(state.request.legacyLanguages, []);
@@ -644,7 +644,7 @@ function runTests() {
         'Claude home must not receive the repo .agents staging directory'
       );
 
-      const claudeState = readJson(path.join(claudeRoot, 'ecc', 'install-state.json'));
+      const claudeState = readJson(path.join(claudeRoot, 'poweruser', 'install-state.json'));
       assert.ok(
         !claudeState.operations.some(operation => (
           String(operation.sourceRelativePath || '').replace(/\\/g, '/').split('/')[0] === '.agents'
@@ -663,7 +663,7 @@ function runTests() {
         'Codex home must not receive the repo .agents staging directory'
       );
 
-      const codexState = readJson(path.join(codexRoot, 'ecc-install-state.json'));
+      const codexState = readJson(path.join(codexRoot, 'poweruser-install-state.json'));
       assert.ok(
         !codexState.operations.some(operation => (
           String(operation.sourceRelativePath || '').replace(/\\/g, '/').split('/')[0] === '.agents'
@@ -696,7 +696,7 @@ function runTests() {
     };
     const writeLegacyState = (statePath, target, operations) => {
       writeFile(statePath, `${JSON.stringify({
-        schemaVersion: 'ecc.install.v1',
+        schemaVersion: 'poweruser.install.v1',
         installedAt: '2026-09-01T00:00:00.000Z',
         target,
         request: {
@@ -717,7 +717,7 @@ function runTests() {
     try {
       // Claude home seeded as installed before the .agents exclusion.
       const claudeRoot = path.join(homeDir, '.claude');
-      const claudeStatePath = path.join(claudeRoot, 'ecc', 'install-state.json');
+      const claudeStatePath = path.join(claudeRoot, 'poweruser', 'install-state.json');
       const claudeSkillCopy = path.join(claudeRoot, '.agents', 'skills', 'legacy-skill', 'SKILL.md');
       const claudeModifiedCopy = path.join(claudeRoot, '.agents', 'plugins', 'marketplace.json');
       const claudeUserFile = path.join(claudeRoot, '.agents', 'user-note.txt');
@@ -769,7 +769,7 @@ function runTests() {
 
       // Codex home seeded the same way; both recorded files are unchanged.
       const codexRoot = path.join(homeDir, '.codex');
-      const codexStatePath = path.join(codexRoot, 'ecc-install-state.json');
+      const codexStatePath = path.join(codexRoot, 'poweruser-install-state.json');
       const codexSkillCopy = path.join(codexRoot, '.agents', 'skills', 'legacy-skill', 'SKILL.md');
       const codexMarketplaceCopy = path.join(codexRoot, '.agents', 'plugins', 'marketplace.json');
       writeFile(codexSkillCopy, '# legacy skill\n');
@@ -821,7 +821,7 @@ function runTests() {
       ], { cwd: projectDir, env: { ...process.env, HOME: homeDir, USERPROFILE: homeDir, ...env }, encoding: 'utf8' });
       assert.strictEqual(health.status, 0, health.stderr);
       assert.deepStrictEqual(JSON.parse(health.stdout).skills, []);
-      const state = readJson(path.join(homeDir, '.claude', 'ecc', 'install-state.json'));
+      const state = readJson(path.join(homeDir, '.claude', 'poweruser', 'install-state.json'));
       assert.ok(!state.operations.some(operation => operation.sourceRelativePath.startsWith('scripts/hooks/')));
     } finally {
       cleanup(homeDir);
@@ -849,9 +849,9 @@ function runTests() {
 
       assert.strictEqual(fs.readFileSync(userRulePath, 'utf8'), '# User custom rule\n');
       assert.strictEqual(fs.readFileSync(userSkillPath, 'utf8'), '# User custom skill\n');
-      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'ecc', 'common', 'coding-style.md')));
+      assert.ok(fs.existsSync(path.join(claudeRoot, 'rules', 'poweruser', 'common', 'coding-style.md')));
       assert.ok(fs.existsSync(path.join(claudeRoot, 'skills', 'verification-loop', 'SKILL.md')));
-      const state = readJson(path.join(claudeRoot, 'ecc', 'install-state.json'));
+      const state = readJson(path.join(claudeRoot, 'poweruser', 'install-state.json'));
       assert.ok(!state.operations.some(operation => (
         operation.destinationPath.startsWith(path.join(claudeRoot, 'skills', 'tdd-workflow'))
       )));
@@ -938,7 +938,7 @@ function runTests() {
         operation.destinationPath.startsWith(userSkillRoot)
       )));
       assert.strictEqual(fs.readFileSync(userSkillPath, 'utf8'), '# User custom skill\n');
-      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'ecc', 'install-state.json')));
+      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'poweruser', 'install-state.json')));
     } finally {
       cleanup(homeDir);
       cleanup(projectDir);
@@ -962,7 +962,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(projectDir, '.agents', 'workflows', 'plan.md')));
       assert.ok(fs.existsSync(path.join(projectDir, '.agents', 'skills', 'tdd-workflow', 'SKILL.md')));
 
-      const state = readJson(path.join(projectDir, '.agents', 'ecc-install-state.json'));
+      const state = readJson(path.join(projectDir, '.agents', 'poweruser-install-state.json'));
       assert.strictEqual(state.request.profile, 'core');
       assert.strictEqual(state.request.legacyMode, false);
       assert.deepStrictEqual(
@@ -1000,7 +1000,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(projectDir, '.cursor', 'rules', 'common-agents.mdc')));
       assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'rules', 'common-agents.md')));
 
-      const state = readJson(path.join(projectDir, '.cursor', 'ecc-install-state.json'));
+      const state = readJson(path.join(projectDir, '.cursor', 'poweruser-install-state.json'));
       assert.strictEqual(state.request.profile, null);
       assert.deepStrictEqual(state.request.modules, ['platform-configs']);
       assert.deepStrictEqual(state.request.includeComponents, []);
@@ -1009,7 +1009,7 @@ function runTests() {
       assert.ok(state.resolution.selectedModules.includes('platform-configs'));
       assert.ok(!fs.existsSync(path.join(projectDir, '.cursor', 'hooks')));
       assert.ok(
-        !state.operations.some(operation => operation.destinationPath.endsWith('ecc-install-state.json')),
+        !state.operations.some(operation => operation.destinationPath.endsWith('poweruser-install-state.json')),
         'Manifest copy operations should not include generated install-state files'
       );
     } finally {
@@ -1045,7 +1045,7 @@ function runTests() {
       assert.ok(settings.hooks.UserPromptSubmit.some(entry => entry.id === 'prompt:hookify-runtime'));
       assert.ok(settings.hooks.Stop.some(entry => entry.id === 'stop:hookify-runtime'));
 
-      const state = readJson(path.join(claudeRoot, 'ecc', 'install-state.json'));
+      const state = readJson(path.join(claudeRoot, 'poweruser', 'install-state.json'));
       const settingsOperation = state.operations.find(operation => (
         operation.kind === 'update-claude-settings'
       ));
@@ -1073,7 +1073,7 @@ function runTests() {
           ? path.join(homeDir, '.claude')
           : path.join(projectDir, '.claude');
         const settings = readJson(path.join(claudeRoot, 'settings.json'));
-        const state = readJson(path.join(claudeRoot, 'ecc', 'install-state.json'));
+        const state = readJson(path.join(claudeRoot, 'poweruser', 'install-state.json'));
         const installedRoot = state.target.root;
         assert.strictEqual(fs.realpathSync(installedRoot), fs.realpathSync(claudeRoot));
         const installedBashDispatcherEntry = settings.hooks.PreToolUse.find(
@@ -1107,7 +1107,7 @@ function runTests() {
             ...process.env,
             HOME: homeDir,
             USERPROFILE: homeDir,
-            ECC_DISABLED_HOOKS: 'pre:write:doc-file-warning',
+            POWERUSER_DISABLED_HOOKS: 'pre:write:doc-file-warning',
           },
           shell: true,
           timeout: DEFAULT_INSTALL_APPLY_TIMEOUT_MS,
@@ -1167,7 +1167,7 @@ function runTests() {
       assert.strictEqual(fs.readFileSync(userPackagePath, 'utf8'), userPackage);
       assert.strictEqual(fs.readFileSync(scriptsPackagePath, 'utf8'), userScriptsPackage);
 
-      const state = readJson(path.join(claudeRoot, 'ecc', 'install-state.json'));
+      const state = readJson(path.join(claudeRoot, 'poweruser', 'install-state.json'));
       const boundaryPaths = [hooksPackagePath, libPackagePath].map(file => fs.realpathSync(file));
       const packageBoundaryOperations = state.operations.filter(operation => (
         boundaryPaths.includes(operation.destinationPath)
@@ -1238,12 +1238,12 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('filters copied mcp config files when ECC_DISABLED_MCPS is set', () => {
+  if (test('filters copied mcp config files when POWERUSER_DISABLED_MCPS is set', () => {
     const tempDir = createTempDir('install-apply-mcp-');
     const sourcePath = path.join(tempDir, '.mcp.json');
     const destinationPath = path.join(tempDir, 'installed', '.mcp.json');
-    const installStatePath = path.join(tempDir, 'installed', 'ecc-install-state.json');
-    const previousValue = process.env.ECC_DISABLED_MCPS;
+    const installStatePath = path.join(tempDir, 'installed', 'poweruser-install-state.json');
+    const previousValue = process.env.POWERUSER_DISABLED_MCPS;
 
     try {
       fs.mkdirSync(path.dirname(sourcePath), { recursive: true });
@@ -1255,14 +1255,14 @@ function runTests() {
         },
       }, null, 2));
 
-      process.env.ECC_DISABLED_MCPS = 'github,memory';
+      process.env.POWERUSER_DISABLED_MCPS = 'github,memory';
 
       applyInstallPlan({
         targetRoot: path.join(tempDir, 'installed'),
         adapter: { id: 'test-install', target: 'test-install' },
         installStatePath,
         statePreview: {
-          schemaVersion: 'ecc.install.v1',
+          schemaVersion: 'poweruser.install.v1',
           installedAt: new Date().toISOString(),
           target: {
             id: 'test-install',
@@ -1305,9 +1305,9 @@ function runTests() {
       assert.deepStrictEqual(Object.keys(installed.mcpServers), ['exa']);
     } finally {
       if (previousValue === undefined) {
-        delete process.env.ECC_DISABLED_MCPS;
+        delete process.env.POWERUSER_DISABLED_MCPS;
       } else {
-        process.env.ECC_DISABLED_MCPS = previousValue;
+        process.env.POWERUSER_DISABLED_MCPS = previousValue;
       }
       cleanup(tempDir);
     }
@@ -1492,10 +1492,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('installs from ecc-install.json and persists component selections', () => {
+  if (test('installs from poweruser-install.json and persists component selections', () => {
     const homeDir = createTempDir('install-apply-home-');
     const projectDir = createTempDir('install-apply-project-');
-    const configPath = path.join(projectDir, 'ecc-install.json');
+    const configPath = path.join(projectDir, 'poweruser-install.json');
 
     try {
       fs.writeFileSync(configPath, JSON.stringify({
@@ -1512,7 +1512,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(homeDir, '.claude', 'skills', 'security-review', 'SKILL.md')));
       assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'skills', 'dmux-workflows', 'SKILL.md')));
 
-      const state = readJson(path.join(homeDir, '.claude', 'ecc', 'install-state.json'));
+      const state = readJson(path.join(homeDir, '.claude', 'poweruser', 'install-state.json'));
       assert.strictEqual(state.request.profile, 'developer');
       assert.deepStrictEqual(state.request.includeComponents, ['capability:security']);
       assert.deepStrictEqual(state.request.excludeComponents, ['capability:orchestration']);
@@ -1524,10 +1524,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('auto-detects ecc-install.json from the project root', () => {
+  if (test('auto-detects poweruser-install.json from the project root', () => {
     const homeDir = createTempDir('install-apply-home-');
     const projectDir = createTempDir('install-apply-project-');
-    const configPath = path.join(projectDir, 'ecc-install.json');
+    const configPath = path.join(projectDir, 'poweruser-install.json');
 
     try {
       fs.writeFileSync(configPath, JSON.stringify({
@@ -1544,7 +1544,7 @@ function runTests() {
       assert.ok(fs.existsSync(path.join(homeDir, '.claude', 'skills', 'security-review', 'SKILL.md')));
       assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'skills', 'dmux-workflows', 'SKILL.md')));
 
-      const state = readJson(path.join(homeDir, '.claude', 'ecc', 'install-state.json'));
+      const state = readJson(path.join(homeDir, '.claude', 'poweruser', 'install-state.json'));
       assert.strictEqual(state.request.profile, 'developer');
       assert.deepStrictEqual(state.request.includeComponents, ['capability:security']);
       assert.deepStrictEqual(state.request.excludeComponents, ['capability:orchestration']);
@@ -1560,7 +1560,7 @@ function runTests() {
     if (test(`installs from a UTF-8 BOM config (${explicitConfig ? '--config' : 'auto-detected'})`, () => {
       const homeDir = createTempDir('install-apply-bom-home-');
       const projectDir = createTempDir('install-apply-bom-project-');
-      const configPath = path.join(projectDir, 'ecc-install.json');
+      const configPath = path.join(projectDir, 'poweruser-install.json');
       const content = '\uFEFF{\r\n  "version": 1,\r\n  "target": "cursor",\r\n  "modules": ["rules-core"]\r\n}\r\n';
 
       try {
@@ -1569,7 +1569,7 @@ function runTests() {
         const result = run(args, { cwd: projectDir, homeDir });
         assert.strictEqual(result.code, 0, result.stderr);
         assert.ok(fs.existsSync(path.join(projectDir, '.cursor', 'rules', 'common-coding-style.mdc')));
-        const state = readJson(path.join(projectDir, '.cursor', 'ecc-install-state.json'));
+        const state = readJson(path.join(projectDir, '.cursor', 'poweruser-install-state.json'));
         assert.deepStrictEqual(state.request.modules, ['rules-core']);
         assert.strictEqual(fs.readFileSync(configPath, 'utf8'), content);
       } finally {
@@ -1582,7 +1582,7 @@ function runTests() {
   if (test('preserves legacy language installs when a project config is present', () => {
     const homeDir = createTempDir('install-apply-home-');
     const projectDir = createTempDir('install-apply-project-');
-    const configPath = path.join(projectDir, 'ecc-install.json');
+    const configPath = path.join(projectDir, 'poweruser-install.json');
 
     try {
       fs.writeFileSync(configPath, JSON.stringify({
@@ -1595,7 +1595,7 @@ function runTests() {
       const result = run(['typescript', '--enable-hooks'], { cwd: projectDir, homeDir });
       assert.strictEqual(result.code, 0, result.stderr);
 
-      const state = readJson(path.join(homeDir, '.claude', 'ecc', 'install-state.json'));
+      const state = readJson(path.join(homeDir, '.claude', 'poweruser', 'install-state.json'));
       assert.strictEqual(state.request.legacyMode, true);
       assert.deepStrictEqual(state.request.legacyLanguages, ['typescript']);
       assert.strictEqual(state.request.profile, null);
@@ -1617,7 +1617,7 @@ function runTests() {
       assert.ok(result.stderr.includes('automatic hook runtime'));
       assert.ok(result.stderr.includes('--enable-hooks'));
       assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'hooks', 'hooks.json')));
-      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'ecc', 'install-state.json')));
+      assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'poweruser', 'install-state.json')));
     } finally {
       cleanup(homeDir);
       cleanup(projectDir);
@@ -1631,7 +1631,7 @@ function runTests() {
       const result = run(['--profile', 'core', '--no-hooks'], { cwd: projectDir, homeDir });
       assert.strictEqual(result.code, 0, result.stderr);
       assert.ok(!fs.existsSync(path.join(homeDir, '.claude', 'hooks', 'hooks.json')));
-      const state = readJson(path.join(homeDir, '.claude', 'ecc', 'install-state.json'));
+      const state = readJson(path.join(homeDir, '.claude', 'poweruser', 'install-state.json'));
       assert.strictEqual(state.request.hookConsent, 'declined');
       assert.ok(!state.resolution.selectedModules.includes('hooks-runtime'));
       assert.ok(state.resolution.selectedModules.includes('rules-core'));
@@ -1663,7 +1663,7 @@ function runTests() {
         theme: 'dark',
       });
 
-      const state = readJson(path.join(homeDir, '.claude', 'ecc', 'install-state.json'));
+      const state = readJson(path.join(homeDir, '.claude', 'poweruser', 'install-state.json'));
       assert.strictEqual(state.request.hookConsent, 'declined');
       assert.ok(!state.operations.some(operation => (
         operation.kind === 'update-claude-settings'

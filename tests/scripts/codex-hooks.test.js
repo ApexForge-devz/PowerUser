@@ -16,7 +16,7 @@ const prePushHook = path.join(repoRoot, 'scripts', 'codex-git-hooks', 'pre-push'
 const pluginCacheCheckScript = path.join(repoRoot, 'scripts', 'codex', 'check-plugin-cache.js');
 const mergeCodexConfigScript = path.join(repoRoot, 'scripts', 'codex', 'merge-codex-config.js');
 const mergeMcpConfigScript = path.join(repoRoot, 'scripts', 'codex', 'merge-mcp-config.js');
-const syncScript = path.join(repoRoot, 'scripts', 'sync-ecc-to-codex.sh');
+const syncScript = path.join(repoRoot, 'scripts', 'sync-poweruser-to-codex.sh');
 const packageJson = JSON.parse(fs.readFileSync(path.join(repoRoot, 'package.json'), 'utf8'));
 const packageVersion = packageJson.version;
 const deterministicPackageEnv = {
@@ -99,7 +99,7 @@ function makeHermeticCodexEnv(homeDir, codexDir, extraEnv = {}) {
     GIT_CONFIG_GLOBAL: path.join(homeDir, '.gitconfig'),
     CODEX_HOME: codexDir,
     AGENTS_HOME: agentsHome,
-    ECC_GLOBAL_HOOKS_DIR: hooksDir,
+    POWERUSER_GLOBAL_HOOKS_DIR: hooksDir,
     CLAUDE_PACKAGE_MANAGER: 'npm',
     CLAUDE_CODE_PACKAGE_MANAGER: 'npm',
     LANG: 'C.UTF-8',
@@ -114,7 +114,7 @@ function writeJson(filePath, value) {
 }
 
 function seedPluginCache(codexDir, manifest, files = []) {
-  const cacheDir = path.join(codexDir, 'plugins', 'cache', 'ecc', 'ecc', packageVersion);
+  const cacheDir = path.join(codexDir, 'plugins', 'cache', 'poweruser', 'poweruser', packageVersion);
   writeJson(path.join(cacheDir, '.codex-plugin', 'plugin.json'), manifest);
   fs.writeFileSync(path.join(cacheDir, 'README.md'), '# cached plugin\n');
   for (const [relativePath, content] of files) {
@@ -126,12 +126,12 @@ function seedPluginCache(codexDir, manifest, files = []) {
 }
 
 const cacheManifestWithLocalRefs = {
-  name: 'ecc',
+  name: 'poweruser',
   version: packageVersion,
   skills: './skills/',
   mcpServers: './.mcp.json',
   interface: {
-    composerIcon: './assets/ecc-icon.svg',
+    composerIcon: './assets/poweruser-icon.svg',
     logo: './assets/hero.png',
   },
 };
@@ -152,7 +152,7 @@ else failed++;
 
 if (
   test('shell test runner honors a per-invocation BASH_PATH override', () => {
-    const tempDir = createTempDir('ecc-missing-bash-');
+    const tempDir = createTempDir('poweruser-missing-bash-');
     try {
       const missingBash = path.join(tempDir, 'bash');
       const result = runBash(prePushHook, { env: { BASH_PATH: missingBash } });
@@ -176,8 +176,8 @@ function runHermeticPreCommit({ content = 'safe text\n', filename = 'sample.txt'
       PATH: process.env.PATH,
       GIT_CONFIG_NOSYSTEM: '1',
       MSYS_NO_PATHCONV: '1',
-      ECC_SKIP_GIT_HOOKS: '0',
-      ECC_SKIP_PRECOMMIT: '0',
+      POWERUSER_SKIP_GIT_HOOKS: '0',
+      POWERUSER_SKIP_PRECOMMIT: '0',
       ...env,
     });
     const initialized = spawnSync('git', ['init', '--quiet'], { cwd: tempDir, env: hookEnv });
@@ -234,8 +234,8 @@ for (const [name, options, status, diagnostic] of [
   ['blocks an RSA private key through the real scanner', { scanner: 'real', content: '-----BEGIN RSA PRIVATE KEY-----\n' }, 1, /private key block/],
   ['allows an empty index without ripgrep', { content: null }, 0, null],
   ['allows excluded lockfiles without ripgrep', { filename: 'yarn.lock' }, 0, null],
-  ['preserves the pre-commit bypass warning', { env: { ECC_SKIP_PRECOMMIT: '1' } }, 0, /hook bypassed via env/],
-  ['preserves the global bypass warning', { env: { ECC_SKIP_GIT_HOOKS: '1' } }, 0, /hook bypassed via env/],
+  ['preserves the pre-commit bypass warning', { env: { POWERUSER_SKIP_PRECOMMIT: '1' } }, 0, /hook bypassed via env/],
+  ['preserves the global bypass warning', { env: { POWERUSER_SKIP_GIT_HOOKS: '1' } }, 0, /hook bypassed via env/],
 ]) {
   if (test(`pre-commit ${name}`, () => {
     const result = runHermeticPreCommit(options);
@@ -290,10 +290,10 @@ ${includePnpm ? functionStub('pnpm', false) : ''}
     env: {
       PATH: toBashPath(binDir),
       BASH_ENV: toBashPath(bashEnv),
-      ECC_PREPUSH_AUDIT: audit ? '1' : '0',
-      ECC_PREPUSH_RUN_CHECKS: runChecks ? '1' : '0',
-      ECC_SKIP_GIT_HOOKS: '0',
-      ECC_SKIP_PREPUSH: '0',
+      POWERUSER_PREPUSH_AUDIT: audit ? '1' : '0',
+      POWERUSER_PREPUSH_RUN_CHECKS: runChecks ? '1' : '0',
+      POWERUSER_SKIP_GIT_HOOKS: '0',
+      POWERUSER_SKIP_PREPUSH: '0',
       MSYS_NO_PATHCONV: '1',
     },
     cwd: projectDir,
@@ -366,7 +366,7 @@ if (
     const { result, calls } = runHermeticPrePush({ runChecks: false });
     assert.strictEqual(result.status, 0, `${result.stdout}\n${result.stderr}`);
     assert.deepStrictEqual(calls, []);
-    assert.match(result.stderr, /ECC_PREPUSH_RUN_CHECKS!=1/);
+    assert.match(result.stderr, /POWERUSER_PREPUSH_RUN_CHECKS!=1/);
   })
 )
   passed++;
@@ -480,8 +480,8 @@ function runHermeticPythonPrePush({
 
   const override = overrideStubPath === null ? pytestCmd : toBashPath(overrideStubPath);
   // Built from nothing rather than from process.env. The hook reads VIRTUAL_ENV and
-  // ECC_PYTEST_CMD from the ambient environment, so a developer running this suite
-  // inside an activated virtualenv, or with ECC_PYTEST_CMD exported, would resolve a
+  // POWERUSER_PYTEST_CMD from the ambient environment, so a developer running this suite
+  // inside an activated virtualenv, or with POWERUSER_PYTEST_CMD exported, would resolve a
   // pytest the fixture never created. Omitted, not blanked: now that a variable set
   // to nothing is itself an override, blanking it here would make every one of these
   // tests take that branch.
@@ -490,12 +490,12 @@ function runHermeticPythonPrePush({
       ? process.env.PATH
       : `${toBashPath(pathBin)}${path.delimiter}${process.env.PATH}`,
     HOME: process.env.HOME ?? '',
-    ECC_PREPUSH_RUN_CHECKS: '1',
-    ECC_SKIP_GIT_HOOKS: '0',
-    ECC_SKIP_PREPUSH: '0',
+    POWERUSER_PREPUSH_RUN_CHECKS: '1',
+    POWERUSER_SKIP_GIT_HOOKS: '0',
+    POWERUSER_SKIP_PREPUSH: '0',
     MSYS_NO_PATHCONV: '1',
     ...(venvDir === null || trackVenv ? {} : { VIRTUAL_ENV: toBashPath(venvDir) }),
-    ...(override === null ? {} : { ECC_PYTEST_CMD: override }),
+    ...(override === null ? {} : { POWERUSER_PYTEST_CMD: override }),
   };
 
   const result = runBash(prePushHook, {
@@ -590,12 +590,12 @@ if (
 else failed++;
 
 if (
-  test('pre-push runs an ECC_PYTEST_CMD override exactly once, without probing it', () => {
+  test('pre-push runs an POWERUSER_PYTEST_CMD override exactly once, without probing it', () => {
     const { result, calls, overrideStubPath } = runHermeticPythonPrePush({ overrideStub: true });
     assert.strictEqual(result.status, 0, `${result.stdout}\n${result.stderr}`);
     assert.deepStrictEqual(calls, [`${toBashPath(overrideStubPath)}|-q`], JSON.stringify(calls));
     // The override is not verified to be pytest, so it must at least be loud.
-    assert.match(result.stdout, /via ECC_PYTEST_CMD/);
+    assert.match(result.stdout, /via POWERUSER_PYTEST_CMD/);
     assert.match(result.stdout, /does\n?.*not check that it is pytest/s);
   })
 )
@@ -607,13 +607,13 @@ else failed++;
 // fall-through would be visible as a pass rather than as an absence.
 for (const [label, blank] of [['empty', ''], ['whitespace', '   ']]) {
   if (
-    test(`pre-push fails closed when ECC_PYTEST_CMD is set to ${label}`, () => {
+    test(`pre-push fails closed when POWERUSER_PYTEST_CMD is set to ${label}`, () => {
       const { result, calls } = runHermeticPythonPrePush({
         venvName: 'venv-blank',
         pytestCmd: blank,
       });
       assert.notStrictEqual(result.status, 0, `${result.stdout}\n${result.stderr}`);
-      assert.match(result.stderr, /ECC_PYTEST_CMD is set but names no command/);
+      assert.match(result.stderr, /POWERUSER_PYTEST_CMD is set but names no command/);
       assert.deepStrictEqual(calls, [], JSON.stringify(calls));
     })
   )
@@ -660,7 +660,7 @@ if (
       assert.match(result.stdout, /\[FAIL\] skills missing/);
       assert.match(result.stdout, /\[FAIL\] mcpServers missing/);
       assert.match(result.stdout, /codex plugin list only confirms marketplace registration/);
-      assert.match(result.stdout, /sync-ecc-to-codex\.sh/);
+      assert.match(result.stdout, /sync-poweruser-to-codex\.sh/);
     } finally {
       cleanup(homeDir);
     }
@@ -676,7 +676,7 @@ if (
 
     try {
       seedPluginCache(codexDir, {
-        name: 'ecc',
+        name: 'poweruser',
         version: packageVersion,
         skills: '../../../../../etc/passwd',
         mcpServers: '../../.mcp.json',
@@ -703,7 +703,7 @@ if (
     try {
       const cacheDir = seedPluginCache(codexDir, cacheManifestWithLocalRefs, [
         ['.mcp.json', '{"mcpServers":{}}\n'],
-        ['assets/ecc-icon.svg', '<svg />\n'],
+        ['assets/poweruser-icon.svg', '<svg />\n'],
         ['assets/hero.png', 'png\n'],
       ]);
       fs.mkdirSync(path.join(cacheDir, 'skills'), { recursive: true });
@@ -732,7 +732,7 @@ if (
 
       assert.strictEqual(result.status, 1, `${result.stdout}\n${result.stderr}`);
       assert.match(result.stdout, /Cached plugin manifest missing/);
-      assert.match(result.stdout, /codex plugin marketplace add affaan-m\/ECC/);
+      assert.match(result.stdout, /codex plugin marketplace add affaan-m\/PowerUser/);
     } finally {
       cleanup(homeDir);
     }
@@ -799,7 +799,7 @@ if (os.platform() === 'win32') {
       const result = runBash(installScript, {
         env: {
           HOME: homeDir,
-          ECC_GLOBAL_HOOKS_DIR: weirdHooksDir,
+          POWERUSER_GLOBAL_HOOKS_DIR: weirdHooksDir,
         },
       });
 
@@ -1018,7 +1018,7 @@ if (
       const second = runNode(mergeMcpConfigScript, [configPath], deterministicPackageEnv);
       assert.strictEqual(second.status, 0, `${second.stdout}\n${second.stderr}`);
       assert.match(second.stdout, /\[ok\] mcp_servers\.chrome-devtools/);
-      assert.match(second.stdout, /All ECC MCP servers already present/);
+      assert.match(second.stdout, /All PowerUser MCP servers already present/);
       assert.strictEqual(fs.readFileSync(configPath, 'utf8'), merged);
     } finally {
       cleanup(tempDir);
@@ -1051,7 +1051,7 @@ if (
       fs.writeFileSync(configPath, original);
       const preserved = runNode(mergeMcpConfigScript, [configPath], deterministicPackageEnv);
       assert.strictEqual(preserved.status, 0, `${preserved.stdout}\n${preserved.stderr}`);
-      assert.match(preserved.stderr, /chrome-devtools differs from ECC recommendation/);
+      assert.match(preserved.stderr, /chrome-devtools differs from PowerUser recommendation/);
       assert.match(preserved.stderr, /--update-mcp to refresh/);
       assert.strictEqual(fs.readFileSync(configPath, 'utf8'), original,
         'normal sync must preserve existing latest and customized settings byte-for-byte');
@@ -1074,7 +1074,7 @@ if (
 else failed++;
 
 if (
-  test('merge-mcp-config repairs the invalid exa url entry from earlier ECC versions (#2224)', () => {
+  test('merge-mcp-config repairs the invalid exa url entry from earlier PowerUser versions (#2224)', () => {
     const tempDir = createTempDir('mcp-merge-exa-repair-');
     const configPath = path.join(tempDir, 'config.toml');
     const original = [
@@ -1166,7 +1166,7 @@ if (
       assert.strictEqual(result.status, 0, `${result.stdout}\n${result.stderr}`);
       assert.match(result.stdout, /\[remove\] mcp_servers\.chrome-devtools/);
       assert.match(result.stdout, /\[mcp_servers\.chrome-devtools\]/);
-      // Retired servers are no longer ECC-managed: never removed or re-added.
+      // Retired servers are no longer PowerUser-managed: never removed or re-added.
       assert.doesNotMatch(result.stdout, /\[remove\] mcp_servers\.context7/);
       assert.strictEqual(fs.readFileSync(configPath, 'utf8'), original);
     } finally {
@@ -1192,11 +1192,11 @@ if (
       fs.writeFileSync(configPath, original);
       const result = runNode(mergeMcpConfigScript, [configPath], {
         ...deterministicPackageEnv,
-        ECC_DISABLED_MCPS: 'chrome-devtools',
+        POWERUSER_DISABLED_MCPS: 'chrome-devtools',
       });
 
       assert.strictEqual(result.status, 0, `${result.stdout}\n${result.stderr}`);
-      assert.match(result.stdout, /Disabled via ECC_DISABLED_MCPS/);
+      assert.match(result.stdout, /Disabled via POWERUSER_DISABLED_MCPS/);
       assert.match(result.stdout, /\[skip\] mcp_servers\.chrome-devtools \(disabled\)/);
       assert.match(result.stdout, /\[update\] mcp_servers\.chrome-devtools \(disabled\)/);
       assert.match(result.stdout, /Done\. Removed 1 server section\(s\)\./);
@@ -1252,8 +1252,8 @@ if (
       assert.strictEqual(syncResult.status, 0, `${syncResult.stdout}\n${syncResult.stderr}`);
 
       const syncedAgents = fs.readFileSync(agentsPath, 'utf8');
-      assert.match(syncedAgents, /^# ECC — Agent Instructions/m);
-      assert.match(syncedAgents, /^# Codex Supplement \(From ECC \.codex\/AGENTS\.md\)/m);
+      assert.match(syncedAgents, /^# PowerUser — Agent Instructions/m);
+      assert.match(syncedAgents, /^# Codex Supplement \(From PowerUser \.codex\/AGENTS\.md\)/m);
 
       const syncedConfig = fs.readFileSync(configPath, 'utf8');
       const parsedConfig = TOML.parse(syncedConfig);

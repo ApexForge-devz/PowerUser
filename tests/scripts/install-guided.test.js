@@ -202,7 +202,7 @@ function runGuidedPtyFixture(exchanges) {
     assert.strictEqual(code, 0);
     assert.deepStrictEqual(
       confirmationTerminal.prompts,
-      ['Apply ECC to these harnesses? [y/N]: ']
+      ['Apply PowerUser to these harnesses? [y/N]: ']
     );
   });
 
@@ -212,7 +212,7 @@ function runGuidedPtyFixture(exchanges) {
       { expect: 'Choose [Recommended: user] (one option only):', send: '1' },
       { expect: 'Choose [Recommended: standard] (one option only):', send: '3' },
       { expect: 'Choose [Recommended: core] (one option only):', send: '2' },
-      { expect: 'Apply ECC to these harnesses? [y/N]:', send: 'y' },
+      { expect: 'Apply PowerUser to these harnesses? [y/N]:', send: 'y' },
     ]);
     if (result === null) return;
     assert.strictEqual(result.status, 0, result.stderr);
@@ -222,7 +222,7 @@ function runGuidedPtyFixture(exchanges) {
       'Choose [Recommended: user] (one option only):',
       'Choose [Recommended: standard] (one option only):',
       'Choose [Recommended: core] (one option only):',
-      'Apply ECC to these harnesses? [y/N]:',
+      'Apply PowerUser to these harnesses? [y/N]:',
       'PTY_WELCOME_SHOWN',
     ];
     let previousIndex = -1;
@@ -276,7 +276,7 @@ function runGuidedPtyFixture(exchanges) {
     assert.strictEqual(code, 0);
     assert.deepStrictEqual(events, ['preflight', 'apply', 'spinner:stop', 'welcome']);
     assert.strictEqual(
-      terminal.prompts.filter(prompt => /Apply ECC to these harnesses\?/.test(prompt)).length,
+      terminal.prompts.filter(prompt => /Apply PowerUser to these harnesses\?/.test(prompt)).length,
       1
     );
   });
@@ -340,7 +340,7 @@ function runGuidedPtyFixture(exchanges) {
     assert.strictEqual(code, 1);
     assert.match(
       errorOutput.read(),
-      /Retry with: ecc-universal install --guided --harness codex/
+      /Retry with: poweruser-universal install --guided --harness codex/
     );
 
     const jsonError = capture();
@@ -380,7 +380,7 @@ function runGuidedPtyFixture(exchanges) {
     assert.strictEqual(code, 1);
     assert.match(
       errorOutput.read(),
-      /Retry with: ecc-universal install --guided --harness claude --harness kimi --claude-scope local --claude-hooks strict --profile developer/
+      /Retry with: poweruser-universal install --guided --harness claude --harness kimi --claude-scope local --claude-hooks strict --profile developer/
     );
   });
 

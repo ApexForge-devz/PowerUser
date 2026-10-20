@@ -148,10 +148,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds exact legacy plugin install at ~/.claude/plugins/everything-claude-code', () => {
+  if (test('finds exact legacy plugin install at ~/.claude/plugins/poweruser', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['everything-claude-code']);
+      const expected = setupLegacyPluginInstall(homeDir, ['poweruser']);
       const result = resolvePowerUserRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -159,10 +159,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds exact legacy plugin install at ~/.claude/plugins/everything-claude-code@everything-claude-code', () => {
+  if (test('finds exact legacy plugin install at ~/.claude/plugins/poweruser@poweruser', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['everything-claude-code@everything-claude-code']);
+      const expected = setupLegacyPluginInstall(homeDir, ['poweruser@poweruser']);
       const result = resolvePowerUserRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -181,10 +181,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds marketplace legacy plugin install at ~/.claude/plugins/marketplaces/everything-claude-code', () => {
+  if (test('finds marketplace legacy plugin install at ~/.claude/plugins/marketplaces/poweruser', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'everything-claude-code']);
+      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'poweruser']);
       const result = resolvePowerUserRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -232,13 +232,13 @@ function runTests() {
   if (test('handles multiple versions in plugin cache', () => {
     const homeDir = createTempDir();
     try {
-      setupPluginCache(homeDir, 'everything-claude-code', 'legacy-org', '1.7.0');
+      setupPluginCache(homeDir, 'poweruser', 'legacy-org', '1.7.0');
       const expected = setupPluginCache(homeDir, 'poweruser', 'affaan-m', CURRENT_PACKAGE_VERSION);
       const result = resolvePowerUserRoot({ envRoot: '', homeDir });
       // Should find one of them (either is valid)
       assert.ok(
         result === expected ||
-        result === path.join(homeDir, '.claude', 'plugins', 'cache', 'everything-claude-code', 'legacy-org', '1.7.0'),
+        result === path.join(homeDir, '.claude', 'plugins', 'cache', 'poweruser', 'legacy-org', '1.7.0'),
         'Should resolve to a valid plugin cache directory'
       );
     } finally {
