@@ -51,13 +51,13 @@ write_status "running" "- Task file: \`$task_file\`"
 # Keep the configured sandbox; do not bypass approvals or sandboxing for task
 # files that may contain third-party content. Non-interactive runs default to
 # never prompting for approvals. This does not disable commands allowed by the
-# sandbox. Operators can request approvals with ECC_CODEX_APPROVAL_POLICY.
+# sandbox. Operators can request approvals with PowerUser_CODEX_APPROVAL_POLICY.
 # Approval policies (--ask-for-approval) are separate from Codex profiles (-p).
-APPROVAL_POLICY="${ECC_CODEX_APPROVAL_POLICY:-never}"
+APPROVAL_POLICY="${PowerUser_CODEX_APPROVAL_POLICY:-never}"
 case "$APPROVAL_POLICY" in
   never|on-request) ;;
   *)
-    echo "[ECC worker] Refusing to run: unsupported ECC_CODEX_APPROVAL_POLICY='$APPROVAL_POLICY' (expected never|on-request)" >&2
+    echo "[PowerUser worker] Refusing to run: unsupported PowerUser_CODEX_APPROVAL_POLICY='$APPROVAL_POLICY' (expected never|on-request)" >&2
     write_status "failed" "- Error: unsupported approval policy"
     exit 1
     ;;
@@ -79,14 +79,14 @@ canonical_path() {
 }
 
 if ! task_real="$(canonical_path "$task_file")" || ! work_real="$(canonical_path "$(pwd -P)")"; then
-  echo "[ECC worker] Refusing to run: cannot resolve task file or worktree" >&2
+  echo "[PowerUser worker] Refusing to run: cannot resolve task file or worktree" >&2
   write_status "failed" "- Error: cannot resolve task file or worktree"
   exit 1
 fi
 case "$task_real" in
   "$work_real"/*) ;;
   *)
-    echo "[ECC worker] Refusing to run: task file outside worktree: $task_file" >&2
+    echo "[PowerUser worker] Refusing to run: task file outside worktree: $task_file" >&2
     write_status "failed" "- Error: task file outside worktree"
     exit 1
     ;;
@@ -100,7 +100,7 @@ cleanup() {
 trap cleanup EXIT
 
 cat > "$prompt_file" <<EOF
-You are one worker in an ECC tmux/worktree swarm.
+You are one worker in an PowerUser tmux/worktree swarm.
 
 Rules:
 - Work only in the current git worktree.
