@@ -10,7 +10,7 @@ function rewriteCopilotWorkflowPaths(content, sourceRelativePath) {
   // Commands run from the installed project root. Rewrite only the supported
   // helper entrypoint, leaving unrelated project scripts and URLs untouched.
   return content.replace(/(^|[\s`"'(])scripts\/setup-package-manager\.js\b/g,
-    '$1.github/ecc/scripts/setup-package-manager.js');
+    '$1.github/poweruser/scripts/setup-package-manager.js');
 }
 
 function transformInstallContent(operation, content) {
@@ -32,7 +32,7 @@ function transformInstallContent(operation, content) {
   if (operation.contentTransform === 'copilot-workflow-paths') {
     return rewriteCopilotWorkflowPaths(content, operation.sourceRelativePath);
   }
-  if (operation.contentTransform === 'opencode-disable-ecc-hooks') {
+  if (operation.contentTransform === 'opencode-disable-poweruser-hooks') {
     return transformInstallContent({ ...operation, contentTransform: 'opencode-home-skills-path' },
       disableOpenCodeHookPluginRegistration(content, operation.sourceRelativePath));
   }
