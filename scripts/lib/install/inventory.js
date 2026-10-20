@@ -6,7 +6,6 @@ const path = require('path');
 const { isWithinRoot, realpathNearestExisting } = require('../path-safety');
 
 const CURRENT_PLUGIN_ID = 'poweruser@poweruser';
-// Legacy plugin ids, kept so existing installations are still recognized.
 function resolveClaudePaths(options = {}) {
   const homeDir = options.homeDir
     || process.env.HOME
@@ -40,14 +39,7 @@ function readJsonObject(filePath, label) {
 function findManualClaudePlugin(options = {}) {
   const { configDir } = resolveClaudePaths(options);
   const pluginsDir = path.join(configDir, 'plugins');
-  const candidates = [['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
-    ['poweruser@poweruser', 'plugin.json'],
-    // Legacy install paths, kept for existing installations of the former plugin.
-    ['poweruser', '.claude-plugin', 'plugin.json'],
-    ['poweruser', 'plugin.json'],
-    ['poweruser@poweruser', '.claude-plugin', 'plugin.json'],
-    ['poweruser@poweruser', 'plugin.json'],
-    // Legacy install dir, kept for existing installs.
+  const candidates = [
     ['poweruser', '.claude-plugin', 'plugin.json'],
     ['poweruser', 'plugin.json'],
   ];
@@ -68,7 +60,7 @@ function validateManagedState(state, statePath, expectedRoot) {
   const selectedModules = state?.resolution?.selectedModules;
   const operations = state?.operations;
   if (
-    state?.schemaVersion !== 'poweruser.install.v1' && state?.schemaVersion !== 'poweruser.install.v1'
+    state?.schemaVersion !== 'poweruser.install.v1'
     || !state.target
     || typeof state.target !== 'object'
     || Array.isArray(state.target)
