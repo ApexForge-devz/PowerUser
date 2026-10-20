@@ -11,7 +11,7 @@ const native = () => require('../../scripts/lib/context-profile-native');
 
 function fixture(callback) {
   return withFixture(repoRoot => {
-    const parent = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), 'ecc-native-claude-test-'));
+    const parent = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), 'poweruser-native-claude-test-'));
     const options = { stateRoot: path.join(parent, 'managed'), nativeRoot: path.join(parent, 'native'), claudePath: process.execPath };
     try {
       store.applyStore({ repoRoot, stateRoot: options.stateRoot, target: 'claude' });
@@ -23,7 +23,7 @@ function fixture(callback) {
 function details(pluginDir, overrides) {
   const skills = fs.readdirSync(path.join(pluginDir, 'skills')).sort();
   const counts = { agents: 0, hooks: 0, mcp: 0, lsp: 0, ...overrides.counts };
-  return ['ecc-context-carrier', '  Source: ecc-context-carrier@inline', '', 'Component inventory',
+  return ['poweruser-context-carrier', '  Source: poweruser-context-carrier@inline', '', 'Component inventory',
     `  Skills (${skills.length})  ${skills.join(', ')}`, `  Agents (${counts.agents})`, `  Hooks (${counts.hooks})`,
     `  MCP servers (${counts.mcp})`, `  LSP servers (${counts.lsp})`, '', 'Projected token cost',
     `  Always-on:   ${overrides.alwaysOn || '~1,398 tok'}   added to every session`, ''].join('\n');
@@ -50,7 +50,7 @@ function provider(overrides = {}) {
     const pluginDir = args[1];
     if (overrides.tamper) overrides.tamper(pluginDir);
     if (args[3] === 'list') {
-      const plugins = [{ id: 'ecc-context-carrier@inline', version: 'unknown', scope: 'session', enabled: true, installPath: pluginDir }];
+      const plugins = [{ id: 'poweruser-context-carrier@inline', version: 'unknown', scope: 'session', enabled: true, installPath: pluginDir }];
       return { status: 0, stdout: JSON.stringify(overrides.list ? overrides.list(plugins) : plugins) };
     }
     if (args[3] === 'details') return { status: 0, stdout: details(pluginDir, overrides) };
@@ -85,7 +85,7 @@ test('Claude prepare verifies session-only discovery and records the host token 
   assert.match(fs.readFileSync(path.join(result.claudeConfigDir, 'CLAUDE.md'), 'utf8'), /grants no tools/);
   assert.equal(fs.existsSync(path.join(result.home, '.codex')), false);
   const pluginCalls = dependency.calls.filter(call => call.args.includes('--plugin-dir'));
-  assert.deepEqual(pluginCalls.map(call => call.args.slice(2)), [['plugin', 'list', '--json'], ['plugin', 'details', 'ecc-context-carrier']]);
+  assert.deepEqual(pluginCalls.map(call => call.args.slice(2)), [['plugin', 'list', '--json'], ['plugin', 'details', 'poweruser-context-carrier']]);
   assert.ok(pluginCalls.every(call => call.args[1] === result.pluginDir));
   assert.equal(native().getNativeProfileStatus(options).status, 'ready');
 }));
@@ -122,7 +122,7 @@ const corruptions = {
   'extra hook': [{ counts: { hooks: 1 } }, /component discovery mismatch/],
   'extra MCP server': [{ counts: { mcp: 1 } }, /component discovery mismatch/],
   'unparseable token projection': [{ alwaysOn: 'unknown' }, /token projection/],
-  'tampered plugin bytes': [{ tamper: pluginDir => fs.appendFileSync(path.join(pluginDir, 'skills/ecc-guide/SKILL.md'), 'tamper') },
+  'tampered plugin bytes': [{ tamper: pluginDir => fs.appendFileSync(path.join(pluginDir, 'skills/poweruser-guide/SKILL.md'), 'tamper') },
     /file set or digest mismatch/],
 };
 for (const [label, [overrides, expected]] of Object.entries(corruptions)) {
@@ -137,7 +137,7 @@ test('Claude details skill mismatch never commits a ready pointer', () => fixtur
   const execute = dependency.execute;
   dependency.execute = (command, args, config) => {
     const result = execute(command, args, config);
-    return args[3] === 'details' ? { ...result, stdout: result.stdout.replace(', ecc-guide', '') } : result;
+    return args[3] === 'details' ? { ...result, stdout: result.stdout.replace(', poweruser-guide', '') } : result;
   };
   assert.throws(() => native().prepareNativeProfile(options, dependency), /component discovery mismatch/);
   assert.equal(fs.existsSync(path.join(options.nativeRoot, 'state.json')), false);
@@ -150,7 +150,7 @@ test('Claude plugin bytes and added user skills reject static readiness', () => 
   assert.throws(() => native().getNativeProfileStatus(options), /changed/);
   fs.rmSync(path.join(prepared.claudeConfigDir, 'skills'), { recursive: true });
   assert.equal(native().getNativeProfileStatus(options).ready, true);
-  fs.appendFileSync(path.join(prepared.pluginDir, 'skills/ecc-guide/SKILL.md'), 'tamper');
+  fs.appendFileSync(path.join(prepared.pluginDir, 'skills/poweruser-guide/SKILL.md'), 'tamper');
   assert.throws(() => native().getNativeProfileStatus(options), /changed/);
 }));
 
@@ -183,11 +183,11 @@ test('a Codex generation becomes stale when the managed store targets Claude', (
   codex.discover = (_command, config) => {
     const base = path.dirname(config.env.HOME);
     const name = JSON.parse(fs.readFileSync(path.join(base, 'marketplace/.agents/plugins/marketplace.json'))).name;
-    const cache = path.join(config.env.CODEX_HOME, 'plugins/cache', name, 'ecc-context-carrier/local');
+    const cache = path.join(config.env.CODEX_HOME, 'plugins/cache', name, 'poweruser-context-carrier/local');
     fs.mkdirSync(path.dirname(cache), { recursive: true });
     fs.cpSync(path.join(base, 'marketplace/carrier'), cache, { recursive: true });
     return { data: [{ cwd: config.cwd, errors: [], skills: fs.readdirSync(path.join(cache, 'skills')).map(skill => ({
-      name: `ecc-context-carrier:${skill}`, pluginId: `ecc-context-carrier@${name}`, enabled: true, scope: 'user',
+      name: `poweruser-context-carrier:${skill}`, pluginId: `poweruser-context-carrier@${name}`, enabled: true, scope: 'user',
       path: path.join(cache, 'skills', skill, 'SKILL.md') })) }] };
   };
   const first = native().prepareNativeProfile({ ...options, codexPath: process.execPath, claudePath: undefined }, codex);
@@ -219,7 +219,7 @@ test('Claude task launch loads the verified plugin directory in the isolated hom
 }));
 
 test('Claude interactive start launches the pinned binary with the verified plugin directory', () => {
-  const parent = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), 'ecc-native-claude-start-'));
+  const parent = fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()), 'poweruser-native-claude-start-'));
   const options = { stateRoot: path.join(parent, 'managed'), nativeRoot: path.join(parent, 'native') };
   try {
     store.applyStore({ stateRoot: options.stateRoot, target: 'claude' });
