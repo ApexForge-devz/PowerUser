@@ -350,7 +350,7 @@ function readSettingsSnapshot(settingsPath) {
       pathStat = fs.lstatSync(settingsPath, { bigint: true });
     } catch (error) {
       if (error && error.code === 'ENOENT') {
-        error.code = 'ECC_SETTINGS_CHANGED';
+        error.code = 'POWERUSER_SETTINGS_CHANGED';
       }
       throw error;
     }
@@ -361,7 +361,7 @@ function readSettingsSnapshot(settingsPath) {
       || !sameFileIdentity(descriptorStat, pathStat)
     ) {
       const error = new Error(`Refusing to read changed Claude settings at ${settingsPath}`);
-      error.code = 'ECC_SETTINGS_CHANGED';
+      error.code = 'POWERUSER_SETTINGS_CHANGED';
       throw error;
     }
     const raw = fs.readFileSync(descriptor, 'utf8');
@@ -383,7 +383,7 @@ function assertSettingsSnapshotUnchanged(settingsPath, snapshot) {
   try {
     current = readSettingsSnapshot(settingsPath);
   } catch (error) {
-    error.code = error.code || 'ECC_SETTINGS_CHANGED';
+    error.code = error.code || 'POWERUSER_SETTINGS_CHANGED';
     throw error;
   }
   const unchanged = current.exists === snapshot.exists
@@ -391,7 +391,7 @@ function assertSettingsSnapshotUnchanged(settingsPath, snapshot) {
     && (!current.exists || (current.dev === snapshot.dev && current.ino === snapshot.ino));
   if (!unchanged) {
     const error = new Error(`Claude settings changed during update: ${settingsPath}`);
-    error.code = 'ECC_SETTINGS_CHANGED';
+    error.code = 'POWERUSER_SETTINGS_CHANGED';
     throw error;
   }
 }
@@ -407,7 +407,7 @@ function updateSettingsAtomic(settingsPath, transform, options = {}) {
         || current.dev !== parentStats.dev || current.ino !== parentStats.ino
       ) {
         const error = new Error(`Claude settings parent directory changed: ${parentPath}`);
-        error.code = 'ECC_SETTINGS_PARENT_CHANGED';
+        error.code = 'POWERUSER_SETTINGS_PARENT_CHANGED';
         throw error;
       }
     };
@@ -433,7 +433,7 @@ function updateSettingsAtomic(settingsPath, transform, options = {}) {
         );
         return result;
       } catch (error) {
-        if (error.code !== 'ECC_SETTINGS_CHANGED' || attempt === maxAttempts) {
+        if (error.code !== 'POWERUSER_SETTINGS_CHANGED' || attempt === maxAttempts) {
           throw error;
         }
       }

@@ -60,7 +60,7 @@ if (require.main === module) {
   try {
     main();
   } catch (error) {
-    process.stderr.write(`[ecc-sync] ERROR: ${error.message}\n`);
+    process.stderr.write(`[poweruser-sync] ERROR: ${error.message}\n`);
     process.exit(1);
   }
 }

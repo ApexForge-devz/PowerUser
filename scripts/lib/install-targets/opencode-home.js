@@ -88,7 +88,7 @@ module.exports = createInstallTargetAdapter({
   kind: 'home',
   rootSegments: ['.config', 'opencode'],
   resolveRoot: resolveOpencodeConfigRoot,
-  installStatePathSegments: ['ecc-install-state.json'],
+  installStatePathSegments: ['poweruser-install-state.json'],
   nativeRootRelativePath: '.opencode',
   planOperations(input, adapter) {
     const modules = Array.isArray(input.modules)
@@ -115,7 +115,7 @@ module.exports = createInstallTargetAdapter({
       String(operation.sourceRelativePath).replace(/\\/g, '/').startsWith('scripts/')
     ));
     if (!scriptOperation) return operations;
-    // OpenCode's root is ESM, while ECC runtime scripts remain CommonJS.
+    // OpenCode's root is ESM, while PowerUser runtime scripts remain CommonJS.
     // Record this boundary so install, repair and uninstall share ownership.
     return [...operations, createManagedOperation({
       moduleId: scriptOperation.moduleId,

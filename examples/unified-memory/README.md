@@ -1,10 +1,10 @@
 # Cross-harness memory conformance example
 
-Run the existing ECC CLI and local stdio MCP server against one disposable
+Run the existing PowerUser CLI and local stdio MCP server against one disposable
 synthetic vault. The example checks that the same scoped query returns the same
 ordered records, scores, excerpts, and provenance for each configured identity.
 
-From an ECC checkout with its runtime dependencies already available:
+From an PowerUser checkout with its runtime dependencies already available:
 
 ```sh
 node examples/unified-memory/conformance.cjs
@@ -52,15 +52,15 @@ a deployment receipt. The source receipt includes the example verifier digest;
 
 ## Contract and auth boundary
 
-The example reuses `ecc.memory.v1` without adding fields. Project and team are
+The example reuses `poweruser.memory.v1` without adding fields. Project and team are
 the default scopes; user recall requires an explicit request and MCP host
-opt-in. The host pins `ECC_MEMORY_HARNESS`; clients cannot supply their own
+opt-in. The host pins `POWERUSER_MEMORY_HARNESS`; clients cannot supply their own
 source identity or target filter through tool arguments. All writes remain
 `unreviewed` context subordinate to current instructions.
 
-The fixture body uses `ecc.memory.example-evidence.v1`, an **example-local**
+The fixture body uses `poweruser.memory.example-evidence.v1`, an **example-local**
 JSON envelope inside the existing Markdown body. No fields are added to
-`ecc.memory.v1`. `evidence.cjs` checks a source reference, content digest,
+`poweruser.memory.v1`. `evidence.cjs` checks a source reference, content digest,
 observation time, session ID and checkpoint ID against an independent,
 host-owned in-memory catalog. The envelope text must equal the catalog's exact
 source bytes. There is no summary/derivation validation in this example.
@@ -111,5 +111,5 @@ Hermes MemoryProvider integration. A future backend adapter must preserve the
 existing record contract and enforce its authenticated partition policy
 separately from routing metadata.
 
-See [the memory vault design](../../docs/design/ecc-memory-vault.md) for the
+See [the memory vault design](../../docs/design/poweruser-memory-vault.md) for the
 canonical storage and threat contract.

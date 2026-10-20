@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ECC Codex global regression sanity check.
-# Validates that global ~/.codex state matches expected ECC integration.
+# PowerUser Codex global regression sanity check.
+# Validates that global ~/.codex state matches expected PowerUser integration.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
@@ -20,7 +20,7 @@ CONFIG_FILE="$CODEX_HOME/config.toml"
 AGENTS_FILE="$CODEX_HOME/AGENTS.md"
 PROMPTS_DIR="$CODEX_HOME/prompts"
 SKILLS_DIR="${AGENTS_HOME:-$HOME/.agents}/skills"
-HOOKS_DIR_EXPECT="${ECC_GLOBAL_HOOKS_DIR:-$CODEX_HOME/git-hooks}"
+HOOKS_DIR_EXPECT="${POWERUSER_GLOBAL_HOOKS_DIR:-$CODEX_HOME/git-hooks}"
 
 failures=0
 warnings=0
@@ -73,7 +73,7 @@ check_config_absent() {
   fi
 }
 
-printf 'ECC GLOBAL SANITY CHECK\n'
+printf 'PowerUser GLOBAL SANITY CHECK\n'
 printf 'Repo: %s\n' "$REPO_ROOT"
 printf 'Codex home: %s\n\n' "$CODEX_HOME"
 
@@ -81,18 +81,18 @@ require_file "$CONFIG_FILE" "Global config.toml"
 require_file "$AGENTS_FILE" "Global AGENTS.md"
 
 if [[ -f "$AGENTS_FILE" ]]; then
-  # Accept the current "# ECC" heading and the legacy expanded-name heading
+  # Accept the current "# PowerUser" heading and the legacy expanded-name heading
   # that older syncs wrote into existing ~/.codex/AGENTS.md files.
-  if search_file '^# (ECC|Everything Claude Code \(ECC\))( |$)' "$AGENTS_FILE"; then
-    ok "AGENTS contains ECC root instructions"
+  if search_file '^# (PowerUser|Everything Claude Code \(PowerUser\))( |$)' "$AGENTS_FILE"; then
+    ok "AGENTS contains PowerUser root instructions"
   else
-    fail "AGENTS missing ECC root instructions"
+    fail "AGENTS missing PowerUser root instructions"
   fi
 
-  if search_file '^# Codex Supplement \(From ECC \.codex/AGENTS\.md\)' "$AGENTS_FILE"; then
-    ok "AGENTS contains ECC Codex supplement"
+  if search_file '^# Codex Supplement \(From PowerUser \.codex/AGENTS\.md\)' "$AGENTS_FILE"; then
+    ok "AGENTS contains PowerUser Codex supplement"
   else
-    fail "AGENTS missing ECC Codex supplement"
+    fail "AGENTS missing PowerUser Codex supplement"
   fi
 fi
 
@@ -124,14 +124,14 @@ if [[ -f "$CONFIG_FILE" ]]; then
     fi
   done
 
-  # ECC <= 2.0.0 emitted a url-only exa entry that Codex's stdio-only
+  # PowerUser <= 2.0.0 emitted a url-only exa entry that Codex's stdio-only
   # schema rejects, breaking the whole config (#2224). Flag it so users
   # re-run the sync (which repairs it) or remove it manually.
   if search_file '^\[mcp_servers\.exa\]' "$CONFIG_FILE"; then
     exa_block="$(awk '/^\[mcp_servers\.exa\]/{flag=1;next}/^\[/{flag=0}flag' "$CONFIG_FILE")"
     if printf '%s\n' "$exa_block" | grep -Eq '^[[:space:]]*url[[:space:]]*=' \
       && ! printf '%s\n' "$exa_block" | grep -Eq '^[[:space:]]*command[[:space:]]*='; then
-      fail "MCP section [mcp_servers.exa] uses a url key, which Codex rejects for stdio servers — re-run ecc-sync-codex to repair (#2224)"
+      fail "MCP section [mcp_servers.exa] uses a url key, which Codex rejects for stdio servers — re-run poweruser-sync-codex to repair (#2224)"
     else
       ok "MCP section [mcp_servers.exa] uses the stdio form"
     fi
@@ -169,31 +169,31 @@ if [[ -d "$SKILLS_DIR" ]]; then
   done
 
   if [[ "$missing_skills" -eq 0 ]]; then
-    ok "All 16 ECC skills are present in $SKILLS_DIR"
+    ok "All 16 PowerUser skills are present in $SKILLS_DIR"
   else
-    warn "$missing_skills ECC skills missing from $SKILLS_DIR (install via ECC installer or npx skills)"
+    warn "$missing_skills PowerUser skills missing from $SKILLS_DIR (install via PowerUser installer or npx skills)"
   fi
 else
-  warn "Skills directory missing ($SKILLS_DIR) — install via ECC installer or npx skills"
+  warn "Skills directory missing ($SKILLS_DIR) — install via PowerUser installer or npx skills"
 fi
 
-if [[ -f "$PROMPTS_DIR/ecc-prompts-manifest.txt" ]]; then
+if [[ -f "$PROMPTS_DIR/poweruser-prompts-manifest.txt" ]]; then
   ok "Command prompts manifest exists"
 else
   fail "Command prompts manifest missing"
 fi
 
-if [[ -f "$PROMPTS_DIR/ecc-extension-prompts-manifest.txt" ]]; then
+if [[ -f "$PROMPTS_DIR/poweruser-extension-prompts-manifest.txt" ]]; then
   ok "Extension prompts manifest exists"
 else
   fail "Extension prompts manifest missing"
 fi
 
-command_prompts_count="$(find "$PROMPTS_DIR" -maxdepth 1 -type f -name 'ecc-*.md' 2>/dev/null | wc -l | tr -d ' ')"
+command_prompts_count="$(find "$PROMPTS_DIR" -maxdepth 1 -type f -name 'poweruser-*.md' 2>/dev/null | wc -l | tr -d ' ')"
 if [[ "$command_prompts_count" -ge 43 ]]; then
-  ok "ECC prompts count is $command_prompts_count (expected >= 43)"
+  ok "PowerUser prompts count is $command_prompts_count (expected >= 43)"
 else
-  fail "ECC prompts count is $command_prompts_count (expected >= 43)"
+  fail "PowerUser prompts count is $command_prompts_count (expected >= 43)"
 fi
 
 hooks_path="$(git config --global --get core.hooksPath || true)"
@@ -219,28 +219,28 @@ else
   fail "Global pre-push hook missing or not executable"
 fi
 
-if command -v ecc-sync-codex >/dev/null 2>&1; then
-  ok "ecc-sync-codex command is in PATH"
+if command -v poweruser-sync-codex >/dev/null 2>&1; then
+  ok "poweruser-sync-codex command is in PATH"
 else
-  warn "ecc-sync-codex is not in PATH"
+  warn "poweruser-sync-codex is not in PATH"
 fi
 
-if command -v ecc-install-git-hooks >/dev/null 2>&1; then
-  ok "ecc-install-git-hooks command is in PATH"
+if command -v poweruser-install-git-hooks >/dev/null 2>&1; then
+  ok "poweruser-install-git-hooks command is in PATH"
 else
-  warn "ecc-install-git-hooks is not in PATH"
+  warn "poweruser-install-git-hooks is not in PATH"
 fi
 
-if command -v ecc-check-codex >/dev/null 2>&1; then
-  ok "ecc-check-codex command is in PATH"
+if command -v poweruser-check-codex >/dev/null 2>&1; then
+  ok "poweruser-check-codex command is in PATH"
 else
-  warn "ecc-check-codex is not in PATH (this is expected before alias setup)"
+  warn "poweruser-check-codex is not in PATH (this is expected before alias setup)"
 fi
 
 printf '\nSummary: checks=%d, warnings=%d, failures=%d\n' "$checks" "$warnings" "$failures"
 if [[ "$failures" -eq 0 ]]; then
-  printf 'ECC GLOBAL SANITY: PASS\n'
+  printf 'PowerUser GLOBAL SANITY: PASS\n'
 else
-  printf 'ECC GLOBAL SANITY: FAIL\n'
+  printf 'PowerUser GLOBAL SANITY: FAIL\n'
   exit 1
 fi

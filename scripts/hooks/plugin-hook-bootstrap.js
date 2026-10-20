@@ -44,11 +44,11 @@ function passthrough(result) {
       ? result.stdout
       : Buffer.alloc(0);
   if (stdout.length > 0) {
-    // Most POWERUSER hook scripts follow a `run(rawInput) -> rawInput` passthrough
+    // Most PowerUser hook scripts follow a `run(rawInput) -> rawInput` passthrough
     // pattern: they do their work, then return the original input so the hook
     // chain's tool result is preserved. The harness then writes the verbatim
     // raw input (tool_input + tool_response, often 1-275 KB) into the session
-    // transcript as a hook_success attachment -- ~89% of every POWERUSER session's
+    // transcript as a hook_success attachment -- ~89% of every PowerUser session's
     // transcript is this bloat. Detect the passthrough and emit empty stdout
     // instead; the harness falls back to the tool_use's original result, the
     // same path #2240 established for bash-hook-dispatcher.

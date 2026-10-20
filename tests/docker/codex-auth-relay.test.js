@@ -29,7 +29,7 @@ test('actual relay forwards callback bytes and closes its upstream when the clie
   await once(upstream, 'listening');
   const relayPort = await availablePort();
   const child = spawn(process.execPath, [script], { env: { ...process.env,
-    ECC_RELAY_LISTEN: String(relayPort), ECC_RELAY_TARGET: String(upstream.address().port) } });
+    POWERUSER_RELAY_LISTEN: String(relayPort), POWERUSER_RELAY_TARGET: String(upstream.address().port) } });
   t.after(async () => {
     child.kill();
     for (const socket of upstreamSockets) socket.destroy();
@@ -52,21 +52,21 @@ test('actual relay forwards callback bytes and closes its upstream when the clie
 
 for (const value of ['0', '-1', '65536', '1.5', 'not-a-port']) {
   test(`rejects invalid relay port ${value} before listening`, { timeout: 5000 }, async () => {
-    const child = spawn(process.execPath, [script], { env: { ...process.env, ECC_RELAY_LISTEN: value } });
+    const child = spawn(process.execPath, [script], { env: { ...process.env, POWERUSER_RELAY_LISTEN: value } });
     let stderr = '';
     child.stderr.on('data', chunk => { stderr += chunk; });
     const [code] = await once(child, 'exit');
     assert.equal(code, 1);
-    assert.match(stderr, /ECC_RELAY_LISTEN must be an integer port/);
+    assert.match(stderr, /POWERUSER_RELAY_LISTEN must be an integer port/);
   });
 }
 
 for (const port of ['1455', '24567']) {
   test(`rejects self-relaying port ${port} before listening`, () => {
     const child = spawnSync(process.execPath, [script], { timeout: 1500, encoding: 'utf8',
-      env: { ...process.env, ECC_RELAY_LISTEN: port, ECC_RELAY_TARGET: port } });
+      env: { ...process.env, POWERUSER_RELAY_LISTEN: port, POWERUSER_RELAY_TARGET: port } });
     assert.equal(child.status, 1, 'equal ports must exit immediately without a listener');
-    assert.match(child.stderr, /ECC_RELAY_LISTEN and ECC_RELAY_TARGET must differ/);
+    assert.match(child.stderr, /POWERUSER_RELAY_LISTEN and POWERUSER_RELAY_TARGET must differ/);
     assert.equal(child.stdout, '');
   });
 }
@@ -78,7 +78,7 @@ test('occupied listener reports a bounded relay diagnostic without a startup ban
   t.after(() => new Promise(resolve => occupied.close(resolve)));
   const port = occupied.address().port;
   const child = spawn(process.execPath, [script], { env: { ...process.env,
-    ECC_RELAY_LISTEN: String(port), ECC_RELAY_TARGET: String(port === 1455 ? 1456 : 1455) } });
+    POWERUSER_RELAY_LISTEN: String(port), POWERUSER_RELAY_TARGET: String(port === 1455 ? 1456 : 1455) } });
   let stderr = '';let stdout = '';
   child.stderr.on('data', chunk => { stderr += chunk; });
   child.stdout.on('data', chunk => { stdout += chunk; });

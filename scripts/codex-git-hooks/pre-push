@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ECC Codex Git Hook: pre-push
+# PowerUser Codex Git Hook: pre-push
 # Runs a lightweight verification flow before pushes.
 
-if [[ "${ECC_SKIP_GIT_HOOKS:-0}" == "1" || "${ECC_SKIP_PREPUSH:-0}" == "1" ]]; then
-  printf '[ECC pre-push] WARNING: hook bypassed via env (ECC_SKIP_*=1)\n' >&2
+if [[ "${POWERUSER_SKIP_GIT_HOOKS:-0}" == "1" || "${POWERUSER_SKIP_PREPUSH:-0}" == "1" ]]; then
+  printf '[PowerUser pre-push] WARNING: hook bypassed via env (POWERUSER_SKIP_*=1)\n' >&2
   exit 0
 fi
 
-# NOTE: file-based disables (.ecc-hooks-disable) were removed — a malicious
+# NOTE: file-based disables (.poweruser-hooks-disable) were removed — a malicious
 # repo could ship that file and silently disable verification.
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -33,11 +33,11 @@ fi
 ran_any_check=0
 
 log() {
-  printf '[ECC pre-push] %s\n' "$*"
+  printf '[PowerUser pre-push] %s\n' "$*"
 }
 
 fail() {
-  printf '[ECC pre-push] FAILED: %s\n' "$*" >&2
+  printf '[PowerUser pre-push] FAILED: %s\n' "$*" >&2
   exit 1
 }
 
@@ -87,9 +87,9 @@ run_node_script() {
 if [[ -f "package.json" ]]; then
   # SECURITY: executing a cloned repo's lint/test/build scripts on push is
   # arbitrary code execution (package.json scripts run as you). Opt-in only:
-  # set ECC_PREPUSH_RUN_CHECKS=1 for repos you trust.
-  if [[ "${ECC_PREPUSH_RUN_CHECKS:-0}" != "1" ]]; then
-    printf '[ECC pre-push] Node project detected but ECC_PREPUSH_RUN_CHECKS!=1; skipping repo script execution (set =1 to opt in).\n' >&2
+  # set POWERUSER_PREPUSH_RUN_CHECKS=1 for repos you trust.
+  if [[ "${POWERUSER_PREPUSH_RUN_CHECKS:-0}" != "1" ]]; then
+    printf '[PowerUser pre-push] Node project detected but POWERUSER_PREPUSH_RUN_CHECKS!=1; skipping repo script execution (set =1 to opt in).\n' >&2
   else
     pm="$(detect_pm)"
     log "Node project detected (package manager: $pm)"
@@ -105,10 +105,10 @@ if [[ -f "package.json" ]]; then
   done
 
   fi
-  if [[ "${ECC_PREPUSH_AUDIT:-0}" == "1" ]]; then
+  if [[ "${POWERUSER_PREPUSH_AUDIT:-0}" == "1" ]]; then
     pm="${pm:-$(detect_pm)}"
     ran_any_check=1
-    log "Running dependency audit (ECC_PREPUSH_AUDIT=1)"
+    log "Running dependency audit (POWERUSER_PREPUSH_AUDIT=1)"
     case "$pm" in
       pnpm) run_pnpm audit --prod || fail "pnpm audit failed" ;;
       bun) bun audit || fail "bun audit failed" ;;
@@ -121,7 +121,7 @@ fi
 
 # SECURITY: go test / pytest execute repo-controlled code (TestMain,
 # conftest.py). Same opt-in gate as Node scripts above.
-if [[ "${ECC_PREPUSH_RUN_CHECKS:-0}" == "1" ]]; then
+if [[ "${POWERUSER_PREPUSH_RUN_CHECKS:-0}" == "1" ]]; then
 if [[ -f "go.mod" ]] && command -v go >/dev/null 2>&1; then
   ran_any_check=1
   log "Go project detected. Running: go test ./..."
@@ -196,17 +196,17 @@ repo_ships_interpreter() {
 # hide a real pytest, which lives in the interpreter's own site-packages.
 resolve_pytest() {
   # `${VAR+set}` rather than `-n "${VAR:-}"`, so that a variable set to nothing is
-  # still an override: `ECC_PYTEST_CMD=` and `ECC_PYTEST_CMD="   "` now behave
+  # still an override: `POWERUSER_PYTEST_CMD=` and `POWERUSER_PYTEST_CMD="   "` now behave
   # alike, where the first used to fall through to discovery and the second failed
   # the push. Falling through is the wrong half of that pair -- an override that
   # evaluated empty (a command substitution that found nothing, say) would silently
   # run a different runner than the operator asked for, which is the substitution
   # this resolver refuses to make anywhere else.
   #
-  # Not `[[ -v ECC_PYTEST_CMD ]]`: that is bash 4.2, and a stock macOS `/bin/bash`
+  # Not `[[ -v POWERUSER_PYTEST_CMD ]]`: that is bash 4.2, and a stock macOS `/bin/bash`
   # is 3.2, where it is a syntax error rather than a false. This hook ships to
   # whatever `env bash` finds.
-  if [[ -n "${ECC_PYTEST_CMD+set}" ]]; then
+  if [[ -n "${POWERUSER_PYTEST_CMD+set}" ]]; then
     # Taken as given. This is a deliberate override, and the hook cannot inspect it
     # without running it -- a wrapper script may ignore `--version` and run the
     # suite, so probing costs a duplicate test run and then blocks the push anyway.
@@ -214,8 +214,8 @@ resolve_pytest() {
     # the operator's call to make, not a misconfiguration for the hook to second
     # guess. Word-split, so the command names something on PATH or an interpreter
     # whose path has no spaces; a venv with spaces is found by the loop below.
-    read -r -a PYTEST_CMD <<<"$ECC_PYTEST_CMD" || true
-    [[ ${#PYTEST_CMD[@]} -gt 0 ]] || fail "ECC_PYTEST_CMD is set but names no command.\
+    read -r -a PYTEST_CMD <<<"$POWERUSER_PYTEST_CMD" || true
+    [[ ${#PYTEST_CMD[@]} -gt 0 ]] || fail "POWERUSER_PYTEST_CMD is set but names no command.\
  Point it at your test runner, or unset it to fall back to discovery."
     return 0
   fi
@@ -260,12 +260,12 @@ if [[ -f "pyproject.toml" || -f "requirements.txt" ]]; then
   if resolve_pytest; then
     ran_any_check=1
     log "Python project detected. Running: ${PYTEST_CMD[*]} -q"
-    if [[ -n "${ECC_PYTEST_CMD+set}" ]]; then
+    if [[ -n "${POWERUSER_PYTEST_CMD+set}" ]]; then
       # resolve_pytest deliberately does not verify the override is pytest, because
       # probing it can run the operator's suite. What this gate can honestly do
       # about a stale override is refuse to be quiet about it: a bypass announced
       # on every push is not the silent gate this resolver exists to prevent.
-      log "  via ECC_PYTEST_CMD -- the hook runs what you pointed it at, and does"
+      log "  via POWERUSER_PYTEST_CMD -- the hook runs what you pointed it at, and does"
       log "  not check that it is pytest. Unset it to gate on the real suite."
     fi
     pytest_status=0
@@ -289,12 +289,12 @@ if [[ -f "pyproject.toml" || -f "requirements.txt" ]]; then
     esac
   else
     log "Python project detected but no pytest found (checked \$VIRTUAL_ENV, .venv,"
-    log "  venv, env, uv, poetry, PATH). Set ECC_PYTEST_CMD to point at it."
+    log "  venv, env, uv, poetry, PATH). Set POWERUSER_PYTEST_CMD to point at it."
   fi
 fi
 else
   if [[ -f "go.mod" || -f "pyproject.toml" || -f "requirements.txt" ]]; then
-    log "Go/Python project detected but ECC_PREPUSH_RUN_CHECKS!=1; skipping test execution."
+    log "Go/Python project detected but POWERUSER_PREPUSH_RUN_CHECKS!=1; skipping test execution."
   fi
 fi
 

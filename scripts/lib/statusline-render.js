@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Shared rendering helpers for the POWERUSER usage bar statusline.
+ * Shared rendering helpers for the PowerUser usage bar statusline.
  *
- * Inspired by leeguooooo/claude-code-usage-bar (MIT). POWERUSER re-implementation
+ * Inspired by leeguooooo/claude-code-usage-bar (MIT). PowerUser re-implementation
  * with brand colors, hooks/plugin awareness, and no external dependencies.
  *
  * Colors use 256-color ANSI so macOS Terminal.app renders them correctly.
@@ -188,12 +188,12 @@ function buildSessionLine(info) {
 }
 
 /**
- * Line 3: POWERUSER version, hooks status, enabled plugins with versions, directory.
+ * Line 3: PowerUser version, hooks status, enabled plugins with versions, directory.
  */
 function buildPowerUserLine(info) {
   const parts = [];
   const version = info.poweruserVersion ? ` ${info.poweruserVersion}` : '';
-  parts.push(`${C.terracotta}${G.hex} POWERUSER${version}${C.reset}`);
+  parts.push(`${C.terracotta}${G.hex} PowerUser${version}${C.reset}`);
 
   if (info.hooks) {
     const h = info.hooks;
@@ -276,7 +276,7 @@ function readInstalledPlugins(claudeDir, workspace) {
 }
 
 /**
- * Hooks status summary from POWERUSER hook flags (env + managed config).
+ * Hooks status summary from PowerUser hook flags (env + managed config).
  */
 function getHooksSummary(env = process.env) {
   return {
