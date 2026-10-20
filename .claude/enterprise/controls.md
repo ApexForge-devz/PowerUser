@@ -1,10 +1,10 @@
 # Enterprise Controls
 
-This is a starter governance file for enterprise ECC deployments.
+This is a starter governance file for enterprise PowerUser deployments.
 
 ## Baseline
 
-- Repository: https://github.com/affaan-m/ECC
+- Repository: https://github.com/ApexForge-devz/PowerUser
 - Recommended profile: full
 - Keep install manifests, audit allowlists, and Codex baselines under review.
 

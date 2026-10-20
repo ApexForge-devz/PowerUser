@@ -134,18 +134,18 @@
     "enterprise-controls"
   ],
   "managedFiles": [
-    ".agents/skills/ecc-conventions/SKILL.md",
-    ".agents/skills/ecc-conventions/agents/openai.yaml",
+    ".agents/skills/poweruser-conventions/SKILL.md",
+    ".agents/skills/poweruser-conventions/agents/openai.yaml",
     ".claude/identity.json",
     ".codex/config.toml",
     ".codex/AGENTS.md",
     ".codex/agents/explorer.toml",
     ".codex/agents/reviewer.toml",
     ".codex/agents/docs-researcher.toml",
-    ".claude/homunculus/instincts/inherited/ecc-instincts.yaml",
-    ".claude/rules/ecc-guardrails.md",
-    ".claude/research/ecc-research-playbook.md",
-    ".claude/team/ecc-team-config.json",
+    ".claude/homunculus/instincts/inherited/poweruser-instincts.yaml",
+    ".claude/rules/poweruser-guardrails.md",
+    ".claude/research/poweruser-research-playbook.md",
+    ".claude/team/poweruser-team-config.json",
     ".claude/enterprise/controls.md",
     ".claude/commands/database-migration.md",
     ".claude/commands/feature-development.md",
@@ -153,24 +153,24 @@
   ],
   "packageFiles": {
     "runtime-core": [
-      ".agents/skills/ecc-conventions/SKILL.md",
-      ".agents/skills/ecc-conventions/agents/openai.yaml",
+      ".agents/skills/poweruser-conventions/SKILL.md",
+      ".agents/skills/poweruser-conventions/agents/openai.yaml",
       ".claude/identity.json",
       ".codex/config.toml",
       ".codex/AGENTS.md",
       ".codex/agents/explorer.toml",
       ".codex/agents/reviewer.toml",
       ".codex/agents/docs-researcher.toml",
-      ".claude/homunculus/instincts/inherited/ecc-instincts.yaml"
+      ".claude/homunculus/instincts/inherited/poweruser-instincts.yaml"
     ],
     "agentshield-pack": [
-      ".claude/rules/ecc-guardrails.md"
+      ".claude/rules/poweruser-guardrails.md"
     ],
     "research-pack": [
-      ".claude/research/ecc-research-playbook.md"
+      ".claude/research/poweruser-research-playbook.md"
     ],
     "team-config-sync": [
-      ".claude/team/ecc-team-config.json"
+      ".claude/team/poweruser-team-config.json"
     ],
     "enterprise-controls": [
       ".claude/enterprise/controls.md"
@@ -183,24 +183,24 @@
   },
   "moduleFiles": {
     "runtime-core": [
-      ".agents/skills/ecc-conventions/SKILL.md",
-      ".agents/skills/ecc-conventions/agents/openai.yaml",
+      ".agents/skills/poweruser-conventions/SKILL.md",
+      ".agents/skills/poweruser-conventions/agents/openai.yaml",
       ".claude/identity.json",
       ".codex/config.toml",
       ".codex/AGENTS.md",
       ".codex/agents/explorer.toml",
       ".codex/agents/reviewer.toml",
       ".codex/agents/docs-researcher.toml",
-      ".claude/homunculus/instincts/inherited/ecc-instincts.yaml"
+      ".claude/homunculus/instincts/inherited/poweruser-instincts.yaml"
     ],
     "agentshield-pack": [
-      ".claude/rules/ecc-guardrails.md"
+      ".claude/rules/poweruser-guardrails.md"
     ],
     "research-pack": [
-      ".claude/research/ecc-research-playbook.md"
+      ".claude/research/poweruser-research-playbook.md"
     ],
     "team-config-sync": [
-      ".claude/team/ecc-team-config.json"
+      ".claude/team/poweruser-team-config.json"
     ],
     "enterprise-controls": [
       ".claude/enterprise/controls.md"
@@ -214,12 +214,12 @@
   "files": [
     {
       "moduleId": "runtime-core",
-      "path": ".agents/skills/ecc-conventions/SKILL.md",
+      "path": ".agents/skills/poweruser-conventions/SKILL.md",
       "description": "Codex-facing copy of the generated repository skill."
     },
     {
       "moduleId": "runtime-core",
-      "path": ".agents/skills/ecc-conventions/agents/openai.yaml",
+      "path": ".agents/skills/poweruser-conventions/agents/openai.yaml",
       "description": "Codex skill metadata so the repo skill appears cleanly in the skill interface."
     },
     {
@@ -230,7 +230,7 @@
     {
       "moduleId": "runtime-core",
       "path": ".codex/config.toml",
-      "description": "Repo-local Codex MCP and multi-agent baseline aligned with ECC defaults."
+      "description": "Repo-local Codex MCP and multi-agent baseline aligned with PowerUser defaults."
     },
     {
       "moduleId": "runtime-core",
@@ -254,23 +254,23 @@
     },
     {
       "moduleId": "runtime-core",
-      "path": ".claude/homunculus/instincts/inherited/ecc-instincts.yaml",
+      "path": ".claude/homunculus/instincts/inherited/poweruser-instincts.yaml",
       "description": "Continuous-learning instincts derived from repository patterns."
     },
     {
       "moduleId": "agentshield-pack",
-      "path": ".claude/rules/ecc-guardrails.md",
+      "path": ".claude/rules/poweruser-guardrails.md",
       "description": "Repository guardrails distilled from analysis for security and workflow review."
     },
     {
       "moduleId": "research-pack",
-      "path": ".claude/research/ecc-research-playbook.md",
+      "path": ".claude/research/poweruser-research-playbook.md",
       "description": "Research workflow playbook for source attribution and long-context tasks."
     },
     {
       "moduleId": "team-config-sync",
-      "path": ".claude/team/ecc-team-config.json",
-      "description": "Team config scaffold that points collaborators at the shared ECC bundle."
+      "path": ".claude/team/poweruser-team-config.json",
+      "description": "Team config scaffold that points collaborators at the shared PowerUser bundle."
     },
     {
       "moduleId": "enterprise-controls",
@@ -309,7 +309,7 @@
   ],
   "adapters": {
     "claudeCode": {
-      "skillPath": ".agents/skills/ecc-conventions/SKILL.md",
+      "skillPath": ".agents/skills/poweruser-conventions/SKILL.md",
       "identityPath": ".claude/identity.json",
       "commandPaths": [
         ".claude/commands/database-migration.md",
@@ -320,7 +320,7 @@
     "codex": {
       "configPath": ".codex/config.toml",
       "agentsGuidePath": ".codex/AGENTS.md",
-      "skillPath": ".agents/skills/ecc-conventions/SKILL.md"
+      "skillPath": ".agents/skills/poweruser-conventions/SKILL.md"
     }
   }
 }
