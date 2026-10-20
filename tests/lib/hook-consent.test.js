@@ -98,8 +98,8 @@ function runTests() {
     assert.strictEqual(
       isHookRuntimeOperation({
         moduleId: 'platform-configs',
-        sourceRelativePath: '.opencode/plugins/poweruser-hooks.ts',
-        destinationPath: '/root/.config/opencode/plugins/poweruser-hooks.ts',
+        sourceRelativePath: '.opencode/plugins/ecc-hooks.ts',
+        destinationPath: '/root/.config/opencode/plugins/ecc-hooks.ts',
       }),
       true
     );
@@ -112,13 +112,13 @@ function runTests() {
       kind: 'copy-file',
       moduleId: 'platform-configs',
       sourceRelativePath: '.opencode/opencode.json',
-      contentTransform: 'opencode-disable-poweruser-hooks',
+      contentTransform: 'opencode-disable-ecc-hooks',
     }), false);
     assert.strictEqual(isHookRuntimeOperation({
       kind: 'merge-json',
       moduleId: 'platform-configs',
       sourceRelativePath: '.opencode/opencode.json',
-      contentTransform: 'opencode-disable-poweruser-hooks',
+      contentTransform: 'opencode-disable-ecc-hooks',
     }), true);
     assert.strictEqual(isHookRuntimeOperation({ sourceRelativePath: 'rules/common.md' }), false);
     assert.strictEqual(
@@ -128,7 +128,7 @@ function runTests() {
   })) passed++; else failed++;
 
   if (test('OpenCode auto-discovered entrypoints require selected runtime and consent', () => {
-    const entrypoints = ['.opencode/plugins/poweruser-hooks.ts', '.opencode/plugins/index.ts'];
+    const entrypoints = ['.opencode/plugins/ecc-hooks.ts', '.opencode/plugins/index.ts'];
     const operations = entrypoints.map(sourceRelativePath => ({
       kind: 'copy-file', moduleId: 'platform-configs', sourceRelativePath,
     }));
@@ -173,7 +173,7 @@ function runTests() {
     assert.strictEqual(planMaterializesHookRuntime({}), false);
   })) passed++; else failed++;
 
-  if (test('removes only PowerUser hook activation from OpenCode config', () => {
+  if (test('removes only ECC hook activation from OpenCode config', () => {
     const transformed = disableOpenCodeHookPluginRegistration(JSON.stringify({
       plugin: ['./plugins', 'example-plugin'],
       instructions: ['AGENTS.md'],
@@ -190,12 +190,12 @@ function runTests() {
     });
   })) passed++; else failed++;
 
-  if (test('historical OpenCode plugin activation bytes alone do not imply hook consent', () => {
+  if (test('historical OpenCode activation bytes alone do not imply hook consent', () => {
     const state = {
       request: {}, resolution: { selectedModules: ['platform-configs'] },
       operations: [
         { kind: 'copy-file', moduleId: 'platform-configs', sourceRelativePath: '.opencode/opencode.json' },
-        { kind: 'copy-file', moduleId: 'platform-configs', sourceRelativePath: '.opencode/plugins/legacy-hooks.ts' },
+        { kind: 'copy-file', moduleId: 'platform-configs', sourceRelativePath: '.opencode/plugins/ecc-hooks.ts' },
       ],
     };
     assert.strictEqual(getRecordedHookConsent(state), null);

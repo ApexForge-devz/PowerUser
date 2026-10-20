@@ -9,21 +9,21 @@ const {
   planClaudeHooksOperations,
 } = require('./helpers');
 
-const CLAUDE_POWERUSER_NAMESPACE = 'poweruser';
+const CLAUDE_ECC_NAMESPACE = 'ecc';
 
 function getClaudeManagedDestinationPath(adapter, sourceRelativePath, input) {
   const normalizedSourcePath = normalizeRelativePath(sourceRelativePath);
   const targetRoot = adapter.resolveRoot(input);
 
   if (normalizedSourcePath === 'rules') {
-    return path.join(targetRoot, 'rules', CLAUDE_POWERUSER_NAMESPACE);
+    return path.join(targetRoot, 'rules', CLAUDE_ECC_NAMESPACE);
   }
 
   if (normalizedSourcePath.startsWith('rules/')) {
     return path.join(
       targetRoot,
       'rules',
-      CLAUDE_POWERUSER_NAMESPACE,
+      CLAUDE_ECC_NAMESPACE,
       normalizedSourcePath.slice('rules/'.length)
     );
   }
@@ -52,7 +52,7 @@ module.exports = createInstallTargetAdapter({
   target: 'claude',
   kind: 'home',
   rootSegments: ['.claude'],
-  installStatePathSegments: ['poweruser', 'install-state.json'],
+  installStatePathSegments: ['ecc', 'install-state.json'],
   excludedSourcePaths: HOME_INSTALL_EXCLUDED_SOURCE_PATHS,
   nativeRootRelativePath: '.claude-plugin',
   planOperations(input, adapter) {

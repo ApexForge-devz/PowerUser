@@ -25,16 +25,16 @@ const ADVANCED_HARNESSES = 'Hermes and OpenCode';
 
 function showHelp(output = process.stdout) {
   output.write(`
-PowerUser guided multi-harness install
+POWERUSER guided multi-harness install
 
 Usage:
   poweruser install --guided
   poweruser install --guided --harness claude --harness codex --harness kimi [options]
 
 Guided harnesses:
-  claude  Native Claude Code plugin; choose user, project, or local scope and a PowerUser hook profile.
+  claude  Native Claude Code plugin; choose user, project, or local scope and an POWERUSER hook profile.
   codex   Native Codex plugin and Codex-owned hook review/trust.
-  kimi    Managed project install under ./.kimi-code; PowerUser hooks are not configured.
+  kimi    Managed project install under ./.kimi-code; POWERUSER hooks are not configured.
 
 Options:
   --harness <id[,id...]>  Repeatable; accepts Claude, Codex, Kimi, or all
@@ -51,7 +51,7 @@ Options:
 Advanced managed adapters remain available through explicit poweruser install --target commands:
   ${ADVANCED_HARNESSES}
 
-This command configures PowerUser. It does not install or authenticate provider CLIs.
+This command configures POWERUSER. It does not install or authenticate provider CLIs.
 `);
 }
 
@@ -135,7 +135,7 @@ async function askChoice(terminal, output, prompt, values, defaultValue) {
 
 async function askHarnesses(terminal, output) {
   const guided = listGuidedHarnesses();
-  output.write('\nWhich coding agents should PowerUser configure?\n');
+  output.write('\nWhich coding agents should POWERUSER configure?\n');
   guided.forEach((harness, index) => {
     output.write(`  ${index + 1}. ${harness.label} — ${harness.destination}\n`);
   });
@@ -167,10 +167,10 @@ async function collectInteractiveOptions(options, dependencies = {}) {
     ? await askChoice(terminal, output, 'Where should Claude enable poweruser@poweruser?', [...VALID_CLAUDE_SCOPES], 'user')
     : options.claudeScope;
   const claudeHooks = includesClaude && !options.claudeHooks
-    ? await askChoice(terminal, output, 'How should PowerUser hooks run in Claude?', [...VALID_CLAUDE_HOOKS], 'standard')
+    ? await askChoice(terminal, output, 'How should POWERUSER hooks run in Claude?', [...VALID_CLAUDE_HOOKS], 'standard')
     : options.claudeHooks;
   const profile = includesKimi && !options.profile
-    ? await askChoice(terminal, output, 'Which PowerUser content profile should Kimi receive?', [...VALID_PROFILES], 'core')
+    ? await askChoice(terminal, output, 'Which POWERUSER content profile should Kimi receive?', [...VALID_PROFILES], 'core')
     : options.profile;
   return {
     ...options,
@@ -212,7 +212,7 @@ function printPlan(plan, output) {
     output.write(`${harness.label.padEnd(13)} ${entry.channel.padEnd(17)} ${harness.destination}\n`);
   }
   if (plan.request.harnesses.includes('kimi')) {
-    output.write('\nKimi note: PowerUser hooks are not configured; model, provider, and authentication settings are unchanged.\n');
+    output.write('\nKimi note: POWERUSER hooks are not configured; model, provider, and authentication settings are unchanged.\n');
   }
   if (plan.request.harnesses.includes('claude') && plan.request.claudeHooks && plan.request.claudeHooks !== 'off') {
     output.write(
@@ -225,7 +225,7 @@ function printPlan(plan, output) {
 
 async function confirmPlan(terminal, output) {
   output.write('\n');
-  const answer = await terminal.question('Apply PowerUser to these harnesses? [y/N]: ');
+  const answer = await terminal.question('Apply POWERUSER to these harnesses? [y/N]: ');
   return /^y(es)?$/i.test(answer.trim());
 }
 
@@ -302,7 +302,7 @@ async function main(argv = process.argv.slice(2), injected = {}) {
     }
 
     const spinner = interactive && !options.json
-      ? makeSpinner('Applying PowerUser to selected harnesses...')
+      ? makeSpinner('Applying POWERUSER to selected harnesses...')
       : undefined;
     let result;
     try {
@@ -318,7 +318,7 @@ async function main(argv = process.argv.slice(2), injected = {}) {
     } else {
       const retry = buildRetryArguments(plan, result.retryHarnesses);
       errorOutput.write(
-        `PowerUser stopped at ${sanitizeTerminalText(result.failure.id)}: `
+        `POWERUSER stopped at ${sanitizeTerminalText(result.failure.id)}: `
         + `${sanitizeTerminalText(result.failure.message)}\n`
         + `Retry with: poweruser-universal install --guided ${retry}\n`
       );

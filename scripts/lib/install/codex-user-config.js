@@ -46,7 +46,7 @@ function hasEditedCodexUserConfig(plan, operation, previousOperation) {
     }
     throw error;
   }
-  // Compare with the bytes poweruser actually installed, never the newest template.
+  // Compare with the bytes ECC actually installed, never the newest template.
   // Old ledgers without a digest cannot prove that an existing file is unchanged.
   const recorded = previousOperation && previousOperation.contentSha256;
   return !/^[a-f0-9]{64}$/i.test(recorded || '') || digest !== recorded.toLowerCase();

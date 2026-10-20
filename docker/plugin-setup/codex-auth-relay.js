@@ -10,9 +10,9 @@
  *   host 127.0.0.1:1455 -> container 0.0.0.0:1456 (this relay) -> 127.0.0.1:1455
  *
  * Run inside the networked session before `codex login`:
- *   node /poweruser/docker/plugin-setup/codex-auth-relay.js &
+ *   node /ecc/docker/plugin-setup/codex-auth-relay.js &
  *
- * Env: POWERUSER_RELAY_LISTEN (default 1456), POWERUSER_RELAY_TARGET (default 1455).
+ * Env: ECC_RELAY_LISTEN (default 1456), ECC_RELAY_TARGET (default 1455).
  */
 
 'use strict';
@@ -28,10 +28,10 @@ function portFromEnv(name, fallback) {
   return port;
 }
 
-const listenPort = portFromEnv('POWERUSER_RELAY_LISTEN', 1456);
-const targetPort = portFromEnv('POWERUSER_RELAY_TARGET', 1455);
+const listenPort = portFromEnv('ECC_RELAY_LISTEN', 1456);
+const targetPort = portFromEnv('ECC_RELAY_TARGET', 1455);
 if (listenPort === targetPort) {
-  throw new Error('POWERUSER_RELAY_LISTEN and POWERUSER_RELAY_TARGET must differ');
+  throw new Error('ECC_RELAY_LISTEN and ECC_RELAY_TARGET must differ');
 }
 
 const server = net.createServer(client => {

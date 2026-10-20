@@ -2,13 +2,13 @@
 'use strict';
 
 /**
- * Merge PowerUser-recommended MCP servers into a Codex config.toml.
+ * Merge ECC-recommended MCP servers into a Codex config.toml.
  *
  * Strategy: ADD-ONLY by default.
  *   - Parse the TOML to detect which mcp_servers.* sections exist.
  *   - Append raw TOML text for any missing servers (preserves existing file byte-for-byte).
- *   - Log warnings when an existing server's config differs from the PowerUser recommendation.
- *   - With --update-mcp, also replace existing PowerUser-managed servers.
+ *   - Log warnings when an existing server's config differs from the ECC recommendation.
+ *   - With --update-mcp, also replace existing ECC-managed servers.
  *
  * Uses the repo's package-manager abstraction (scripts/lib/package-manager.js)
  * so MCP launcher commands respect the user's configured package manager.
@@ -25,8 +25,8 @@ let TOML;
 try {
   TOML = require('@iarna/toml');
 } catch {
-  console.error('[poweruser-mcp] Missing dependency: @iarna/toml');
-  console.error('[poweruser-mcp] Run: npm install   (from the PowerUser repo root)');
+  console.error('[ecc-mcp] Missing dependency: @iarna/toml');
+  console.error('[ecc-mcp] Run: npm install   (from the ECC repo root)');
   process.exit(1);
 }
 
@@ -62,7 +62,7 @@ const PM_EXEC = resolvedExecCmd; // e.g. "pnpm dlx", "npx", "bunx", "yarn dlx"
 const PM_EXEC_PARTS = PM_EXEC.split(/\s+/); // ["pnpm", "dlx"] or ["npx"] or ["bunx"]
 
 // ---------------------------------------------------------------------------
-// PowerUser-recommended MCP servers
+// ECC-recommended MCP servers
 // ---------------------------------------------------------------------------
 
 /**
@@ -93,20 +93,20 @@ const DEFAULT_MCP_STARTUP_TIMEOUT_TOML = `startup_timeout_sec = ${DEFAULT_MCP_ST
 // and must not be re-emitted; they remain opt-in via
 // mcp-configs/mcp-servers.json. Existing user-managed entries are never
 // touched by the merge (add-only), except the known-invalid repair below.
-const POWERUSER_SERVERS = {
+const ECC_SERVERS = {
   'chrome-devtools': dlxServer('chrome-devtools', 'chrome-devtools-mcp@1.10.1', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC }, DEFAULT_MCP_STARTUP_TIMEOUT_TOML)
 };
 
-// PowerUser <= 2.0.0 emitted [mcp_servers.exa] with a `url` key. Codex rejects
+// ECC <= 2.0.0 emitted [mcp_servers.exa] with a `url` key. Codex rejects
 // `url` for stdio servers, which makes the *entire* config.toml fail to
-// load (#2224). Repair exactly that PowerUser-emitted form on every merge so
+// load (#2224). Repair exactly that ECC-emitted form on every merge so
 // re-running the installer fixes broken configs instead of preserving
 // them. A user-managed stdio exa entry (command/args) is left untouched.
 const RETIRED_INVALID_URL_SERVERS = {
   exa: 'https://mcp.exa.ai/mcp'
 };
 
-// Legacy section names that should be treated as an existing PowerUser server.
+// Legacy section names that should be treated as an existing ECC server.
 // e.g. older configs shipped [mcp_servers.context7-mcp] instead of
 // [mcp_servers.context7]. Empty since the June 2026 default-set reduction.
 const LEGACY_ALIASES = {};
@@ -116,11 +116,11 @@ const LEGACY_ALIASES = {};
 // ---------------------------------------------------------------------------
 
 function log(msg) {
-  console.log(`[poweruser-mcp] ${msg}`);
+  console.log(`[ecc-mcp] ${msg}`);
 }
 
 function warn(msg) {
-  console.warn(`[poweruser-mcp] WARNING: ${msg}`);
+  console.warn(`[ecc-mcp] WARNING: ${msg}`);
 }
 
 /** Shallow-compare two objects (one level deep, arrays by JSON). */
@@ -209,7 +209,7 @@ function main() {
   const configPath = args.find(a => !a.startsWith('-'));
   const dryRun = args.includes('--dry-run');
   const updateMcp = args.includes('--update-mcp');
-  const disabledServers = new Set(parseDisabledMcpServers(process.env.POWERUSER_DISABLED_MCPS));
+  const disabledServers = new Set(parseDisabledMcpServers(process.env.ECC_DISABLED_MCPS));
 
   if (!configPath) {
     console.error('Usage: merge-mcp-config.js <config.toml> [--dry-run] [--update-mcp]');
@@ -217,13 +217,13 @@ function main() {
   }
 
   if (!fs.existsSync(configPath)) {
-    console.error(`[poweruser-mcp] Config file not found: ${configPath}`);
+    console.error(`[ecc-mcp] Config file not found: ${configPath}`);
     process.exit(1);
   }
 
   log(`Package manager: ${PM_NAME} (exec: ${PM_EXEC})`);
   if (disabledServers.size > 0) {
-    log(`Disabled via POWERUSER_DISABLED_MCPS: ${[...disabledServers].join(', ')}`);
+    log(`Disabled via ECC_DISABLED_MCPS: ${[...disabledServers].join(', ')}`);
   }
 
   let raw = fs.readFileSync(configPath, 'utf8');
@@ -231,7 +231,7 @@ function main() {
   try {
     parsed = TOML.parse(raw);
   } catch (err) {
-    console.error(`[poweruser-mcp] Failed to parse ${configPath}: ${err.message}`);
+    console.error(`[ecc-mcp] Failed to parse ${configPath}: ${err.message}`);
     process.exit(1);
   }
 
@@ -239,7 +239,7 @@ function main() {
   const toAppend = [];
   const toRemoveLog = [];
 
-  // Repair schema-invalid entries emitted by earlier PowerUser versions (#2224).
+  // Repair schema-invalid entries emitted by earlier ECC versions (#2224).
   for (const [name, invalidUrl] of Object.entries(RETIRED_INVALID_URL_SERVERS)) {
     const entry = existing[name];
     const isBrokenEccForm =
@@ -248,13 +248,13 @@ function main() {
       entry.url === invalidUrl &&
       typeof entry.command !== 'string';
     if (isBrokenEccForm) {
-      toRemoveLog.push(`mcp_servers.${name} (invalid url entry from earlier PowerUser versions)`);
+      toRemoveLog.push(`mcp_servers.${name} (invalid url entry from earlier ECC versions)`);
       raw = removeServerFromText(raw, name, existing);
       log(`  [repair] mcp_servers.${name} — url is not valid for Codex stdio servers, removing`);
     }
   }
 
-  for (const [name, spec] of Object.entries(POWERUSER_SERVERS)) {
+  for (const [name, spec] of Object.entries(ECC_SERVERS)) {
     const entry = existing[name];
     const aliases = LEGACY_ALIASES[name] || [];
     const legacyName = aliases.find(a => existing[a] && typeof existing[a].command === 'string');
@@ -263,7 +263,7 @@ function main() {
     const hasCanonical = entry && typeof entry.command === 'string';
     const resolvedEntry = hasCanonical ? entry : legacyName ? existing[legacyName] : null;
     // Recognize url-form entries as existing so they are never duplicated.
-    // (Codex itself rejects url-form stdio servers; PowerUser only ever emits
+    // (Codex itself rejects url-form stdio servers; ECC only ever emits
     // command/args, but a user-managed entry must still count as present.)
     const urlEntry = !resolvedEntry && entry && typeof entry.url === 'string' ? entry : null;
     const finalEntry = resolvedEntry || urlEntry;
@@ -299,7 +299,7 @@ function main() {
         if (legacyName && !hasCanonical) {
           warn(`mcp_servers.${legacyName} is a legacy name for ${name} (run with --update-mcp to migrate)`);
         } else if (configDiffers(finalEntry, spec.fields)) {
-          warn(`mcp_servers.${name} differs from PowerUser recommendation (run with --update-mcp to refresh)`);
+          warn(`mcp_servers.${name} differs from ECC recommendation (run with --update-mcp to refresh)`);
         } else {
           log(`  [ok] mcp_servers.${name}`);
         }
@@ -313,7 +313,7 @@ function main() {
   const hasRemovals = toRemoveLog.length > 0;
 
   if (toAppend.length === 0 && !hasRemovals) {
-    log('All PowerUser MCP servers already present. Nothing to do.');
+    log('All ECC MCP servers already present. Nothing to do.');
     return;
   }
 

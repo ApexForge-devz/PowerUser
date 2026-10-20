@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "PowerUser Install Profiles",
+  "title": "ECC Install Profiles",
   "type": "object",
   "properties": {
     "version": {

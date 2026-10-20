@@ -32,7 +32,7 @@ function comparablePath(filePath) {
  *
  * This guard generalises the Claude flat-skill migration conflict pattern to
  * every adapter copy operation: when a destination exists and is NOT recorded
- * as an PowerUser-managed operation in the previous install-state, the operation is
+ * as an ECC-managed operation in the previous install-state, the operation is
  * skipped with a warning instead of overwriting and claiming ownership.
  *
  * All managed targets share this ownership boundary (#2964).
@@ -83,8 +83,8 @@ function prepareUserOwnedFileGuard(plan, migration, recordedState) {
     ) {
       skippedOperations.push(operation);
       warnings.push(editedConfig
-        ? `Preserved user configuration ${operation.destinationPath}: changed or unverifiable since installation. PowerUser no longer manages this file; apply future configuration updates manually.`
-        : `Skipped user-owned file ${operation.destinationPath}: the existing file is not recorded in PowerUser install-state.`);
+        ? `Preserved user configuration ${operation.destinationPath}: changed or unverifiable since installation. ECC no longer manages this file; apply future configuration updates manually.`
+        : `Skipped user-owned file ${operation.destinationPath}: the existing file is not recorded in ECC install-state.`);
       continue;
     }
   }
@@ -103,7 +103,7 @@ function prepareUserOwnedFileGuard(plan, migration, recordedState) {
     .filter(operation => !skippedDestinations.has(comparablePath(operation.destinationPath)));
 
   // Never leave a skipped destination inside the install-state: recording it
-  // would claim ownership of a file PowerUser did not create and make uninstall
+  // would claim ownership of a file ECC did not create and make uninstall
   // delete it (#2964).
   const bridgeState = migration.bridgeState
     ? {

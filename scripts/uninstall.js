@@ -14,9 +14,9 @@ function showHelp(exitCode = 0) {
   console.log(`
 Usage: node scripts/uninstall.js [--target <${SUPPORTED_INSTALL_TARGETS.join('|')}>] [--legacy-codex-sync] [--dry-run] [--json]
 
-Remove PowerUser-managed files recorded in install-state for the current context.
+Remove ECC-managed files recorded in install-state for the current context.
 When no install-state is found, the uninstaller also detects and removes
-legacy sync-poweruser-to-codex.sh artifacts, but only when a legacy ownership
+legacy sync-ecc-to-codex.sh artifacts, but only when a legacy ownership
 manifest is present. Use --legacy-codex-sync to force the legacy path
 explicitly, including marker-only AGENTS.md cleanup.
 `);
@@ -57,7 +57,7 @@ function parseArgs(argv) {
 
 function printHuman(result) {
   if (result.results.length === 0) {
-    console.log('No PowerUser install-state files found for the current home/project context.');
+    console.log('No ECC install-state files found for the current home/project context.');
     return;
   }
 
@@ -121,14 +121,14 @@ function codexHomePath() {
 
 /**
  * Dry-run is enabled either by the subcommand-level `--dry-run` flag or by the
- * global `poweruser --dry-run <command>` prefix, which sets POWERUSER_DRY_RUN=1 (#2952).
+ * global `ecc --dry-run <command>` prefix, which sets ECC_DRY_RUN=1 (#2952).
  * Destructive subcommands must honor both forms rather than silently ignoring
  * the global flag.
  */
 function isDryRun(options) {
-  const dryRunEnv = process.env.POWERUSER_DRY_RUN;
+  const dryRunEnv = process.env.ECC_DRY_RUN;
   if (dryRunEnv !== undefined && dryRunEnv !== '0' && dryRunEnv !== '1') {
-    throw new Error('POWERUSER_DRY_RUN must be "1" or "0" when set');
+    throw new Error('ECC_DRY_RUN must be "1" or "0" when set');
   }
   return options.dryRun || dryRunEnv === '1';
 }

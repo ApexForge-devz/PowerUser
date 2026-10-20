@@ -16,7 +16,7 @@ const { buildDoctorReport, repairInstalledStates } = load(require.resolve('../..
 const REPO_ROOT = path.resolve(__dirname, '../..');
 const sha256 = value => crypto.createHash('sha256').update(value).digest('hex');
 
-// Authentic historical upstream source fixtures, kept as inert bytes (never imported).
+// Authentic public ECC source fixtures, kept as inert bytes (never imported).
 // Copying these bytes to an alias does not claim they were published build output.
 const legacyPluginFixtures = [
   {
@@ -88,7 +88,7 @@ function fixture(callback, enabled = false) {
     fs.mkdirSync(path.join(dist, 'plugins'), { recursive: true });
     fs.mkdirSync(path.join(dist, 'tools'), { recursive: true });
     fs.writeFileSync(path.join(dist, 'index.js'), 'module.exports = {};\n');
-    const installStatePath = path.join(targetRoot, 'poweruser-install-state.json');
+    const installStatePath = path.join(targetRoot, 'ecc-install-state.json');
     const state = createInstallState({
       adapter, targetRoot, installStatePath,
       request: { modules: ['platform-configs'], legacyMode: true,
@@ -255,12 +255,12 @@ function runTests() {
       beforeOperationWrite() {
         if (checked) return;
         checked = true;
-        assert.throws(() => applyInstallPlan(withHookConsent(value.basePlan, 'enabled')), /Another PowerUser process|OpenCode.*lock/i);
+        assert.throws(() => applyInstallPlan(withHookConsent(value.basePlan, 'enabled')), /Another ECC process|OpenCode.*lock/i);
         assert.strictEqual(repair(value).results[0].status, 'error');
       },
     });
     assert.ok(checked);
-    assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+    assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
     assert.strictEqual(applyInstallPlan(value.declinePlan).applied, true);
   }));
   test('repair preserves ownership for a destination-classified activation with a recorded transform', () => fixture(value => {
@@ -291,7 +291,7 @@ function runTests() {
       'export default async () => ({});\n');
     assert.deepStrictEqual(JSON.parse(fs.readFileSync(path.join(value.targetRoot, 'opencode.json'))),
       { plugin: [], userSetting: true });
-    assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+    assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
   }));
   for (const consent of [null, 'declined']) {
     for (const plugin of [undefined, ['user-plugin']]) {
@@ -304,14 +304,14 @@ function runTests() {
         const result = applyInstallPlan(withHookConsent(value.basePlan, consent));
         assert.strictEqual(result.applied, true);
         assert.strictEqual(fs.readFileSync(destination, 'utf8'), content);
-        assert.ok(result.warnings.includes(`Skipped user-owned file ${destination}: the existing file is not recorded in PowerUser install-state.`));
+        assert.ok(result.warnings.includes(`Skipped user-owned file ${destination}: the existing file is not recorded in ECC install-state.`));
         assert.ok(result.skippedOperations.some(operation => operation.destinationPath === destination));
         for (const operations of [result.operations, readInstallState(value.installStatePath).operations]) {
           assert.ok(!operations.some(operation => operation.destinationPath === destination), 'Do not adopt a user config');
         }
         assert.strictEqual(fs.readFileSync(path.join(value.targetRoot, 'plugins/ecc-hooks.ts'), 'utf8'),
           'export default async () => ({});\n');
-        assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+        assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
       }));
     }
     test(`fresh ${consent || 'default'} apply still refuses active unrecorded config`, () => fixture(value => {
@@ -323,7 +323,7 @@ function runTests() {
       assert.deepStrictEqual(fs.readFileSync(destination), content);
       assert.strictEqual(fs.existsSync(path.join(value.targetRoot, 'plugins/ecc-hooks.ts')), false);
       assert.strictEqual(fs.existsSync(value.installStatePath), false);
-      assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+      assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
     }));
     test(`fresh ${consent || 'default'} apply rechecks skipped user config after writes`, () => fixture(value => {
       fs.unlinkSync(value.installStatePath);
@@ -352,7 +352,7 @@ function runTests() {
       assert.deepStrictEqual(checkpoint.operations.map(operation => operation.destinationPath), [plugin]);
       assert.strictEqual(fs.readFileSync(plugin, 'utf8'), 'export default async () => ({});\n');
       assert.strictEqual(checkpoint.operations[0].contentSha256, sha256(fs.readFileSync(plugin)));
-      assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+      assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
     }));
     test(`fresh ${consent || 'default'} apply preserves unrelated unrecorded plugin aliases`, () => fixture(value => {
       fs.unlinkSync(value.installStatePath);
@@ -386,7 +386,7 @@ function runTests() {
       assert.strictEqual(fs.readFileSync(destination, 'utf8'), content);
       assert.deepStrictEqual(fs.readFileSync(value.installStatePath), stateBefore);
       assert.deepStrictEqual(fs.readFileSync(plugin), pluginBefore);
-      assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+      assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
     }));
   }
   for (const missing of ['profile', 'module']) {
@@ -415,7 +415,7 @@ function runTests() {
         }
         assert.strictEqual(buildCalls, 0);
         paths.forEach((file, index) => assert.deepStrictEqual(fs.readFileSync(file), before[index]));
-        assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+        assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
       }));
     }
   }
@@ -431,7 +431,7 @@ function runTests() {
     assert.deepStrictEqual(fs.readFileSync(value.installStatePath), before);
   }));
   for (const mode of ['doctor', 'repair']) {
-    test(`${mode} preserves an unrelated plugin without reporting hook activation`, () => fixture(value => {
+    test(`${mode} preserves an unrelated plugin without reporting ECC activation`, () => fixture(value => {
       applyInstallPlan(value.declinePlan);
       const destination = path.join(value.targetRoot, 'plugins', 'index.js');
       const content = 'export default async () => ({ "user.plugin": () => {} });\n';
@@ -467,7 +467,7 @@ function runTests() {
         assert.strictEqual(fs.readFileSync(alias, 'utf8'), legacy.content);
         assert.strictEqual(fs.existsSync(value.installStatePath), false, 'Do not adopt an unrecorded historical alias');
         for (const operation of value.basePlan.operations) assert.strictEqual(fs.existsSync(operation.destinationPath), false);
-        assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+        assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
       }));
     }
     for (const mode of ['doctor', 'repair']) {
@@ -493,7 +493,7 @@ function runTests() {
         assert.strictEqual(fs.readFileSync(alias, 'utf8'), legacy.content);
         assert.deepStrictEqual(fs.readFileSync(value.installStatePath), before);
         assert.deepStrictEqual(value.basePlan.operations.map(operation => fs.readFileSync(operation.destinationPath)), operationsBefore);
-        assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+        assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
       }));
     }
   }
@@ -514,7 +514,7 @@ function runTests() {
         const state = readInstallState(value.installStatePath);
         assert.ok(!state.operations.some(operation => operation.destinationPath === alias));
         assert.strictEqual(state.request.hookConsent, value.state.request.hookConsent);
-        assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+        assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
       });
     }));
   }
@@ -566,13 +566,13 @@ function runTests() {
         assert.strictEqual(fs.readFileSync(alias, 'utf8'), legacy.content);
         assert.strictEqual(fs.existsSync(value.installStatePath), false);
         for (const operation of value.basePlan.operations) assert.strictEqual(fs.existsSync(operation.destinationPath), false);
-        assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+        assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
       }));
     }
   }
   for (const mode of ['doctor', 'repair']) {
     for (const historical of [true, false]) {
-      test(`${mode} with relative repoRoot ${historical ? 'refuses historical plugin' : 'preserves unrelated user'} aliases`, () => fixture(value => {
+      test(`${mode} with relative repoRoot ${historical ? 'refuses historical ECC' : 'preserves unrelated user'} aliases`, () => fixture(value => {
         applyInstallPlan(value.declinePlan);
         const alias = path.join(value.targetRoot, 'plugins', 'index.js');
         const content = historical ? legacyPluginFixtures[0].content
@@ -605,7 +605,7 @@ function runTests() {
         }
         assert.ok(!readInstallState(value.installStatePath).operations.some(operation => operation.destinationPath === alias));
         assert.deepStrictEqual(value.basePlan.operations.map(operation => fs.readFileSync(operation.destinationPath)), operationsBefore);
-        assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+        assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
       }));
     }
   }
@@ -629,7 +629,7 @@ function runTests() {
           const state = readInstallState(value.installStatePath);
           assert.ok(!state.operations.some(operation => operation.destinationPath === alias));
           assert.strictEqual(state.request.hookConsent, value.state.request.hookConsent);
-          assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+          assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
         });
     }));
   }
@@ -657,7 +657,7 @@ function runTests() {
       assert.deepStrictEqual(fs.readFileSync(alias), content);
       assert.deepStrictEqual(fs.readFileSync(value.installStatePath), before);
       assert.deepStrictEqual(value.basePlan.operations.map(operation => fs.readFileSync(operation.destinationPath)), operationsBefore);
-      assert.strictEqual(fs.existsSync(`${value.installStatePath}.poweruser.lock`), false);
+      assert.strictEqual(fs.existsSync(`${value.installStatePath}.ecc.lock`), false);
     }));
   }
   for (const mode of ['doctor', 'repair']) {
@@ -672,7 +672,7 @@ function runTests() {
     }));
   }
   for (const artifact of ['source', 'build']) {
-    test(`unrecorded ${artifact}-identical legacy alias still fails closed`, () => fixture(value => {
+    test(`unrecorded ${artifact}-identical ECC alias still fails closed`, () => fixture(value => {
       applyInstallPlan(value.declinePlan);
       const source = artifact === 'source'
         ? path.join(value.sourceRoot, '.opencode', 'plugins', 'ecc-hooks.ts')
@@ -691,11 +691,11 @@ function runTests() {
       assert.deepStrictEqual(fs.readFileSync(value.installStatePath), before);
     }));
   }
-  test('an unrecorded collision at a planned plugin destination still fails closed', () => fixture(value => {
+  test('an unrecorded collision at a planned ECC plugin destination still fails closed', () => fixture(value => {
     fs.unlinkSync(value.installStatePath);
     fs.unlinkSync(path.join(value.targetRoot, 'opencode.json'));
     const destination = path.join(value.targetRoot, 'plugins', 'ecc-hooks.ts');
-    const content = '// user-owned file at a PowerUser destination\n';
+    const content = '// user-owned file at an ECC destination\n';
     fs.writeFileSync(destination, content);
     assert.throws(() => applyInstallPlan(value.declinePlan), /user-owned|unverifiable/i);
     assert.strictEqual(fs.readFileSync(destination, 'utf8'), content);
@@ -728,7 +728,7 @@ function runTests() {
   }
   test('repair preserves the primary failure and replacement lock when release also fails', () => fixture(value => {
     const destination = path.join(value.targetRoot, 'opencode.json');
-    const lock = `${value.installStatePath}.poweruser.lock`;
+    const lock = `${value.installStatePath}.ecc.lock`;
     withWritableOpenMutation(destination, () => {
       fs.writeFileSync(destination, '{"userEdit":true}');
       fs.renameSync(lock, `${lock}.owned`);

@@ -241,7 +241,7 @@ go tool cover -html=coverage.out  # browser
 go test ./... -race -count=1
 ```
 
-## PowerUser Workflow
+## ECC Workflow
 
 ```bash
 # Planning

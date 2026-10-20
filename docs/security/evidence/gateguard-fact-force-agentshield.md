@@ -1,6 +1,6 @@
 # GateGuard Fact-Force — AgentShield Evidence
 
-Generated on 2026-09-30 with `poweruser-agentshield@1.6.0` (npm integrity
+Generated on 2026-09-30 with `ecc-agentshield@1.6.0` (npm integrity
 `sha512-lpeHG96DtEn7ofq7Iiyvq29piQOwParaiZOdDB206i4ZeCL4yjwT6xN5BSGI4yhCEAN0eO0f9F9hxHLBuRqf/g==`),
 installed with `--ignore-scripts`. Only static analysis was run: no prompt
 injection testing, sandbox execution, taint or LLM analysis, and no auto-fix.
@@ -14,7 +14,7 @@ repository is scanned:
 
 ```bash
 git archive HEAD hooks scripts | tar -x -C <scan-root>
-npx --yes poweruser-agentshield@1.6.0 scan --path <scan-root> \
+npx --yes ecc-agentshield@1.6.0 scan --path <scan-root> \
   --format json --evidence-pack <temporary-directory>
 ```
 
@@ -58,7 +58,7 @@ All 37 findings are present on `main` in the same number:
   touch.
 - 2 medium on `hooks/hooks.metadata.json` ("No permissions block", "No
   PreToolUse security hooks"). The metadata file holds ids and descriptions
-  only; permissions belong in Claude Code `settings.json`. The PowerUser Tools
+  only; permissions belong in Claude Code `settings.json`. The ECC Tools
   config audit reports the same two findings on every pull request that
   touches this file.
 - 7 info: hook scripts that read the transcript or add context. The

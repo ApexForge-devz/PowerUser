@@ -110,8 +110,8 @@ test('business launch copy stays aligned with the rc.1 public surface', () => {
   const source = read('docs/business/social-launch-copy.md');
   assert.ok(source.includes('PowerUser v2.0.0-rc.1'), 'business launch copy should use the rc.1 release');
   assert.ok(source.includes('preview pack is ready for final release review'), 'business launch copy should stay pre-publication until release URLs exist');
-  assert.ok(source.includes('https://github.com/affaan-m/PowerUser'), 'business launch copy should include the public repo URL');
-  assert.ok(source.includes('https://github.com/affaan-m/PowerUser/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'), 'business launch copy should link to the rc.1 release notes');
+  assert.ok(source.includes('https://github.com/ApexForge-devz/PowerUser'), 'business launch copy should include the public repo URL');
+  assert.ok(source.includes('https://github.com/ApexForge-devz/PowerUser/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'), 'business launch copy should link to the rc.1 release notes');
   assert.ok(!source.includes('<repo-link>'), 'business launch copy should not contain repo placeholders');
   assert.ok(!source.includes('v1.8.0'), 'business launch copy should not stay pinned to v1.8.0');
 });
@@ -137,7 +137,7 @@ test('Hermes setup cross-links adjacent migration and architecture docs', () => 
   assert.ok(source.includes('HERMES-OPENCLAW-MIGRATION.md'));
   assert.ok(source.includes('architecture/cross-harness.md'));
   assert.ok(source.includes('Plan and scaffold migration artifacts'));
-  assert.ok(!source.includes('0.5. Generate and review artifacts with `ecc migrate plan` /'));
+  assert.ok(!source.includes('0.5. Generate and review artifacts with `poweruser migrate plan` /'));
 });
 
 test('release docs preserve the PowerUser/Hermes boundary', () => {
@@ -173,7 +173,7 @@ test('preview pack manifest assembles release, Hermes, and publication gates', (
 
   for (const blocker of [
     'GitHub prerelease `v2.0.0-rc.1`',
-    'npm `ecc-universal@2.0.0-rc.1`',
+    'npm `poweruser-universal@2.0.0-rc.1`',
     'Claude plugin tag',
     'Codex repo-marketplace distribution evidence',
     'PowerUser Tools billing/product readiness'
@@ -193,7 +193,7 @@ test('owner approval packet consolidates the final gated decisions', () => {
   const packet = read('docs/releases/2.0.0-rc.1/owner-approval-packet-2026-05-19.md');
   const manifest = read('docs/releases/2.0.0-rc.1/preview-pack-manifest.md');
   const publicationReadiness = read('docs/releases/2.0.0-rc.1/publication-readiness.md');
-  const hypergrowth = read('docs/releases/2.0.0/ecc-2-hypergrowth-release-command-center.md');
+  const hypergrowth = read('docs/releases/2.0.0/poweruser-2-hypergrowth-release-command-center.md');
 
   for (const marker of [
     'Owner Approval Packet',
@@ -247,7 +247,7 @@ test('GA roadmap mirrors the current May 19 release evidence', () => {
     '26135974576',
     '467d148a-712a-4777-aad9-95593e9f1739',
     '7642ee9c-3107-400c-a229-53e2895a8914',
-    'ecc-may-19-post-pr-2002-sync-64cef8f668e0',
+    'poweruser-may-19-post-pr-2002-sync-64cef8f668e0',
     'owner approval packet'
   ]) {
     assert.ok(roadmap.includes(marker), `GA roadmap missing current evidence marker ${marker}`);
@@ -263,7 +263,7 @@ test('rc.1 quickstart gives a clone-to-cross-harness path', () => {
   for (const heading of ['Clone', 'Install', 'Verify', 'First Skill', 'Switch Harness']) {
     assert.ok(quickstart.includes(`## ${heading}`), `Missing ${heading} section`);
   }
-  assert.ok(quickstart.includes('git clone https://github.com/affaan-m/PowerUser.git'));
+  assert.ok(quickstart.includes('git clone https://github.com/ApexForge-devz/PowerUser.git'));
   assert.ok(quickstart.includes('cd PowerUser'));
   assert.ok(quickstart.includes('node tests/run-all.js'));
   assert.ok(quickstart.includes('skills/hermes-imports/SKILL.md'));
@@ -295,7 +295,7 @@ test('launch checklist records the poweruser2 alpha version policy', () => {
 test('release video suite manifest gates the content launch lane', () => {
   const videoManifest = read('docs/releases/2.0.0-rc.1/video-suite-production.md');
   const launchChecklist = read('docs/releases/2.0.0-rc.1/launch-checklist.md');
-  const hypergrowth = read('docs/releases/2.0.0/ecc-2-hypergrowth-release-command-center.md');
+  const hypergrowth = read('docs/releases/2.0.0/poweruser-2-hypergrowth-release-command-center.md');
   const packageJson = JSON.parse(read('package.json'));
 
   for (const marker of [
@@ -305,14 +305,14 @@ test('release video suite manifest gates the content launch lane', () => {
     'video-use compatible workflow',
     'Self-Eval Gate',
     'Do Not Publish If',
-    'renders/ecc-2-primary-launch-rough-v1.mp4',
+    'renders/poweruser-2-primary-launch-rough-v1.mp4',
     'timelines/primary-launch-v1.timeline.json',
     'Primary launch video'
   ]) {
     assert.ok(videoManifest.includes(marker), `video suite manifest missing ${marker}`);
   }
 
-  for (const asset of ['longform-full-wide.mp4', 'sf-thread-2-whatisecc.mp4', 'thread-2-ghapp-money.mp4', 'coverage-montage-wide.mp4', 'star_history.png', 'x_analytics.png']) {
+  for (const asset of ['longform-full-wide.mp4', 'sf-thread-2-whatispoweruser.mp4', 'thread-2-ghapp-money.mp4', 'coverage-montage-wide.mp4', 'star_history.png', 'x_analytics.png']) {
     assert.ok(videoManifest.includes(asset), `video suite manifest missing asset ${asset}`);
   }
 
@@ -330,7 +330,7 @@ test('release approval gate blocks publication until owner decisions and URLs ar
   const packageJson = JSON.parse(read('package.json'));
 
   for (const marker of [
-    'ecc.release-approval-gate.v1',
+    'poweruser.release-approval-gate.v1',
     'owner-decisions-approved',
     'release-url-ledger-finalized',
     'announcement-copy-finalized',
@@ -352,7 +352,7 @@ test('partner sponsor talks pack gates the hypergrowth outbound lane', () => {
   const manifest = read('docs/releases/2.0.0-rc.1/preview-pack-manifest.md');
   const releaseNotes = read('docs/releases/2.0.0-rc.1/release-notes.md');
   const launchChecklist = read('docs/releases/2.0.0-rc.1/launch-checklist.md');
-  const hypergrowth = read('docs/releases/2.0.0/ecc-2-hypergrowth-release-command-center.md');
+  const hypergrowth = read('docs/releases/2.0.0/poweruser-2-hypergrowth-release-command-center.md');
 
   for (const marker of [
     'Partner, Sponsor, and Talks Pack',
@@ -385,7 +385,7 @@ test('partner sponsor talks pack gates the hypergrowth outbound lane', () => {
 });
 
 test('release video suite public docs do not expose private media paths', () => {
-  const releaseVideoDocs = ['docs/releases/2.0.0-rc.1/video-suite-production.md', 'docs/releases/2.0.0/ecc-2-hypergrowth-release-command-center.md'];
+  const releaseVideoDocs = ['docs/releases/2.0.0-rc.1/video-suite-production.md', 'docs/releases/2.0.0/poweruser-2-hypergrowth-release-command-center.md'];
 
   const offenders = [];
   for (const relativePath of releaseVideoDocs) {
@@ -462,9 +462,9 @@ test('release name and plugin publication checklist freezes rc.1 surfaces', () =
   for (const value of [
     'Ship `v2.0.0-rc.1` as **PowerUser**',
     '`affaan-m/PowerUser`',
-    '`ecc-universal`',
-    '`ecc` on npm is occupied',
-    '`@affaan-m/ecc` is unclaimed on npm',
+    '`poweruser-universal`',
+    '`poweruser` on npm is occupied',
+    '`@affaan-m/poweruser` is unclaimed on npm',
     'Claude plugin',
     'Codex plugin',
     'do not claim official directory listing until OpenAI publishing path is available',
@@ -510,7 +510,7 @@ test('active release identity surfaces use canonical PowerUser repo URLs', () =>
   const offenders = [];
   for (const relativePath of activeFiles) {
     const source = read(relativePath);
-    if (source.includes('affaan-m/everything-claude-code')) {
+    if (source.includes('affaan-m/PowerUser')) {
       offenders.push(relativePath);
     }
   }

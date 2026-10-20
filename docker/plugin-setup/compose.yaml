@@ -1,4 +1,4 @@
-name: poweruser-plugin-setup-test
+name: ecc-plugin-setup-test
 
 x-node-image: &node-image node:22-bookworm-slim@sha256:6c74791e557ce11fc957704f6d4fe134a7bc8d6f5ca4403205b2966bd488f6b3
 
@@ -12,17 +12,17 @@ x-real-cli: &real-cli
   security_opt:
     - no-new-privileges:true
   tmpfs:
-    - /tmp:rw,nosuid,nodev,exec,size=${POWERUSER_TMPFS_SIZE:-2g},uid=1000,gid=1000,mode=0700
-    - /workspace:rw,nosuid,nodev,noexec,size=${POWERUSER_WORKSPACE_SIZE:-1g},uid=1000,gid=1000,mode=0700
+    - /tmp:rw,nosuid,nodev,exec,size=${ECC_TMPFS_SIZE:-2g},uid=1000,gid=1000,mode=0700
+    - /workspace:rw,nosuid,nodev,noexec,size=${ECC_WORKSPACE_SIZE:-1g},uid=1000,gid=1000,mode=0700
   environment: &real-cli-environment
-    CLAUDE_CONFIG_DIR: /tmp/poweruser-claude-config
+    CLAUDE_CONFIG_DIR: /tmp/ecc-claude-config
     DISABLE_AUTOUPDATER: "1"
-    HOME: /tmp/poweruser-home
+    HOME: /tmp/ecc-home
     NPM_CONFIG_CACHE: /tmp/npm-cache
   volumes:
     - type: bind
       source: ../..
-      target: /poweruser
+      target: /ecc
       read_only: true
     - type: bind
       source: "${TEST_PROJECT:-../../tests/fixtures/docker-plugin-project}"
@@ -32,14 +32,14 @@ x-real-cli: &real-cli
   tty: true
   entrypoint:
     - /bin/bash
-    - /poweruser/docker/plugin-setup/run-real-cli.sh
+    - /ecc/docker/plugin-setup/run-real-cli.sh
   command:
     - dry-run
 
 services:
   fixture-tests:
     image: *node-image
-    working_dir: /poweruser
+    working_dir: /ecc
     user: "1000:1000"
     network_mode: none
     read_only: true
@@ -53,15 +53,15 @@ services:
     volumes:
       - type: bind
         source: ../..
-        target: /poweruser
+        target: /ecc
         read_only: true
     entrypoint:
       - /bin/bash
-      - /poweruser/docker/plugin-setup/run-fixture-tests.sh
+      - /ecc/docker/plugin-setup/run-fixture-tests.sh
 
   real-cli:
     <<: *real-cli
-    image: poweruser-plugin-setup:debian
+    image: ecc-plugin-setup:debian
     build:
       context: .
       dockerfile: Dockerfile
@@ -78,17 +78,17 @@ services:
     network_mode: default
     environment:
       <<: *real-cli-environment
-      NPM_CONFIG_PREFIX: /tmp/poweruser-npm
-      PATH: /tmp/poweruser-npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      NPM_CONFIG_PREFIX: /tmp/ecc-npm
+      PATH: /tmp/ecc-npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     # Codex OAuth callback bridge: host browser -> codex-auth-relay.js -> loopback.
     # compose run requires --service-ports to publish this mapping.
     ports:
       - "127.0.0.1:1455:1456"
-    image: poweruser-plugin-setup:debian
+    image: ecc-plugin-setup:debian
 
   real-cli-ubuntu:
     <<: *real-cli
-    image: poweruser-plugin-setup:ubuntu
+    image: ecc-plugin-setup:ubuntu
     build:
       context: .
       dockerfile: Dockerfile

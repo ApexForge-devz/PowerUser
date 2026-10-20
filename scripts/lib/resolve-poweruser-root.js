@@ -5,7 +5,7 @@ const path = require('path');
 const os = require('os');
 
 const CURRENT_PLUGIN_SLUG = 'poweruser';
-// The resolver only searches the current PowerUser plugin locations.
+// Legacy identifiers are retained so existing installations continue to resolve.
 const CURRENT_PLUGIN_HANDLE = `${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`;
 const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG];
 const PLUGIN_ROOT_SEGMENTS = [
@@ -28,7 +28,8 @@ const DEFAULT_SKILL_PROBE = path.join('skills', 'continuous-learning-v2');
 /**
  * Resolve the PowerUser source root directory.
  *
- * The resolver searches only the supported PowerUser plugin install locations.
+ * The resolver prioritizes the PowerUser plugin and retains legacy cache locations
+ * as legacy aliases for existing installations.
  */
 function resolvePowerUserRoot(options = {}) {
   const envRoot = options.envRoot !== undefined

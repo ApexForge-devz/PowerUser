@@ -33,12 +33,12 @@ RUN npm install --global --include=optional --ignore-scripts \
 RUN mkdir -p /workspace \
     && chown 1000:1000 /workspace
 
-ENV CLAUDE_CONFIG_DIR=/tmp/poweruser-claude-config
+ENV CLAUDE_CONFIG_DIR=/tmp/ecc-claude-config
 ENV DISABLE_AUTOUPDATER=1
-ENV HOME=/tmp/poweruser-home
+ENV HOME=/tmp/ecc-home
 ENV NODE_PATH=/usr/local/lib/node_modules
 
 WORKDIR /workspace
 USER 1000:1000
 
-LABEL org.opencontainers.image.title="PowerUser plugin setup test (${DISTRO})"
+LABEL org.opencontainers.image.title="ECC plugin setup test (${DISTRO})"

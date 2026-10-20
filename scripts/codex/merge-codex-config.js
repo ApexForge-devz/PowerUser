@@ -18,8 +18,8 @@ let TOML;
 try {
   TOML = require('@iarna/toml');
 } catch {
-  console.error('[poweruser-codex] Missing dependency: @iarna/toml');
-  console.error('[poweruser-codex] Run: npm install   (from the PowerUser repo root)');
+  console.error('[ecc-codex] Missing dependency: @iarna/toml');
+  console.error('[ecc-codex] Run: npm install   (from the ECC repo root)');
   process.exit(1);
 }
 
@@ -34,11 +34,11 @@ const TABLE_PATHS = [
 const TOML_HEADER_RE = /^[ \t]*(?:\[[^[\]\n][^\]\n]*\]|\[\[[^[\]\n][^\]\n]*\]\])[ \t]*(?:#.*)?$/m;
 
 function log(message) {
-  console.log(`[poweruser-codex] ${message}`);
+  console.log(`[ecc-codex] ${message}`);
 }
 
 function warn(message) {
-  console.warn(`[poweruser-codex] WARNING: ${message}`);
+  console.warn(`[ecc-codex] WARNING: ${message}`);
 }
 
 function getNested(obj, pathParts) {
@@ -219,12 +219,12 @@ function main() {
 
   const referencePath = path.join(__dirname, '..', '..', '.codex', 'user-config.example.toml');
   if (!fs.existsSync(referencePath)) {
-    console.error(`[poweruser-codex] Reference config not found: ${referencePath}`);
+    console.error(`[ecc-codex] Reference config not found: ${referencePath}`);
     process.exit(1);
   }
 
   if (!fs.existsSync(configPath)) {
-    console.error(`[poweruser-codex] Config file not found: ${configPath}`);
+    console.error(`[ecc-codex] Config file not found: ${configPath}`);
     process.exit(1);
   }
 
@@ -237,7 +237,7 @@ function main() {
     targetConfig = TOML.parse(raw);
     referenceConfig = TOML.parse(referenceRaw);
   } catch (error) {
-    console.error(`[poweruser-codex] Failed to parse TOML: ${error.message}`);
+    console.error(`[ecc-codex] Failed to parse TOML: ${error.message}`);
     process.exit(1);
   }
 

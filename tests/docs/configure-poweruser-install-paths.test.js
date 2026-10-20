@@ -6,7 +6,7 @@ const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..', '..');
 
-const configureEccDocs = [
+const configurePowerUserDocs = [
   'skills/configure-poweruser/SKILL.md',
   'docs/zh-CN/skills/configure-poweruser/SKILL.md',
   'docs/ja-JP/skills/configure-poweruser/SKILL.md',
@@ -45,7 +45,7 @@ function test(name, fn) {
   }
 }
 
-function readConfigureEccDoc(relativePath) {
+function readConfigurePowerUserDoc(relativePath) {
   return fs.readFileSync(path.join(repoRoot, relativePath), 'utf8');
 }
 
@@ -57,9 +57,9 @@ function countEntries(relativePath, predicate) {
 
 console.log('\n=== Testing configure-poweruser install path guidance ===\n');
 
-for (const relativePath of configureEccDocs) {
+for (const relativePath of configurePowerUserDocs) {
   test(`${relativePath} delegates to guided plugin setup`, () => {
-    const content = readConfigureEccDoc(relativePath);
+    const content = readConfigurePowerUserDoc(relativePath);
 
     assert.ok(content.includes('poweruser setup'));
     assert.ok(content.includes('npx poweruser-universal setup'));
@@ -67,12 +67,12 @@ for (const relativePath of configureEccDocs) {
     assert.ok(content.includes('--scope <scope>'));
     assert.ok(content.includes('--hooks <hooks>'));
     assert.ok(content.includes('--move-scope'));
-    assert.ok(!content.includes('rm -rf /tmp/everything-claude-code'));
+    assert.ok(!content.includes('rm -rf /tmp/PowerUser'));
     assert.ok(!content.includes('cp -R "$PowerUser_ROOT'));
   });
 
   test(`${relativePath} defines the Claude in-harness wizard contract`, () => {
-    const content = readConfigureEccDoc(relativePath);
+    const content = readConfigurePowerUserDoc(relativePath);
 
     for (const instruction of localizedWizardContract[relativePath]) {
       assert.ok(content.includes(instruction), `missing: ${instruction}`);
@@ -89,7 +89,7 @@ for (const relativePath of configureEccDocs) {
   });
 
   test(`${relativePath} verifies before showing the welcome`, () => {
-    const content = readConfigureEccDoc(relativePath);
+    const content = readConfigurePowerUserDoc(relativePath);
     const applyIndex = content.indexOf('--yes --json');
     const verificationIndex = content.indexOf('claude plugin list --json', applyIndex);
     const welcomeIndex = content.indexOf('renderTerminalWelcome');
@@ -100,7 +100,7 @@ for (const relativePath of configureEccDocs) {
   });
 
   test(`${relativePath} keeps provider capabilities truthful`, () => {
-    const content = readConfigureEccDoc(relativePath);
+    const content = readConfigurePowerUserDoc(relativePath);
 
     assert.ok(content.includes('codex plugin add poweruser@poweruser --json'));
     assert.ok(content.includes('Codex'));
@@ -110,7 +110,7 @@ for (const relativePath of configureEccDocs) {
   });
 
   test(`${relativePath} verifies Codex and Kimi before their concrete welcomes`, () => {
-    const content = readConfigureEccDoc(relativePath);
+    const content = readConfigurePowerUserDoc(relativePath);
     const codexVerifyIndex = content.indexOf('codex plugin list --json');
     const codexWelcomeIndex = content.indexOf(
       '["<installedPath>/scripts/welcome.js", "--action", "configured", "--version", "<installed-version>"]'
@@ -134,14 +134,14 @@ for (const relativePath of configureEccDocs) {
 }
 
 test('Codex legacy sync docs do not require an unrelated package install', () => {
-  const content = readConfigureEccDoc('.codex-plugin/README.md');
+  const content = readConfigurePowerUserDoc('.codex-plugin/README.md');
 
   assert.ok(content.includes('bash scripts/sync-poweruser-to-codex.sh'));
   assert.ok(!content.includes('npm install && bash scripts/sync-poweruser-to-codex.sh'));
 });
 
 test('Kimi docs scope hooks and compatibility to the verified adapter', () => {
-  const content = readConfigureEccDoc('.kimi/README.md');
+  const content = readConfigurePowerUserDoc('.kimi/README.md');
 
   assert.ok(content.includes('verified against Kimi Code 0.31.x'));
   assert.ok(content.includes("newer provider releases are outside this adapter's verified range"));
@@ -150,7 +150,7 @@ test('Kimi docs scope hooks and compatibility to the verified adapter', () => {
 });
 
 test('Turkish agent instructions report the live catalog counts', () => {
-  const content = readConfigureEccDoc('docs/tr/AGENTS.md');
+  const content = readConfigurePowerUserDoc('docs/tr/AGENTS.md');
   const agentCount = countEntries('agents', entry => entry.isFile() && entry.name.endsWith('.md'));
   const skillCount = countEntries('skills', entry => entry.isDirectory());
   const commandCount = countEntries(

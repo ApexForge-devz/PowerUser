@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Shared session bridge utilities for PowerUser hooks.
+ * Shared session bridge utilities for POWERUSER hooks.
  *
  * The bridge file is a small JSON aggregate in /tmp that allows
  * statusline, metrics-bridge, and context-monitor to share state

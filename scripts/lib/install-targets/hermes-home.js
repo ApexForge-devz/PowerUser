@@ -5,6 +5,6 @@ module.exports = createInstallTargetAdapter({
   target: 'hermes',
   kind: 'home',
   rootSegments: ['.hermes'],
-  installStatePathSegments: ['poweruser-install-state.json'],
+  installStatePathSegments: ['ecc-install-state.json'],
   nativeRootRelativePath: '.hermes',
 });

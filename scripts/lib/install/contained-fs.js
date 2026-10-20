@@ -37,7 +37,7 @@ function getManagedDestination(
     const error = new Error(
       `Refusing to ${action}: managed destination is a final symlink.`
     );
-    error.code = 'POWERUSER_FINAL_DESTINATION_SYMLINK';
+    error.code = 'ECC_FINAL_DESTINATION_SYMLINK';
     throw error;
   }
 
@@ -228,7 +228,7 @@ function removeContainedPath(destinationPath, trustedRoot, action, options = {})
   const expectedStat = fs.lstatSync(finalDestination, { bigint: true });
   const quarantineDir = fs.mkdtempSync(path.join(
     path.dirname(managedDestination.canonicalRoot),
-    '.poweruser-remove-'
+    '.ecc-remove-'
   ));
   const quarantinePath = path.join(quarantineDir, path.basename(finalDestination));
 

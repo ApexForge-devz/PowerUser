@@ -181,7 +181,7 @@ function runCodexExec(input, mode, deps) {
   const spawn = deps.spawnSync || spawnSync;
   const environment = buildEnvironment(deps.env || process.env);
   const launcher = (deps.resolveCodexCommand || resolveCodexCommand)({ env: environment });
-  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `poweruser-astra-${mode.task}-`));
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `ecc-astra-${mode.task}-`));
   const outputFile = path.join(tempDir, 'last-message.txt');
   const schemaFile = path.join(tempDir, `${mode.task}-schema.json`);
 

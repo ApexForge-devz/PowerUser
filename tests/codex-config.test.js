@@ -125,7 +125,7 @@ function readUserReference() {
 }
 
 function withMergeFixture(fn) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-codex-reference-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-codex-reference-'));
   try {
     const scriptDir = path.join(root, 'scripts', 'codex');
     fs.mkdirSync(scriptDir, { recursive: true });
@@ -175,7 +175,7 @@ const checks = [
     assert.strictEqual(user.sandbox_mode, 'workspace-write');
     assert.strictEqual(user.web_search, 'live');
     assert.deepStrictEqual(user.notify,
-      ['terminal-notifier', '-title', 'Codex PowerUser', '-message', 'Task completed!', '-sound', 'default']);
+      ['terminal-notifier', '-title', 'Codex ECC', '-message', 'Task completed!', '-sound', 'default']);
     assert.ok(!Object.hasOwn(user, 'profiles'));
     for (const [name, expected] of Object.entries({
       strict: { approval_policy: 'on-request', sandbox_mode: 'read-only', web_search: 'cached' },
