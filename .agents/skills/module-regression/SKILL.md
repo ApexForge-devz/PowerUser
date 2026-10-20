@@ -3,7 +3,7 @@ name: module-regression
 description: >-
   Govern cross-module regression in large repositories with a REGRESSION.md ledger that records each module's downstream consumers and executable acceptance command. After a change, run the changed module and every affected downstream command, and use observed exit codes as regression evidence under the project's delivery policy. Use for module regression, regression ledgers, impact audits, downstream verification, and changes where modifying A may break B.
 metadata:
-  origin: ECC
+  origin: PowerUser
 ---
 
 # Module Regression Ledger
@@ -67,7 +67,7 @@ Related test points: TEST-ORDER-001, TEST-REFUND-003
 
 ## Audit Flow
 
-Invoke `module-regression` through the host's skill entry point, such as `$module-regression` in Codex. The current session plans and reports the audit. Repository commands run through the trusted host runner within existing user authorization; ask only when a command needs new authority. Successful exit codes are regression evidence, never canonical ECC completion or integration authority.
+Invoke `module-regression` through the host's skill entry point, such as `$module-regression` in Codex. The current session plans and reports the audit. Repository commands run through the trusted host runner within existing user authorization; ask only when a command needs new authority. Successful exit codes are regression evidence, never canonical PowerUser completion or integration authority.
 
 1. **List changes** after selecting and recording the audit base, using the PR merge-base or last verified green commit. Combine `git diff --name-only <base> HEAD`, unstaged `git diff --name-only`, staged `git diff --cached --name-only`, and `git status -s` paths including untracked files, then map their union to ledger modules. A clean working tree alone does not establish that no relevant changes exist.
 2. **Resolve propagation** from each module's downstream list and rule.
