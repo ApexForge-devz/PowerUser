@@ -13,13 +13,13 @@ let failed = 0;
 async function main() {
   const { executeMemoryTool } = await import(pathToFileURL(path.join(repo, 'scripts/memory-mcp.mjs')));
   function check(name, fn) {
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-read-completeness-'));
-    const old = { project: process.env.ECC_MEMORY_PROJECT_ROOT, user: process.env.ECC_MEMORY_USER_ROOT };
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-read-completeness-'));
+    const old = { project: process.env.POWERUSER_MEMORY_PROJECT_ROOT, user: process.env.POWERUSER_MEMORY_USER_ROOT };
     try {
-      process.env.ECC_MEMORY_PROJECT_ROOT = path.join(dir, 'vault');
-      process.env.ECC_MEMORY_USER_ROOT = path.join(dir, 'user');
+      process.env.POWERUSER_MEMORY_PROJECT_ROOT = path.join(dir, 'vault');
+      process.env.POWERUSER_MEMORY_USER_ROOT = path.join(dir, 'user');
       const roots = core.resolveVaultRoots({ cwd: dir, homeDir: dir, env: {
-        ECC_MEMORY_PROJECT_ROOT: path.join(dir, 'vault'), ECC_MEMORY_USER_ROOT: path.join(dir, 'user'),
+        POWERUSER_MEMORY_PROJECT_ROOT: path.join(dir, 'vault'), POWERUSER_MEMORY_USER_ROOT: path.join(dir, 'user'),
       } });
       core.initializeVault({ roots, scopes: ['project', 'team'] });
       const id = 'mem_synthetic_current';
@@ -37,15 +37,15 @@ async function main() {
       failed += 1;
       console.log(`FAIL ${name}: ${error.code || 'assertion'}`);
     } finally {
-      if (old.project === undefined) delete process.env.ECC_MEMORY_PROJECT_ROOT;
-      else process.env.ECC_MEMORY_PROJECT_ROOT = old.project;
-      if (old.user === undefined) delete process.env.ECC_MEMORY_USER_ROOT;
-      else process.env.ECC_MEMORY_USER_ROOT = old.user;
+      if (old.project === undefined) delete process.env.POWERUSER_MEMORY_PROJECT_ROOT;
+      else process.env.POWERUSER_MEMORY_PROJECT_ROOT = old.project;
+      if (old.user === undefined) delete process.env.POWERUSER_MEMORY_USER_ROOT;
+      else process.env.POWERUSER_MEMORY_USER_ROOT = old.user;
       fs.rmSync(dir, { recursive: true, force: true });
       assert.equal(fs.existsSync(dir), false);
     }
   }
-  const incomplete = fn => assert.throws(fn, { code: 'ECC_MEMORY_INCOMPLETE' });
+  const incomplete = fn => assert.throws(fn, { code: 'POWERUSER_MEMORY_INCOMPLETE' });
   check('complete direct lookup preserves body and unreviewed status', ({ read }) => {
     const result = read(); assert.equal(result.memory.trust, 'unreviewed');
     assert.equal(result.memory.body, 'Synthetic state; no authority.');
@@ -69,7 +69,7 @@ async function main() {
         }
         return open(file, ...args);
       };
-      assert.throws(read, error => error.code === 'ECC_MEMORY_INCOMPLETE'
+      assert.throws(read, error => error.code === 'POWERUSER_MEMORY_INCOMPLETE'
         && !error.message.includes('Synthetic private storage detail.'));
     } finally {
       fs.openSync = open;
@@ -103,7 +103,7 @@ async function main() {
   for (const phase of ['open', 'read', 'close']) {
     check(`direct read classifies directory ${phase} failure`, ({ roots, read }) => {
       failTraversal(roots, phase, () => {
-        assert.throws(read, error => error.code === 'ECC_MEMORY_INCOMPLETE'
+        assert.throws(read, error => error.code === 'POWERUSER_MEMORY_INCOMPLETE'
           && !error.message.includes('Synthetic private directory detail.'));
       });
     });
