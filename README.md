@@ -39,7 +39,7 @@ codex plugin list --json
 
 Replace the example path with the absolute path where you cloned the repository. Restart Codex and start a new conversation after installation. In the Codex desktop app, the repository can also be registered as a personal local plugin marketplace where that feature is available.
 
-PowerUser uses the plugin ID `poweruser@poweruser`. The former `ecc@ecc` ID is recognized only as a legacy compatibility identifier for existing installations.
+PowerUser uses `poweruser@poweruser` as the native plugin ID for new installations.
 
 ### Configure and use
 

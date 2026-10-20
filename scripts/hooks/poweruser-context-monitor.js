@@ -40,7 +40,7 @@ function isEnabledEnv(value, defaultValue = true) {
 }
 
 function costWarningsEnabled(env = process.env) {
-  return isEnabledEnv(env.POWERUSER_CONTEXT_MONITOR_COST_WARNINGS ?? env.ECC_CONTEXT_MONITOR_COST_WARNINGS, true);
+  return isEnabledEnv(env.POWERUSER_CONTEXT_MONITOR_COST_WARNINGS ?? env.POWERUSER_CONTEXT_MONITOR_COST_WARNINGS, true);
 }
 
 /**
@@ -214,7 +214,7 @@ function run(rawInput) {
   try {
     const input = rawInput.trim() ? JSON.parse(rawInput) : {};
 
-    const sessionId = sanitizeSessionId(input.session_id) || sanitizeSessionId(process.env.POWERUSER_SESSION_ID) || sanitizeSessionId(process.env.ECC_SESSION_ID) || sanitizeSessionId(process.env.CLAUDE_SESSION_ID);
+    const sessionId = sanitizeSessionId(input.session_id) || sanitizeSessionId(process.env.POWERUSER_SESSION_ID) || sanitizeSessionId(process.env.POWERUSER_SESSION_ID) || sanitizeSessionId(process.env.CLAUDE_SESSION_ID);
 
     if (!sessionId) return rawInput;
 

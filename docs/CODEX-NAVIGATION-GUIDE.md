@@ -1,6 +1,6 @@
-# Codex ECC Navigation Map
+# Codex POWERUSER Navigation Map
 
-This guide helps Codex agents navigate ECC without scanning every surface from
+This guide helps Codex agents navigate POWERUSER without scanning every surface from
 scratch. Use it after the root `AGENTS.md` and `.codex/AGENTS.md` when planning
 work, preparing a PR-quality diff, or handing context to a reviewer.
 
@@ -57,7 +57,7 @@ legacy slash-entry compatibility or cross-harness parity.
 
 ## Codex Agent Roles
 
-ECC ships project-local Codex role layers in `.codex/agents/`:
+POWERUSER ships project-local Codex role layers in `.codex/agents/`:
 
 | Role | File | Use |
 |------|------|-----|
@@ -169,12 +169,12 @@ node tests/run-all.js
 ## Named user profiles
 
 Codex CLI 0.134 and later loads `codex -p strict` and `codex -p yolo` from
-`<CODEX_HOME>/strict.config.toml` and `<CODEX_HOME>/yolo.config.toml`. ECC ships
+`<CODEX_HOME>/strict.config.toml` and `<CODEX_HOME>/yolo.config.toml`. POWERUSER ships
 those files beside its user reference. The receipt-backed home installer and
 legacy sync preserve existing customized profile files.
 
 For an existing config with `[profiles.<name>]`, review and move its settings
 into `<name>.config.toml`, then remove the old table and any top-level `profile`
-selector. ECC's add-only legacy merger leaves those user choices untouched.
+selector. POWERUSER's add-only legacy merger leaves those user choices untouched.
 Verify the migration locally with `codex -p <name> mcp list`; this checks
 configuration loading without invoking a model or certifying its runtime.

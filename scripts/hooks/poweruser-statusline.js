@@ -87,7 +87,7 @@ function readCurrentTask(sessionId) {
 }
 
 function getPowerUserVersion(plugins) {
-  const poweruser = plugins.find(p => p.name === 'poweruser' || p.name === 'ecc');
+  const poweruser = plugins.find(p => p.name === 'poweruser' || p.name === 'poweruser');
   if (poweruser?.version) return poweruser.version;
   try {
     return fs.readFileSync(path.join(__dirname, '..', '..', 'VERSION'), 'utf8').trim();
@@ -119,7 +119,7 @@ function buildUsageLines(data, bridge, task) {
   const cost = data.cost || {};
   const dirname = path.basename(data.workspace?.current_dir || process.cwd());
 
-  if ((process.env.POWERUSER_STATUSLINE_COMPACT ?? process.env.ECC_STATUSLINE_COMPACT) === '1') {
+  if ((process.env.POWERUSER_STATUSLINE_COMPACT ?? process.env.POWERUSER_STATUSLINE_COMPACT) === '1') {
     const segments = [`\x1b[2m${data.model?.display_name || 'Claude'}\x1b[0m`];
     if (task) segments.push(`\x1b[1;97m${task}\x1b[0m`);
     const usage = render.buildUsageLine(data.rate_limits, null, { compact: true });
@@ -148,14 +148,14 @@ function buildUsageLines(data, bridge, task) {
   });
 
   const plugins = render.readInstalledPlugins(undefined, data.workspace?.current_dir || process.cwd());
-  const eccLine = render.buildEccLine({
-    eccVersion: getPowerUserVersion(plugins),
+  const poweruserLine = render.buildPowerUserLine({
+    poweruserVersion: getPowerUserVersion(plugins),
     hooks: render.getHooksSummary(),
     plugins,
     dirname,
   });
 
-  return [usageLine, sessionLine, eccLine].filter(Boolean);
+  return [usageLine, sessionLine, poweruserLine].filter(Boolean);
 }
 
 function runStatusline() {
@@ -192,7 +192,7 @@ function runStatusline() {
       // Current task
       const task = sessionId ? readCurrentTask(sessionId) : '';
 
-      if ((process.env.POWERUSER_STATUSLINE_USAGE ?? process.env.ECC_STATUSLINE_USAGE) === '1') {
+      if ((process.env.POWERUSER_STATUSLINE_USAGE ?? process.env.POWERUSER_STATUSLINE_USAGE) === '1') {
         process.stdout.write(buildUsageLines(data, bridge, task).join('\n'));
         return;
       }

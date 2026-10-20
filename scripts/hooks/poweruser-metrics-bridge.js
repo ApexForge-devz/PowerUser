@@ -205,7 +205,7 @@ function run(rawInput) {
     const toolName = String(input.tool_name || '');
     const toolInput = input.tool_input || {};
 
-    const sessionId = sanitizeSessionId(input.session_id) || sanitizeSessionId(process.env.POWERUSER_SESSION_ID) || sanitizeSessionId(process.env.ECC_SESSION_ID) || sanitizeSessionId(process.env.CLAUDE_SESSION_ID);
+    const sessionId = sanitizeSessionId(input.session_id) || sanitizeSessionId(process.env.POWERUSER_SESSION_ID) || sanitizeSessionId(process.env.POWERUSER_SESSION_ID) || sanitizeSessionId(process.env.CLAUDE_SESSION_ID);
 
     if (!sessionId) return rawInput;
 
