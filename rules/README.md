@@ -63,30 +63,30 @@ rules/
 > common rules, and breaks the relative `../common/` references used by
 > language-specific files.
 >
-> Use the ECC-owned namespace below for user-level Claude installs. Flat
-> package-level destinations can collide with non-ECC rule packs and do not
+> Use the PowerUser-owned namespace below for user-level Claude installs. Flat
+> package-level destinations can collide with non-PowerUser rule packs and do not
 > match the main README guidance.
 
 ```bash
-# Create the ECC rule namespace once.
-mkdir -p ~/.claude/rules/ecc
+# Create the PowerUser rule namespace once.
+mkdir -p ~/.claude/rules/poweruser
 
 # Install common rules (required for all projects)
-cp -r rules/common ~/.claude/rules/ecc/
+cp -r rules/common ~/.claude/rules/poweruser/
 
 # Install language-specific rules based on your project's tech stack
-cp -r rules/typescript ~/.claude/rules/ecc/
-cp -r rules/angular ~/.claude/rules/ecc/
-cp -r rules/vue ~/.claude/rules/ecc/
-cp -r rules/nuxt ~/.claude/rules/ecc/
-cp -r rules/python ~/.claude/rules/ecc/
-cp -r rules/golang ~/.claude/rules/ecc/
-cp -r rules/web ~/.claude/rules/ecc/
-cp -r rules/react-native ~/.claude/rules/ecc/
-cp -r rules/swift ~/.claude/rules/ecc/
-cp -r rules/php ~/.claude/rules/ecc/
-cp -r rules/ruby ~/.claude/rules/ecc/
-cp -r rules/arkts ~/.claude/rules/ecc/
+cp -r rules/typescript ~/.claude/rules/poweruser/
+cp -r rules/angular ~/.claude/rules/poweruser/
+cp -r rules/vue ~/.claude/rules/poweruser/
+cp -r rules/nuxt ~/.claude/rules/poweruser/
+cp -r rules/python ~/.claude/rules/poweruser/
+cp -r rules/golang ~/.claude/rules/poweruser/
+cp -r rules/web ~/.claude/rules/poweruser/
+cp -r rules/react-native ~/.claude/rules/poweruser/
+cp -r rules/swift ~/.claude/rules/poweruser/
+cp -r rules/php ~/.claude/rules/poweruser/
+cp -r rules/ruby ~/.claude/rules/poweruser/
+cp -r rules/arkts ~/.claude/rules/poweruser/
 
 # Attention ! ! ! Configure according to your actual project requirements; the configuration here is for reference only.
 ```
@@ -94,9 +94,9 @@ cp -r rules/arkts ~/.claude/rules/ecc/
 For project-local rules, use the same namespace under the project root:
 
 ```bash
-mkdir -p .claude/rules/ecc
-cp -r rules/common .claude/rules/ecc/
-cp -r rules/typescript .claude/rules/ecc/
+mkdir -p .claude/rules/poweruser
+cp -r rules/common .claude/rules/poweruser/
+cp -r rules/typescript .claude/rules/poweruser/
 ```
 
 ## Rules vs Skills
