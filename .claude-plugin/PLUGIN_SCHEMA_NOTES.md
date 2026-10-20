@@ -151,7 +151,7 @@ The test `plugin.json does NOT have explicit hooks declaration` in `tests/hooks/
 
 POWERUSER keeps `.mcp.json` at the repository root for Codex plugin installs and manual MCP setup.
 Claude Code also auto-discovers plugin-root `.mcp.json` files by convention, which would bundle the same MCP servers into Claude plugin installs.
-The Claude plugin slug is intentionally short (`poweruser`), but this opt-out is still required because legacy installs and strict provider gateways have failed on generated names from longer plugin identifiers.
+The Claude plugin uses the stable slug `poweruser`. Keep this opt-out because strict provider gateways may reject generated MCP tool names that exceed their supported length.
 
 Keep this field in `.claude-plugin/plugin.json`:
 
