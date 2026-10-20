@@ -187,7 +187,7 @@ function checkCache(options) {
     } else {
       log(`No installed cache entries found for ${options.marketplace}/${options.plugin}.`);
       if (options.marketplace === 'poweruser' && options.plugin === 'poweruser') {
-        log('Run: codex plugin marketplace add affaan-m/POWERUSER');
+        log('Run: codex plugin marketplace add ApexForge-devz/PowerUser');
       } else {
         log('Install the requested plugin into the Codex plugin cache.');
       }
@@ -229,7 +229,7 @@ function checkCache(options) {
       log('Use the supported sync path until the cache contains the referenced files:');
       log('npm install && bash scripts/sync-poweruser-to-codex.sh');
     } else {
-      log('Use the supported manual sync workflow from your POWERUSER installation.');
+      log('Use the supported manual sync workflow from your PowerUser installation.');
     }
     return 1;
   }

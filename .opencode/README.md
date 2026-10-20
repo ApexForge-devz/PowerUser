@@ -1,7 +1,7 @@
 # OpenCode PowerUser Plugin
 
 > WARNING: This README is specific to OpenCode usage.
-> If you installed PowerUser via npm (e.g. `npm install PowerUser for OpenCode`), refer to the root README instead.
+> If you installed PowerUser via npm (e.g. `npm install poweruser-universal`), refer to the root README instead.
 
 PowerUser plugin for OpenCode - agents, commands, hooks, and skills.
 
@@ -12,7 +12,7 @@ PowerUser plugin for OpenCode - agents, commands, hooks, and skills.
 There are two ways to use PowerUser:
 
 1. **npm package (recommended for most users)**
-   Install via npm/bun/yarn and use the `PowerUser-install` CLI to set up rules and agents.
+   Install via npm/bun/yarn and use the `poweruser-install` CLI to set up rules and agents.
 
 2. **Direct clone / plugin mode**
    Clone the repository and run OpenCode directly inside it.
@@ -22,14 +22,14 @@ Choose the method that matches your workflow below.
 ### Option 1: npm Package
 
 ```bash
-npm install PowerUser-universal
+npm install poweruser-universal
 ```
 
 Add to your `opencode.json`:
 
 ```json
 {
-  "plugin": ["PowerUser-universal"]
+  "plugin": ["poweruser-universal"]
 }
 ```
 
@@ -41,10 +41,10 @@ It does **not** auto-register the full PowerUser command/agent/instruction catal
 - run OpenCode inside this repository, or
 - copy the relevant `.opencode/commands/`, `.opencode/prompts/`, `.opencode/instructions/`, and the `instructions`, `agent`, and `command` config entries into your own project
 
-After installation, the `PowerUser-install` CLI is also available:
+After installation, the `poweruser-install` CLI is also available:
 
 ```bash
-npx PowerUser-universal install typescript
+npx poweruser-universal install typescript
 ```
 
 ### Option 2: Direct Use
@@ -52,7 +52,7 @@ npx PowerUser-universal install typescript
 Clone and run OpenCode in the repository:
 
 ```bash
-git clone https://github.com/affaan-m/PowerUser
+git clone https://github.com/ApexForge-devz/PowerUser
 cd PowerUser
 opencode
 ```
@@ -186,12 +186,12 @@ OpenCode has 20+ additional events not available in Claude Code.
 OpenCode plugin hooks honor the same runtime controls used by Claude Code/Cursor:
 
 ```bash
-export PowerUser_HOOK_PROFILE=standard
-export PowerUser_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
+export POWERUSER_HOOK_PROFILE=standard
+export POWERUSER_DISABLED_HOOKS="pre:bash:tmux-reminder,post:edit:typecheck"
 ```
 
-- `PowerUser_HOOK_PROFILE`: `minimal`, `standard` (default), `strict`
-- `PowerUser_DISABLED_HOOKS`: comma-separated hook IDs to disable
+- `POWERUSER_HOOK_PROFILE`: `minimal`, `standard` (default), `strict`
+- `POWERUSER_DISABLED_HOOKS`: comma-separated hook IDs to disable
 
 ## Skills
 
@@ -243,6 +243,6 @@ selection, and its subagents inherit the invoking primary agent's model.
 MIT
 
 Home-target installations keep `plugins/index.ts` inert even with hooks enabled.
-OpenCode automatically loads `plugins/PowerUser-hooks.ts`; loading the barrel as well
+OpenCode automatically loads `plugins/poweruser-hooks.ts`; loading the barrel as well
 would initialize every PowerUser hook twice. The source and published package barrel
 remain available for module imports.
