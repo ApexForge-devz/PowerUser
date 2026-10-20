@@ -1,11 +1,11 @@
-# ECC for Hermes
+# PowerUser for Hermes
 
-This directory contains the ECC configuration for the Hermes harness.
+This directory contains the PowerUser configuration for the Hermes harness.
 
 ## What is installed
 
-- `rules/ecc/` — shared coding rules and guidelines
-- `skills/ecc/` — reusable skills
+- `rules/poweruser/` — shared coding rules and guidelines
+- `skills/poweruser/` — reusable skills
 - `commands/` — slash commands
 - `AGENTS.md` — agent instructions
 
@@ -17,5 +17,5 @@ bash ./install.sh --target hermes --profile minimal
 
 ## Notes
 
-- Hermes config files (`config.yaml`, `.env`, etc.) are **not** touched by ECC install.
-- Use `npx ecc-universal doctor --target hermes` to check install health.
+- Hermes config files (`config.yaml`, `.env`, etc.) are **not** touched by PowerUser install.
+- Use `npx poweruser-universal doctor --target hermes` to check install health.
