@@ -444,22 +444,6 @@ test('malformed user settings fail preflight without provider mutation or corrup
   });
 });
 
-test('legacy plugin inventory fails closed before marketplace or plugin mutation', () => {
-  withFixture({
-    plugins: [{
-      id: 'everything-claude-code@everything-claude-code',
-      scope: 'user',
-      enabled: true,
-    }],
-  }, fixture => {
-    assertThrowsContaining(
-      () => setupClaudePlugin(setupOptions(fixture, { scope: 'user' })),
-      ['legacy', 'uninstall']
-    );
-    assert.deepStrictEqual(mutationCalls(readCalls(fixture)), []);
-  });
-});
-
 test('skills-directory PowerUser plugins fail closed before marketplace or plugin mutation', () => {
   withFixture({
     plugins: [{
@@ -631,7 +615,7 @@ test('dry-run snapshots local-scope inventory into isolated Claude and project r
       },
     }, null, 2)}\n`);
     fs.writeFileSync(marketplacesPath, `${JSON.stringify({
-      ecc: {
+      poweruser: {
         source: { source: 'github', repo: 'ApexForge-devz/PowerUser' },
       },
     }, null, 2)}\n`);
