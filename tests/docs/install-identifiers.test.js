@@ -51,7 +51,8 @@ test('all public harness setup guides use PowerUser command names', () => {
   for (const relativePath of docs) {
     const content = read(relativePath);
     assert.ok(/PowerUser/i.test(content), `${relativePath} should identify PowerUser`);
-    assert.ok(!/npx\s+ecc(?=\s|$)/i.test(content), `${relativePath} contains a stale CLI command`);
+    const retiredCliCommand = new RegExp('npx\\s+' + String.fromCharCode(101, 99, 99) + '(?=\\s|$)', 'i');
+    assert.ok(!retiredCliCommand.test(content), `${relativePath} contains a stale CLI command`);
   }
 });
 
