@@ -274,7 +274,7 @@ function completeStaleOperationsReconciliation(migration, plan) {
         ? error.message
         : `it could not be verified or removed (${error.message})`;
       warnings.push(
-        `Preserved orphaned file ${candidate.destinationPath}: ECC no longer installs it and `
+        `Preserved orphaned file ${candidate.destinationPath}: PowerUser no longer installs it and `
         + `stopped tracking it, but ${reason}; remove it manually if unwanted.`
       );
     }

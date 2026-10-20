@@ -21,8 +21,8 @@ const SHARED_FILES = ['config.toml', 'AGENTS.md', 'strict.config.toml', 'yolo.co
 const TEMPLATES = {
   'strict.config.toml': 'sandbox_mode = "read-only"\n',
   'yolo.config.toml': 'sandbox_mode = "workspace-write"\n',
-  'config.toml': '# ECC defaults\nmodel = "example-model"\n',
-  'AGENTS.md': '# ECC instructions\n\nFollow the project conventions.\n',
+  'config.toml': '# PowerUser defaults\nmodel = "example-model"\n',
+  'AGENTS.md': '# PowerUser instructions\n\nFollow the project conventions.\n',
 };
 
 function writeFile(filePath, content) {
@@ -31,7 +31,7 @@ function writeFile(filePath, content) {
 }
 
 function createFixture(t) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-codex-preservation-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-codex-preservation-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const sourceRoot = path.join(root, 'source');
   const homeDir = path.join(root, 'home');
@@ -71,7 +71,7 @@ function createFixture(t) {
     sourceRoot,
     template: name => path.join(sourceRoot, '.codex', name === 'config.toml' ? USER_REFERENCE : name),
     destination: name => path.join(homeDir, '.codex', name),
-    statePath: path.join(homeDir, '.codex', 'ecc-install-state.json'),
+    statePath: path.join(homeDir, '.codex', 'poweruser-install-state.json'),
     plan,
     install: moduleIds => applyInstallPlan(plan(moduleIds)),
     repair: (dryRun = false) => repairInstalledStates({ ...lifecycleOptions, dryRun }),
@@ -211,7 +211,7 @@ for (const name of SHARED_FILES) {
         ...rawPlan.operations.filter(operation => operation.destinationPath === destination),
       ],
     };
-    const content = `${TEMPLATES[name]}\r\n# Saved while ECC was running\r\n`;
+    const content = `${TEMPLATES[name]}\r\n# Saved while PowerUser was running\r\n`;
     let wroteAnotherFile = false;
     let injectedEdit = false;
 
@@ -240,10 +240,10 @@ for (const name of SHARED_FILES) {
     assertPreserved(fixture, name, content);
   });
 
-  test(`repeated repair keeps edited Codex ${name} unmanaged while repairing an ECC script`, t => {
+  test(`repeated repair keeps edited Codex ${name} unmanaged while repairing an PowerUser script`, t => {
     const fixture = createFixture(t);
-    const scriptName = path.join('scripts', 'ecc-helper.js');
-    const scriptContent = 'module.exports = "ECC helper";\n';
+    const scriptName = path.join('scripts', 'poweruser-helper.js');
+    const scriptContent = 'module.exports = "PowerUser helper";\n';
     writeFile(path.join(fixture.sourceRoot, '.codex', scriptName), scriptContent);
     fixture.install();
     const content = `${TEMPLATES[name]}\n# Keep my preferences\n`;
@@ -255,7 +255,7 @@ for (const name of SHARED_FILES) {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       const before = lifecycleResult(fixture.doctor());
       assert.ok(!before.issues.some(issue => issue.code === 'drifted-managed-files'));
-      writeFile(fixture.destination(scriptName), 'damaged ECC helper\n');
+      writeFile(fixture.destination(scriptName), 'damaged PowerUser helper\n');
       const damaged = lifecycleResult(fixture.doctor());
       assert.ok(damaged.issues.some(issue => issue.code === 'drifted-managed-files'));
 
@@ -310,7 +310,7 @@ for (const name of SHARED_FILES) {
 
   test(`pre-existing Codex ${name} survives install, repair and uninstall`, t => {
     const fixture = createFixture(t);
-    const content = '# Personal file before ECC installation\r\n保持原样\r\n';
+    const content = '# Personal file before PowerUser installation\r\n保持原样\r\n';
     writeFile(fixture.destination(name), content);
 
     assertWarning(fixture.install(), name);

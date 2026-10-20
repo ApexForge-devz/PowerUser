@@ -5,7 +5,7 @@ const path = require('path');
 const { StringDecoder } = require('string_decoder');
 const { spawnSync } = require('child_process');
 const { ensureAgentDataHomeEnv } = require('../lib/agent-data-home');
-const { normalizePluginRootForPlatform } = require('../lib/resolve-ecc-root');
+const { normalizePluginRootForPlatform } = require('../lib/resolve-poweruser-root');
 const { resolveWindowsBashCandidates } = require('../lib/windows-bash');
 const { readStdinRaw: readBoundedStdin, resolveMaxStdin } = require('./hook-input');
 
@@ -44,11 +44,11 @@ function passthrough(result) {
       ? result.stdout
       : Buffer.alloc(0);
   if (stdout.length > 0) {
-    // Most ECC hook scripts follow a `run(rawInput) -> rawInput` passthrough
+    // Most PowerUser hook scripts follow a `run(rawInput) -> rawInput` passthrough
     // pattern: they do their work, then return the original input so the hook
     // chain's tool result is preserved. The harness then writes the verbatim
     // raw input (tool_input + tool_response, often 1-275 KB) into the session
-    // transcript as a hook_success attachment -- ~89% of every ECC session's
+    // transcript as a hook_success attachment -- ~89% of every PowerUser session's
     // transcript is this bloat. Detect the passthrough and emit empty stdout
     // instead; the harness falls back to the tool_use's original result, the
     // same path #2240 established for bash-hook-dispatcher.
@@ -174,10 +174,10 @@ function spawnNode(rootDir, relPath, raw, args, options = {}) {
   const hookEnv = {
     ...process.env,
     CLAUDE_PLUGIN_ROOT: rootDir,
-    ECC_PLUGIN_ROOT: rootDir,
-    ECC_HOOK_INPUT_MAX_BYTES: String(options.maxStdin),
-    ECC_HOOK_INPUT_TRUNCATED_UPSTREAM: options.truncated ? '1' : '0',
-    ECC_HOOK_CONTEXT_JSON: JSON.stringify(options.hookContext || {}),
+    POWERUSER_PLUGIN_ROOT: rootDir,
+    POWERUSER_HOOK_INPUT_MAX_BYTES: String(options.maxStdin),
+    POWERUSER_HOOK_INPUT_TRUNCATED_UPSTREAM: options.truncated ? '1' : '0',
+    POWERUSER_HOOK_CONTEXT_JSON: JSON.stringify(options.hookContext || {}),
   };
   const result = spawnSync(process.execPath, [resolveTarget(rootDir, relPath), ...args], {
     input: raw,
@@ -207,10 +207,10 @@ function spawnShell(rootDir, relPath, raw, args, options = {}) {
   const hookEnv = {
     ...process.env,
     CLAUDE_PLUGIN_ROOT: rootDir,
-    ECC_PLUGIN_ROOT: rootDir,
-    ECC_HOOK_INPUT_MAX_BYTES: String(options.maxStdin),
-    ECC_HOOK_INPUT_TRUNCATED_UPSTREAM: options.truncated ? '1' : '0',
-    ECC_HOOK_CONTEXT_JSON: JSON.stringify(options.hookContext || {}),
+    POWERUSER_PLUGIN_ROOT: rootDir,
+    POWERUSER_HOOK_INPUT_MAX_BYTES: String(options.maxStdin),
+    POWERUSER_HOOK_INPUT_TRUNCATED_UPSTREAM: options.truncated ? '1' : '0',
+    POWERUSER_HOOK_CONTEXT_JSON: JSON.stringify(options.hookContext || {}),
   };
   const scriptPath = resolveTarget(rootDir, relPath);
   const isPs = isPowerShellBin(shell);
@@ -254,7 +254,7 @@ function spawnShell(rootDir, relPath, raw, args, options = {}) {
 
 async function main() {
   const [, , mode, relPath, ...args] = process.argv;
-  const maxStdin = resolveMaxStdin(process.env.ECC_HOOK_INPUT_MAX_BYTES, {
+  const maxStdin = resolveMaxStdin(process.env.POWERUSER_HOOK_INPUT_MAX_BYTES, {
     writeDiagnostic: message => process.stderr.write(message)
   });
   const contextDecoder = new StringDecoder('utf8');
@@ -266,7 +266,7 @@ async function main() {
   contextScanner.push(contextDecoder.end());
   const hookContext = contextScanner.context;
   const rootDir = normalizePluginRootForPlatform(
-    process.env.QODER_PLUGIN_ROOT || process.env.CLAUDE_PLUGIN_ROOT || process.env.ECC_PLUGIN_ROOT
+    process.env.QODER_PLUGIN_ROOT || process.env.CLAUDE_PLUGIN_ROOT || process.env.POWERUSER_PLUGIN_ROOT
   );
 
   if (!mode || !relPath || !rootDir) {

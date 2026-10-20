@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ECC Install Modules",
+  "title": "PowerUser Install Modules",
   "type": "object",
   "properties": {
     "version": {
@@ -50,20 +50,10 @@
               "enum": [
                 "claude",
                 "claude-project",
-                "cursor",
-                "antigravity",
                 "codex",
-                "copilot",
-                "gemini",
-                "opencode",
-                "codebuddy",
-                "joycode",
-                "qwen",
-                "zed",
                 "hermes",
-                "openclaw",
                 "kimi",
-                "adal"
+                "opencode"
               ]
             }
           },

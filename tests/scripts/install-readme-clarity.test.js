@@ -55,10 +55,10 @@ function runTests() {
 
   if (test('README leads with the idempotent guided plugin setup path', () => {
     const topClaudeSectionIndex = readme.indexOf('## Install with Claude Code');
-    const topGuidedCommandIndex = readme.indexOf(`npx ecc-universal@${version} setup`, topClaudeSectionIndex);
+    const topGuidedCommandIndex = readme.indexOf(`npx poweruser-universal@${version} setup`, topClaudeSectionIndex);
     const nativePluginCommandIndex = readme.indexOf('/plugin marketplace add', topClaudeSectionIndex);
-    const installSectionIndex = readme.indexOf('## Install ECC');
-    const guidedCommandIndex = readme.indexOf(`npx ecc-universal@${version} setup`, installSectionIndex);
+    const installSectionIndex = readme.indexOf('## Install PowerUser');
+    const guidedCommandIndex = readme.indexOf(`npx poweruser-universal@${version} setup`, installSectionIndex);
     const claudeDetailsIndex = readme.indexOf('### Claude Code details', installSectionIndex);
 
     assert.ok(
@@ -75,15 +75,15 @@ function runTests() {
       'README should show the recommended universal command before provider-specific details'
     );
     assert.ok(
-      readme.includes('installs, updates, or safely moves `ecc@ecc`'),
+      readme.includes('installs, updates, or safely moves `poweruser@poweruser`'),
       'README should explain that rerunning guided setup reconciles existing installs'
     );
     assert.ok(
       readme.includes('Claude Code owns these built-in commands'),
-      'README should distinguish provider-owned slash behavior from ECC setup behavior'
+      'README should distinguish provider-owned slash behavior from PowerUser setup behavior'
     );
     assert.ok(
-      readme.includes('`/ecc:configure-ecc`'),
+      readme.includes('`/poweruser:configure-poweruser`'),
       'README should document the installed namespaced reconfiguration skill'
     );
     assert.ok(
@@ -92,14 +92,14 @@ function runTests() {
     );
     assert.ok(
       readme.includes('currently configures the Claude Code plugin'),
-      'README should not imply that the current setup wizard installs every ECC harness'
+      'README should not imply that the current setup wizard installs every PowerUser harness'
     );
   })) passed++; else failed++;
 
   if (test('README documents modern package-runner alternatives', () => {
-    assert.ok(readme.includes(`pnpm dlx ecc-universal@${version} setup`));
-    assert.ok(readme.includes(`yarn dlx ecc-universal@${version} setup`));
-    assert.ok(readme.includes(`bunx ecc-universal@${version} setup`));
+    assert.ok(readme.includes(`pnpm dlx poweruser-universal@${version} setup`));
+    assert.ok(readme.includes(`yarn dlx poweruser-universal@${version} setup`));
+    assert.ok(readme.includes(`bunx poweruser-universal@${version} setup`));
     assert.ok(
       readme.includes('Yarn Classic 1 does not provide `yarn dlx`'),
       'README should not advertise the modern Yarn command to Yarn Classic users'
@@ -108,7 +108,7 @@ function runTests() {
 
   if (test('README documents reset and uninstall flow', () => {
     assert.ok(
-      readme.includes('### Reset / Uninstall ECC'),
+      readme.includes('### Reset / Uninstall PowerUser'),
       'README should have a visible reset/uninstall section'
     );
     assert.ok(
@@ -116,18 +116,18 @@ function runTests() {
       'README should document dry-run uninstall'
     );
     assert.ok(
-      readme.includes('node scripts/ecc.js list-installed'),
+      readme.includes('node scripts/poweruser.js list-installed'),
       'README should document install-state inspection before reinstalling'
     );
     assert.ok(
-      readme.includes('node scripts/ecc.js doctor'),
+      readme.includes('node scripts/poweruser.js doctor'),
       'README should document doctor before reinstalling'
     );
     for (const command of [
-      `npx ecc-universal@${version} list-installed`,
-      `npx ecc-universal@${version} doctor`,
-      `npx ecc-universal@${version} repair`,
-      `npx ecc-universal@${version} uninstall --dry-run`,
+      `npx poweruser-universal@${version} list-installed`,
+      `npx poweruser-universal@${version} doctor`,
+      `npx poweruser-universal@${version} repair`,
+      `npx poweruser-universal@${version} uninstall --dry-run`,
     ]) {
       assert.ok(
         readme.includes(command),
@@ -135,7 +135,7 @@ function runTests() {
       );
     }
     assert.ok(
-      readme.includes('ECC only removes files recorded in its install-state.'),
+      readme.includes('PowerUser only removes files recorded in its install-state.'),
       'README should explain uninstall safety boundaries'
     );
   })) passed++; else failed++;
@@ -150,12 +150,12 @@ function runTests() {
       'README should document the shell minimal profile command'
     );
     assert.ok(
-      readme.includes(`npx ecc-universal@${version} install --profile minimal --target claude`),
+      readme.includes(`npx poweruser-universal@${version} install --profile minimal --target claude`),
       'README should document the published universal-package minimal profile command'
     );
     assert.ok(
-      !/^\s*npx ecc-install\b/m.test(readme),
-      'README code examples must not invoke the unpublished ecc-install package'
+      !/^\s*npx poweruser-install\b/m.test(readme),
+      'README code examples must not invoke the unpublished poweruser-install package'
     );
     assert.ok(
       readme.includes('--profile core --without baseline:hooks --target claude'),
@@ -177,7 +177,7 @@ function runTests() {
       'README should surface component discovery before install steps'
     );
     assert.ok(
-      readme.includes(`npx ecc-universal@${version} consult "security reviews" --target claude`),
+      readme.includes(`npx poweruser-universal@${version} consult "security reviews" --target claude`),
       'README should document the packaged consult command'
     );
     assert.ok(
@@ -186,24 +186,24 @@ function runTests() {
     );
   })) passed++; else failed++;
 
-  if (test('README never invokes the unrelated ecc npm package', () => {
+  if (test('README never invokes the unrelated poweruser npm package', () => {
     assert.ok(
-      !/\bnpx ecc\s/.test(readme),
-      'README one-shot commands should use the published ecc-universal package name'
+      !/\bnpx poweruser\s/.test(readme),
+      'README one-shot commands should use the published poweruser-universal package name'
     );
   })) passed++; else failed++;
 
   if (test('README gives the native guided Codex and managed Kimi dry-run paths', () => {
     assert.ok(
-      readme.includes(`npx ecc-universal@${version} install --guided --harness codex --dry-run`),
+      readme.includes(`npx poweruser-universal@${version} install --guided --harness codex --dry-run`),
       'README should verify Codex through the native guided reconciler'
     );
     assert.ok(
-      !readme.includes(`npx ecc-universal@${version} install --profile core --target codex --dry-run`),
+      !readme.includes(`npx poweruser-universal@${version} install --profile core --target codex --dry-run`),
       'README should not present the legacy managed Codex adapter as the native lifecycle'
     );
     assert.ok(
-      readme.includes(`npx ecc-universal@${version} install --profile core --target kimi --dry-run`)
+      readme.includes(`npx poweruser-universal@${version} install --profile core --target kimi --dry-run`)
     );
     for (const target of ['cursor', 'gemini', 'opencode', 'codebuddy', 'joycode', 'qwen', 'zed', 'hermes', 'openclaw']) {
       assert.ok(readme.includes(`\`${target}\``), `README should name the ${target} target`);
@@ -213,7 +213,7 @@ function runTests() {
   if (test('README describes the post-release universal install contract', () => {
     assert.ok(
       readme.includes('Node.js 18 or newer'),
-      'README should state the runtime required by ecc-universal'
+      'README should state the runtime required by poweruser-universal'
     );
     assert.ok(
       !readme.includes('During registry propagation'),
@@ -228,7 +228,7 @@ function runTests() {
       'README capability map should describe the native Codex skill set'
     );
     assert.ok(
-      readme.includes('| ECC hooks | Native plugin hooks | Native reviewed subset with explicit trust |'),
+      readme.includes('| PowerUser hooks | Native plugin hooks | Native reviewed subset with explicit trust |'),
       'README capability map should describe the native Codex hook subset'
     );
     assert.ok(
@@ -240,7 +240,7 @@ function runTests() {
       'README should not deny the shipped native Codex hook subset'
     );
     assert.ok(
-      readme.includes("# Recommended current install: add ECC's native plugin from the repo marketplace"),
+      readme.includes("# Recommended current install: add PowerUser's native plugin from the repo marketplace"),
       'README Codex detail should lead with the native plugin install'
     );
     assert.ok(
@@ -248,7 +248,7 @@ function runTests() {
       'README Codex detail should label the sync path as compatibility-only'
     );
     assert.ok(
-      !readme.includes('# Automatic setup: sync ECC assets'),
+      !readme.includes('# Automatic setup: sync PowerUser assets'),
       'README should not present the legacy Codex sync as the primary setup'
     );
     assert.ok(
@@ -263,7 +263,7 @@ function runTests() {
 
   if (test('README documents Cursor agent namespace and loading caveat', () => {
     assert.ok(
-      readme.includes('`.cursor/agents/ecc-*.md`'),
+      readme.includes('`.cursor/agents/poweruser-*.md`'),
       'README should document the Cursor agent namespace'
     );
     assert.ok(
@@ -271,7 +271,7 @@ function runTests() {
       'README should avoid overclaiming Cursor agent loading semantics'
     );
     assert.ok(
-      readme.includes('ECC does not install root `AGENTS.md` into `.cursor/`.'),
+      readme.includes('PowerUser does not install root `AGENTS.md` into `.cursor/`.'),
       'README should explain why root AGENTS.md is not copied into Cursor context'
     );
   })) passed++; else failed++;
@@ -286,27 +286,27 @@ function runTests() {
       'README should steer users away from copying every rules directory'
     );
     assert.ok(
-      readme.includes('~/.claude/rules/ecc/'),
-      'README should steer plugin-path rules into an ECC-owned namespace'
+      readme.includes('~/.claude/rules/poweruser/'),
+      'README should steer plugin-path rules into an PowerUser-owned namespace'
     );
   })) passed++; else failed++;
 
-  if (test('rules README mirrors ECC namespaced install path', () => {
+  if (test('rules README mirrors PowerUser namespaced install path', () => {
     assert.ok(
-      rulesReadme.includes('mkdir -p ~/.claude/rules/ecc'),
-      'rules README should create the ECC-owned user-level rules namespace'
+      rulesReadme.includes('mkdir -p ~/.claude/rules/poweruser'),
+      'rules README should create the PowerUser-owned user-level rules namespace'
     );
     assert.ok(
-      rulesReadme.includes('cp -r rules/common ~/.claude/rules/ecc/'),
-      'rules README should copy common rules under ~/.claude/rules/ecc/'
+      rulesReadme.includes('cp -r rules/common ~/.claude/rules/poweruser/'),
+      'rules README should copy common rules under ~/.claude/rules/poweruser/'
     );
     assert.ok(
-      rulesReadme.includes('cp -r rules/typescript ~/.claude/rules/ecc/'),
-      'rules README should copy language rules under ~/.claude/rules/ecc/'
+      rulesReadme.includes('cp -r rules/typescript ~/.claude/rules/poweruser/'),
+      'rules README should copy language rules under ~/.claude/rules/poweruser/'
     );
     assert.ok(
-      rulesReadme.includes('mkdir -p .claude/rules/ecc'),
-      'rules README should document the project-local ECC namespace'
+      rulesReadme.includes('mkdir -p .claude/rules/poweruser'),
+      'rules README should document the project-local PowerUser namespace'
     );
     assert.ok(
       !rulesReadme.includes('~/.claude/rules/typescript'),
@@ -315,14 +315,14 @@ function runTests() {
   })) passed++; else failed++;
 
   if (test('README binds package runners to the release and avoids unaudited bootstraps', () => {
-    const runners = [...readme.matchAll(/(?:npx |pnpm dlx |yarn dlx |bunx )(ecc-universal[^\s`]+)/g)];
+    const runners = [...readme.matchAll(/(?:npx |pnpm dlx |yarn dlx |bunx )(poweruser-universal[^\s`]+)/g)];
     assert.ok(runners.length >= 15);
-    for (const match of runners) assert.strictEqual(match[1], `ecc-universal@${version}`);
-    assert.ok(!/npx (?:-y )?(?:ecc-agentshield|ccg-workflow)/.test(readme));
+    for (const match of runners) assert.strictEqual(match[1], `poweruser-universal@${version}`);
+    assert.ok(!/npx (?:-y )?(?:poweruser-agentshield|ccg-workflow)/.test(readme));
     assert.ok(!/npm install -g opencode(?:\s|$)/m.test(readme));
     assert.match(readme, /version pin is not a security audit/i);
     assert.match(readme, /already installed.*reviewed.*AgentShield/i);
-    assert.ok(readme.includes(`https://www.npmjs.com/package/ecc-universal/v/${version}`));
+    assert.ok(readme.includes(`https://www.npmjs.com/package/poweruser-universal/v/${version}`));
   })) passed++; else failed++;
 
   console.log(`\nResults: Passed: ${passed}, Failed: ${failed}`);

@@ -65,7 +65,7 @@ tools: Read, Glob, Grep
 ```
 
 Do not use a YAML sequence such as `tools: [Read, Glob, Grep]`. Omitting the
-`tools` field grants the agent access to all tools, but ECC agents declare
+`tools` field grants the agent access to all tools, but POWERUSER agents declare
 explicit allowlists and the repository validator requires the field.
 
 ---
@@ -149,9 +149,9 @@ The test `plugin.json does NOT have explicit hooks declaration` in `tests/hooks/
 
 ## The `mcpServers` Field: Keep the Empty Opt-Out
 
-ECC keeps `.mcp.json` at the repository root for Codex plugin installs and manual MCP setup.
+POWERUSER keeps `.mcp.json` at the repository root for Codex plugin installs and manual MCP setup.
 Claude Code also auto-discovers plugin-root `.mcp.json` files by convention, which would bundle the same MCP servers into Claude plugin installs.
-The Claude plugin slug is intentionally short (`ecc`), but this opt-out is still required because legacy installs and strict provider gateways have failed on generated names from longer plugin identifiers.
+The Claude plugin uses the stable slug `poweruser`. Keep this opt-out because strict provider gateways may reject generated MCP tool names that exceed their supported length.
 
 Keep this field in `.claude-plugin/plugin.json`:
 
@@ -161,8 +161,8 @@ Keep this field in `.claude-plugin/plugin.json`:
 }
 ```
 
-This explicit empty object prevents Claude plugin installs from auto-loading ECC's root MCP definitions.
-Without the opt-out, strict OpenAI-compatible gateways can reject long plugin MCP tool names such as the legacy-install name `mcp__plugin_everything-claude-code_github__create_pull_request_review` because they exceed 64 characters.
+This explicit empty object prevents Claude plugin installs from auto-loading POWERUSER's root MCP definitions.
+Without the opt-out, strict OpenAI-compatible gateways can reject long plugin MCP tool names such as the legacy-install name `mcp__plugin_poweruser_github__create_pull_request_review` because they exceed 64 characters.
 
 Users who want the bundled MCP servers should configure them manually from `.mcp.json` or `mcp-configs/mcp-servers.json`.
 

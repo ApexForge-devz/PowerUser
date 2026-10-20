@@ -1,12 +1,12 @@
 ---
 name: database-migration
-description: Workflow command scaffold for database-migration in ECC.
+description: Workflow command scaffold for database-migration in PowerUser.
 allowed-tools: ["Bash", "Read", "Write", "Grep", "Glob"]
 ---
 
 # /database-migration
 
-Use this workflow when working on **database-migration** in ECC.
+Use this workflow when working on **database-migration** in PowerUser.
 
 ## Goal
 

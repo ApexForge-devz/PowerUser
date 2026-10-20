@@ -1,24 +1,22 @@
 {
-  "name": "ecc",
+  "name": "poweruser",
   "owner": {
-    "name": "Affaan Mustafa",
-    "email": "me@affaanmustafa.com"
+    "name": "ApexForge-devz"
   },
   "metadata": {
-    "description": "Harness-native ECC skills, hooks, rules, MCP conventions, and operator workflows"
+    "description": "PowerUser skills, hooks, rules, MCP conventions, and agent workflows"
   },
   "plugins": [
     {
-      "name": "ecc",
+      "name": "poweruser",
       "source": "./",
-      "description": "Harness-native ECC operator layer - 71 agents, 311 skills, 97 legacy command shims, reusable hooks, rules, selective install profiles, and production-ready workflows for Claude Code, Codex, OpenCode, Cursor, and related agent harnesses",
+      "description": "PowerUser operator layer: 71 agents, 311 skills, 97 legacy command shims, selective install profiles, and production engineering workflows.",
       "version": "2.2.3",
       "author": {
-        "name": "Affaan Mustafa",
-        "email": "me@affaanmustafa.com"
+        "name": "ApexForge-devz"
       },
-      "homepage": "https://ecc.tools",
-      "repository": "https://github.com/affaan-m/ECC",
+      "homepage": "https://github.com/ApexForge-devz/PowerUser",
+      "repository": "https://github.com/ApexForge-devz/PowerUser",
       "license": "MIT",
       "keywords": [
         "agents",

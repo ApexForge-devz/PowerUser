@@ -2,7 +2,7 @@
 name: context-budget
 description: Routes live context checks to the native Codex or Claude Code meter without scanning files, and performs a bounded static component audit only when explicitly requested. Use for context-budget requests about remaining capacity or installed context overhead.
 metadata:
-  origin: ECC
+  origin: PowerUser
 ---
 
 # Context Budget
@@ -30,7 +30,7 @@ Route by the active harness:
 | Codex CLI | `/status` | Shows current token usage and remaining context capacity. Use `/statusline` and enable **Context stats** plus **Token counters** for a persistent footer meter. |
 | Codex app | `/status` | Shows current thread context usage and rate limits. |
 | Claude Code | `/context` | Shows the live context breakdown. Use `/context all` for expanded items. |
-| Other or unknown | None verified | State that ECC cannot read live provider state and ask which harness is active. |
+| Other or unknown | None verified | State that PowerUser cannot read live provider state and ask which harness is active. |
 
 These commands are documented in the [Codex command reference](https://developers.openai.com/codex/cli/slash-commands) and [Claude Code command reference](https://code.claude.com/docs/en/commands).
 

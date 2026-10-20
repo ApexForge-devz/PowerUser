@@ -25,7 +25,7 @@ function test(desc, fn) {
 }
 
 function runWorker({ policy, exitCode = 0, outsideTask = false, relativeTask = false } = {}) {
-  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-orch-worker-'));
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-orch-worker-'));
   const binDir = path.join(tempRoot, 'bin');
   const captureFile = path.join(tempRoot, 'args.json');
   const taskFile = outsideTask ? `${tempRoot}-outside.md` : path.join(tempRoot, 'task.md');
@@ -38,7 +38,7 @@ function runWorker({ policy, exitCode = 0, outsideTask = false, relativeTask = f
     fs.writeFileSync(path.join(binDir, 'codex'), `#!/usr/bin/env node
 const fs = require('fs');
 const args = process.argv.slice(2);
-fs.writeFileSync(process.env.ECC_TEST_CAPTURE, JSON.stringify(args));
+fs.writeFileSync(process.env.POWERUSER_TEST_CAPTURE, JSON.stringify(args));
 // Approval is a global option, not an exec option in current Codex CLI.
 const execIndex = args.indexOf('exec');
 if (execIndex < 0 || args.indexOf('--ask-for-approval') > execIndex) {
@@ -47,16 +47,16 @@ if (execIndex < 0 || args.indexOf('--ask-for-approval') > execIndex) {
 }
 const outputIndex = args.indexOf('-o');
 fs.writeFileSync(args[outputIndex + 1], 'Completed the focused task.');
-process.exit(Number(process.env.ECC_TEST_EXIT));
+process.exit(Number(process.env.POWERUSER_TEST_EXIT));
 `, { mode: 0o755 });
     spawnSync('git', ['init'], { cwd: tempRoot, stdio: 'ignore' });
     const env = { ...process.env,
       PATH: `${binDir}${path.delimiter}${process.env.PATH}`,
-      ECC_TEST_CAPTURE: captureFile,
-      ECC_TEST_EXIT: String(exitCode)
+      POWERUSER_TEST_CAPTURE: captureFile,
+      POWERUSER_TEST_EXIT: String(exitCode)
     };
-    if (policy === undefined) delete env.ECC_CODEX_APPROVAL_POLICY;
-    else env.ECC_CODEX_APPROVAL_POLICY = policy;
+    if (policy === undefined) delete env.POWERUSER_CODEX_APPROVAL_POLICY;
+    else env.POWERUSER_CODEX_APPROVAL_POLICY = policy;
     const result = spawnSync('bash', [SCRIPT, relativeTask ? 'task.md' : taskFile, handoffFile, statusFile], {
       cwd: tempRoot, env, encoding: 'utf8', timeout: 10000
     });
@@ -118,7 +118,7 @@ test('records failure artifacts when a started worker exits nonzero', () => {
 });
 
 test('fails fast for an unreadable task file and records failure artifacts', () => {
-  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-orch-worker-'));
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-orch-worker-'));
   const handoffFile = path.join(tempRoot, '.orchestration', 'docs', 'handoff.md');
   const statusFile = path.join(tempRoot, '.orchestration', 'docs', 'status.md');
   const missingTaskFile = path.join(tempRoot, '.orchestration', 'docs', 'task.md');

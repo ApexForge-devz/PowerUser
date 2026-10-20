@@ -40,15 +40,9 @@ test('adapter compliance matrix covers the required harness surfaces', () => {
   for (const harness of [
     'Claude Code',
     'Codex',
+    'Hermes',
+    'Kimi',
     'OpenCode',
-    'Cursor',
-    'Gemini',
-    'Zed',
-    'dmux',
-    'Orca',
-    'Superset',
-    'Ghast',
-    'Terminal-only'
   ]) {
     assert.ok(source.includes(harness), `Expected matrix to include ${harness}`);
   }
@@ -57,12 +51,10 @@ test('adapter compliance matrix covers the required harness surfaces', () => {
 test('adapter compliance source data validates required evidence fields', () => {
   assert.deepStrictEqual(validateAdapterRecords(), []);
 
-  const zedRecord = ADAPTER_RECORDS.find(record => record.id === 'zed');
-  assert.ok(zedRecord, 'Expected Zed adapter record');
-  assert.strictEqual(zedRecord.state, 'Adapter-backed');
-  assert.ok(
-    zedRecord.install_or_onramp.includes('`./install.sh --profile minimal --target zed`'),
-    'Expected Zed installer onramp'
+  assert.deepStrictEqual(
+    ADAPTER_RECORDS.map(record => record.id).sort(),
+    ['claude-code', 'codex', 'hermes', 'kimi', 'opencode'].sort(),
+    'Only the five requested coding-agent integrations should be registered'
   );
 
   for (const record of ADAPTER_RECORDS) {
@@ -131,7 +123,7 @@ test('adapter compliance CLI emits machine-readable scorecard data', () => {
   assert.strictEqual(parsed.schema_version, 'ecc.harness-adapter-compliance.v1');
   assert.strictEqual(parsed.valid, true);
   assert.strictEqual(parsed.adapter_count, ADAPTER_RECORDS.length);
-  assert.ok(parsed.adapters.some(record => record.id === 'terminal-only'));
+  assert.deepStrictEqual(parsed.adapters.map(record => record.id).sort(), ['claude-code', 'codex', 'hermes', 'kimi', 'opencode'].sort());
 });
 
 test('cross-harness architecture links to the adapter compliance matrix', () => {

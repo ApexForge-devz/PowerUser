@@ -5,13 +5,7 @@ const os = require('os');
 const path = require('path');
 const { isWithinRoot, realpathNearestExisting } = require('../path-safety');
 
-const CURRENT_PLUGIN_ID = 'ecc@ecc';
-// Legacy plugin ids, kept so existing installs are still recognized.
-const LEGACY_PLUGIN_IDS = new Set([
-  'everything-claude-code@everything-claude-code',
-  'everything-claude-code@ecc',
-]);
-
+const CURRENT_PLUGIN_ID = 'poweruser@poweruser';
 function resolveClaudePaths(options = {}) {
   const homeDir = options.homeDir
     || process.env.HOME
@@ -46,13 +40,8 @@ function findManualClaudePlugin(options = {}) {
   const { configDir } = resolveClaudePaths(options);
   const pluginsDir = path.join(configDir, 'plugins');
   const candidates = [
-    ['ecc', '.claude-plugin', 'plugin.json'],
-    ['ecc', 'plugin.json'],
-    ['ecc@ecc', '.claude-plugin', 'plugin.json'],
-    ['ecc@ecc', 'plugin.json'],
-    // Legacy install dir, kept for existing installs.
-    ['everything-claude-code', '.claude-plugin', 'plugin.json'],
-    ['everything-claude-code', 'plugin.json'],
+    ['poweruser', '.claude-plugin', 'plugin.json'],
+    ['poweruser', 'plugin.json'],
   ];
 
   for (const segments of candidates) {
@@ -71,7 +60,7 @@ function validateManagedState(state, statePath, expectedRoot) {
   const selectedModules = state?.resolution?.selectedModules;
   const operations = state?.operations;
   if (
-    state?.schemaVersion !== 'ecc.install.v1'
+    state?.schemaVersion !== 'poweruser.install.v1'
     || !state.target
     || typeof state.target !== 'object'
     || Array.isArray(state.target)
@@ -109,11 +98,11 @@ function findManagedClaudeInstalls(options = {}) {
   const { configDir, projectRoot } = resolveClaudePaths(options);
   const candidates = [
     {
-      statePath: path.join(configDir, 'ecc', 'install-state.json'),
+      statePath: path.join(configDir, 'poweruser', 'install-state.json'),
       expectedRoot: configDir,
     },
     {
-      statePath: path.join(projectRoot, '.claude', 'ecc', 'install-state.json'),
+      statePath: path.join(projectRoot, '.claude', 'poweruser', 'install-state.json'),
       expectedRoot: path.join(projectRoot, '.claude'),
     },
   ];
@@ -143,8 +132,7 @@ function findManagedClaudeInstalls(options = {}) {
 
 module.exports = {
   CURRENT_PLUGIN_ID,
-  LEGACY_PLUGIN_IDS,
-  findManagedClaudeInstalls,
+findManagedClaudeInstalls,
   findManualClaudePlugin,
   resolveClaudePaths,
 };

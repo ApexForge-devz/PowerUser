@@ -24,7 +24,6 @@ const COMPONENT_FAMILY_PREFIXES = {
   language: 'lang:',
   framework: 'framework:',
   capability: 'capability:',
-  locale: 'locale:',
 };
 
 function readJson(filePath, label) {

@@ -7,12 +7,12 @@ const { materializeManagedHooks } = require('../../scripts/lib/install/claude-se
 function config(command) {
   return {
     hooks: {
-      Stop: [{ id: 'ecc:array', hooks: [{ type: 'command', command }] }],
+      Stop: [{ id: 'poweruser:array', hooks: [{ type: 'command', command }] }],
     },
   };
 }
 
-function materialize(command, root = '/opt/ecc') {
+function materialize(command, root = '/opt/poweruser') {
   return materializeManagedHooks(config(command), root).Stop[0].hooks[0].command;
 }
 
@@ -25,14 +25,14 @@ const tests = [
       '--unchanged',
     ]);
     const before = JSON.parse(JSON.stringify(source));
-    const command = materializeManagedHooks(source, '/opt/ecc').Stop[0].hooks[0].command;
+    const command = materializeManagedHooks(source, '/opt/poweruser').Stop[0].hooks[0].command;
     assert.deepStrictEqual(source, before);
     assert.notStrictEqual(command, source.hooks.Stop[0].hooks[0].command);
     assert.ok(command.slice(0, 2).every(value => !value.includes('process.env.CLAUDE_PLUGIN_ROOT')));
-    assert.deepStrictEqual(command.slice(2), ['/opt/ecc/scripts/start.js', '--unchanged']);
+    assert.deepStrictEqual(command.slice(2), ['/opt/poweruser/scripts/start.js', '--unchanged']);
   }],
   ['array argv commands execute with the exact root in a clean process', () => {
-    const root = '/tmp/ECC space/\'"$`\\路径';
+    const root = '/tmp/PowerUser space/\'"$`\\路径';
     const command = materialize([
       process.execPath,
       '-e',

@@ -13,7 +13,7 @@ const { uninstallInstalledStates } = require('../../scripts/lib/install-lifecycl
 let passed = 0;
 let failed = 0;
 function test(name, fn) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-ownership-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-ownership-'));
   try {
     const projectRoot = path.join(root, 'project');
     const homeDir = path.join(root, 'home');
@@ -164,9 +164,9 @@ test('global CLI dry-run preserves installed files, state and canonical database
     ...process.env, HOME: context.homeDir, USERPROFILE: context.homeDir,
     CODEX_HOME: path.join(context.homeDir, '.codex'),
     XDG_CONFIG_HOME: path.join(context.homeDir, '.config'),
-    ECC_DRY_RUN: '0',
+    PowerUser_DRY_RUN: '0',
   };
-  const cli = path.join(__dirname, '../../scripts/ecc.js');
+  const cli = path.join(__dirname, '../../scripts/poweruser.js');
   for (const args of [['--dry-run', 'uninstall'], ['uninstall', '--dry-run']]) {
     const stdout = execFileSync(process.execPath, [cli, ...args, '--target', 'cursor'], {
       cwd: context.projectRoot, env, encoding: 'utf8', timeout: 30000,

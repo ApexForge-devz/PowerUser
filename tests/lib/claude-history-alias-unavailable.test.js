@@ -7,7 +7,7 @@ const path = require('path');
 const { createClaudeHistoryAdapter } = require('../../scripts/lib/session-adapters/claude-history');
 const aliases = require('../../scripts/lib/session-aliases');
 
-const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-history-alias-read-')));
+const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-history-alias-read-')));
 const data = path.join(root, '.claude');
 const sessions = path.join(data, 'session-data');
 fs.mkdirSync(sessions, { recursive: true });
@@ -24,9 +24,9 @@ const collisionNames = ['a', prefix, id, 'kept'];
 const aliasBytes = JSON.stringify({ version: '1.0', aliases: Object.fromEntries(
   collisionNames.map(alias => [alias, { sessionPath: sessionB }])) });
 fs.writeFileSync(aliasPath, aliasBytes);
-const keys = ['HOME', 'USERPROFILE', 'ECC_AGENT_DATA_HOME'];
+const keys = ['HOME', 'USERPROFILE', 'POWERUSER_AGENT_DATA_HOME'];
 const saved = Object.fromEntries(keys.map(key => [key, process.env[key]]));
-Object.assign(process.env, { HOME: root, USERPROFILE: root, ECC_AGENT_DATA_HOME: data });
+Object.assign(process.env, { HOME: root, USERPROFILE: root, POWERUSER_AGENT_DATA_HOME: data });
 const recording = path.join(root, 'canonical-snapshot.json');
 const publications = [];
 const adapter = createClaudeHistoryAdapter({ persistCanonicalSnapshotImpl(snapshot) {

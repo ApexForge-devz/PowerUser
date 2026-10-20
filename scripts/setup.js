@@ -11,7 +11,7 @@ const {
   deriveHookMode,
   readSettings,
   setupClaudePlugin,
-} = require('./lib/claude-plugin-setup');
+} = require('./lib/poweruser-claude-plugin-setup');
 const {
   migrateClaudePluginScope,
 } = require('./lib/claude-scope-migration');
@@ -27,17 +27,17 @@ const AUTO_MIGRATION_CODES = new Set([
 
 function showHelp() {
   process.stdout.write(`
-ECC guided setup
+PowerUser guided setup
 
 Usage:
-  ecc setup
-  ecc setup --mode claude-plugin --scope user|project|local [options]
-  ecc setup --mode claude-plugin --scope project --move-scope [options]
+  poweruser setup
+  poweruser setup --mode claude-plugin --scope user|project|local [options]
+  poweruser setup --mode claude-plugin --scope project --move-scope [options]
 
 Install scopes:
-  user      Global for this user; ECC is available in every project.
-  project   Shared project configuration; the repository can enable ECC for collaborators.
-  local     Private project configuration; ECC is enabled here without committing the choice.
+  user      Global for this user; PowerUser is available in every project.
+  project   Shared project configuration; the repository can enable PowerUser for collaborators.
+  local     Private project configuration; PowerUser is enabled here without committing the choice.
 
 Hook preferences:
   --hooks off|minimal|standard|strict
@@ -53,7 +53,7 @@ Options:
   --json                  Emit machine-readable JSON.
   --help, -h              Show this help.
 
-Re-running setup updates an existing ecc@ecc installation at its detected scope.
+Re-running setup updates an existing poweruser@poweruser installation at its detected scope.
 Choosing another scope automatically migrates the existing installation.
 Migration installs and verifies the destination before removing the source scope.
 `);
@@ -229,7 +229,7 @@ async function collectInteractiveOptions(options, defaults = {}, providedTermina
       : detectedScopeDefault;
     const scope = options.scope || await askChoice(
       terminal,
-      'Where should Claude enable ecc@ecc?',
+      'Where should Claude enable poweruser@poweruser?',
       scopeChoices,
       scopeDefaultIndex
     );
@@ -261,7 +261,7 @@ async function collectInteractiveOptions(options, defaults = {}, providedTermina
     const hookDefaultIndex = detectedHookDefault === -1 ? 2 : detectedHookDefault;
     const hooks = options.hooks || await askChoice(
       terminal,
-      'How should ECC hooks run?',
+      'How should PowerUser hooks run?',
       hookChoices,
       hookDefaultIndex
     );
@@ -303,7 +303,7 @@ function printResult(result, json) {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     return;
   }
-  process.stdout.write(`\nECC ${result.action} ${result.pluginId} at ${result.scope} scope.\n`);
+  process.stdout.write(`\nPowerUser ${result.action} ${result.pluginId} at ${result.scope} scope.\n`);
   if (result.sourceScope) {
     process.stdout.write(`Previous scope: ${result.sourceScope}\n`);
   }
@@ -384,7 +384,7 @@ function reconcileClaudePlugin(options) {
 
 function applyClaudePlugin(options, interactive) {
   const spinner = interactive && !options.dryRun && !options.json
-    ? startTerminalSpinner('Applying ECC setup...')
+    ? startTerminalSpinner('Applying PowerUser setup...')
     : undefined;
   try {
     return reconcileClaudePlugin(options);
@@ -457,7 +457,7 @@ async function main(argv = process.argv.slice(2)) {
         printResult({
           action: 'cancelled',
           hooks: options.hooks || 'standard',
-          pluginId: 'ecc@ecc',
+          pluginId: 'poweruser@poweruser',
           scope: options.scope || 'detected',
         }, options.json);
         return;
@@ -474,7 +474,7 @@ async function main(argv = process.argv.slice(2)) {
     });
   } catch (error) {
     if (isInteractiveCancellation(error)) {
-      process.stdout.write('\nECC setup cancelled. No changes were made.\n');
+      process.stdout.write('\nPowerUser setup cancelled. No changes were made.\n');
       return;
     }
     printError(error, options?.json);

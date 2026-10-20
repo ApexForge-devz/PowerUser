@@ -1,6 +1,8 @@
-# LinkedIn Draft - ECC v1.8.0
+> Fork note: Adapted from inherited release material; historical release claims are not a statement of currently provided services.
 
-ECC v1.8.0 is now focused on harness performance at the system level.
+# LinkedIn Draft - PowerUser v1.8.0
+
+PowerUser v1.8.0 is now focused on harness performance at the system level.
 
 This release improves:
 - hook reliability and lifecycle behavior

@@ -31,7 +31,7 @@ async function loadPlugin() {
   })
   assert.strictEqual(buildResult.status, 0, buildResult.stderr || buildResult.stdout)
   const pluginUrl = pathToFileURL(
-    path.join(repoRoot, ".opencode", "dist", "plugins", "ecc-hooks.js")
+    path.join(repoRoot, ".opencode", "dist", "plugins", "poweruser-hooks.js")
   ).href
   return import(pluginUrl)
 }
@@ -66,7 +66,7 @@ function createFailingShell() {
 }
 
 async function withTempProject(files, fn) {
-  const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-plugin-"))
+  const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-plugin-"))
   try {
     for (const file of files) {
       const filePath = path.join(projectDir, file)
@@ -80,7 +80,7 @@ async function withTempProject(files, fn) {
 }
 
 /**
- * Build a fake ECC installation root and copy the compiled plugin into it.
+ * Build a fake PowerUser installation root and copy the compiled plugin into it.
  *
  * Reproduces a *modular* install: the runtime scripts the plugin needs are
  * present, but `skills/` is absent because that directory belongs to the optional
@@ -91,7 +91,7 @@ async function withTempProject(files, fn) {
  * @returns {string} path to the fake installation root
  */
 function createModularInstallRoot(options = {}) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-install-"))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-install-"))
   const distSource = path.join(__dirname, "..", ".opencode", "dist")
   const repoRoot = path.join(__dirname, "..")
 
@@ -111,7 +111,7 @@ function createModularInstallRoot(options = {}) {
 
   fs.writeFileSync(
     path.join(root, "package.json"),
-    JSON.stringify({ name: "ecc-universal", version: "0.0.0-test", type: "module" })
+    JSON.stringify({ name: "poweruser-universal", version: "0.0.0-test", type: "module" })
   )
   fs.writeFileSync(path.join(root, "scripts", "package.json"), JSON.stringify({ type: "commonjs" }))
 
@@ -129,7 +129,7 @@ function createModularInstallRoot(options = {}) {
 
 /** Load the compiled plugin from a fake install root instead of the repo dist. */
 async function loadPluginFrom(root) {
-  return import(pathToFileURL(path.join(root, "plugins", "ecc-hooks.js")).href)
+  return import(pathToFileURL(path.join(root, "plugins", "poweruser-hooks.js")).href)
 }
 
 /**
@@ -193,8 +193,8 @@ async function main() {
           const disabledWarnings = client.logs.filter(
             (entry) =>
               entry.level === "warn" &&
-              entry.message.includes("[ECC] changed-files tracking disabled") &&
-              entry.message.includes("ecc repair --target opencode")
+              entry.message.includes("[PowerUser] changed-files tracking disabled") &&
+              entry.message.includes("poweruser repair --target opencode")
           )
           assert.strictEqual(
             disabledWarnings.length,
@@ -276,9 +276,9 @@ async function main() {
           assert.strictEqual(env.PACKAGE_MANAGER, "pnpm")
           assert.strictEqual(env.DETECTED_LANGUAGES, "typescript,python")
           assert.strictEqual(env.PRIMARY_LANGUAGE, "typescript")
-          // Verify ECC_VERSION is not hardcoded
-          assert.ok(env.ECC_VERSION !== "1.8.0", "ECC_VERSION should not be hardcoded to 1.8.0")
-          assert.ok(env.ECC_VERSION.match(/^\d+\.\d+\.\d+$/), "ECC_VERSION should be a valid semver version")
+          // Verify POWERUSER_VERSION is not hardcoded
+          assert.ok(env.POWERUSER_VERSION !== "1.8.0", "POWERUSER_VERSION should not be hardcoded to 1.8.0")
+          assert.ok(env.POWERUSER_VERSION.match(/^\d+\.\d+\.\d+$/), "POWERUSER_VERSION should be a valid semver version")
         }
       ),
     ],
@@ -293,7 +293,7 @@ async function main() {
 
         assert.deepStrictEqual($.calls, [], `Unexpected shell probes: ${$.calls.join(", ")}`)
         assert.ok(
-          client.logs.some((entry) => entry.message === "[ECC] Found CLAUDE.md - loading project context"),
+          client.logs.some((entry) => entry.message === "[PowerUser] Found CLAUDE.md - loading project context"),
           "Expected CLAUDE.md detection log"
         )
       }),
@@ -301,7 +301,7 @@ async function main() {
     [
       "session.created ignores directories named CLAUDE.md",
       async () => {
-        const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-plugin-"))
+        const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-plugin-"))
         try {
           fs.mkdirSync(path.join(projectDir, "CLAUDE.md"))
 
@@ -313,7 +313,7 @@ async function main() {
 
           assert.deepStrictEqual($.calls, [], `Unexpected shell probes: ${$.calls.join(", ")}`)
           assert.ok(
-            !client.logs.some((entry) => entry.message === "[ECC] Found CLAUDE.md - loading project context"),
+            !client.logs.some((entry) => entry.message === "[PowerUser] Found CLAUDE.md - loading project context"),
             "Directory named CLAUDE.md should not be treated as project context"
           )
         } finally {
@@ -324,7 +324,7 @@ async function main() {
     [
       "shell.env ignores directories named like lockfiles and language markers",
       async () => {
-        const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-plugin-"))
+        const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-plugin-"))
         try {
           fs.mkdirSync(path.join(projectDir, "pnpm-lock.yaml"))
           fs.mkdirSync(path.join(projectDir, "tsconfig.json"))
@@ -348,7 +348,7 @@ async function main() {
       },
     ],
     [
-      "compacting appends ECC context without replacing the host compaction prompt",
+      "compacting appends PowerUser context without replacing the host compaction prompt",
       async () => withTempProject([], async (projectDir) => {
         const client = createClient()
         const $ = createFailingShell()
@@ -362,13 +362,13 @@ async function main() {
         assert.notStrictEqual(output.context, existingContext)
         const prompt = output.prompt ?? ["Default compaction prompt", ...output.context].join("\n\n")
         assert.ok(prompt.includes("Default compaction prompt"))
-        assert.ok(prompt.includes("# ECC Context"))
+        assert.ok(prompt.includes("# PowerUser Context"))
         assert.ok(prompt.includes("Current task status and progress"))
         assert.deepStrictEqual($.calls, [])
       }),
     ],
     [
-      "compacting appends ECC guidance to custom prompts, including an empty prompt",
+      "compacting appends PowerUser guidance to custom prompts, including an empty prompt",
       async () => withTempProject([], async (projectDir) => {
         const client = createClient()
         const $ = createFailingShell()
@@ -381,7 +381,7 @@ async function main() {
 
           const prompt = output.prompt ?? ["Default compaction prompt", ...output.context].join("\n\n")
           assert.ok(prompt.startsWith(`${customPrompt}\n\n`))
-          assert.ok(prompt.includes("# ECC Context"))
+          assert.ok(prompt.includes("# PowerUser Context"))
           assert.ok(prompt.includes("Current task status and progress"))
           assert.strictEqual(output.context, existingContext)
         }
@@ -469,7 +469,7 @@ async function main() {
     [
       "skill telemetry records a run through the shared tracker (#2463)",
       async () => withTempProject([], async (projectDir) => {
-        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-skill-home-"))
+        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-skill-home-"))
         const previousHome = process.env.HOME
         const previousUserProfile = process.env.USERPROFILE
         process.env.HOME = homeDir
@@ -504,7 +504,7 @@ async function main() {
     [
       "skill telemetry records nothing for other tools",
       async () => withTempProject([], async (projectDir) => {
-        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-skill-home-"))
+        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-skill-home-"))
         const previousHome = process.env.HOME
         const previousUserProfile = process.env.USERPROFILE
         process.env.HOME = homeDir
@@ -527,13 +527,13 @@ async function main() {
     [
       "skill telemetry respects the minimal hook profile",
       async () => withTempProject([], async (projectDir) => {
-        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-skill-home-"))
+        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-skill-home-"))
         const previousHome = process.env.HOME
         const previousUserProfile = process.env.USERPROFILE
-        const previousProfile = process.env.ECC_HOOK_PROFILE
+        const previousProfile = process.env.POWERUSER_HOOK_PROFILE
         process.env.HOME = homeDir
         process.env.USERPROFILE = homeDir
-        process.env.ECC_HOOK_PROFILE = "minimal"
+        process.env.POWERUSER_HOOK_PROFILE = "minimal"
         try {
           const client = createClient()
           const $ = createFailingShell()
@@ -546,14 +546,14 @@ async function main() {
           restoreEnv({
             HOME: previousHome,
             USERPROFILE: previousUserProfile,
-            ECC_HOOK_PROFILE: previousProfile,
+            POWERUSER_HOOK_PROFILE: previousProfile,
           })
           fs.rmSync(homeDir, { recursive: true, force: true })
         }
       }),
     ],
     [
-      "shell.env exports CLAUDE_PLUGIN_ROOT so commands can resolve the ECC root",
+      "shell.env exports CLAUDE_PLUGIN_ROOT so commands can resolve the PowerUser root",
       async () => withTempProject([], async (projectDir) => {
         const previousRoot = process.env.CLAUDE_PLUGIN_ROOT
         delete process.env.CLAUDE_PLUGIN_ROOT
@@ -569,11 +569,11 @@ async function main() {
           assert.ok(output.env.CLAUDE_PLUGIN_ROOT, "Expected CLAUDE_PLUGIN_ROOT to be exported")
 
           // The resolver consumes this variable verbatim, so it must be a
-          // directory that actually carries the ECC script tree.
+          // directory that actually carries the PowerUser script tree.
           const root = output.env.CLAUDE_PLUGIN_ROOT
           assert.ok(
-            fs.existsSync(path.join(root, "scripts", "lib", "resolve-ecc-root.js")),
-            `Expected ${root} to contain scripts/lib/resolve-ecc-root.js`
+            fs.existsSync(path.join(root, "scripts", "lib", "resolve-poweruser-root.js")),
+            `Expected ${root} to contain scripts/lib/resolve-poweruser-root.js`
           )
         } finally {
           restoreEnv({ CLAUDE_PLUGIN_ROOT: previousRoot })
@@ -643,8 +643,8 @@ async function main() {
         // platform-configs + hooks-runtime but without workflow-quality still
         // ships the plugin and the tracker, and it lost both fixes.
         const root = createModularInstallRoot()
-        const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-modular-"))
-        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "ecc-opencode-skill-home-"))
+        const projectDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-modular-"))
+        const homeDir = fs.mkdtempSync(path.join(os.tmpdir(), "poweruser-opencode-skill-home-"))
         const previousHome = process.env.HOME
         const previousUserProfile = process.env.USERPROFILE
         const previousRoot = process.env.CLAUDE_PLUGIN_ROOT
@@ -679,7 +679,7 @@ async function main() {
           const output = { env: {} }
           await hooks["shell.env"]({ cwd: projectDir }, output)
           assert.strictEqual(output.env.CLAUDE_PLUGIN_ROOT, fs.realpathSync(root))
-          assert.strictEqual(output.env.ECC_VERSION, "0.0.0-test")
+          assert.strictEqual(output.env.POWERUSER_VERSION, "0.0.0-test")
         } finally {
           restoreEnv({
             HOME: previousHome,

@@ -46,15 +46,15 @@ function runTests() {
 
   if (test('resolves relative config paths from the provided cwd', () => {
     const cwd = '/workspace/app';
-    const resolved = resolveInstallConfigPath('configs/ecc-install.json', { cwd });
-    assert.strictEqual(resolved, path.join(cwd, 'configs', 'ecc-install.json'));
+    const resolved = resolveInstallConfigPath('configs/poweruser-install.json', { cwd });
+    assert.strictEqual(resolved, path.join(cwd, 'configs', 'poweruser-install.json'));
   })) passed++; else failed++;
 
   if (test('finds the default project install config in the provided cwd', () => {
     const cwd = createTempDir('install-config-');
 
     try {
-      const configPath = path.join(cwd, 'ecc-install.json');
+      const configPath = path.join(cwd, 'poweruser-install.json');
       writeJson(configPath, {
         version: 1,
         profile: 'core',
@@ -80,10 +80,10 @@ function runTests() {
     const cwd = createTempDir('install-config-');
 
     try {
-      const configPath = path.join(cwd, 'ecc-install.json');
+      const configPath = path.join(cwd, 'poweruser-install.json');
       writeJson(configPath, {
         version: 1,
-        target: 'cursor',
+        target: 'opencode',
         profile: 'developer',
         modules: ['platform-configs', 'platform-configs'],
         include: ['lang:typescript', 'framework:nextjs', 'lang:typescript'],
@@ -93,9 +93,9 @@ function runTests() {
         },
       });
 
-      const config = loadInstallConfig('ecc-install.json', { cwd });
+      const config = loadInstallConfig('poweruser-install.json', { cwd });
       assert.strictEqual(config.path, configPath);
-      assert.strictEqual(config.target, 'cursor');
+      assert.strictEqual(config.target, 'opencode');
       assert.strictEqual(config.profileId, 'developer');
       assert.deepStrictEqual(config.moduleIds, ['platform-configs']);
       assert.deepStrictEqual(config.includeComponentIds, ['lang:typescript', 'framework:nextjs']);
@@ -110,8 +110,8 @@ function runTests() {
     const cwd = createTempDir('install-config-');
 
     try {
-      const configPath = path.join(cwd, 'ecc-install.json');
-      const value = { version: 1, target: 'cursor', modules: ['rules-core'] };
+      const configPath = path.join(cwd, 'poweruser-install.json');
+      const value = { version: 1, target: 'opencode', modules: ['rules-core'] };
       writeJson(configPath, value);
       const expected = loadInstallConfig(configPath);
       const content = `\uFEFF${JSON.stringify(value, null, 2).replace(/\n/g, '\r\n')}\r\n`;
@@ -128,7 +128,7 @@ function runTests() {
     const cwd = createTempDir('install-config-');
 
     try {
-      const configPath = path.join(cwd, 'ecc-install.json');
+      const configPath = path.join(cwd, 'poweruser-install.json');
       const options = { note: 'custom\uFEFFvalue' };
       fs.writeFileSync(configPath, `\uFEFF${JSON.stringify({ version: 1, options })}`, 'utf8');
       assert.deepStrictEqual(loadInstallConfig(configPath).options, options);
@@ -141,10 +141,10 @@ function runTests() {
     const cwd = createTempDir('install-config-');
 
     try {
-      const configPath = path.join(cwd, 'ecc-install.json');
+      const configPath = path.join(cwd, 'poweruser-install.json');
       for (const content of ['\uFEFF{', ' \uFEFF{"version":1}', '\uFEFF\uFEFF{"version":1}']) {
         fs.writeFileSync(configPath, content, 'utf8');
-        assert.throws(() => loadInstallConfig(configPath), /Invalid JSON in ecc-install.json/);
+        assert.throws(() => loadInstallConfig(configPath), /Invalid JSON in poweruser-install.json/);
       }
     } finally {
       cleanup(cwd);
@@ -155,7 +155,7 @@ function runTests() {
     const cwd = createTempDir('install-config-');
 
     try {
-      const configPath = path.join(cwd, 'ecc-install.json');
+      const configPath = path.join(cwd, 'poweruser-install.json');
       fs.writeFileSync(configPath, '\uFEFF{"version":2,"target":"ghost-target"}', 'utf8');
       assert.throws(() => loadInstallConfig(configPath), /Invalid install config/);
     } finally {
@@ -167,13 +167,13 @@ function runTests() {
     const cwd = createTempDir('install-config-');
 
     try {
-      writeJson(path.join(cwd, 'ecc-install.json'), {
+      writeJson(path.join(cwd, 'poweruser-install.json'), {
         version: 2,
         target: 'ghost-target',
       });
 
       assert.throws(
-        () => loadInstallConfig('ecc-install.json', { cwd }),
+        () => loadInstallConfig('poweruser-install.json', { cwd }),
         /Invalid install config/
       );
     } finally {
@@ -186,7 +186,7 @@ function runTests() {
 
     try {
       assert.throws(
-        () => loadInstallConfig('ecc-install.json', { cwd }),
+        () => loadInstallConfig('poweruser-install.json', { cwd }),
         /Install config not found/
       );
     } finally {

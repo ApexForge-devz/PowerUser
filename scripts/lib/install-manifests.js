@@ -5,7 +5,7 @@ const { getInstallTargetAdapter, planInstallTargetScaffold } = require('./instal
 const { resolveInvocationEnvironment } = require('./invocation-environment');
 
 const DEFAULT_REPO_ROOT = path.join(__dirname, '../..');
-const SUPPORTED_INSTALL_TARGETS = ['claude', 'claude-project', 'cursor', 'antigravity', 'codex', 'copilot', 'gemini', 'opencode', 'codebuddy', 'joycode', 'qwen', 'zed', 'hermes', 'openclaw', 'kimi', 'adal'];
+const SUPPORTED_INSTALL_TARGETS = ['claude', 'claude-project', 'codex', 'hermes', 'kimi', 'opencode'];
 const COMPONENT_FAMILY_PREFIXES = {
   baseline: 'baseline:',
   language: 'lang:',
@@ -13,38 +13,7 @@ const COMPONENT_FAMILY_PREFIXES = {
   capability: 'capability:',
   agent: 'agent:',
   skill: 'skill:',
-  locale: 'locale:',
 };
-const SUPPORTED_LOCALES = Object.freeze(['ja', 'zh-CN', 'ko-KR', 'pt-BR', 'ru', 'tr', 'vi-VN', 'zh-TW', 'de-DE', 'uk-UA', 'pl', 'bn', 'ar']);
-const LOCALE_ALIAS_TO_COMPONENT_ID = Object.freeze({
-  'ja': 'locale:ja',
-  'ja-JP': 'locale:ja',
-  'zh-CN': 'locale:zh-cn',
-  'zh': 'locale:zh-cn',
-  'ko-KR': 'locale:ko-kr',
-  'ko': 'locale:ko-kr',
-  'pt-BR': 'locale:pt-br',
-  'pt': 'locale:pt-br',
-  'ru': 'locale:ru',
-  'tr': 'locale:tr',
-  'vi-VN': 'locale:vi-vn',
-  'vi': 'locale:vi-vn',
-  'zh-TW': 'locale:zh-tw',
-  'de-DE': 'locale:de-de',
-  'de': 'locale:de-de',
-  'uk-UA': 'locale:uk-ua',
-  'uk': 'locale:uk-ua',
-  'pl': 'locale:pl',
-  'pl-PL': 'locale:pl',
-  'bn': 'locale:bn',
-  'bn-BD': 'locale:bn',
-  'ar': 'locale:ar',
-  'ar-SA': 'locale:ar'
-});
-
-function listSupportedLocales() {
-  return [...SUPPORTED_LOCALES];
-}
 const LEGACY_COMPAT_BASE_MODULE_IDS_BY_TARGET = Object.freeze({
   claude: [
     'rules-core',
@@ -62,28 +31,6 @@ const LEGACY_COMPAT_BASE_MODULE_IDS_BY_TARGET = Object.freeze({
     'platform-configs',
     'workflow-quality',
   ],
-  cursor: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'hooks-runtime',
-    'platform-configs',
-    'workflow-quality',
-  ],
-  antigravity: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'skill-unified-memory',
-    'workflow-quality',
-  ],
-  zed: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'platform-configs',
-    'workflow-quality',
-  ],
   hermes: [
     'rules-core',
     'agents-core',
@@ -91,21 +38,7 @@ const LEGACY_COMPAT_BASE_MODULE_IDS_BY_TARGET = Object.freeze({
     'platform-configs',
     'workflow-quality',
   ],
-  openclaw: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'platform-configs',
-    'workflow-quality',
-  ],
   kimi: [
-    'rules-core',
-    'agents-core',
-    'commands-core',
-    'platform-configs',
-    'workflow-quality',
-  ],
-  adal: [
     'rules-core',
     'agents-core',
     'commands-core',
@@ -539,9 +472,7 @@ function resolveLegacyCompatibilitySelection(options = {}) {
     || LEGACY_COMPAT_BASE_MODULE_IDS_BY_TARGET.claude;
   const moduleIds = dedupeStrings([
     ...baseModuleIds,
-    ...(target === 'antigravity'
-      ? []
-      : canonicalLegacyLanguages.flatMap(language => LEGACY_LANGUAGE_EXTRA_MODULE_IDS[language] || [])),
+    ...canonicalLegacyLanguages.flatMap(language => LEGACY_LANGUAGE_EXTRA_MODULE_IDS[language] || []),
   ]);
 
   assertKnownModuleIds(moduleIds, manifests);
@@ -766,14 +697,11 @@ function resolveInstallPlan(options = {}) {
 module.exports = {
   DEFAULT_REPO_ROOT,
   SUPPORTED_INSTALL_TARGETS,
-  SUPPORTED_LOCALES,
-  LOCALE_ALIAS_TO_COMPONENT_ID,
   getManifestPaths,
   loadInstallManifests,
   getInstallComponent,
   listInstallComponents,
   listLegacyCompatibilityLanguages,
-  listSupportedLocales,
   listInstallModules,
   listInstallProfiles,
   resolveInstallPlan,

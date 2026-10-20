@@ -1,12 +1,14 @@
-# ECC 2.0.0 — The Agent Harness Operating System
+> Fork note: Adapted from inherited release history. Historical upstream capabilities, partnerships, and release-era details do not imply that PowerUser provides associated hosted services.
 
-ECC 2.0.0 is the stable graduation of the 2.0 line: ECC as a cross-harness operating system for agentic work. Claude Code stays first-class; Codex, OpenCode, Cursor, Gemini, Zed, and terminal-only workflows share the same skills, rules, hooks, MCP conventions, release gates, and operator workflows.
+# PowerUser 2.0.0 — The Agent Harness Operating System
+
+PowerUser 2.0.0 is the stable graduation of the 2.0 line: PowerUser as a cross-harness operating system for agentic work. Claude Code stays first-class; Codex, OpenCode, Cursor, Gemini, Zed, and terminal-only workflows share the same skills, rules, hooks, MCP conventions, release gates, and operator workflows.
 
 ## Highlights
 
 - 261 public skills across coding, research, security, media, enterprise ops, and agent workflows.
-- ECC 2.0 control-pane substrate: harness-neutral session adapters (`ecc.session.v1`) covering Claude Code, Codex, OpenCode, and dmux.
-- MCP inventory (`ecc.mcp.v1`): one normalized view of MCP server configs across harnesses, with fragmentation and drift detection and secret redaction.
+- PowerUser 2.0 control-pane substrate: harness-neutral session adapters (`poweruser.session.v1`) covering Claude Code, Codex, OpenCode, and dmux.
+- MCP inventory (`poweruser.mcp.v1`): one normalized view of MCP server configs across harnesses, with fragmentation and drift detection and secret redaction.
 - Worktree-lifecycle service: deterministic conflict prediction and safe garbage collection for parallel agent worktrees.
 - `orch-*` orchestrator skill family plus dynamic workflow team orchestration.
 - Rollout-derived optimization pack: `parallel-execution-optimizer`, `benchmark-optimization-loop`, `data-throughput-accelerator`, `latency-critical-systems`, `recursive-decision-ledger`.
@@ -24,20 +26,20 @@ Roughly thirty PRs of fixes landed between rc.1 and stable. The ones worth knowi
 
 ## Community launch
 
-The ECC Discord is live: <https://discord.gg/36yGMHGFbR>
+The PowerUser Discord is live: <https://discord.gg/36yGMHGFbR>
 
 - Release news lands in #announcements, auto-posted and pinned by the release workflow shipped in this very release (#2201).
 - A live PR and issue feed runs in #pr-and-issues.
-- The ECC bot answers `/skill`, `/docs`, and `/release` lookups in-server.
+- The PowerUser bot answers `/skill`, `/docs`, and `/release` lookups in-server.
 - #feedback and #feature-requests are read directly by the maintainer and shape the roadmap.
 
 ## Install or upgrade
 
 ```
-/plugin marketplace add https://github.com/affaan-m/ECC
-/plugin install ecc
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
+/plugin install poweruser
 ```
 
-Existing installs: `/plugin update ecc`
+Existing installs: `/plugin update poweruser`
 
-Full changelog: <https://github.com/affaan-m/ECC/compare/v2.0.0-rc.1...v2.0.0>
+Full changelog: <https://github.com/ApexForge-devz/PowerUser/compare/v2.0.0-rc.1...v2.0.0>

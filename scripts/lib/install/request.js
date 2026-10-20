@@ -1,10 +1,9 @@
 'use strict';
 
-const { validateInstallModuleIds, LOCALE_ALIAS_TO_COMPONENT_ID, listSupportedLocales } = require('../install-manifests');
+const { validateInstallModuleIds } = require('../install-manifests');
 const { resolveHookConsentFlags } = require('./hook-consent');
 
-const LEGACY_INSTALL_TARGETS = ['claude', 'claude-project', 'cursor', 'antigravity'];
-const LOCALE_COMPONENT_IDS = new Set(Object.values(LOCALE_ALIAS_TO_COMPONENT_ID));
+const LEGACY_INSTALL_TARGETS = ['claude', 'claude-project', 'codex', 'hermes', 'kimi', 'opencode'];
 
 function dedupeStrings(values) {
   return [...new Set((Array.isArray(values) ? values : []).map(value => String(value).trim()).filter(Boolean))];
@@ -29,7 +28,6 @@ function parseInstallArgs(argv) {
     includeComponentIds: [],
     excludeComponentIds: [],
     languages: [],
-    locale: null,
     enableHooks: false,
     noHooks: false,
   };
@@ -65,13 +63,6 @@ function parseInstallArgs(argv) {
         parsed.excludeComponentIds.push(componentId.trim());
       }
       index += 1;
-    } else if (arg === '--locale') {
-      const locale = args[index + 1] || '';
-      if (!locale || locale.startsWith('--')) {
-        throw new Error('Missing value for --locale');
-      }
-      parsed.locale = locale;
-      index += 1;
     } else if (arg === '--enable-hooks') {
       parsed.enableHooks = true;
     } else if (arg === '--no-hooks') {
@@ -89,9 +80,9 @@ function parseInstallArgs(argv) {
     }
   }
 
-  const dryRunEnv = process.env.ECC_DRY_RUN;
+  const dryRunEnv = process.env.PowerUser_DRY_RUN;
   if (dryRunEnv !== undefined && dryRunEnv !== '0' && dryRunEnv !== '1') {
-    throw new Error('ECC_DRY_RUN must be "1" or "0" when set');
+    throw new Error('PowerUser_DRY_RUN must be "1" or "0" when set');
   }
   parsed.dryRun = parsed.dryRun || dryRunEnv === '1';
 
@@ -104,28 +95,14 @@ function normalizeInstallRequest(options = {}) {
     : null;
   const profileId = options.profileId || config?.profileId || null;
   const target = options.target || config?.target || 'claude';
-  const supportsLocale = target === 'claude' || target === 'claude-project';
   const moduleIds = validateInstallModuleIds(
     dedupeStrings([...(config?.moduleIds || []), ...(options.moduleIds || [])])
   );
-  const locale = options.locale || config?.locale || null;
-  const localeComponentId = locale ? LOCALE_ALIAS_TO_COMPONENT_ID[locale] : null;
-  if (locale && !localeComponentId) {
-    throw new Error(
-      `Unsupported locale: "${locale}". Supported locales: ${listSupportedLocales().join(', ')}`
-    );
-  }
-  if (locale && !supportsLocale) {
-    throw new Error('--locale can only be used with --target claude or --target claude-project');
-  }
   const requestedIncludeComponentIds = dedupeStrings([
     ...(config?.includeComponentIds || []),
     ...(options.includeComponentIds || []),
   ]);
-  const includeComponentIds = dedupeStrings([
-    ...requestedIncludeComponentIds,
-    ...(localeComponentId ? [localeComponentId] : []),
-  ]);
+  const includeComponentIds = requestedIncludeComponentIds;
   const excludeComponentIds = dedupeStrings([
     ...(config?.excludeComponentIds || []),
     ...(options.excludeComponentIds || []),
@@ -139,14 +116,9 @@ function normalizeInstallRequest(options = {}) {
     throw new Error('--no-hooks cannot be combined with an explicit hooks-runtime module selection');
   }
   const hasManifestBaseSelection = Boolean(profileId) || moduleIds.length > 0 || includeComponentIds.length > 0;
-  const hasNonLocaleManifestSelection = Boolean(profileId)
-    || moduleIds.length > 0
-    // Install-state persists --locale as a component; auto-update replays it via --with.
-    || requestedIncludeComponentIds.some(id => !supportsLocale || !LOCALE_COMPONENT_IDS.has(id))
-    || excludeComponentIds.length > 0;
   const usingManifestMode = hasManifestBaseSelection || excludeComponentIds.length > 0;
 
-  if (hasNonLocaleManifestSelection && legacyLanguages.length > 0) {
+  if (hasManifestBaseSelection && legacyLanguages.length > 0) {
     throw new Error(
       'Legacy language arguments cannot be combined with --profile, --modules, --with, --without, or manifest config selections'
     );

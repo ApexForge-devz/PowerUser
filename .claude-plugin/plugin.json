@@ -1,13 +1,12 @@
 {
-  "name": "ecc",
+  "name": "poweruser",
   "version": "2.2.3",
-  "description": "Harness-native ECC plugin for engineering teams - 71 agents, 311 skills, 97 legacy command shims, reusable hooks, rules, MCP conventions, and operator workflows for Claude Code plus adjacent agent harnesses",
+  "description": "PowerUser plugin for engineering teams: 71 agents, 311 skills, 97 legacy command shims, reusable hooks, rules, MCP conventions, and operator workflows.",
   "author": {
-    "name": "Affaan Mustafa",
-    "url": "https://x.com/affaanmustafa"
+    "name": "ApexForge-devz"
   },
-  "homepage": "https://ecc.tools",
-  "repository": "https://github.com/affaan-m/ECC",
+  "homepage": "https://github.com/ApexForge-devz/PowerUser",
+  "repository": "https://github.com/ApexForge-devz/PowerUser",
   "license": "MIT",
   "keywords": [
     "claude-code",
@@ -25,13 +24,13 @@
   "userConfig": {
     "hooks_enabled": {
       "type": "boolean",
-      "title": "Enable ECC hooks",
-      "description": "Run ECC's local lifecycle, quality, and safety automation. Disable this to keep skills and commands without local hook automation.",
+      "title": "Enable PowerUser hooks",
+      "description": "Run PowerUser local lifecycle, quality, and safety automation. Disable this to keep skills and commands without local hook automation.",
       "default": true
     },
     "hook_profile": {
       "type": "string",
-      "title": "ECC hook profile",
+      "title": "PowerUser hook profile",
       "description": "Choose minimal, standard, or strict. Invalid values safely fall back to standard.",
       "default": "standard"
     }

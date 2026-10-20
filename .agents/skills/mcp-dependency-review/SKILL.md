@@ -84,7 +84,7 @@ Then perform bounded discovery inside the requested repository/workspace for equ
 
 Read JSON or configuration text and identify each configured MCP server. For package-runner invocations such as `npx`, `npm exec`, `bunx`, `bun x`, `pnpm dlx`, or `yarn dlx`, isolate every package selector from command-line flags.
 
-Package-valued flags count as package selectors too. For example, in `npx --package ecc-universal ecc`, classify `ecc-universal` as the package selector and treat `ecc` as the executable. If multiple package-valued flags are present, review every supplied package selector.
+Package-valued flags count as package selectors too. For example, in `npx --package poweruser-universal poweruser`, classify `ecc-universal` as the package selector and treat `ecc` as the executable. If multiple package-valued flags are present, review every supplied package selector.
 
 For `docker run` and `docker container run`, isolate the image separately from Docker options and the in-container command. For example, `docker run --rm -i example/server:1.2.3 serve` selects `example/server:1.2.3`, not `serve`. Account for option values before the image; do not treat a volume, environment value, or option argument as the image. Inspect an explicit image field in equivalent configuration as an image reference too.
 
@@ -173,4 +173,4 @@ Exact direct dependency pins do not prove full transitive reproducibility, safe 
 
 ## Further Reading
 
-A public reference implementation and reproducible research methodology for this narrow review class are available in [MCP Drift Check](https://github.com/tomelias10/mcp-drift-check). The external project is optional; this ECC skill does not require it to perform the static review.
+A public reference implementation and reproducible research methodology for this narrow review class are available in [MCP Drift Check](https://github.com/tomelias10/mcp-drift-check). The external project is optional; this PowerUser skill does not require it to perform the static review.

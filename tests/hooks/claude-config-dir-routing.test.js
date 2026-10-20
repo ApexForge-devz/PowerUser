@@ -46,7 +46,7 @@ function makeProfile() {
   };
 }
 
-// No ECC_* override is passed anywhere here: an override would route the hook
+// No POWERUSER_* override is passed anywhere here: an override would route the hook
 // before it reached the CLAUDE_CONFIG_DIR fallback under test.
 function runHook(hookFile, { profile, home, stdin = '{}', args = [], env = {} }) {
   fs.mkdirSync(home, { recursive: true });
@@ -58,8 +58,8 @@ function runHook(hookFile, { profile, home, stdin = '{}', args = [], env = {} })
       HOME: home,
       USERPROFILE: home,
       CLAUDE_CONFIG_DIR: profile,
-      ECC_PLAN_CANVAS_STATE_DIR: undefined,
-      ECC_MCP_HEALTH_STATE_PATH: undefined,
+      POWERUSER_PLAN_CANVAS_STATE_DIR: undefined,
+      POWERUSER_MCP_HEALTH_STATE_PATH: undefined,
       ...env,
     },
   });
@@ -70,7 +70,7 @@ function runHook(hookFile, { profile, home, stdin = '{}', args = [], env = {} })
  * bootstrap rather than spawned, so it is driven here in a child process. The
  * child is what makes CLAUDE_CONFIG_DIR meaningful: requiring it in-process,
  * the way tests/hooks/plan-canvas-pending-hook.test.js does with
- * ECC_PLAN_CANVAS_STATE_DIR, cannot reach the fallback under test.
+ * POWERUSER_PLAN_CANVAS_STATE_DIR, cannot reach the fallback under test.
  */
 function runPendingHook({ profile, home, payload }) {
   fs.mkdirSync(home, { recursive: true });
@@ -85,7 +85,7 @@ function runPendingHook({ profile, home, payload }) {
       HOME: home,
       USERPROFILE: home,
       CLAUDE_CONFIG_DIR: profile,
-      ECC_PLAN_CANVAS_STATE_DIR: undefined,
+      POWERUSER_PLAN_CANVAS_STATE_DIR: undefined,
     },
   });
   assert.strictEqual(result.status, 0, `pending hook failed: ${result.stderr}`);
@@ -171,7 +171,7 @@ function runTests() {
     // Without a configured server the hook skips the probe and never writes.
     // The command does not exist, so the probe fails and the result is cached.
     fs.writeFileSync(path.join(home, '.claude.json'), JSON.stringify({
-      mcpServers: { routing_probe: { command: 'ecc-no-such-mcp-binary', args: [] } },
+      mcpServers: { routing_probe: { command: 'poweruser-no-such-mcp-binary', args: [] } },
     }));
     runHook('mcp-health-check.js', {
       home,
@@ -254,7 +254,7 @@ function runTests() {
         HOME: home,
         USERPROFILE: home,
         CLAUDE_CONFIG_DIR: profile,
-        ECC_PLAN_CANVAS_STATE_DIR: undefined,
+        POWERUSER_PLAN_CANVAS_STATE_DIR: undefined,
       },
     });
     assert.strictEqual(producer.status, 0, `producer failed: ${producer.stderr}`);

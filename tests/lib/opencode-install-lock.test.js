@@ -8,9 +8,9 @@ const { acquireOpenCodeInstallLocks, withOpenCodeInstallLocks } = require('../..
 const { acquireSettingsLock, getSettingsLockIdentity, sameFileIdentity } = require('../../scripts/lib/install/claude-settings-lock');
 let passed = 0;
 let failed = 0;
-const lockPath = root => path.join(root, 'ecc-install-state.json.ecc.lock');
+const lockPath = root => path.join(root, 'poweruser-install-state.json.poweruser.lock');
 function test(name, callback) {
-  const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-opencode-lock-')));
+  const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-opencode-lock-')));
   try { callback(root); passed++; console.log(`  PASS ${name}`); }
   catch (error) { failed++; console.error(`  FAIL ${name}: ${error.stack}`); }
   finally { fs.rmSync(root, { recursive: true, force: true }); }
@@ -19,7 +19,7 @@ test('same target refuses an independent writer and releases on success', root =
   assert.strictEqual(withOpenCodeInstallLocks([root], lease => {
     assert.ok(Object.isFrozen(lease));
     assert.ok(fs.existsSync(lockPath(root)));
-    assert.throws(() => acquireOpenCodeInstallLocks([root]), /Another ECC process.*OpenCode/);
+    assert.throws(() => acquireOpenCodeInstallLocks([root]), /Another PowerUser process.*OpenCode/);
     return 'done';
   }), 'done');
   assert.strictEqual(fs.existsSync(lockPath(root)), false);
@@ -68,7 +68,7 @@ test('second lock failure releases the first without disturbing the other owner'
   const b = path.join(root, 'b');
   const other = acquireOpenCodeInstallLocks([b]);
   const bytes = fs.readFileSync(lockPath(b));
-  try { assert.throws(() => acquireOpenCodeInstallLocks([b, a]), /Another ECC process/); }
+  try { assert.throws(() => acquireOpenCodeInstallLocks([b, a]), /Another PowerUser process/); }
   finally { assert.deepStrictEqual(fs.readFileSync(lockPath(b)), bytes); other.release(); }
   assert.strictEqual(fs.existsSync(lockPath(a)), false);
 });
@@ -145,7 +145,7 @@ test('a root replaced during a held scope is preserved while other roots release
   const a = path.join(root, 'a');
   const b = path.join(root, 'b');
   const movedRoot = path.join(root, 'b-original');
-  const replacementState = path.join(b, 'ecc-install-state.json');
+  const replacementState = path.join(b, 'poweruser-install-state.json');
   let heldLease;
   let originalLockBytes;
   assert.throws(() => withOpenCodeInstallLocks([a, b], lease => {
@@ -160,7 +160,7 @@ test('a root replaced during a held scope is preserved while other roots release
   assert.strictEqual(fs.existsSync(lockPath(a)), false);
   assert.strictEqual(fs.readFileSync(lockPath(b), 'utf8'), 'replacement root lock');
   assert.strictEqual(fs.readFileSync(replacementState, 'utf8'), 'replacement root state');
-  assert.deepStrictEqual(fs.readdirSync(b).sort(), ['ecc-install-state.json', 'ecc-install-state.json.ecc.lock']);
+  assert.deepStrictEqual(fs.readdirSync(b).sort(), ['poweruser-install-state.json', 'poweruser-install-state.json.poweruser.lock']);
   assert.deepStrictEqual(fs.readFileSync(lockPath(movedRoot)), originalLockBytes);
   assert.throws(() => acquireOpenCodeInstallLocks([a, b], heldLease), /Invalid or inactive OpenCode install lease/);
   withOpenCodeInstallLocks([a], () => assert.ok(fs.existsSync(lockPath(a))));
@@ -227,11 +227,11 @@ test('engine ownership metadata is immutable and derived from the acquired descr
     const identity = getSettingsLockIdentity(release);
     assert.ok(Object.isFrozen(identity));
     assert.deepStrictEqual(Object.keys(identity).sort(), ['dev', 'ino']);
-    assert.ok(sameFileIdentity(identity, fs.lstatSync(`${settingsPath}.ecc.lock`, { bigint: true })));
+    assert.ok(sameFileIdentity(identity, fs.lstatSync(`${settingsPath}.poweruser.lock`, { bigint: true })));
     assert.throws(() => { identity.ino = 0n; }, TypeError);
     assert.throws(() => getSettingsLockIdentity(() => {}), /identity/);
   } finally { release(); }
-  assert.strictEqual(fs.existsSync(`${settingsPath}.ecc.lock`), false);
+  assert.strictEqual(fs.existsSync(`${settingsPath}.poweruser.lock`), false);
 });
 
 function captureThrown(callback) {

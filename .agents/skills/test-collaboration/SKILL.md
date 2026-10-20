@@ -138,7 +138,7 @@ Before marking a TEST-ID `covered`, confirm:
 5. the evidence matches the TEST-ID input, expected behavior, and boundary.
 6. the evidence meets the target project's documented coverage and verification gates. Record the metric, measured scope and threshold where coverage is applicable; do not impose one percentage on unit, integration and E2E layers or substitute coverage for behavioral evidence. If a required gate is unmet or unmeasured, leave the TEST-ID `unverified`.
 
-A registry assessment indexes verification evidence. It never grants canonical ECC Task, Completion or Integration authority, and never overrides the project's delivery policy.
+A registry assessment indexes verification evidence. It never grants canonical PowerUser Task, Completion or Integration authority, and never overrides the project's delivery policy.
 
 Files, test counts, and green CI alone do not prove required rules are covered.
 

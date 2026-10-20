@@ -9,7 +9,7 @@ const { acquireSettingsLock } = require('../../scripts/lib/install/claude-settin
 async function owner(root, settingsPath) {
   const child = spawn(process.execPath, [
     path.join(__dirname, 'helpers', 'settings-lock-worker.js'), root, settingsPath,
-  ], { env: { ...process.env, HOME: root, USERPROFILE: root, ECC_AGENT_DATA_HOME: path.join(root, '.claude') },
+  ], { env: { ...process.env, HOME: root, USERPROFILE: root, POWERUSER_AGENT_DATA_HOME: path.join(root, '.claude') },
     stdio: ['ignore', 'ignore', 'pipe'] });
   let stderr = '';
   child.stderr.on('data', data => { stderr += data; });
@@ -32,7 +32,7 @@ async function owner(root, settingsPath) {
   }
 }
 async function withOwner(callback) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-settings-wait-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-settings-wait-'));
   const settingsPath = path.join(root, '.claude', 'session-aliases.json');
   let child;
   try {
@@ -48,14 +48,14 @@ async function withOwner(callback) {
 }
 const cases = [
   ['default contention is fail-fast; optional timeout is bounded and leaves owner intact', () => withOwner((_root, file) => {
-    const before = fs.readFileSync(file + '.ecc.lock', 'utf8');
-    assert.throws(() => acquireSettingsLock(file), /Another ECC process/);
+    const before = fs.readFileSync(file + '.poweruser.lock', 'utf8');
+    assert.throws(() => acquireSettingsLock(file), /Another PowerUser process/);
     const start = performance.now();
-    assert.throws(() => acquireSettingsLock(file, { timeoutMs: 50 }), /Another ECC process/);
+    assert.throws(() => acquireSettingsLock(file, { timeoutMs: 50 }), /Another PowerUser process/);
     assert.ok(performance.now() - start >= 40, 'Waits for the configured deadline');
     assert.ok(performance.now() - start < 5000, 'Does not wait indefinitely');
-    assert.strictEqual(fs.readFileSync(file + '.ecc.lock', 'utf8'), before);
-    assert.deepStrictEqual(fs.readdirSync(path.dirname(file)), ['session-aliases.json.ecc.lock']);
+    assert.strictEqual(fs.readFileSync(file + '.poweruser.lock', 'utf8'), before);
+    assert.deepStrictEqual(fs.readdirSync(path.dirname(file)), ['session-aliases.json.poweruser.lock']);
   })],
   ['waiting succeeds when the real owner releases after the first contention', () => withOwner(async (root, file, child) => {
     const originalLink = fs.linkSync;
@@ -63,7 +63,7 @@ const cases = [
     fs.linkSync = function (source, target) {
       try { return originalLink.apply(this, arguments); }
       catch (error) {
-        if (target === file + '.ecc.lock' && error.code === 'EEXIST') {
+        if (target === file + '.poweruser.lock' && error.code === 'EEXIST') {
           contended = true;
           fs.writeFileSync(path.join(root, 'release'), '');
         }
@@ -77,13 +77,13 @@ const cases = [
     release();
     const result = await child.done;
     assert.strictEqual(result.code, 0, result.stderr);
-    assert.ok(!fs.existsSync(file + '.ecc.lock'));
+    assert.ok(!fs.existsSync(file + '.poweruser.lock'));
   })],
   ['a killed owner is recovered by the next alias transaction', () => withOwner(async (root, file, child) => {
     child.kill('SIGKILL');
     await child.done;
-    const saved = { HOME: process.env.HOME, USERPROFILE: process.env.USERPROFILE, ECC_AGENT_DATA_HOME: process.env.ECC_AGENT_DATA_HOME };
-    Object.assign(process.env, { HOME: root, USERPROFILE: root, ECC_AGENT_DATA_HOME: path.dirname(file) });
+    const saved = { HOME: process.env.HOME, USERPROFILE: process.env.USERPROFILE, POWERUSER_AGENT_DATA_HOME: process.env.POWERUSER_AGENT_DATA_HOME };
+    Object.assign(process.env, { HOME: root, USERPROFILE: root, POWERUSER_AGENT_DATA_HOME: path.dirname(file) });
     try {
       const aliases = require('../../scripts/lib/session-aliases');
       assert.strictEqual(aliases.setAlias('recovered', '/session').success, true);
@@ -106,9 +106,9 @@ const cases = [
     } finally { fs.linkSync = originalLink; }
   })],
   ['recovery tolerates a lock disappearing between inspection and quarantine', () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-lock-disappeared-'));
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-lock-disappeared-'));
     const file = path.join(root, 'settings.json');
-    const lock = file + '.ecc.lock';
+    const lock = file + '.poweruser.lock';
     fs.writeFileSync(lock, '{}');
     fs.utimesSync(lock, new Date(0), new Date(0));
     const originalRename = fs.renameSync;

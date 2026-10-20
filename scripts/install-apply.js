@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Refactored ECC installer runtime.
+ * Refactored PowerUser installer runtime.
  *
  * Keeps the legacy language-based install entrypoint intact while moving
  * target-specific mutation logic into testable Node code.
@@ -10,7 +10,6 @@ const os = require('os');
 const {
   SUPPORTED_INSTALL_TARGETS,
   listLegacyCompatibilityLanguages,
-  listSupportedLocales,
 } = require('./lib/install-manifests');
 const {
   LEGACY_INSTALL_TARGETS,
@@ -23,23 +22,21 @@ const { describeMissingDependencyError } = require('./lib/missing-dependency');
 
 function getHelpText() {
   const languages = listLegacyCompatibilityLanguages();
-  const locales = listSupportedLocales();
 
   return `
 Usage: install.sh [--target <${LEGACY_INSTALL_TARGETS.join('|')}>] [--dry-run] [--json] <language> [<language> ...]
        install.sh [--target <${SUPPORTED_INSTALL_TARGETS.join('|')}>] [--dry-run] [--json] --profile <name> [--with <component>]... [--without <component>]...
        install.sh [--target <${SUPPORTED_INSTALL_TARGETS.join('|')}>] [--dry-run] [--json] --modules <id,id,...> [--with <component>]... [--without <component>]...
        install.sh [--target <${SUPPORTED_INSTALL_TARGETS.join('|')}>] [--dry-run] [--json] --skills <skill-id[,skill-id...]>
-       install.sh [--target claude|claude-project] [--dry-run] [--json] --locale <locale-code>
        install.sh [--dry-run] [--json] --config <path>
 
 Targets:
-  claude       (default) - Install ECC into ~/.claude/ with managed rules under rules/ecc and flat skills under skills/
-  claude-project - Install ECC into ./.claude/ (per-project) with managed rules under rules/ecc and flat skills under skills/
+  claude       (default) - Install PowerUser into ~/.claude/ with managed rules under rules/poweruser and flat skills under skills/
+  claude-project - Install PowerUser into ./.claude/ (per-project) with managed rules under rules/poweruser and flat skills under skills/
   cursor       - Install rules, hooks, and bundled Cursor configs to ./.cursor/
   antigravity  - Install rules, workflows, skills, and agents to ./.agents/
   codex        - Install shared agents/config into ~/.codex/
-  copilot      - Install skills and agents into ./.github/ for GitHub Copilot CLI (ECC hooks not configured)
+  copilot      - Install skills and agents into ./.github/ for GitHub Copilot CLI (PowerUser hooks not configured)
   gemini       - Install project-local Gemini config into ./.gemini/
   opencode     - Install into OPENCODE_CONFIG_DIR, XDG_CONFIG_HOME/opencode, or ~/.config/opencode/
   codebuddy    - Install commands, agents, skills, and flattened rules into ./.codebuddy/
@@ -47,7 +44,7 @@ Targets:
   qwen         - Install commands, agents, skills, rules, and Qwen config into ~/.qwen/
   zed          - Install project settings, commands, agents, skills, and flattened rules into ./.zed/
   hermes       - Install shared rules/skills/commands into ~/.hermes/
-  kimi         - Install Kimi Code project instructions, skills, and MCP config into ./.kimi-code/ (ECC hooks not configured)
+  kimi         - Install Kimi Code project instructions, skills, and MCP config into ./.kimi-code/ (PowerUser hooks not configured)
   openclaw     - Install shared rules/skills/commands into ~/.openclaw/
   adal         - Install shared rules/skills/commands into ./.adal/
 
@@ -58,9 +55,7 @@ Options:
   --skills <ids>      Install one or more skill directories by ID, e.g. continuous-learning-v2
   --without <component>
                       Exclude a user-facing install component
-  --locale <code>     Install translated docs to ~/.claude/docs/<locale>/ (or ./.claude/docs/<locale>/ for claude-project)
-                      (claude or claude-project target only; can be combined with --profile or --with)
-  --config <path>     Load install intent from ecc-install.json
+  --config <path>     Load install intent from poweruser-install.json
   --enable-hooks      Confirm installing the automatic hook runtime (required
                       when the selected profile/modules materialize hooks)
   --no-hooks          Install everything except the automatic hook runtime
@@ -73,9 +68,6 @@ Compute:
 
 Available languages:
 ${languages.map(language => `  - ${language}`).join('\n')}
-
-Available locales (--locale):
-${locales.map(locale => `  - ${locale}`).join('\n')}
 `;
 }
 

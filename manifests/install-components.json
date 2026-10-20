@@ -213,7 +213,7 @@
     {
       "id": "capability:ito-compute",
       "family": "capability",
-      "description": "Authenticated It\u00f4 GPU inventory, RFQ, status, device revocation, and explicitly gated node-qualification workflows through the separately installed canonical CLI.",
+      "description": "Authenticated Itô GPU inventory, RFQ, status, device revocation, and explicitly gated node-qualification workflows through the separately installed canonical CLI.",
       "modules": [
         "ito-compute"
       ]
@@ -505,7 +505,7 @@
     {
       "id": "skill:unified-memory",
       "family": "skill",
-      "description": "Cross-harness memory guidance that requires the separately installed ecc-universal CLI runtime.",
+      "description": "Cross-harness memory guidance that requires the separately installed poweruser-universal CLI runtime.",
       "modules": [
         "skill-unified-memory"
       ]
@@ -620,110 +620,6 @@
       "description": "Production machine-learning engineering workflow for data contracts, reproducible training, evaluation, deployment, monitoring, and rollback.",
       "modules": [
         "machine-learning"
-      ]
-    },
-    {
-      "id": "locale:ja",
-      "family": "locale",
-      "description": "Japanese (ja-JP) translated reference docs installed to ~/.claude/docs/ja-JP/.",
-      "modules": [
-        "docs-ja-jp"
-      ]
-    },
-    {
-      "id": "locale:zh-cn",
-      "family": "locale",
-      "description": "Simplified Chinese (zh-CN) translated reference docs installed to ~/.claude/docs/zh-CN/.",
-      "modules": [
-        "docs-zh-cn"
-      ]
-    },
-    {
-      "id": "locale:ko-kr",
-      "family": "locale",
-      "description": "Korean (ko-KR) translated reference docs installed to ~/.claude/docs/ko-KR/.",
-      "modules": [
-        "docs-ko-kr"
-      ]
-    },
-    {
-      "id": "locale:pt-br",
-      "family": "locale",
-      "description": "Brazilian Portuguese (pt-BR) translated reference docs installed to ~/.claude/docs/pt-BR/.",
-      "modules": [
-        "docs-pt-br"
-      ]
-    },
-    {
-      "id": "locale:ru",
-      "family": "locale",
-      "description": "Russian (ru) translated reference docs installed to ~/.claude/docs/ru/.",
-      "modules": [
-        "docs-ru"
-      ]
-    },
-    {
-      "id": "locale:tr",
-      "family": "locale",
-      "description": "Turkish (tr) translated reference docs installed to ~/.claude/docs/tr/.",
-      "modules": [
-        "docs-tr"
-      ]
-    },
-    {
-      "id": "locale:vi-vn",
-      "family": "locale",
-      "description": "Vietnamese (vi-VN) translated reference docs installed to ~/.claude/docs/vi-VN/.",
-      "modules": [
-        "docs-vi-vn"
-      ]
-    },
-    {
-      "id": "locale:zh-tw",
-      "family": "locale",
-      "description": "Traditional Chinese (zh-TW) translated reference docs installed to ~/.claude/docs/zh-TW/.",
-      "modules": [
-        "docs-zh-tw"
-      ]
-    },
-    {
-      "id": "locale:bn",
-      "family": "locale",
-      "description": "Bengali (bn) translated reference documentation installed to ~/.claude/docs/bn/.",
-      "modules": [
-        "docs-bn"
-      ]
-    },
-    {
-      "id": "locale:de-de",
-      "family": "locale",
-      "description": "German (de-DE) translated reference docs installed to ~/.claude/docs/de-DE/.",
-      "modules": [
-        "docs-de-de"
-      ]
-    },
-    {
-      "id": "locale:uk-ua",
-      "family": "locale",
-      "description": "Ukrainian (uk-UA) translated reference docs installed to ~/.claude/docs/uk-UA/.",
-      "modules": [
-        "docs-uk-ua"
-      ]
-    },
-    {
-      "id": "locale:pl",
-      "family": "locale",
-      "description": "Polish (pl) translated reference docs installed to ~/.claude/docs/pl/.",
-      "modules": [
-        "docs-pl"
-      ]
-    },
-    {
-      "id": "locale:ar",
-      "family": "locale",
-      "description": "Arabic (ar) translated reference docs installed to ~/.claude/docs/ar/.",
-      "modules": [
-        "docs-ar"
       ]
     },
     {

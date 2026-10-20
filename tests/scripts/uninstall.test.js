@@ -48,7 +48,7 @@ function writeState(filePath, options) {
 
 function run(args = [], options = {}) {
   const inheritedEnv = Object.fromEntries(
-    Object.entries(process.env).filter(([key]) => key !== 'ECC_DRY_RUN' && key !== 'CODEX_HOME')
+    Object.entries(process.env).filter(([key]) => key !== 'POWERUSER_DRY_RUN' && key !== 'CODEX_HOME')
   );
   const homeEnv = options.homeDir
     ? { HOME: options.homeDir, USERPROFILE: options.homeDir, CODEX_HOME: path.join(options.homeDir, '.codex') }
@@ -111,7 +111,7 @@ function runTests() {
 
       const normalizedProjectRoot = fs.realpathSync(projectRoot);
       const managedPath = path.join(normalizedProjectRoot, '.cursor', 'hooks.json');
-      const statePath = path.join(normalizedProjectRoot, '.cursor', 'ecc-install-state.json');
+      const statePath = path.join(normalizedProjectRoot, '.cursor', 'poweruser-install-state.json');
       const unrelatedPath = path.join(normalizedProjectRoot, '.cursor', 'custom-user-note.txt');
       fs.writeFileSync(unrelatedPath, 'leave me alone');
 
@@ -140,7 +140,7 @@ function runTests() {
     const scriptsPackagePath = path.join(claudeRoot, 'scripts', 'package.json');
     const hooksPackagePath = path.join(claudeRoot, 'scripts', 'hooks', 'package.json');
     const libPackagePath = path.join(claudeRoot, 'scripts', 'lib', 'package.json');
-    const statePath = path.join(claudeRoot, 'ecc', 'install-state.json');
+    const statePath = path.join(claudeRoot, 'poweruser', 'install-state.json');
     const userPackage = '{"name":"user-claude-config","type":"module"}\n';
     const userScriptsPackage = '{"name":"user-claude-scripts","type":"module"}\n';
 
@@ -193,7 +193,7 @@ function runTests() {
       const targetRoot = path.join(projectRoot, '.cursor');
       fs.mkdirSync(targetRoot, { recursive: true });
       const normalizedTargetRoot = fs.realpathSync(targetRoot);
-      const statePath = path.join(normalizedTargetRoot, 'ecc-install-state.json');
+      const statePath = path.join(normalizedTargetRoot, 'poweruser-install-state.json');
       const copiedPath = path.join(normalizedTargetRoot, 'managed-rule.md');
       const mergedPath = path.join(normalizedTargetRoot, 'hooks.json');
       const removedPath = path.join(normalizedTargetRoot, 'legacy-note.txt');
@@ -292,7 +292,7 @@ function runTests() {
       const targetRoot = path.join(projectRoot, '.cursor');
       fs.mkdirSync(targetRoot, { recursive: true });
       const normalizedTargetRoot = fs.realpathSync(targetRoot);
-      const statePath = path.join(normalizedTargetRoot, 'ecc-install-state.json');
+      const statePath = path.join(normalizedTargetRoot, 'poweruser-install-state.json');
       const renderedPath = path.join(normalizedTargetRoot, 'generated.md');
       fs.writeFileSync(renderedPath, '# generated\n');
 
@@ -348,9 +348,9 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  // #2952: the global `ecc --dry-run uninstall` prefix sets ECC_DRY_RUN=1.
+  // #2952: the global `poweruser --dry-run uninstall` prefix sets POWERUSER_DRY_RUN=1.
   // The uninstaller must honor it exactly like the subcommand-level flag.
-  if (test('honors global ECC_DRY_RUN=1 without mutating managed files (#2952)', () => {
+  if (test('honors global POWERUSER_DRY_RUN=1 without mutating managed files (#2952)', () => {
     const homeDir = createTempDir('uninstall-home-');
     const projectRoot = createTempDir('uninstall-project-');
 
@@ -358,7 +358,7 @@ function runTests() {
       const targetRoot = path.join(projectRoot, '.cursor');
       fs.mkdirSync(targetRoot, { recursive: true });
       const normalizedTargetRoot = fs.realpathSync(targetRoot);
-      const statePath = path.join(normalizedTargetRoot, 'ecc-install-state.json');
+      const statePath = path.join(normalizedTargetRoot, 'poweruser-install-state.json');
       const renderedPath = path.join(normalizedTargetRoot, 'generated.md');
       fs.writeFileSync(renderedPath, '# generated\n');
 
@@ -401,12 +401,12 @@ function runTests() {
       const uninstallResult = run(['--target', 'cursor', '--json'], {
         cwd: projectRoot,
         homeDir,
-        env: { ECC_DRY_RUN: '1' },
+        env: { POWERUSER_DRY_RUN: '1' },
       });
       assert.strictEqual(uninstallResult.code, 0, uninstallResult.stderr);
 
       const parsed = JSON.parse(uninstallResult.stdout);
-      assert.strictEqual(parsed.dryRun, true, 'ECC_DRY_RUN=1 must enable dry-run mode');
+      assert.strictEqual(parsed.dryRun, true, 'POWERUSER_DRY_RUN=1 must enable dry-run mode');
       assert.ok(parsed.results[0].plannedRemovals.includes(renderedPath));
       assert.ok(fs.existsSync(renderedPath), 'managed file must survive the dry run');
       assert.ok(fs.existsSync(statePath), 'install-state must survive the dry run');
@@ -424,7 +424,7 @@ function runTests() {
       const targetRoot = path.join(projectRoot, '.cursor');
       fs.mkdirSync(targetRoot, { recursive: true });
       const normalizedTargetRoot = fs.realpathSync(targetRoot);
-      const statePath = path.join(normalizedTargetRoot, 'ecc-install-state.json');
+      const statePath = path.join(normalizedTargetRoot, 'poweruser-install-state.json');
       const renderedPath = path.join(normalizedTargetRoot, 'generated.md');
       fs.writeFileSync(renderedPath, '# generated\n');
 
@@ -488,7 +488,7 @@ function runTests() {
       const targetRoot = path.join(projectRoot, '.agent');
       fs.mkdirSync(path.join(targetRoot, 'rules'), { recursive: true });
       const normalizedTargetRoot = fs.realpathSync(targetRoot);
-      const statePath = path.join(normalizedTargetRoot, 'ecc-install-state.json');
+      const statePath = path.join(normalizedTargetRoot, 'poweruser-install-state.json');
       const editedPath = path.join(normalizedTargetRoot, 'rules', 'common-coding-style.md');
       fs.writeFileSync(editedPath, 'customer edit\n');
 
@@ -551,7 +551,7 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('auto-detects legacy sync-ecc-to-codex.sh install and removes artifacts without touching conversations or unrelated config keys', () => {
+  if (test('auto-detects legacy sync-poweruser-to-codex.sh install and removes artifacts without touching conversations or unrelated config keys', () => {
     const homeDir = createTempDir('uninstall-legacy-codex-home-');
     const projectRoot = createTempDir('uninstall-legacy-codex-project-');
 
@@ -559,7 +559,7 @@ function runTests() {
       const codexHome = path.join(homeDir, '.codex');
       const configPath = path.join(codexHome, 'config.toml');
       const agentsPath = path.join(codexHome, 'AGENTS.md');
-      const promptPath = path.join(codexHome, 'prompts', 'ecc-plan.md');
+      const promptPath = path.join(codexHome, 'prompts', 'poweruser-plan.md');
       const conversationPath = path.join(codexHome, 'conversations', 'keep-me.md');
       const userFilePath = path.join(codexHome, 'user-owned.txt');
 
@@ -570,7 +570,7 @@ function runTests() {
 
       const statePath = beginLegacySyncState({
         codexHome,
-        backupDir: path.join(codexHome, 'backups', 'ecc-test'),
+        backupDir: path.join(codexHome, 'backups', 'poweruser-test'),
       });
       recordLegacySyncPath({ statePath, filePath: configPath });
       recordLegacySyncPath({ statePath, filePath: agentsPath });
@@ -579,9 +579,9 @@ function runTests() {
       fs.writeFileSync(configPath, 'model = "user"\napproval_policy = "on-request"\n');
       fs.writeFileSync(
         agentsPath,
-        '# User instructions\n\n<!-- BEGIN ECC -->\n# ECC managed\n<!-- END ECC -->\n'
+        '# User instructions\n\n<!-- BEGIN PowerUser -->\n# PowerUser managed\n<!-- END PowerUser -->\n'
       );
-      fs.writeFileSync(promptPath, '# ECC generated prompt\n');
+      fs.writeFileSync(promptPath, '# PowerUser generated prompt\n');
       finalizeLegacySyncState({ statePath });
 
       fs.mkdirSync(path.dirname(conversationPath), { recursive: true });
@@ -590,7 +590,7 @@ function runTests() {
 
       const uninstallResult = run([], { cwd: projectRoot, homeDir });
       assert.strictEqual(uninstallResult.code, 0, uninstallResult.stderr);
-      assert.ok(!uninstallResult.stdout.includes('No ECC install-state files found'), uninstallResult.stdout);
+      assert.ok(!uninstallResult.stdout.includes('No PowerUser install-state files found'), uninstallResult.stdout);
       assert.ok(uninstallResult.stdout.includes('Legacy Codex sync cleanup summary'), uninstallResult.stdout);
       assert.ok(!fs.existsSync(promptPath));
       assert.strictEqual(fs.readFileSync(configPath, 'utf8'), 'model = "user"\n');
@@ -610,21 +610,21 @@ function runTests() {
 
     try {
       const codexHome = path.join(homeDir, '.codex');
-      const promptPath = path.join(codexHome, 'prompts', 'ecc-plan.md');
+      const promptPath = path.join(codexHome, 'prompts', 'poweruser-plan.md');
       fs.mkdirSync(path.dirname(promptPath), { recursive: true });
 
       const statePath = beginLegacySyncState({
         codexHome,
-        backupDir: path.join(codexHome, 'backups', 'ecc-test'),
+        backupDir: path.join(codexHome, 'backups', 'poweruser-test'),
       });
       recordLegacySyncPath({ statePath, filePath: promptPath });
-      fs.writeFileSync(promptPath, '# ECC generated prompt\n');
+      fs.writeFileSync(promptPath, '# PowerUser generated prompt\n');
       finalizeLegacySyncState({ statePath });
 
       const uninstallResult = run(['--legacy-codex-sync'], {
         cwd: projectRoot,
         homeDir,
-        env: { ECC_DRY_RUN: '1' },
+        env: { POWERUSER_DRY_RUN: '1' },
       });
 
       assert.strictEqual(uninstallResult.code, 0, uninstallResult.stderr);
@@ -645,25 +645,25 @@ function runTests() {
 
     try {
       const codexHome = path.join(homeDir, '.codex');
-      const promptPath = path.join(codexHome, 'prompts', 'ecc-plan.md');
+      const promptPath = path.join(codexHome, 'prompts', 'poweruser-plan.md');
       fs.mkdirSync(path.dirname(promptPath), { recursive: true });
 
       const statePath = beginLegacySyncState({
         codexHome,
-        backupDir: path.join(codexHome, 'backups', 'ecc-test'),
+        backupDir: path.join(codexHome, 'backups', 'poweruser-test'),
       });
       recordLegacySyncPath({ statePath, filePath: promptPath });
-      fs.writeFileSync(promptPath, '# ECC generated prompt\n');
+      fs.writeFileSync(promptPath, '# PowerUser generated prompt\n');
       finalizeLegacySyncState({ statePath });
 
       const uninstallResult = run(['--legacy-codex-sync'], {
         cwd: projectRoot,
         homeDir,
-        env: { ECC_DRY_RUN: 'true' },
+        env: { POWERUSER_DRY_RUN: 'true' },
       });
 
       assert.strictEqual(uninstallResult.code, 1);
-      assert.match(uninstallResult.stderr, /ECC_DRY_RUN must be "1" or "0" when set/);
+      assert.match(uninstallResult.stderr, /POWERUSER_DRY_RUN must be "1" or "0" when set/);
       assert.ok(fs.existsSync(promptPath), 'invalid dry-run input must preserve legacy artifacts');
       assert.ok(fs.existsSync(statePath), 'invalid dry-run input must preserve legacy state');
     } finally {
@@ -688,7 +688,7 @@ function runTests() {
 
       const uninstallResult = run([], { cwd: projectRoot, homeDir });
       assert.strictEqual(uninstallResult.code, 0, uninstallResult.stderr);
-      assert.ok(uninstallResult.stdout.includes('No ECC install-state files found'), uninstallResult.stdout);
+      assert.ok(uninstallResult.stdout.includes('No PowerUser install-state files found'), uninstallResult.stdout);
       assert.ok(!uninstallResult.stdout.includes('Legacy Codex sync cleanup summary'), uninstallResult.stdout);
       assert.strictEqual(fs.readFileSync(configPath, 'utf8'), 'model = "user"\n');
       assert.strictEqual(fs.readFileSync(conversationPath, 'utf8'), 'conversation history');
@@ -736,16 +736,16 @@ function runTests() {
       fs.writeFileSync(configPath, 'model = "user"\n');
       fs.writeFileSync(
         agentsPath,
-        '# User instructions\n\n<!-- BEGIN ECC -->\n# ECC managed\n<!-- END ECC -->\n'
+        '# User instructions\n\n<!-- BEGIN PowerUser -->\n# PowerUser managed\n<!-- END PowerUser -->\n'
       );
       fs.mkdirSync(path.dirname(conversationPath), { recursive: true });
       fs.writeFileSync(conversationPath, 'conversation history');
 
       const uninstallResult = run([], { cwd: projectRoot, homeDir });
       assert.strictEqual(uninstallResult.code, 0, uninstallResult.stderr);
-      assert.ok(uninstallResult.stdout.includes('No ECC install-state files found'), uninstallResult.stdout);
+      assert.ok(uninstallResult.stdout.includes('No PowerUser install-state files found'), uninstallResult.stdout);
       assert.ok(!uninstallResult.stdout.includes('Legacy Codex sync cleanup summary'), uninstallResult.stdout);
-      assert.strictEqual(fs.readFileSync(agentsPath, 'utf8'), '# User instructions\n\n<!-- BEGIN ECC -->\n# ECC managed\n<!-- END ECC -->\n');
+      assert.strictEqual(fs.readFileSync(agentsPath, 'utf8'), '# User instructions\n\n<!-- BEGIN PowerUser -->\n# PowerUser managed\n<!-- END PowerUser -->\n');
       assert.strictEqual(fs.readFileSync(configPath, 'utf8'), 'model = "user"\n');
       assert.strictEqual(fs.readFileSync(conversationPath, 'utf8'), 'conversation history');
     } finally {
@@ -765,7 +765,7 @@ function runTests() {
       fs.mkdirSync(codexHome, { recursive: true });
       fs.writeFileSync(
         agentsPath,
-        '# User instructions\n\n<!-- BEGIN ECC -->\n# ECC managed\n<!-- END ECC -->\n'
+        '# User instructions\n\n<!-- BEGIN PowerUser -->\n# PowerUser managed\n<!-- END PowerUser -->\n'
       );
 
       const uninstallResult = run(['--legacy-codex-sync'], { cwd: projectRoot, homeDir });

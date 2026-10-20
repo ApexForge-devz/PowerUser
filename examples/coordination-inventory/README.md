@@ -2,7 +2,7 @@
 
 One local JSON report joins declared task IDs and parent IDs, heartbeat age,
 optional process metadata, OS RAM, declared resource leases and path/import
-warnings. It reuses ECC's orchestration status parser and agent-proximity
+warnings. It reuses PowerUser's orchestration status parser and agent-proximity
 scoring. It does not start a server or send messages.
 
 From the repository root, with Node 18 or newer and no dependency install:
@@ -116,7 +116,7 @@ to be shipped in the npm package.
 
 ## Evaluation and limitations
 
-Eight authored synthetic pairs compare an exact-path baseline with ECC's
+Eight authored synthetic pairs compare an exact-path baseline with PowerUser's
 existing overlap/import/tree heuristic, using threshold 0.35. Tree proximity
 alone does not trigger a warning. The score is not a calibrated probability.
 

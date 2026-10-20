@@ -1,6 +1,6 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
-# ECC user-install reference (a separate TOML document).
+# PowerUser user-install reference (a separate TOML document).
 # Legacy add-only sync and the native Codex home installer use this file.
 # Review these existing defaults and integrations before choosing to install them.
 # This is not the project config; .codex/config.toml contains project guidance.
@@ -14,7 +14,7 @@
 # built-in defaults. Uncomment and pin them only if you intentionally want
 # user-level model overrides.
 
-# Existing ECC user-level runtime defaults.
+# Existing PowerUser user-level runtime defaults.
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
 web_search = "live"
@@ -22,12 +22,12 @@ web_search = "live"
 # Optional external notification command, preserved from the user reference.
 notify = [
   "terminal-notifier",
-  "-title", "Codex ECC",
+  "-title", "Codex PowerUser",
   "-message", "Task completed!",
   "-sound", "default",
 ]
 
-# Existing ECC instruction key retained for sync compatibility.
+# Existing PowerUser instruction key retained for sync compatibility.
 # Check the configuration reference for your supported Codex version.
 persistent_instructions = "Follow project AGENTS.md guidelines. Use available MCP servers when they can help."
 
@@ -87,7 +87,7 @@ startup_timeout_sec = 30
 # args = ["-y", "@cloudflare/mcp-server-cloudflare"]
 
 [features]
-# Preserve ECC's explicit multi-agent setting.
+# Preserve PowerUser's explicit multi-agent setting.
 multi_agent = true
 
 # Codex 0.134+ reads named profiles from <CODEX_HOME>/<name>.config.toml.

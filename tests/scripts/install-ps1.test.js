@@ -123,9 +123,9 @@ function runTests() {
   let failed = 0;
   const powerShellCommand = resolvePowerShellCommand();
 
-  if (test('publishes ecc-install through the Node installer runtime for cross-platform npm usage', () => {
+  if (test('publishes poweruser-install through the Node installer runtime for cross-platform npm usage', () => {
     const packageJson = JSON.parse(fs.readFileSync(PACKAGE_JSON, 'utf8'));
-    assert.strictEqual(packageJson.bin['ecc-install'], 'scripts/install-apply.js');
+    assert.strictEqual(packageJson.bin['poweruser-install'], 'scripts/install-apply.js');
   })) passed++; else failed++;
 
   if (test('compares planned install roots by canonical path instead of leaf name', () => {
@@ -177,7 +177,7 @@ function runTests() {
     const result = run(powerShellCommand, ['--help']);
     assert.strictEqual(result.code, 0, result.stderr);
     assert.ok(
-      result.stdout.includes('claude       (default) - Install ECC into ~/.claude/'),
+      result.stdout.includes('claude       (default) - Install PowerUser into ~/.claude/'),
       'help text should describe the Claude target as a full ~/.claude install surface'
     );
   })) passed++; else failed++;
@@ -202,7 +202,7 @@ function runTests() {
       assert.notStrictEqual(result.code, 0, 'installer should fail when node is absent');
       const combinedOutput = `${result.stdout}\n${result.stderr}`;
       assert.ok(
-        combinedOutput.includes('[ECC] Node.js is required but was not found in PATH'),
+        combinedOutput.includes('[PowerUser] Node.js is required but was not found in PATH'),
         `error output should explain missing Node.js requirement:\n${combinedOutput}`
       );
     } finally {
@@ -240,7 +240,7 @@ function runTests() {
       assert.notStrictEqual(result.code, 0, 'installer should fail when node version is < 18');
       const combinedOutput = `${result.stdout}\n${result.stderr}`;
       assert.ok(
-        combinedOutput.includes(`[ECC] Node.js 18 or newer is required (found ${UNSUPPORTED_NODE_VERSION})`),
+        combinedOutput.includes(`[PowerUser] Node.js 18 or newer is required (found ${UNSUPPORTED_NODE_VERSION})`),
         `error output should explain Node.js version requirement:\n${combinedOutput}`
       );
     } finally {
@@ -323,7 +323,7 @@ function runTests() {
       assert.notStrictEqual(result.code, 0, 'installer should fail when node_modules is absent and npm is missing');
       const combinedOutput = `${result.stdout}\n${result.stderr}`;
       assert.ok(
-        combinedOutput.includes('[ECC] npm is required to install dependencies but was not found in PATH'),
+        combinedOutput.includes('[PowerUser] npm is required to install dependencies but was not found in PATH'),
         `error output should explain missing npm requirement:\n${combinedOutput}`
       );
     } finally {

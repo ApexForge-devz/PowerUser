@@ -2,7 +2,7 @@
 
 // Example-only integrity checks. A host-owned catalog is not an identity provider.
 const { createHash } = require('node:crypto');
-const SCHEMA = 'ecc.memory.example-evidence.v1';
+const SCHEMA = 'poweruser.memory.example-evidence.v1';
 const MAX_BODY_BYTES = 16 * 1024;
 const MAX_TEXT_BYTES = 8 * 1024;
 const ENVELOPE_KEYS = ['schema', 'sourceRef', 'sha256', 'text', 'observedAt', 'sessionId', 'checkpointId'];

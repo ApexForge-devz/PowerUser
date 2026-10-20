@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-readonly ECC_ROOT=/ecc
+readonly POWERUSER_ROOT=/poweruser
 
 fixture_uid="$(id -u)"
 readonly fixture_uid
@@ -14,6 +14,6 @@ if [[ "$fixture_uid" != 1000 || "$fixture_gid" != 1000 ]]; then
   exit 1
 fi
 
-cd "$ECC_ROOT"
+cd "$POWERUSER_ROOT"
 
 exec node docker/plugin-setup/run-platform-tests.js

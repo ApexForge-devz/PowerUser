@@ -46,7 +46,7 @@ function runTests() {
     const state = createInstallState({
       adapter: { id: 'cursor-project' },
       targetRoot: '/repo/.cursor',
-      installStatePath: '/repo/.cursor/ecc-install-state.json',
+      installStatePath: '/repo/.cursor/poweruser-install-state.json',
       request: {
         profile: 'developer',
         modules: ['orchestration'],
@@ -77,7 +77,7 @@ function runTests() {
       installedAt: '2026-03-13T00:00:00Z',
     });
 
-    assert.strictEqual(state.schemaVersion, 'ecc.install.v1');
+    assert.strictEqual(state.schemaVersion, 'poweruser.install.v1');
     assert.strictEqual(state.target.id, 'cursor-project');
     assert.strictEqual(state.request.profile, 'developer');
     assert.strictEqual(state.request.hookConsent, 'declined');
@@ -88,7 +88,7 @@ function runTests() {
     const baseOptions = {
       adapter: { id: 'claude-home', target: 'claude', kind: 'home' },
       targetRoot: '/home/test/.claude',
-      installStatePath: '/home/test/.claude/ecc/install-state.json',
+      installStatePath: '/home/test/.claude/poweruser/install-state.json',
       request: {
         profile: 'core',
         modules: ['hooks-runtime'],
@@ -148,7 +148,7 @@ function runTests() {
         ...baseOptions,
         adapter: { id: 'cursor-project', target: 'cursor', kind: 'project' },
         targetRoot: '/repo/.cursor',
-        installStatePath: '/repo/.cursor/ecc-install-state.json',
+        installStatePath: '/repo/.cursor/poweruser-install-state.json',
         operations: [{
           ...operation,
           destinationPath: '/repo/.cursor/settings.json',
@@ -185,7 +185,7 @@ function runTests() {
 
   if (test('writes and reads install-state from disk', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'poweruser-install-state.json');
 
     try {
       const state = createInstallState({
@@ -245,7 +245,7 @@ function runTests() {
     const state = createInstallState({
       adapter: { id: 'cursor-project' },
       targetRoot: '/repo/.cursor',
-      installStatePath: '/repo/.cursor/ecc-install-state.json',
+      installStatePath: '/repo/.cursor/poweruser-install-state.json',
       request: {
         profile: null,
         modules: ['platform-configs'],
@@ -273,10 +273,10 @@ function runTests() {
 
   if (test('rejects invalid install-state payloads on read', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'poweruser-install-state.json');
 
     try {
-      fs.writeFileSync(statePath, JSON.stringify({ schemaVersion: 'ecc.install.v1' }, null, 2));
+      fs.writeFileSync(statePath, JSON.stringify({ schemaVersion: 'poweruser.install.v1' }, null, 2));
       assert.throws(
         () => readInstallState(statePath),
         /Invalid install-state/
@@ -288,17 +288,17 @@ function runTests() {
 
   if (test('rejects unexpected properties and missing required request fields', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'poweruser-install-state.json');
 
     try {
       fs.writeFileSync(statePath, JSON.stringify({
-        schemaVersion: 'ecc.install.v1',
+        schemaVersion: 'poweruser.install.v1',
         installedAt: '2026-03-13T00:00:00Z',
         unexpected: true,
         target: {
           id: 'cursor-project',
           root: '/repo/.cursor',
-          installStatePath: '/repo/.cursor/ecc-install-state.json',
+          installStatePath: '/repo/.cursor/poweruser-install-state.json',
         },
         request: {
           modules: [],
@@ -359,7 +359,7 @@ function runTests() {
 
   if (test('writeInstallState preserves the previous valid state when rename fails', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'poweruser-install-state.json');
 
     try {
       writeInstallState(statePath, makeState(testDir, statePath, '2026-01-01T00:00:00Z'));
@@ -382,7 +382,7 @@ function runTests() {
 
   if (test('writeInstallState cleans up staging files when the write fails', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'poweruser-install-state.json');
 
     try {
       const originalWriteFileSync = fs.writeFileSync;
@@ -405,7 +405,7 @@ function runTests() {
   if (test('writeInstallState replaces symlinks instead of following them', () => {
     if (process.platform === 'win32') return;
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'poweruser-install-state.json');
     const targetPath = path.join(testDir, 'link-target.json');
     fs.writeFileSync(targetPath, '{"untouched":true}\n');
 
@@ -422,7 +422,7 @@ function runTests() {
 
   if (test('concurrent writeInstallState calls always leave a complete valid state', () => {
     const testDir = createTestDir();
-    const statePath = path.join(testDir, 'ecc-install-state.json');
+    const statePath = path.join(testDir, 'poweruser-install-state.json');
     const markers = [
       '2026-03-01T00:00:00Z', '2026-03-02T00:00:00Z', '2026-03-03T00:00:00Z',
       '2026-03-04T00:00:00Z', '2026-03-05T00:00:00Z', '2026-03-06T00:00:00Z',
@@ -436,17 +436,17 @@ function runTests() {
         const fs = require('fs');
         const assert = require('assert');
         const { spawn } = require('child_process');
-        const { readInstallState } = require(process.env.ECC_STATE_MODULE);
-        const markers = JSON.parse(process.env.ECC_STATE_MARKERS);
-        const script = 'const { readInstallState, writeInstallState } = require(process.env.ECC_STATE_MODULE);' +
+        const { readInstallState } = require(process.env.PowerUser_STATE_MODULE);
+        const markers = JSON.parse(process.env.PowerUser_STATE_MARKERS);
+        const script = 'const { readInstallState, writeInstallState } = require(process.env.PowerUser_STATE_MODULE);' +
           'for (let round = 0; round < 30; round++) {' +
-          'const state = readInstallState(process.env.ECC_STATE_PATH);' +
-          'state.lastValidatedAt = process.env.ECC_STATE_MARKER;' +
-          'writeInstallState(process.env.ECC_STATE_PATH, state); }';
+          'const state = readInstallState(process.env.PowerUser_STATE_PATH);' +
+          'state.lastValidatedAt = process.env.PowerUser_STATE_MARKER;' +
+          'writeInstallState(process.env.PowerUser_STATE_PATH, state); }';
         const entries = markers.slice(1).map(marker => {
           const child = spawn(process.execPath, ['-e', script], {
             stdio: ['ignore', 'ignore', 'pipe'],
-            env: { ...process.env, ECC_STATE_MARKER: marker }
+            env: { ...process.env, PowerUser_STATE_MARKER: marker }
           });
           let stderr = '';
           child.stderr.on('data', chunk => { stderr += chunk; });
@@ -465,7 +465,7 @@ function runTests() {
           try {
             observer = setInterval(() => {
               try {
-                assert.ok(markers.includes(readInstallState(process.env.ECC_STATE_PATH).lastValidatedAt));
+                assert.ok(markers.includes(readInstallState(process.env.PowerUser_STATE_PATH).lastValidatedAt));
                 observations++;
               } catch (error) { observationError = error; }
             }, 5);
@@ -495,9 +495,9 @@ function runTests() {
         timeout: 30000,
         env: {
           ...process.env,
-          ECC_STATE_MODULE: path.join(__dirname, '..', '..', 'scripts', 'lib', 'install-state.js'),
-          ECC_STATE_PATH: statePath,
-          ECC_STATE_MARKERS: JSON.stringify(markers),
+          PowerUser_STATE_MODULE: path.join(__dirname, '..', '..', 'scripts', 'lib', 'install-state.js'),
+          PowerUser_STATE_PATH: statePath,
+          PowerUser_STATE_MARKERS: JSON.stringify(markers),
         },
       });
       assert.strictEqual(result.status, 0, result.stderr || String(result.error));

@@ -47,7 +47,7 @@ function runTests() {
   if (test('shows help with no arguments', () => {
     const result = run();
     assert.strictEqual(result.code, 0);
-    assert.ok(result.stdout.includes('Inspect ECC selective-install manifests'));
+    assert.ok(result.stdout.includes('Inspect PowerUser selective-install manifests'));
   })) passed++; else failed++;
 
   if (test('lists install profiles', () => {
@@ -123,9 +123,9 @@ function runTests() {
     assert.ok(!parsed.operations.some(operation => operation.sourceRelativePath === 'skills/tdd-workflow'));
   })) passed++; else failed++;
 
-  if (test('loads planning intent from ecc-install.json', () => {
+  if (test('loads planning intent from poweruser-install.json', () => {
     const configDir = path.join(__dirname, '..', 'fixtures', 'tmp-install-plan-config');
-    const configPath = path.join(configDir, 'ecc-install.json');
+    const configPath = path.join(configDir, 'poweruser-install.json');
 
     try {
       require('fs').mkdirSync(configDir, { recursive: true });
@@ -150,9 +150,9 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('auto-detects planning intent from project ecc-install.json', () => {
+  if (test('auto-detects planning intent from project poweruser-install.json', () => {
     const configDir = path.join(__dirname, '..', 'fixtures', 'tmp-install-plan-autodetect');
-    const configPath = path.join(configDir, 'ecc-install.json');
+    const configPath = path.join(configDir, 'poweruser-install.json');
 
     try {
       require('fs').mkdirSync(configDir, { recursive: true });

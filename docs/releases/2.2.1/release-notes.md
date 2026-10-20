@@ -1,6 +1,8 @@
-# ECC 2.2.1
+> Fork note: Adapted from inherited release history. Historical upstream capabilities and partnerships do not imply that PowerUser provides associated hosted services.
 
-ECC 2.2.1 is a bug and security patch for ECC 2.2. It keeps the published
+# PowerUser 2.2.1
+
+PowerUser 2.2.1 is a bug and security patch for PowerUser 2.2. It keeps the published
 `v2.2.0` history immutable. These notes describe the prepared patch; publication
 and signing evidence are tracked separately in the release checklist.
 
@@ -9,54 +11,54 @@ and signing evidence are tracked separately in the release checklist.
 - GateGuard and governance capture recognize destructive PowerShell commands,
   including the native PowerShell tool path. Dynamic command handling prevents
   later variable assignments from concealing earlier unresolved invocations
-  ([#2961](https://github.com/affaan-m/ECC/pull/2961)).
+  ([#2961](https://github.com/ApexForge-devz/PowerUser/pull/2961)).
 - Relative GateGuard exemption globs stay within the project root. Explicit
   absolute exemptions remain supported
-  ([#2921](https://github.com/affaan-m/ECC/issues/2921)).
+  ([#2921](https://github.com/ApexForge-devz/PowerUser/issues/2921)).
 - Installer writes reject collisions with untracked user-owned files. Failed
   installs refresh ownership hashes only for files they actually wrote, preserving the previous
   ownership hashes of untouched managed files
-  ([#2964](https://github.com/affaan-m/ECC/issues/2964)).
+  ([#2964](https://github.com/ApexForge-devz/PowerUser/issues/2964)).
 - Guided setup revalidates its preview before ownership filtering, so files
   appearing between preview and apply cause a clear retry instead of a false
-  success. Existing identical user files stay outside ECC ownership.
+  success. Existing identical user files stay outside PowerUser ownership.
 - Uninstall respects `ECC_DRY_RUN=1`, including legacy Codex paths, and rejects
   invalid dry-run values instead of silently allowing deletion
-  ([#2952](https://github.com/affaan-m/ECC/issues/2952)).
+  ([#2952](https://github.com/ApexForge-devz/PowerUser/issues/2952)).
 - Observer analysis retains observations on unsuccessful or unconfirmed
   processing. Exit code zero alone no longer permits archival
-  ([#2971](https://github.com/affaan-m/ECC/pull/2971)).
+  ([#2971](https://github.com/ApexForge-devz/PowerUser/pull/2971)).
 - The Yarn lockfile updates `toml` to 4.3.0, matching the npm lockfile and
   removing the affected older resolution.
 
 ## Hooks and installation
 
-- Manual Claude installs register ECC-owned hook entries in Claude settings.
+- Manual Claude installs register PowerUser-owned hook entries in Claude settings.
   Repair, consent changes, and uninstall reconcile those entries while
   preserving unrelated settings. Atomic settings updates check directory
   identity and retry detected concurrent edits
-  ([#2992](https://github.com/affaan-m/ECC/pull/2992)).
+  ([#2992](https://github.com/ApexForge-devz/PowerUser/pull/2992)).
 - Direct hook entrypoints handle larger JSON payloads with bounded, UTF-8-safe
   reads instead of silently truncating valid inputs. Existing production
   wrapper limits remain unchanged
-  ([#2924](https://github.com/affaan-m/ECC/issues/2924)).
+  ([#2924](https://github.com/ApexForge-devz/PowerUser/issues/2924)).
 - The Pi adapter selects an actual Node runtime instead of recursively
   executing a compiled OMP host as Node
-  ([#2909](https://github.com/affaan-m/ECC/issues/2909)).
+  ([#2909](https://github.com/ApexForge-devz/PowerUser/issues/2909)).
 - Installer listing and control-pane help avoid eager third-party dependency
   loading. Features that require absent runtime packages report the missing
   dependency explicitly
-  ([#2994](https://github.com/affaan-m/ECC/pull/2994)).
+  ([#2994](https://github.com/ApexForge-devz/PowerUser/pull/2994)).
 - Autonomous harness setup documentation replaces nonexistent package names
   and unsupported CLI flags with documented interfaces, and distinguishes
   session scheduling from a durable external scheduler
-  ([#2957](https://github.com/affaan-m/ECC/issues/2957)).
+  ([#2957](https://github.com/ApexForge-devz/PowerUser/issues/2957)).
 
 ## Installer and release-surface hardening
 
 - Public and packaged install docs now consistently point at the published
-  `ecc-universal` commands instead of stale or unrelated package names.
-- The AdaL adapter docs use the correct `npx ecc-universal doctor --target adal`
+  `poweruser-universal` commands instead of stale or unrelated package names.
+- The AdaL adapter docs use the correct `npx poweruser-universal doctor --target adal`
   command.
 - Claude setup preflights `git` before provider-specific work starts, so missing
   prerequisites fail fast with the right action.
@@ -64,12 +66,12 @@ and signing evidence are tracked separately in the release checklist.
   data roots to avoid ambient host state affecting review or tests.
 - The exact packed artifact now has stronger lifecycle coverage for Claude and
   Kimi setup, update, doctor, repeat install, uninstall, and dry-run flows.
-- Identifier regression coverage blocks stale `ecc`, `ecc-install`, and other
+- Identifier regression coverage blocks stale `poweruser`, `poweruser-install`, and other
   mismatched release-path commands from creeping back into user-facing docs.
 
 ## Current-main documentation included in this patch
 
-- The canonical Itô workflow now documents `ecc ito accept <ticket-id>` and the
+- The canonical Itô workflow now documents `poweruser ito accept <ticket-id>` and the
   `ito_accept` MCP tool.
 - Acceptance is explicitly bounded to buyer-authority routing. It routes the
   active desk quote to human review and does not claim to place a trade.
@@ -94,23 +96,23 @@ and signing evidence are tracked separately in the release checklist.
 ## Upgrade
 
 After the release workflow publishes 2.2.1 and verifies registry integrity,
-install or update the package, then run the same ECC command path you already
+install or update the package, then run the same PowerUser command path you already
 use. Until publication completes, the exact-version command below returns E404.
 
 ```bash
-npm install -g ecc-universal@2.2.1
-ecc doctor
+npm install -g poweruser-universal@2.2.1
+poweruser doctor
 ```
 
 For first-time or guided terminal setup:
 
 ```bash
-npx ecc-universal setup
+npx poweruser-universal setup
 ```
 
 The native Claude marketplace path remains supported:
 
 ```text
-/plugin marketplace add https://github.com/affaan-m/ECC
-/plugin install ecc@ecc
+/plugin marketplace add https://github.com/ApexForge-devz/PowerUser
+/plugin install poweruser@poweruser
 ```

@@ -6,7 +6,7 @@ const { realpathNearestExisting } = require('../path-safety');
 const { acquireSettingsLock, getSettingsLockIdentity, sameFileIdentity } = require('./claude-settings-lock');
 
 const activeLeases = new WeakMap();
-const STATE_FILENAME = 'ecc-install-state.json';
+const STATE_FILENAME = 'poweruser-install-state.json';
 const comparablePath = value => process.platform === 'win32' ? value.toLowerCase() : value;
 
 function inspectEntry(filePath) {
@@ -42,7 +42,7 @@ function assertLockLocation(root, expectedRoot) {
     || (expectedRoot && !sameFileIdentity(stats, expectedRoot))) {
     throw new Error(`Refusing changed OpenCode install lock root: ${root}`);
   }
-  const lock = inspectEntry(path.join(root, `${STATE_FILENAME}.ecc.lock`));
+  const lock = inspectEntry(path.join(root, `${STATE_FILENAME}.poweruser.lock`));
   if (lock && (!lock.isFile() || lock.isSymbolicLink())) {
     throw new Error(`Refusing non-file or symlink OpenCode install lock: ${root}`);
   }

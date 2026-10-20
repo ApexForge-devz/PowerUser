@@ -11,17 +11,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "copilot",
-        "antigravity",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [],
       "defaultInstall": true,
@@ -40,18 +31,9 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [],
       "defaultInstall": true,
@@ -75,18 +57,9 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "copilot",
-        "antigravity",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "shared-script-utils"
@@ -107,9 +80,7 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "opencode",
-        "codebuddy"
+        "opencode"
       ],
       "dependencies": [],
       "defaultInstall": true,
@@ -125,8 +96,7 @@
         "docs/HERMES-HOOKS.md"
       ],
       "targets": [
-        "hermes",
-        "openclaw"
+        "hermes"
       ],
       "dependencies": [],
       "defaultInstall": true,
@@ -140,38 +110,21 @@
       "paths": [
         ".claude-plugin",
         ".codex",
-        ".cursor",
-        ".gemini",
         ".opencode",
-        ".pi",
-        ".qwen",
-        ".zed",
         "mcp-configs",
         "scripts/auto-update.js",
         "scripts/setup-package-manager.js",
         "scripts/lib/package-manager.js",
         ".hermes",
-        ".openclaw",
-        ".kimi",
-        ".adal"
+        ".kimi"
       ],
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "copilot",
-        "antigravity",
         "codex",
-        "gemini",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "shared-script-utils"
@@ -260,15 +213,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "rules-core",
@@ -302,15 +248,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -322,27 +261,17 @@
     {
       "id": "skill-unified-memory",
       "kind": "skills",
-      "description": "Single-skill unified-memory guidance; requires the separately installed ecc-universal CLI runtime.",
+      "description": "Single-skill unified-memory guidance; requires the separately installed poweruser-universal CLI runtime.",
       "paths": [
         "skills/unified-memory"
       ],
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "gemini",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "platform-configs"
@@ -361,18 +290,10 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "workflow-quality"
@@ -384,13 +305,12 @@
     {
       "id": "workflow-quality",
       "kind": "skills",
-      "description": "Evaluation, TDD, verification, compaction, learning, and cross-harness memory skills, including the legacy continuous-learning v1 path. The unified-memory workflow requires the separately installed ecc-universal CLI runtime.",
+      "description": "Evaluation, TDD, verification, compaction, learning, and cross-harness memory skills, including the legacy continuous-learning v1 path. The unified-memory workflow requires the separately installed poweruser-universal CLI runtime.",
       "paths": [
         "skills/agent-sort",
         "skills/agent-introspection-debugging",
         "skills/ai-regression-testing",
-        "skills/configure-ecc",
-        "skills/deepseek-harness-setup",
+        "skills/configure-poweruser",
         "skills/code-tour",
         "skills/continuous-learning",
         "skills/continuous-learning-v2",
@@ -425,8 +345,8 @@
         "skills/config-gc",
         "skills/context-budget",
         "skills/delivery-gate",
-        "skills/ecc-guide",
-        "skills/ecc-recipes",
+        "skills/poweruser-guide",
+        "skills/poweruser-recipes",
         "skills/growth-log",
         "skills/inherit-legacy-style",
         "skills/intent-driven-development",
@@ -442,19 +362,10 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "skill-unified-memory"
@@ -473,18 +384,10 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "workflow-quality"
@@ -510,15 +413,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "workflow-quality",
@@ -559,15 +455,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "workflow-quality"
@@ -595,15 +484,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -635,15 +517,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -663,7 +538,7 @@
         "skills/cost-tracking",
         "skills/customer-billing-ops",
         "skills/dashboard-builder",
-        "skills/ecc-tools-cost-audit",
+        "skills/poweruser-tools-cost-audit",
         "skills/email-ops",
         "skills/finance-billing-ops",
         "skills/github-ops",
@@ -681,15 +556,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -710,15 +578,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "research-apis",
@@ -742,14 +603,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [],
       "defaultInstall": false,
@@ -759,7 +614,7 @@
     {
       "id": "ito-compute",
       "kind": "skills",
-      "description": "Authenticated It\u00f4 GPU inventory, RFQ, status, device revocation, and explicitly gated node-qualification workflows through the separately installed canonical CLI.",
+      "description": "Authenticated Itô GPU inventory, RFQ, status, device revocation, and explicitly gated node-qualification workflows through the separately installed canonical CLI.",
       "paths": [
         "skills/ito-compute",
         "skills/ito-inference",
@@ -768,20 +623,10 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "gemini",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "platform-configs"
@@ -800,18 +645,9 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "gemini",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
         "kimi"
       ],
       "dependencies": [
@@ -833,15 +669,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "business-content"
@@ -870,14 +699,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -931,15 +754,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -953,7 +769,6 @@
       "kind": "skills",
       "description": "Agentic engineering, autonomous loops, agent harness construction, and LLM pipeline optimization skills.",
       "paths": [
-        "scripts/claw.js",
         "skills/agent-architecture-audit",
         "skills/agent-harness-construction",
         "skills/agentic-engineering",
@@ -968,7 +783,6 @@
         "skills/data-scraper-agent",
         "skills/dynamic-workflow-mode",
         "skills/enterprise-agent-ops",
-        "skills/nanoclaw-repl",
         "skills/prompt-caching-strategy",
         "skills/prompt-optimizer",
         "skills/ralphinho-rfc-pipeline",
@@ -982,7 +796,6 @@
         "skills/gan-style-harness",
         "skills/hermes-imports",
         "skills/agent-runtime-gateway-smoke-test",
-        "skills/openclaw-persona-forge",
         "skills/opensource-pipeline",
         "skills/orch-add-feature",
         "skills/orch-build-mvp",
@@ -995,15 +808,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -1038,15 +844,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -1068,15 +867,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "framework-language",
@@ -1106,15 +898,8 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
@@ -1134,229 +919,14 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
-        "copilot",
-        "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed"
+        "opencode"
       ],
       "dependencies": [
         "platform-configs"
       ],
       "defaultInstall": false,
       "cost": "medium",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-ja-jp",
-      "kind": "docs",
-      "description": "Japanese (ja-JP) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/ja-JP"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-zh-cn",
-      "kind": "docs",
-      "description": "Simplified Chinese (zh-CN) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/zh-CN"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-ko-kr",
-      "kind": "docs",
-      "description": "Korean (ko-KR) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/ko-KR"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-pt-br",
-      "kind": "docs",
-      "description": "Brazilian Portuguese (pt-BR) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/pt-BR"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-ru",
-      "kind": "docs",
-      "description": "Russian (ru) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/ru"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-tr",
-      "kind": "docs",
-      "description": "Turkish (tr) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/tr"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-vi-vn",
-      "kind": "docs",
-      "description": "Vietnamese (vi-VN) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/vi-VN"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-zh-tw",
-      "kind": "docs",
-      "description": "Traditional Chinese (zh-TW) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/zh-TW"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-bn",
-      "kind": "docs",
-      "description": "Bengali (bn) translated reference documentation.",
-      "paths": [
-        "docs/bn"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "light",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-de-de",
-      "kind": "docs",
-      "description": "German (de-DE) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/de-DE"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-uk-ua",
-      "kind": "docs",
-      "description": "Ukrainian (uk-UA) translated reference docs for agents, commands, skills, and rules.",
-      "paths": [
-        "docs/uk-UA"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-pl",
-      "kind": "docs",
-      "description": "Polish (pl) getting-started and core-concepts guide with a terminology glossary.",
-      "paths": [
-        "docs/pl"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
-      "stability": "stable"
-    },
-    {
-      "id": "docs-ar",
-      "kind": "docs",
-      "description": "Arabic (ar) getting-started and core-concepts guide with a terminology glossary.",
-      "paths": [
-        "docs/ar"
-      ],
-      "targets": [
-        "claude",
-        "claude-project"
-      ],
-      "dependencies": [],
-      "defaultInstall": false,
-      "cost": "heavy",
       "stability": "stable"
     },
     {
@@ -1369,18 +939,10 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "workflow-quality"
@@ -1400,18 +962,10 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "antigravity",
         "codex",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
-        "kimi",
-        "adal"
+        "kimi"
       ],
       "dependencies": [
         "workflow-quality"
@@ -1432,20 +986,10 @@
       "targets": [
         "claude",
         "claude-project",
-        "cursor",
-        "copilot",
-        "antigravity",
         "opencode",
-        "codebuddy",
-        "joycode",
-        "qwen",
-        "zed",
         "hermes",
-        "openclaw",
         "kimi",
-        "adal",
-        "codex",
-        "gemini"
+        "codex"
       ],
       "dependencies": [],
       "defaultInstall": false,

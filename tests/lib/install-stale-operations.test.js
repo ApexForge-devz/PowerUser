@@ -29,7 +29,7 @@ let failed = 0;
 let skipped = 0;
 
 function test(name, fn) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-stale-ops-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-stale-ops-'));
   try {
     if (fn(root) === 'skip') {
       console.log(`  - ${name} (skipped: symlinks unavailable)`);
@@ -73,7 +73,7 @@ function cursorTarget(root) {
   return {
     root,
     targetRoot,
-    installStatePath: path.join(targetRoot, 'ecc-install-state.json'),
+    installStatePath: path.join(targetRoot, 'poweruser-install-state.json'),
     adapter: { id: 'cursor-project', target: 'cursor', kind: 'project' },
   };
 }
@@ -83,7 +83,7 @@ function claudeTarget(root) {
   return {
     root,
     targetRoot,
-    installStatePath: path.join(targetRoot, 'ecc', 'install-state.json'),
+    installStatePath: path.join(targetRoot, 'poweruser', 'install-state.json'),
     adapter: { id: 'claude-home', target: 'claude', kind: 'home' },
   };
 }
@@ -131,7 +131,7 @@ function makePlan(target, specs, options = {}) {
     installStatePath: target.installStatePath,
     operations,
     statePreview: {
-      schemaVersion: 'ecc.install.v1',
+      schemaVersion: 'poweruser.install.v1',
       installedAt: new Date().toISOString(),
       target: { ...target.adapter, root: target.targetRoot, installStatePath: target.installStatePath },
       request: {
@@ -489,9 +489,9 @@ test('keeps a destination whose kind changes and drops a kind-plus-destination m
 
 test('preserves Claude legacy-skill migration conflict ownership', root => {
   const target = claudeTarget(root);
-  const legacyPath = path.join(target.targetRoot, 'skills', 'ecc', 'demo', 'SKILL.md');
+  const legacyPath = path.join(target.targetRoot, 'skills', 'poweruser', 'demo', 'SKILL.md');
   const flatUserPath = path.join(target.targetRoot, 'skills', 'demo', 'SKILL.md');
-  writeFile(legacyPath, '# demo (nested ECC copy)\n');
+  writeFile(legacyPath, '# demo (nested PowerUser copy)\n');
   writeFile(flatUserPath, '# demo (user-owned)\n');
   const seedPlan = makePlan(target, []);
   writeInstallState(target.installStatePath, {
@@ -506,21 +506,21 @@ test('preserves Claude legacy-skill migration conflict ownership', root => {
       strategy: 'preserve-relative-path',
       ownership: 'managed',
       scaffoldOnly: false,
-      contentSha256: sha256('# demo (nested ECC copy)\n'),
+      contentSha256: sha256('# demo (nested PowerUser copy)\n'),
     }],
   });
 
   const result = applyInstallPlan(makePlan(target, [
     { moduleId: 'skills-core', source: 'skills/demo/SKILL.md', dest: 'skills/demo/SKILL.md' },
-    { moduleId: 'skills-core', source: 'rules/keep.md', dest: 'rules/ecc/keep.md' },
+    { moduleId: 'skills-core', source: 'rules/keep.md', dest: 'rules/poweruser/keep.md' },
   ]));
 
   assert.ok(result.warnings.some(warning => warning.startsWith("Skipped Claude skill 'demo'")));
   assert.deepStrictEqual(orphanWarnings(result), []);
   assert.deepStrictEqual(result.reconciledStalePaths, []);
-  assert.strictEqual(fs.readFileSync(legacyPath, 'utf8'), '# demo (nested ECC copy)\n');
+  assert.strictEqual(fs.readFileSync(legacyPath, 'utf8'), '# demo (nested PowerUser copy)\n');
   assert.strictEqual(fs.readFileSync(flatUserPath, 'utf8'), '# demo (user-owned)\n');
-  assert.deepStrictEqual(relativeDestinations(target), ['rules/ecc/keep.md', 'skills/ecc/demo/SKILL.md']);
+  assert.deepStrictEqual(relativeDestinations(target), ['rules/poweruser/keep.md', 'skills/poweruser/demo/SKILL.md']);
 });
 
 test('declining hooks keeps hook files from modules that remain selected', root => {
