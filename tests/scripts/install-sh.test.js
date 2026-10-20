@@ -450,7 +450,7 @@ async function runTests() {
       fs.copyFileSync(SCRIPT, fixtureScript);
       fs.writeFileSync(
         path.join(binDir, 'npm'),
-        `#!/usr/bin/env bash\nset -euo pipefail\nmkdir -p "$PWD/node_modules"\nprintf '%s\\n' "$PWD" > "$ECC_TEST_NPM_CWD"\n`,
+        `#!/usr/bin/env bash\nset -euo pipefail\nmkdir -p "$PWD/node_modules"\nprintf '%s\\n' "$PWD" > "$POWERUSER_TEST_NPM_CWD"\n`,
         { mode: 0o755 }
       );
       fs.writeFileSync(
@@ -462,7 +462,7 @@ async function runTests() {
         cwd: projectDir,
         scriptPath: fixtureScript,
         env: {
-          ECC_TEST_NPM_CWD: npmCwdPath,
+          POWERUSER_TEST_NPM_CWD: npmCwdPath,
           PATH: `${binDir}${path.delimiter}${CHILD_PATH}`,
         },
       });
@@ -538,7 +538,7 @@ async function runTests() {
     const result = await run(['--help']);
     assert.strictEqual(result.code, 0, result.stderr);
     assert.ok(
-      result.stdout.includes('claude       (default) - Install ECC into ~/.claude/'),
+      result.stdout.includes('claude       (default) - Install PowerUser into ~/.claude/'),
       'help text should describe the Claude target as a full ~/.claude install surface'
     );
   })) passed++; else failed++;

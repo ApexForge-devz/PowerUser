@@ -1,7 +1,7 @@
 /**
- * Regression test for https://github.com/affaan-m/ECC/issues/2822
+ * Regression test for https://github.com/affaan-m/PowerUser/issues/2822
  *
- * When ECC is installed through the Claude Code plugin marketplace, the
+ * When PowerUser is installed through the Claude Code plugin marketplace, the
  * marketplace directory is a plain git clone: `npm install` never runs, so
  * node_modules never exists. This copies just the runtime files (scripts/,
  * schemas/, manifests/) into a temp directory with no node_modules anywhere
@@ -80,7 +80,7 @@ function runTests() {
 
   // No node_modules exists anywhere above os.tmpdir(), so this faithfully
   // reproduces a plugin-marketplace git clone with no dependencies installed.
-  const pluginDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ecc-plugin-install-'));
+  const pluginDir = fs.mkdtempSync(path.join(os.tmpdir(), 'poweruser-plugin-install-'));
 
   try {
     if (test('fixture has no node_modules anywhere in its ancestor chain', () => {
@@ -110,7 +110,7 @@ function runTests() {
     })) passed++; else failed++;
 
     if (test('install-plan.js --config gives an actionable error when ajv is genuinely missing', () => {
-      const configPath = path.join(pluginDir, 'ecc-install.json');
+      const configPath = path.join(pluginDir, 'poweruser-install.json');
       fs.writeFileSync(configPath, JSON.stringify({ version: 1, profile: 'minimal' }));
 
       const result = run('scripts/install-plan.js', ['--config', configPath], pluginDir);
